@@ -197,7 +197,7 @@
 						<div class="sheet-col-7-24 sheet-small-label">Skill</div>
 						<div class="sheet-col-7-24 sheet-center sheet-small-label">Trained</div>
 						<div class="sheet-col-1-12 sheet-center sheet-small-label">Total</div>
-						<div class="sheet-col-1-12 sheet-offset-1-24 sheet-center sheet-small-label">Pass</div>
+						<div class="sheet-col-1-12 sheet-offset-1-24 sheet-center sheet-small-label">Passive</div>
 					</div>
 
 
@@ -206,8 +206,8 @@
 						<div class="sheet-col-7-24 sheet-skill-name">Acrobatics (dex)</div>
 						<div class="sheet-col-7-24">
 							<select name="attr_acrobatics_prof_exp">
-								<option value="-5">No</option>
-								<option value="0">Trained</option>
+								<option value="0">Untrained</option>
+								<option value="5">Trained</option>
 							</select>
 						</div>
 						<div class="sheet-col-1-12"><input type="number" name="attr_acrobatics" value="@{acrobatics_prof_exp} + @{dexterity_mod_plus_half_lev}" disabled="disabled"></div>
@@ -218,8 +218,8 @@
 						<div class="sheet-col-7-24 sheet-skill-name">Arcana (int)</div>
 						<div class="sheet-col-7-24">
 							<select name="attr_arcana_prof_exp">
-								<option value="-5">No</option>
-								<option value="0">Trained</option>
+								<option value="0">Untrained</option>
+								<option value="5">Trained</option>
 							</select>
 						</div>
 						<div class="sheet-col-1-12"><input type="number" name="attr_arcana" value="@{arcana_prof_exp} + @{intelligence_mod_plus_half_lev}" disabled="disabled"></div>
@@ -230,8 +230,8 @@
 						<div class="sheet-col-7-24 sheet-skill-name">Athletics (str)</div>
 						<div class="sheet-col-7-24">
 							<select name="attr_athletics_prof_exp">
-								<option value="-5">No</option>
-								<option value="0">Trained</option>
+								<option value="0">Untrained</option>
+								<option value="5">Trained</option>
 							</select>
 						</div>
 						<div class="sheet-col-1-12"><input type="number" name="attr_athletics" value="@{athletics_prof_exp} + @{strength_mod_plus_half_lev}" disabled="disabled"></div>
@@ -242,8 +242,8 @@
 						<div class="sheet-col-7-24 sheet-skill-name">Bluff (cha)</div>
 						<div class="sheet-col-7-24">
 							<select name="attr_bluff_prof_exp">
-								<option value="-5">No</option>
-								<option value="0">Trained</option>
+								<option value="0">Untrained</option>
+								<option value="5">Trained</option>
 							</select>
 						</div>
 						<div class="sheet-col-1-12"><input type="number" name="attr_bluff" value="@{bluff_prof_exp} + @{charisma_mod_plus_half_lev}" disabled="disabled"></div>
@@ -254,8 +254,8 @@
 						<div class="sheet-col-7-24 sheet-skill-name">Diplomacy (cha)</div>
 						<div class="sheet-col-7-24">
 							<select name="attr_diplomacy_prof_exp">
-								<option value="-5">No</option>
-								<option value="0">Trained</option>
+								<option value="0">Untrained</option>
+								<option value="5">Trained</option>
 							</select>
 						</div>
 						<div class="sheet-col-1-12"><input type="number" name="attr_diplomacy" value="@{diplomacy_prof_exp} + @{charisma_mod_plus_half_lev}" disabled="disabled"></div>
@@ -266,8 +266,8 @@
 						<div class="sheet-col-7-24 sheet-skill-name">Dungeoneering (wis)</div>
 						<div class="sheet-col-7-24">
 							<select name="attr_dungeoneering_prof_exp">
-								<option value="-5">No</option>
-								<option value="0">Trained</option>
+								<option value="0">Untrained</option>
+								<option value="5">Trained</option>
 							</select>
 						</div>
 						<div class="sheet-col-1-12"><input type="number" name="attr_dungeoneering" value="@{dungeoneering_prof_exp} + @{wisdom_mod_plus_half_lev}" disabled="disabled"></div>
@@ -278,8 +278,8 @@
 						<div class="sheet-col-7-24 sheet-skill-name">Endurance (con)</div>
 						<div class="sheet-col-7-24">
 							<select name="attr_endurance_prof_exp">
-								<option value="-5">No</option>
-								<option value="0">Trained</option>
+								<option value="0">Untrained</option>
+								<option value="5">Trained</option>
 							</select>
 						</div>
 						<div class="sheet-col-1-12"><input type="number" name="attr_endurance" value="@{endurance_prof_exp} + @{constitution_mod_plus_half_lev}" disabled="disabled"></div>
@@ -290,8 +290,8 @@
 						<div class="sheet-col-7-24 sheet-skill-name">Heal (wis)</div>
 						<div class="sheet-col-7-24">
 							<select name="attr_heal_prof_exp">
-								<option value="-5">No</option>
-								<option value="0">Trained</option>
+								<option value="0">Untrained</option>
+								<option value="5">Trained</option>
 							</select>
 						</div>
 						<div class="sheet-col-1-12"><input type="number" name="attr_heal" value="@{heal_prof_exp} + @{wisdom_mod_plus_half_lev}" disabled="disabled"></div>
@@ -302,8 +302,8 @@
 						<div class="sheet-col-7-24 sheet-skill-name">History (int)</div>
 						<div class="sheet-col-7-24">
 							<select name="attr_history_prof_exp">
-								<option value="-5">No</option>
-								<option value="0">Trained</option>
+								<option value="0">Untrained</option>
+								<option value="5">Trained</option>
 							</select>
 						</div>
 						<div class="sheet-col-1-12"><input type="number" name="attr_history" value="@{history_prof_exp} + @{intelligence_mod_plus_half_lev}" disabled="disabled"></div>
@@ -314,8 +314,8 @@
 						<div class="sheet-col-7-24 sheet-skill-name">Insight (wis)</div>
 						<div class="sheet-col-7-24">
 							<select name="attr_insight_prof_exp">
-								<option value="-5">No</option>
-								<option value="0">Trained</option>
+								<option value="0">Untrained</option>
+								<option value="5">Trained</option>
 							</select>
 						</div>
 						<div class="sheet-col-1-12"><input type="number" name="attr_insight" value="@{insight_prof_exp} + @{wisdom_mod_plus_half_lev}" disabled="disabled"></div>
@@ -326,8 +326,8 @@
 						<div class="sheet-col-7-24 sheet-skill-name">Intimidate (cha)</div>
 						<div class="sheet-col-7-24">
 							<select name="attr_intimidate_prof_exp">
-								<option value="-5">No</option>
-								<option value="0">Trained</option>
+								<option value="0">Untrained</option>
+								<option value="5">Trained</option>
 							</select>
 						</div>
 						<div class="sheet-col-1-12"><input type="number" name="attr_intimidate" value="@{intimidate_prof_exp} + @{charisma_mod_plus_half_lev}" disabled="disabled"></div>
@@ -338,8 +338,8 @@
 						<div class="sheet-col-7-24 sheet-skill-name">Nature (wis)</div>
 						<div class="sheet-col-7-24">
 							<select name="attr_nature_prof_exp">
-								<option value="-5">No</option>
-								<option value="0">Trained</option>
+								<option value="0">Untrained</option>
+								<option value="5">Trained</option>
 							</select>
 						</div>
 						<div class="sheet-col-1-12"><input type="number" name="attr_nature" value="@{nature_prof_exp} + @{wisdom_mod_plus_half_lev}" disabled="disabled"></div>
@@ -350,8 +350,8 @@
 						<div class="sheet-col-7-24 sheet-skill-name">Perception (wis)</div>
 						<div class="sheet-col-7-24">
 							<select name="attr_perception_prof_exp">
-								<option value="-5">No</option>
-								<option value="0">Trained</option>
+								<option value="0">Untrained</option>
+								<option value="5">Trained</option>
 							</select>
 						</div>
 						<div class="sheet-col-1-12"><input type="number" name="attr_perception" value="@{perception_prof_exp} + @{wisdom_mod_plus_half_lev}" disabled="disabled"></div>
@@ -362,8 +362,8 @@
 						<div class="sheet-col-7-24 sheet-skill-name">Religion (int)</div>
 						<div class="sheet-col-7-24">
 							<select name="attr_religion_prof_exp">
-								<option value="-5">No</option>
-								<option value="0">Trained</option>
+								<option value="0">Untrained</option>
+								<option value="5">Trained</option>
 							</select>
 						</div>
 						<div class="sheet-col-1-12"><input type="number" name="attr_religion" value="@{religion_prof_exp} + @{intelligence_mod_plus_half_lev}" disabled="disabled"></div>
@@ -374,8 +374,8 @@
 						<div class="sheet-col-7-24 sheet-skill-name">Stealth (dex)</div>
 						<div class="sheet-col-7-24">
 							<select name="attr_stealth_prof_exp">
-								<option value="-5">No</option>
-								<option value="0">Trained</option>
+								<option value="0">Untrained</option>
+								<option value="5">Trained</option>
 							</select>
 						</div>
 						<div class="sheet-col-1-12"><input type="number" name="attr_stealth" value="@{stealth_prof_exp} + @{dexterity_mod_plus_half_lev}" disabled="disabled"></div>
@@ -386,8 +386,8 @@
 						<div class="sheet-col-7-24 sheet-skill-name">Streetwise (cha)</div>
 						<div class="sheet-col-7-24">
 							<select name="attr_streetwise_prof_exp">
-								<option value="-5">No</option>
-								<option value="0">Trained</option>
+								<option value="0">Untrained</option>
+								<option value="5">Trained</option>
 							</select>
 						</div>
 						<div class="sheet-col-1-12"><input type="number" name="attr_streetwise" value="@{streetwise_prof_exp} + @{charisma_mod_plus_half_lev}" disabled="disabled"></div>
@@ -398,8 +398,8 @@
 						<div class="sheet-col-7-24 sheet-skill-name">Thievery (dex)</div>
 						<div class="sheet-col-7-24">
 							<select name="attr_thievery_prof_exp">
-								<option value="-5">No</option>
-								<option value="0">Trained</option>
+								<option value="0">Untrained</option>
+								<option value="5">Trained</option>
 							</select>
 						</div>
 						<div class="sheet-col-1-12"><input type="number" name="attr_thievery" value="@{thievery_prof_exp} + @{dexterity_mod_plus_half_lev}" disabled="disabled"></div>
