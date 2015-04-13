@@ -32,8 +32,12 @@ def template_neg(x):
     """Evaluates to 1 if x == 0, 0 if x == 1."""
     return template_eq(x, "0")
 
+def template_sum_range(attr, i, j):
+    """Evaluates to the sum of attr[i] + attr[i+1]... atr[j]."""
+    return "+".join([("@{%s%s}" % (attr, ea)) for ea in range(i, j+1)])
+
 t = pyratemp.Template(filename="DnD_4e.html.template")
-result = t(max=template_max, min=template_min, gteq=template_gteq, lt=template_lt, lteq=template_lteq, gt=template_gt, eq=template_eq, neg=template_neg)
+result = t(max=template_max, min=template_min, gteq=template_gteq, lt=template_lt, lteq=template_lteq, gt=template_gt, eq=template_eq, neg=template_neg, sum_range=template_sum_range)
 f = open("DnD_4e.html", "w")
 f.write(result)
 f.close()

@@ -133,7 +133,7 @@
 					    <!--(elif defense == "fort")-->
 					    value="@!max('@{strength_mod}', '@{constitution_mod}')!@"
 					    <!--(elif defense == "ref")-->
-					    value="@!max('@{dexterity_mod}', '@{intelligence_mod}')!@"
+					    value="@!max('@{dexterity_mod}', '@{intelligence_mod}')!@ + @{armor_prof_penalty}"
 					    <!--(elif defense == "will")-->
 					    value="@!max('@{wisdom_mod}', '@{charisma_mod}')!@"
 					    <!--(end)-->
@@ -211,7 +211,7 @@
 					<!--(for skill in [('acrobatics', 'dexterity'),('arcana', 'intelligence'),('athletics', 'strength'),('bluff', 'charisma'),('diplomacy', 'charisma'),('dungeoneering', 'wisdom'),('endurance', 'constitution'),('heal', 'wisdom'),('history', 'intelligence'),('insight', 'wisdom'),('intimidate', 'charisma'),('nature', 'wisdom'),('perception', 'wisdom'),('religion', 'intelligence'),('stealth', 'dexterity'),('streetwise', 'charisma'),('thievery', 'dexterity')])-->
 					<div class="sheet-row sheet-skill-row">
 						<div class="sheet-col-1-12"><button class="sheet-skill-roll" type="roll" name="roll_@!skill[0].capitalize()!@_Check" value="&{template:5eDefault} {{ability=1}} {{title=@!skill[0].capitalize()!@ (@!skill[1]!@)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{@!skill[0]!@} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{@!skill[0]!@} + (@{global_check_bonus}) ]]}} @{classaction@!skill[0]!@}"></button></div>
-						<div class="sheet-col-1-24 sheet-skill-name">@!skill[0].capitalize()!@ (@!skill[1][0:3]!@)</div>
+						<div class="sheet-col-1-6 sheet-skill-name">@!skill[0].capitalize()!@ (@!skill[1][0:3]!@)</div>
 						<div class="sheet-col-1-12">
 							<input type="checkbox" name="attr_@!skill[0]!@_prof_exp" value="5"/>
 						</div>
@@ -4380,12 +4380,12 @@
 			<div class="sheet-row sheet-padb">
 
 			  <!-- sum up the armor bonuses for all worn armor -->
-			  <div class="sheet-col-1-5 sheet-small-label sheet-center">AC<input class="sheet-underlined" type="number" name="attr_armor_bonus" value="@!' + '.join(["@{armor_worn_bonus" + str(i) + "}" for i in range(1, 11)])!@" disabled="disabled" ></div>
+			  <div class="sheet-col-1-5 sheet-small-label sheet-center">AC<input class="sheet-underlined" type="number" name="attr_armor_bonus" value="@!sum_range('armor_worn_bonus', 1, 10)!@" disabled="disabled" ></div>
 
 			  <!-- sum up the armor check penalties for all worn armor -->
-			  <div class="sheet-col-1-5 sheet-small-label sheet-center">Armor Check Penalty<input class="sheet-underlined" type="number" name="attr_armor_check_penalty" value="@!' + '.join(["@{armor_worn_check_penalty" + str(i) + "}" for i in range(1, 11)])!@" disabled="disabled" ></div>
+			  <div class="sheet-col-1-5 sheet-small-label sheet-center">Armor Check Penalty<input class="sheet-underlined" type="number" name="attr_armor_check_penalty" value="@!sum_range('armor_worn_check_penalty', 1, 10)!@" disabled="disabled" ></div>
 
-			  <div class="sheet-col-1-5 sheet-small-label sheet-center">Armor Prof. Penalty<input class="sheet-underlined" type="number" name="attr_AC_calc" value="@!' + '.join(["@{armor_worn_prof_penalty" + str(i) + "}" for i in range(1, 11)])!@" disabled="disabled" ></div>
+			  <div class="sheet-col-1-5 sheet-small-label sheet-center">Armor Prof. Penalty<input class="sheet-underlined" type="number" name="attr_armor_prof_penalty" value="@!sum_range('armor_worn_prof_penalty', 1, 10)!@" disabled="disabled" ></div>
 			  
 			</div>
 					
@@ -4398,11 +4398,11 @@
 					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Proficient?</div>
 					  <div class="sheet-col-1-6 sheet-center sheet-small-label sheet-vert-bottom">Name</div>
 					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Base AC</div>
-					  <div class="sheet-col-1-6 sheet-center sheet-small-label sheet-vert-bottom">Armour Type</div>
-					  <div class="sheet-col-1-6 sheet-center sheet-small-label sheet-vert-bottom">Light Armour Bonus</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Type</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Light Bonus</div>
 					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Magic Bonus</div>
 					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Total AC</div>
-					  <div class="sheet-col-1-8 sheet-center sheet-small-label sheet-vert-bottom">Armor Check Penalty</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Armor Check</div>
 					</div>
 					
 
@@ -4423,7 +4423,7 @@
 
 						<div class="sheet-col-1-6"><input type="text" name="attr_amourname@!i!@"></div>
 						<div class="sheet-col-1-12"><input type="number" name="attr_armourACbase@!i!@" value="0" step="1"></div>
-						<div class="sheet-col-1-6">
+						<div class="sheet-col-1-12">
 							<select name="attr_armourtype@!i!@">
 								<option value="0" selected="selected">n/a</option>
 								<option value="1">Light</option>

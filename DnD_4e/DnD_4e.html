@@ -194,7 +194,7 @@
 					  <div class="sheet-col-1-6"><input type="number" name="attr_10_plus_half_level" value="10 + (floor(@{level}/2)" disabled="disabled"></div>
 
 					  <div class="sheet-col-1-6"><input type="number" name="attr_ref_bonus" 
-					    value="((((@{dexterity_mod}) + (@{intelligence_mod})) + abs((@{dexterity_mod}) - (@{intelligence_mod}))) / 2)"
+					    value="((((@{dexterity_mod}) + (@{intelligence_mod})) + abs((@{dexterity_mod}) - (@{intelligence_mod}))) / 2) + @{armor_prof_penalty}"
 					    disabled="disabled"></div>
 					  
 					  <div class="sheet-col-1-6"><input type="number" name="attr_ref_class_bonus" min="1" step="1"/></div>
@@ -284,7 +284,7 @@
 
 					<div class="sheet-row sheet-skill-row">
 						<div class="sheet-col-1-12"><button class="sheet-skill-roll" type="roll" name="roll_Acrobatics_Check" value="&{template:5eDefault} {{ability=1}} {{title=Acrobatics (dexterity)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{acrobatics} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{acrobatics} + (@{global_check_bonus}) ]]}} @{classactionacrobatics}"></button></div>
-						<div class="sheet-col-1-24 sheet-skill-name">Acrobatics (dex)</div>
+						<div class="sheet-col-1-6 sheet-skill-name">Acrobatics (dex)</div>
 						<div class="sheet-col-1-12">
 							<input type="checkbox" name="attr_acrobatics_prof_exp" value="5"/>
 						</div>
@@ -294,7 +294,7 @@
 					</div>
 					<div class="sheet-row sheet-skill-row">
 						<div class="sheet-col-1-12"><button class="sheet-skill-roll" type="roll" name="roll_Arcana_Check" value="&{template:5eDefault} {{ability=1}} {{title=Arcana (intelligence)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{arcana} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{arcana} + (@{global_check_bonus}) ]]}} @{classactionarcana}"></button></div>
-						<div class="sheet-col-1-24 sheet-skill-name">Arcana (int)</div>
+						<div class="sheet-col-1-6 sheet-skill-name">Arcana (int)</div>
 						<div class="sheet-col-1-12">
 							<input type="checkbox" name="attr_arcana_prof_exp" value="5"/>
 						</div>
@@ -304,7 +304,7 @@
 					</div>
 					<div class="sheet-row sheet-skill-row">
 						<div class="sheet-col-1-12"><button class="sheet-skill-roll" type="roll" name="roll_Athletics_Check" value="&{template:5eDefault} {{ability=1}} {{title=Athletics (strength)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{athletics} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{athletics} + (@{global_check_bonus}) ]]}} @{classactionathletics}"></button></div>
-						<div class="sheet-col-1-24 sheet-skill-name">Athletics (str)</div>
+						<div class="sheet-col-1-6 sheet-skill-name">Athletics (str)</div>
 						<div class="sheet-col-1-12">
 							<input type="checkbox" name="attr_athletics_prof_exp" value="5"/>
 						</div>
@@ -314,7 +314,7 @@
 					</div>
 					<div class="sheet-row sheet-skill-row">
 						<div class="sheet-col-1-12"><button class="sheet-skill-roll" type="roll" name="roll_Bluff_Check" value="&{template:5eDefault} {{ability=1}} {{title=Bluff (charisma)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{bluff} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{bluff} + (@{global_check_bonus}) ]]}} @{classactionbluff}"></button></div>
-						<div class="sheet-col-1-24 sheet-skill-name">Bluff (cha)</div>
+						<div class="sheet-col-1-6 sheet-skill-name">Bluff (cha)</div>
 						<div class="sheet-col-1-12">
 							<input type="checkbox" name="attr_bluff_prof_exp" value="5"/>
 						</div>
@@ -324,7 +324,7 @@
 					</div>
 					<div class="sheet-row sheet-skill-row">
 						<div class="sheet-col-1-12"><button class="sheet-skill-roll" type="roll" name="roll_Diplomacy_Check" value="&{template:5eDefault} {{ability=1}} {{title=Diplomacy (charisma)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{diplomacy} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{diplomacy} + (@{global_check_bonus}) ]]}} @{classactiondiplomacy}"></button></div>
-						<div class="sheet-col-1-24 sheet-skill-name">Diplomacy (cha)</div>
+						<div class="sheet-col-1-6 sheet-skill-name">Diplomacy (cha)</div>
 						<div class="sheet-col-1-12">
 							<input type="checkbox" name="attr_diplomacy_prof_exp" value="5"/>
 						</div>
@@ -334,7 +334,7 @@
 					</div>
 					<div class="sheet-row sheet-skill-row">
 						<div class="sheet-col-1-12"><button class="sheet-skill-roll" type="roll" name="roll_Dungeoneering_Check" value="&{template:5eDefault} {{ability=1}} {{title=Dungeoneering (wisdom)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{dungeoneering} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{dungeoneering} + (@{global_check_bonus}) ]]}} @{classactiondungeoneering}"></button></div>
-						<div class="sheet-col-1-24 sheet-skill-name">Dungeoneering (wis)</div>
+						<div class="sheet-col-1-6 sheet-skill-name">Dungeoneering (wis)</div>
 						<div class="sheet-col-1-12">
 							<input type="checkbox" name="attr_dungeoneering_prof_exp" value="5"/>
 						</div>
@@ -344,7 +344,7 @@
 					</div>
 					<div class="sheet-row sheet-skill-row">
 						<div class="sheet-col-1-12"><button class="sheet-skill-roll" type="roll" name="roll_Endurance_Check" value="&{template:5eDefault} {{ability=1}} {{title=Endurance (constitution)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{endurance} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{endurance} + (@{global_check_bonus}) ]]}} @{classactionendurance}"></button></div>
-						<div class="sheet-col-1-24 sheet-skill-name">Endurance (con)</div>
+						<div class="sheet-col-1-6 sheet-skill-name">Endurance (con)</div>
 						<div class="sheet-col-1-12">
 							<input type="checkbox" name="attr_endurance_prof_exp" value="5"/>
 						</div>
@@ -354,7 +354,7 @@
 					</div>
 					<div class="sheet-row sheet-skill-row">
 						<div class="sheet-col-1-12"><button class="sheet-skill-roll" type="roll" name="roll_Heal_Check" value="&{template:5eDefault} {{ability=1}} {{title=Heal (wisdom)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{heal} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{heal} + (@{global_check_bonus}) ]]}} @{classactionheal}"></button></div>
-						<div class="sheet-col-1-24 sheet-skill-name">Heal (wis)</div>
+						<div class="sheet-col-1-6 sheet-skill-name">Heal (wis)</div>
 						<div class="sheet-col-1-12">
 							<input type="checkbox" name="attr_heal_prof_exp" value="5"/>
 						</div>
@@ -364,7 +364,7 @@
 					</div>
 					<div class="sheet-row sheet-skill-row">
 						<div class="sheet-col-1-12"><button class="sheet-skill-roll" type="roll" name="roll_History_Check" value="&{template:5eDefault} {{ability=1}} {{title=History (intelligence)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{history} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{history} + (@{global_check_bonus}) ]]}} @{classactionhistory}"></button></div>
-						<div class="sheet-col-1-24 sheet-skill-name">History (int)</div>
+						<div class="sheet-col-1-6 sheet-skill-name">History (int)</div>
 						<div class="sheet-col-1-12">
 							<input type="checkbox" name="attr_history_prof_exp" value="5"/>
 						</div>
@@ -374,7 +374,7 @@
 					</div>
 					<div class="sheet-row sheet-skill-row">
 						<div class="sheet-col-1-12"><button class="sheet-skill-roll" type="roll" name="roll_Insight_Check" value="&{template:5eDefault} {{ability=1}} {{title=Insight (wisdom)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{insight} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{insight} + (@{global_check_bonus}) ]]}} @{classactioninsight}"></button></div>
-						<div class="sheet-col-1-24 sheet-skill-name">Insight (wis)</div>
+						<div class="sheet-col-1-6 sheet-skill-name">Insight (wis)</div>
 						<div class="sheet-col-1-12">
 							<input type="checkbox" name="attr_insight_prof_exp" value="5"/>
 						</div>
@@ -384,7 +384,7 @@
 					</div>
 					<div class="sheet-row sheet-skill-row">
 						<div class="sheet-col-1-12"><button class="sheet-skill-roll" type="roll" name="roll_Intimidate_Check" value="&{template:5eDefault} {{ability=1}} {{title=Intimidate (charisma)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{intimidate} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{intimidate} + (@{global_check_bonus}) ]]}} @{classactionintimidate}"></button></div>
-						<div class="sheet-col-1-24 sheet-skill-name">Intimidate (cha)</div>
+						<div class="sheet-col-1-6 sheet-skill-name">Intimidate (cha)</div>
 						<div class="sheet-col-1-12">
 							<input type="checkbox" name="attr_intimidate_prof_exp" value="5"/>
 						</div>
@@ -394,7 +394,7 @@
 					</div>
 					<div class="sheet-row sheet-skill-row">
 						<div class="sheet-col-1-12"><button class="sheet-skill-roll" type="roll" name="roll_Nature_Check" value="&{template:5eDefault} {{ability=1}} {{title=Nature (wisdom)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{nature} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{nature} + (@{global_check_bonus}) ]]}} @{classactionnature}"></button></div>
-						<div class="sheet-col-1-24 sheet-skill-name">Nature (wis)</div>
+						<div class="sheet-col-1-6 sheet-skill-name">Nature (wis)</div>
 						<div class="sheet-col-1-12">
 							<input type="checkbox" name="attr_nature_prof_exp" value="5"/>
 						</div>
@@ -404,7 +404,7 @@
 					</div>
 					<div class="sheet-row sheet-skill-row">
 						<div class="sheet-col-1-12"><button class="sheet-skill-roll" type="roll" name="roll_Perception_Check" value="&{template:5eDefault} {{ability=1}} {{title=Perception (wisdom)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{perception} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{perception} + (@{global_check_bonus}) ]]}} @{classactionperception}"></button></div>
-						<div class="sheet-col-1-24 sheet-skill-name">Perception (wis)</div>
+						<div class="sheet-col-1-6 sheet-skill-name">Perception (wis)</div>
 						<div class="sheet-col-1-12">
 							<input type="checkbox" name="attr_perception_prof_exp" value="5"/>
 						</div>
@@ -414,7 +414,7 @@
 					</div>
 					<div class="sheet-row sheet-skill-row">
 						<div class="sheet-col-1-12"><button class="sheet-skill-roll" type="roll" name="roll_Religion_Check" value="&{template:5eDefault} {{ability=1}} {{title=Religion (intelligence)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{religion} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{religion} + (@{global_check_bonus}) ]]}} @{classactionreligion}"></button></div>
-						<div class="sheet-col-1-24 sheet-skill-name">Religion (int)</div>
+						<div class="sheet-col-1-6 sheet-skill-name">Religion (int)</div>
 						<div class="sheet-col-1-12">
 							<input type="checkbox" name="attr_religion_prof_exp" value="5"/>
 						</div>
@@ -424,7 +424,7 @@
 					</div>
 					<div class="sheet-row sheet-skill-row">
 						<div class="sheet-col-1-12"><button class="sheet-skill-roll" type="roll" name="roll_Stealth_Check" value="&{template:5eDefault} {{ability=1}} {{title=Stealth (dexterity)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{stealth} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{stealth} + (@{global_check_bonus}) ]]}} @{classactionstealth}"></button></div>
-						<div class="sheet-col-1-24 sheet-skill-name">Stealth (dex)</div>
+						<div class="sheet-col-1-6 sheet-skill-name">Stealth (dex)</div>
 						<div class="sheet-col-1-12">
 							<input type="checkbox" name="attr_stealth_prof_exp" value="5"/>
 						</div>
@@ -434,7 +434,7 @@
 					</div>
 					<div class="sheet-row sheet-skill-row">
 						<div class="sheet-col-1-12"><button class="sheet-skill-roll" type="roll" name="roll_Streetwise_Check" value="&{template:5eDefault} {{ability=1}} {{title=Streetwise (charisma)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{streetwise} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{streetwise} + (@{global_check_bonus}) ]]}} @{classactionstreetwise}"></button></div>
-						<div class="sheet-col-1-24 sheet-skill-name">Streetwise (cha)</div>
+						<div class="sheet-col-1-6 sheet-skill-name">Streetwise (cha)</div>
 						<div class="sheet-col-1-12">
 							<input type="checkbox" name="attr_streetwise_prof_exp" value="5"/>
 						</div>
@@ -444,7 +444,7 @@
 					</div>
 					<div class="sheet-row sheet-skill-row">
 						<div class="sheet-col-1-12"><button class="sheet-skill-roll" type="roll" name="roll_Thievery_Check" value="&{template:5eDefault} {{ability=1}} {{title=Thievery (dexterity)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{thievery} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{thievery} + (@{global_check_bonus}) ]]}} @{classactionthievery}"></button></div>
-						<div class="sheet-col-1-24 sheet-skill-name">Thievery (dex)</div>
+						<div class="sheet-col-1-6 sheet-skill-name">Thievery (dex)</div>
 						<div class="sheet-col-1-12">
 							<input type="checkbox" name="attr_thievery_prof_exp" value="5"/>
 						</div>
@@ -4608,12 +4608,12 @@
 			<div class="sheet-row sheet-padb">
 
 			  <!-- sum up the armor bonuses for all worn armor -->
-			  <div class="sheet-col-1-5 sheet-small-label sheet-center">AC<input class="sheet-underlined" type="number" name="attr_armor_bonus" value="@{armor_worn_bonus1} + @{armor_worn_bonus2} + @{armor_worn_bonus3} + @{armor_worn_bonus4} + @{armor_worn_bonus5} + @{armor_worn_bonus6} + @{armor_worn_bonus7} + @{armor_worn_bonus8} + @{armor_worn_bonus9} + @{armor_worn_bonus10}" disabled="disabled" ></div>
+			  <div class="sheet-col-1-5 sheet-small-label sheet-center">AC<input class="sheet-underlined" type="number" name="attr_armor_bonus" value="@{armor_worn_bonus1}+@{armor_worn_bonus2}+@{armor_worn_bonus3}+@{armor_worn_bonus4}+@{armor_worn_bonus5}+@{armor_worn_bonus6}+@{armor_worn_bonus7}+@{armor_worn_bonus8}+@{armor_worn_bonus9}+@{armor_worn_bonus10}" disabled="disabled" ></div>
 
 			  <!-- sum up the armor check penalties for all worn armor -->
-			  <div class="sheet-col-1-5 sheet-small-label sheet-center">Armor Check Penalty<input class="sheet-underlined" type="number" name="attr_armor_check_penalty" value="@{armor_worn_check_penalty1} + @{armor_worn_check_penalty2} + @{armor_worn_check_penalty3} + @{armor_worn_check_penalty4} + @{armor_worn_check_penalty5} + @{armor_worn_check_penalty6} + @{armor_worn_check_penalty7} + @{armor_worn_check_penalty8} + @{armor_worn_check_penalty9} + @{armor_worn_check_penalty10}" disabled="disabled" ></div>
+			  <div class="sheet-col-1-5 sheet-small-label sheet-center">Armor Check Penalty<input class="sheet-underlined" type="number" name="attr_armor_check_penalty" value="@{armor_worn_check_penalty1}+@{armor_worn_check_penalty2}+@{armor_worn_check_penalty3}+@{armor_worn_check_penalty4}+@{armor_worn_check_penalty5}+@{armor_worn_check_penalty6}+@{armor_worn_check_penalty7}+@{armor_worn_check_penalty8}+@{armor_worn_check_penalty9}+@{armor_worn_check_penalty10}" disabled="disabled" ></div>
 
-			  <div class="sheet-col-1-5 sheet-small-label sheet-center">Armor Prof. Penalty<input class="sheet-underlined" type="number" name="attr_AC_calc" value="@{armor_worn_prof_penalty1} + @{armor_worn_prof_penalty2} + @{armor_worn_prof_penalty3} + @{armor_worn_prof_penalty4} + @{armor_worn_prof_penalty5} + @{armor_worn_prof_penalty6} + @{armor_worn_prof_penalty7} + @{armor_worn_prof_penalty8} + @{armor_worn_prof_penalty9} + @{armor_worn_prof_penalty10}" disabled="disabled" ></div>
+			  <div class="sheet-col-1-5 sheet-small-label sheet-center">Armor Prof. Penalty<input class="sheet-underlined" type="number" name="attr_armor_prof_penalty" value="@{armor_worn_prof_penalty1}+@{armor_worn_prof_penalty2}+@{armor_worn_prof_penalty3}+@{armor_worn_prof_penalty4}+@{armor_worn_prof_penalty5}+@{armor_worn_prof_penalty6}+@{armor_worn_prof_penalty7}+@{armor_worn_prof_penalty8}+@{armor_worn_prof_penalty9}+@{armor_worn_prof_penalty10}" disabled="disabled" ></div>
 			  
 			</div>
 					
@@ -4626,11 +4626,11 @@
 					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Proficient?</div>
 					  <div class="sheet-col-1-6 sheet-center sheet-small-label sheet-vert-bottom">Name</div>
 					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Base AC</div>
-					  <div class="sheet-col-1-6 sheet-center sheet-small-label sheet-vert-bottom">Armour Type</div>
-					  <div class="sheet-col-1-6 sheet-center sheet-small-label sheet-vert-bottom">Light Armour Bonus</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Type</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Light Bonus</div>
 					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Magic Bonus</div>
 					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Total AC</div>
-					  <div class="sheet-col-1-8 sheet-center sheet-small-label sheet-vert-bottom">Armor Check Penalty</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Armor Check</div>
 					</div>
 					
 
@@ -4650,7 +4650,7 @@
 
 						<div class="sheet-col-1-6"><input type="text" name="attr_amourname1"></div>
 						<div class="sheet-col-1-12"><input type="number" name="attr_armourACbase1" value="0" step="1"></div>
-						<div class="sheet-col-1-6">
+						<div class="sheet-col-1-12">
 							<select name="attr_armourtype1">
 								<option value="0" selected="selected">n/a</option>
 								<option value="1">Light</option>
@@ -4680,8 +4680,8 @@
 
 						<div class="sheet-col-1-6"><input type="text" name="attr_amourname2"></div>
 						<div class="sheet-col-1-12"><input type="number" name="attr_armourACbase2" value="0" step="1"></div>
-						<div class="sheet-col-1-6">
-							<select name="attr_armourtype1">
+						<div class="sheet-col-1-12">
+							<select name="attr_armourtype2">
 								<option value="0" selected="selected">n/a</option>
 								<option value="1">Light</option>
 								<option value="2">Medium</option>
@@ -4710,8 +4710,8 @@
 
 						<div class="sheet-col-1-6"><input type="text" name="attr_amourname3"></div>
 						<div class="sheet-col-1-12"><input type="number" name="attr_armourACbase3" value="0" step="1"></div>
-						<div class="sheet-col-1-6">
-							<select name="attr_armourtype1">
+						<div class="sheet-col-1-12">
+							<select name="attr_armourtype3">
 								<option value="0" selected="selected">n/a</option>
 								<option value="1">Light</option>
 								<option value="2">Medium</option>
@@ -4740,8 +4740,8 @@
 
 						<div class="sheet-col-1-6"><input type="text" name="attr_amourname4"></div>
 						<div class="sheet-col-1-12"><input type="number" name="attr_armourACbase4" value="0" step="1"></div>
-						<div class="sheet-col-1-6">
-							<select name="attr_armourtype1">
+						<div class="sheet-col-1-12">
+							<select name="attr_armourtype4">
 								<option value="0" selected="selected">n/a</option>
 								<option value="1">Light</option>
 								<option value="2">Medium</option>
@@ -4770,8 +4770,8 @@
 
 						<div class="sheet-col-1-6"><input type="text" name="attr_amourname5"></div>
 						<div class="sheet-col-1-12"><input type="number" name="attr_armourACbase5" value="0" step="1"></div>
-						<div class="sheet-col-1-6">
-							<select name="attr_armourtype1">
+						<div class="sheet-col-1-12">
+							<select name="attr_armourtype5">
 								<option value="0" selected="selected">n/a</option>
 								<option value="1">Light</option>
 								<option value="2">Medium</option>
@@ -4800,8 +4800,8 @@
 
 						<div class="sheet-col-1-6"><input type="text" name="attr_amourname6"></div>
 						<div class="sheet-col-1-12"><input type="number" name="attr_armourACbase6" value="0" step="1"></div>
-						<div class="sheet-col-1-6">
-							<select name="attr_armourtype1">
+						<div class="sheet-col-1-12">
+							<select name="attr_armourtype6">
 								<option value="0" selected="selected">n/a</option>
 								<option value="1">Light</option>
 								<option value="2">Medium</option>
@@ -4830,8 +4830,8 @@
 
 						<div class="sheet-col-1-6"><input type="text" name="attr_amourname7"></div>
 						<div class="sheet-col-1-12"><input type="number" name="attr_armourACbase7" value="0" step="1"></div>
-						<div class="sheet-col-1-6">
-							<select name="attr_armourtype1">
+						<div class="sheet-col-1-12">
+							<select name="attr_armourtype7">
 								<option value="0" selected="selected">n/a</option>
 								<option value="1">Light</option>
 								<option value="2">Medium</option>
@@ -4860,8 +4860,8 @@
 
 						<div class="sheet-col-1-6"><input type="text" name="attr_amourname8"></div>
 						<div class="sheet-col-1-12"><input type="number" name="attr_armourACbase8" value="0" step="1"></div>
-						<div class="sheet-col-1-6">
-							<select name="attr_armourtype1">
+						<div class="sheet-col-1-12">
+							<select name="attr_armourtype8">
 								<option value="0" selected="selected">n/a</option>
 								<option value="1">Light</option>
 								<option value="2">Medium</option>
@@ -4890,8 +4890,8 @@
 
 						<div class="sheet-col-1-6"><input type="text" name="attr_amourname9"></div>
 						<div class="sheet-col-1-12"><input type="number" name="attr_armourACbase9" value="0" step="1"></div>
-						<div class="sheet-col-1-6">
-							<select name="attr_armourtype1">
+						<div class="sheet-col-1-12">
+							<select name="attr_armourtype9">
 								<option value="0" selected="selected">n/a</option>
 								<option value="1">Light</option>
 								<option value="2">Medium</option>
@@ -4920,8 +4920,8 @@
 
 						<div class="sheet-col-1-6"><input type="text" name="attr_amourname10"></div>
 						<div class="sheet-col-1-12"><input type="number" name="attr_armourACbase10" value="0" step="1"></div>
-						<div class="sheet-col-1-6">
-							<select name="attr_armourtype1">
+						<div class="sheet-col-1-12">
+							<select name="attr_armourtype10">
 								<option value="0" selected="selected">n/a</option>
 								<option value="1">Light</option>
 								<option value="2">Medium</option>
