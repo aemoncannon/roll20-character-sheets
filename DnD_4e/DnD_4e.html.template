@@ -21,7 +21,7 @@
 		<input type="radio" name="attr_tab" class="sheet-tab sheet-tab3" value="3"/>
 		<span class="sheet-tab sheet-tab3">Background</span>
 		<input type="radio" name="attr_tab" class="sheet-tab sheet-tab4" value="4"/>
-		<span class="sheet-tab sheet-tab4">Class</span>
+		<span class="sheet-tab sheet-tab4">Powers</span>
 		<input type="radio" name="attr_tab" class="sheet-tab sheet-tab5" value="5"/>
 		<span class="sheet-tab sheet-tab5">Weapons</span>
 		<input type="radio" name="attr_tab" class="sheet-tab sheet-tab6" value="6"/>
@@ -55,8 +55,8 @@
 						<div class="sheet-col-1-6"><input type="number" name="attr_@!ability!@" min="1" step="1"/></div>
 						<div class="sheet-col-1-6 sheet-core-stat-label">@!ability[0:3]!@</div>
 						<div class="sheet-col-1-6"><input type="number" name="attr_@!ability!@_mod" value="(floor((@{@!ability!@}-10)/2))" disabled="disabled"/></div>
-						<div class="sheet-col-1-6"><input type="number" name="attr_@!ability!@_mod_plus_half_lev" value="@{@!ability!@_mod} + (floor(@{level}/2)" disabled="disabled"></div>
-						<div class="sheet-col-1-6 sheet-center"><button type="roll" class="sheet-core-save" name="roll_@!ability.capitalize()!@_Check" value="&{template:4eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=@!ability!@ check}} {{subheader=@{character_name}}} {{rollname=@!ability!@ check}} {{roll=[[ 1d20 + @{@!ability!@_save_mod} + (@{global_saving_bonus}) ]]}} {{rolladv=[[ 1d20 + @{@!ability!@_save_mod} + (@{global_saving_bonus}) ]]}} @{classactionstrengthsave}">Save</button></div>
+						<div class="sheet-col-1-6"><input type="number" name="attr_@!ability!@_mod_plus_half_lev" value="@{@!ability!@_mod} + floor(@{level}/2)" disabled="disabled"/></div>
+						<div class="sheet-col-1-6 sheet-center"><button type="roll" class="sheet-core-save" name="roll_@!ability.capitalize()!@_Check" value="&{template:4eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=@!ability!@ check}} {{subheader=@{character_name}}} {{rollname=@!ability!@ check}} {{roll=[[ 1d20 + @{@!ability!@_mod} + (@{global_saving_bonus}) ]]}} {{rolladv=[[ 1d20 + @{@!ability!@_mod} + (@{global_saving_bonus}) ]]}} @{classactionstrengthsave}">Check</button></div>
 					</div>
 					<!--(end)-->
 					
@@ -121,11 +121,11 @@
 					<!--(for defense in ["ac", "fort", "ref", "will"])-->
 					<div class="sheet-row">
 					  
-					  <div class="sheet-col-1-6"><input type="number" name="attr_@!defense!@" value="@{@!defense!@_bonus} + @{@!defense!@_class_bonus} + @{@!defense!@_misc_bonus} + @{10_plus_half_level}" disabled="disabled"></div>
+					  <div class="sheet-col-1-6"><input type="number" name="attr_@!defense!@" value="@{@!defense!@_bonus} + @{@!defense!@_class_bonus} + @{@!defense!@_misc_bonus} + @{10_plus_half_level}" disabled="disabled"/></div>
 
 					  <div class="sheet-col-1-6 sheet-core-stat-label">@!defense.upper()!@</div>
 					  
-					  <div class="sheet-col-1-6"><input type="number" name="attr_10_plus_half_level" value="10 + (floor(@{level}/2)" disabled="disabled"></div>
+					  <div class="sheet-col-1-6"><input type="number" name="attr_10_plus_half_level" value="10 + floor(@{level}/2)" disabled="disabled"></div>
 
 					  <div class="sheet-col-1-6"><input type="number" name="attr_@!defense!@_bonus" 
 					    <!--(if defense == "ac")-->
@@ -137,11 +137,11 @@
 					    <!--(elif defense == "will")-->
 					    value="@!max('@{wisdom_mod}', '@{charisma_mod}')!@"
 					    <!--(end)-->
-					    disabled="disabled"></div>
+					    disabled="disabled"/></div>
 					  
-					  <div class="sheet-col-1-6"><input type="number" name="attr_@!defense!@_class_bonus" min="1" step="1"/></div>
+					  <div class="sheet-col-1-6"><input type="number" name="attr_@!defense!@_class_bonus" min="0" step="1" value="0"/></div>
 
-					  <div class="sheet-col-1-6"><input type="number" name="attr_@!defense!@_misc_bonus" min="1" step="1"/></div>
+					  <div class="sheet-col-1-6"><input type="number" name="attr_@!defense!@_misc_bonus" min="0" step="1" value="0"/></div>
 
 					</div>
 					<!--(end)-->
@@ -196,11 +196,11 @@
 			<h4 class="sheet-center">Skills <span class="sheet-pictos">x</span></h4>
 			<div class="sheet-row">
 			
-				<div class="sheet-col-1-2 sheet-padr">
+				<div class="sheet-col-1-1 sheet-padr">
 				
 					<div class="sheet-row sheet-sub-header">
 						<div class="sheet-col-1-12 sheet-center sheet-small-label">&nbsp;</div>
-						<div class="sheet-col-1-12 sheet-small-label">Skill</div>
+						<div class="sheet-col-1-6 sheet-small-label">Skill</div>
 						<div class="sheet-col-1-12 sheet-center sheet-small-label">Trained</div>
 						<div class="sheet-col-1-12 sheet-center sheet-small-label">Armor Penalty</div>
 						<div class="sheet-col-1-12 sheet-center sheet-small-label">Total</div>
@@ -220,7 +220,10 @@
 						<!--(else)-->
 						<div class="sheet-col-1-12"><input type="number" name="attr_@!skill[0]!@_armor_check_penalty" value="0" disabled="disabled"></div>
 						<!--(end)-->
+
+						<!-- total modifier for this skill -->
 						<div class="sheet-col-1-12"><input type="number" name="attr_@!skill[0]!@" value="@{@!skill[0]!@_prof_exp} + @{@!skill[1]!@_mod_plus_half_lev} + @{@!skill[0]!@_armor_check_penalty}" disabled="disabled"></div>
+						
 						<div class="sheet-col-1-12 sheet-offset-1-24"><input type="number" class="sheet-passive-skill-score" name="attr_passive_@!skill[0]!@" value="10 + @{@!skill[0]!@}" disabled="disabled"></div>
 					</div>
 					<!--(end)-->
@@ -296,6 +299,68 @@
 			</div>
 
 			<hr/>
+		</div>
+
+		<div class="sheet-section-powers">
+		  <fieldset class="repeating_meleeattack">
+			<!-- BEGIN spell row -->
+			<div class="sheet-margin-bottom sheet-padr sheet-padl">
+				<div class="sheet-row">
+					<div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Name</div>
+					<div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Type</div>
+					<div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">School</div>
+					<div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Duration</div>
+					<div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
+					<div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
+					<div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
+					<div class="sheet-col-1-3 sheet-vert-bottom sheet-center sheet-small-label">Misc</div>
+				</div>
+				
+				<div class="sheet-row">
+					<div class="sheet-col-1-8">
+					  <input type="text" name="attr_name" />
+					</div>
+					<div class="sheet-col-1-12">
+					  <select name="attr_type" class="dtype">
+					  <option value="at_will">At Will</option>
+					  <option value="encounter">Encounter</option>
+					  <option value="daily">Daily</option>
+					  </select>
+					</div>
+					<div class="sheet-col-1-12">
+					  <select name="attr_duration" class="dtype">
+					  <option value="minor">Minor</option>
+					  <option value="standard">Standard</option>
+					  <option value="move">Move</option>
+					  </select> 
+					</div>
+					<div class="sheet-col-1-12">
+					  <select name="attr_target" class="dtype">
+					    <option value="one_creature">One creature</option>
+					  </select>
+					</div>
+					<div class="sheet-col-1-12">
+					  <select name="attr_attacker" class="dtype">
+					    <!--(for ability in ["strength", "constitution", "dexterity", "intelligence", "wisdom", "charisma"])-->
+					    <option value="@!ability!@">@!ability.capitalize()!@</option>
+					    <!--(end)-->
+					  </select>
+					</div>
+					<div class="sheet-col-1-12">
+					  <select name="attr_attackee" class="dtype">
+					    <!--(for defense in ["ac", "fort", "ref", "will"])-->
+					    <option value="@!defense!@">@!defense.upper()!@</option>
+					    <!--(end)-->
+					  </select>
+					</div>
+					<div class="sheet-col-1-3">
+					  <input type="text" name="attr_misc" />
+					</div>
+					<hr/>
+				</div>
+		  </fieldset>
+
+		  
 		</div>
 
 		<div class="sheet-section-weapons">
@@ -4433,7 +4498,7 @@
 						</div>
 						<div class="sheet-col-1-12"><input type="number" name="attr_light_armour_bonus@!i!@" value="@!eq(1, '@{armourtype' + str(i) + '}')!@ * @!max('@{dexterity_mod}', '@{intelligence_mod}')!@" disabled="disabled"></div>
 						<div class="sheet-col-1-12"><input type="number" name="attr_armourmagicbonus@!i!@" value="0" step="1"></div>
-						<div class="sheet-col-1-12"><input type="number" name="attr_armourtotalAC@!i!@" value="@{armourACbase@!i!@} + @{armourtype@!i!@} + @{armourmagicbonus@!i!@} + @{light_armour_bonus@!i!@}" disabled="disabled"></div>
+						<div class="sheet-col-1-12"><input type="number" name="attr_armourtotalAC@!i!@" value="@{armourACbase@!i!@} + @{armourmagicbonus@!i!@} + @{light_armour_bonus@!i!@}" disabled="disabled"></div>
 						<div class="sheet-col-1-12"><input type="number" name="attr_armor_check_penalty@!i!@" value="0" step="1"></div>
 
 					</div>
