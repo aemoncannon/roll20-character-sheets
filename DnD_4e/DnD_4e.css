@@ -384,6 +384,83 @@
 
 /* END Inspiration button Settings */
 
+/* Power Page Settings */
+ div[class^="sheet-power-page"] { 	
+	display: none;
+}
+
+ input.sheet-powertab0:checked ~ div.sheet-power-page0,
+ input.sheet-powertab1:checked ~ div.sheet-power-page1,
+ input.sheet-powertab2:checked ~ div.sheet-power-page2,
+ input.sheet-powertab3:checked ~ div.sheet-power-page3,
+ input.sheet-powertab4:checked ~ div.sheet-power-page4,
+ input.sheet-powertab5:checked ~ div.sheet-power-page5,
+ input.sheet-powertab6:checked ~ div.sheet-power-page6,
+ input.sheet-powertab7:checked ~ div.sheet-power-page7,
+ input.sheet-powertab8:checked ~ div.sheet-power-page8,
+ input.sheet-powertab9:checked ~ div.sheet-power-page9 {
+	display: block;
+}
+
+ input.sheet-powertab99:checked ~ div[class^="sheet-power-page"] { 	
+	display: block;
+}
+
+ input.sheet-powertab0:checked ~ span.sheet-powertab0,
+ input.sheet-powertab1:checked ~ span.sheet-powertab1,
+ input.sheet-powertab2:checked ~ span.sheet-powertab2,
+ input.sheet-powertab3:checked ~ span.sheet-powertab3,
+ input.sheet-powertab4:checked ~ span.sheet-powertab4,
+ input.sheet-powertab5:checked ~ span.sheet-powertab5,
+ input.sheet-powertab6:checked ~ span.sheet-powertab6,
+ input.sheet-powertab7:checked ~ span.sheet-powertab7,
+ input.sheet-powertab8:checked ~ span.sheet-powertab8,
+ input.sheet-powertab9:checked ~ span.sheet-powertab9,
+ input.sheet-powertab99:checked ~ span.sheet-powertab99
+ {
+    background: rgb(0,158,115);    
+    color: white;
+	border-radius: 4px;
+}
+
+ input.sheet-powerpagetab {
+    width: 70px;
+    height: 20px;
+    cursor: pointer;
+	position: relative;
+	opacity: 0;
+    z-index: 9999;
+}
+
+ span.sheet-powerpagetab {
+    text-align: center;
+    display: inline-block;    
+    font-size: 13px;
+	background: rgb(86,180,233); 
+	color: white;
+	font-weight: bold;
+	border-radius: 4px;
+	
+	width: 70px;
+    height: 20px;
+	cursor: pointer;
+	position: relative;
+	margin-left: -73px;
+}
+
+
+.sheet-power-macro-output-options,
+.sheet-classaction-output-options,
+.sheet-npc-output-options
+ {
+
+	border: black 1px dashed;
+	border-radius: 5px;
+
+}
+/* END Power Page Settings */
+
+
 
 /* Spell Page Settings */
  div[class^="sheet-spell-page"] { 	

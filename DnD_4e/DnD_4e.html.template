@@ -302,42 +302,64 @@
 		</div>
 
 		<div class="sheet-section-powers">
-		  <fieldset class="repeating_meleeattack">
-			<!-- BEGIN spell row -->
-			<div class="sheet-margin-bottom sheet-padr sheet-padl">
+
+
+		  <input type="radio" name="attr_powerpagetab" class="sheet-powerpagetab sheet-powertab0" value="0" title="At Will" checked="checked"/>
+		  <span class="sheet-powerpagetab sheet-powertab0">At Will</span>
+		  
+		  <input type="radio" name="attr_powerpagetab" class="sheet-powerpagetab sheet-powertab1" value="1" title="Encounter"/>
+		  <span class="sheet-powerpagetab sheet-powertab1">Encounter</span>
+		  
+		  <input type="radio" name="attr_powerpagetab" class="sheet-powerpagetab sheet-powertab2" value="2" title="Daily"/>
+		  <span class="sheet-powerpagetab sheet-powertab2">Daily</span>
+
+		  <!--(for page in range(0,3))-->
+		  <div class="sheet-power-page@!page!@">
+
+		    <!--(for level in range(1,30))-->
+
+		    <br/>
+		    <b>Level @!level!@</b>
+
+
+		    <!-- See PHB page 55 for power card description. -->
+		    <fieldset class="repeating_power@!page!@@!level!@">
+		      <div class="sheet-margin-bottom sheet-padr sheet-padl">
+
 				<div class="sheet-row">
-					<div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Name</div>
-					<div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Type</div>
-					<div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">School</div>
-					<div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Duration</div>
-					<div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
-					<div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-					<div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
-					<div class="sheet-col-1-3 sheet-vert-bottom sheet-center sheet-small-label">Misc</div>
+				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Name</div>
+				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Keywords</div>
+				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Action Type</div>
+				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
+				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
+				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
+				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
 				<div class="sheet-row">
 					<div class="sheet-col-1-8">
 					  <input type="text" name="attr_name" />
 					</div>
-					<div class="sheet-col-1-12">
-					  <select name="attr_type" class="dtype">
-					  <option value="at_will">At Will</option>
-					  <option value="encounter">Encounter</option>
-					  <option value="daily">Daily</option>
-					  </select>
+					<div class="sheet-col-1-8">
+					  <input type="text" name="attr_keywords" />
 					</div>
 					<div class="sheet-col-1-12">
-					  <select name="attr_duration" class="dtype">
-					  <option value="minor">Minor</option>
-					  <option value="standard">Standard</option>
-					  <option value="move">Move</option>
+					  <select name="attr_actiontype" class="dtype">
+					    <option value="standard">Standard</option>
+					    <option value="move">Move</option>
+					    <option value="interrupt">Immediate interrupt</option>
+					    <option value="reaction">Immediate reaction</option>
+					    <option value="minor">Minor</option>
+					    <option value="free">Free</option>
+					    <option value="trigger">Trigger(see notes)</option>
 					  </select> 
 					</div>
-					<div class="sheet-col-1-12">
-					  <select name="attr_target" class="dtype">
-					    <option value="one_creature">One creature</option>
-					  </select>
+					<div class="sheet-col-1-8">
+					  <input type="text" name="attr_attacktype" />
+					</div>
+					<div class="sheet-col-1-8">
+					  <input type="text" name="attr_attacktarget" />
 					</div>
 					<div class="sheet-col-1-12">
 					  <select name="attr_attacker" class="dtype">
@@ -346,6 +368,9 @@
 					    <!--(end)-->
 					  </select>
 					</div>
+					<div class="sheet-col-1-24 sheet-small-label sheet-center">
+					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
+					</div>
 					<div class="sheet-col-1-12">
 					  <select name="attr_attackee" class="dtype">
 					    <!--(for defense in ["ac", "fort", "ref", "will"])-->
@@ -353,13 +378,51 @@
 					    <!--(end)-->
 					  </select>
 					</div>
-					<div class="sheet-col-1-3">
-					  <input type="text" name="attr_misc" />
-					</div>
-					<hr/>
 				</div>
-		  </fieldset>
 
+				
+				<div class="sheet-row">
+				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Requirements</div>
+				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Miss</div>
+				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Secondary</div>
+				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Effect</div>
+				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Sustain</div>
+				</div>
+				<div class="sheet-row">
+				  <div class="sheet-col-1-8">
+				    <input type="text" name="attr_requirements" />
+				  </div>
+				  <div class="sheet-col-1-8">
+				    <input type="text" name="attr_miss" />
+				  </div>
+				  <div class="sheet-col-1-8">
+				    <input type="text" name="secondary" />
+				  </div>
+				  <div class="sheet-col-1-8">
+				    <input type="text" name="effect" />
+				  </div>
+				  <div class="sheet-col-1-8">
+				    <input type="text" name="sustain" />
+				  </div>
+				</div>
+
+				<div class="sheet-row">
+				  <div class="sheet-col-1-2 sheet-vert-bottom sheet-center sheet-small-label">Notes</div>
+				</div>
+				<div class="sheet-row">
+				  <div class="sheet-col-1-2">
+				    <input type="text" name="attr_notes" />
+				  </div>
+				</div>
+				
+		      </div>
+		    </fieldset>
+
+		    <!--(end)-->
+		    
+		    </div>
+
+		  <!--(end)-->
 		  
 		</div>
 
@@ -983,7 +1046,7 @@
 			
 			<!-- BEGIN AUTO GENERATED SPELL PAGES -->
 					<!-- BEGIN new spell page -->
-		<div class="sheet-spell-page0">			<div class="sheet-row sheet-spell-header">
+		<div class="sheet-spell-page0">	<div class="sheet-row sheet-spell-header">
 				<div class="sheet-col-1 sheet-vert-bottom sheet-center sheet-small-label">Cantrip</div>
 			</div>
 			
