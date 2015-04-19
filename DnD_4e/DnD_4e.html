@@ -1,15 +1,16 @@
+
 <div class="sheet-overall-wrapper">
   
-	<!-- PC / NPC toggle -->
-	<input class="sheet-is-npc" type="checkbox" name="attr_is_npc" value="1"><span class="sheet-is-npc-tab"></span>
+  <!-- PC / NPC toggle -->
+  <input class='sheet-is-npc' type='checkbox' name='attr_is_npc' value='2' /><span class="sheet-is-npc-tab"></div>
 	
-	<div class="sheet-core-header sheet-padb">
+	<span class="sheet-core-header sheet-padb">
 		<div class="sheet-row">
 			<div class="sheet-col-1-3 sheet-margin-top"><img src="http://i.imgur.com/Y8KHPKm.png" alt="Dungeons and Dragons (5th edition)"></div>
 			<div class="sheet-col-1-8 sheet-center sheet-margin-top"><p class="sheet-last-updated">Sheet version<br/>29th Mar 2015</p></div>
-			<div class="sheet-col-1-4 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_character_name"><br/>Character Name</div>
-			<div class="sheet-col-1-8 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_race"><br/>Race</div>
-			<div class="sheet-col-1-6 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_class"><br/>Class</div>	
+			<div class="sheet-col-1-4 sheet-small-label sheet-center"><input class='sheet-underlined sheet-center' type='text' name='attr_character_name' value='' /><br/>Character Name</div>
+			<div class="sheet-col-1-8 sheet-small-label sheet-center"><input class='sheet-underlined sheet-center' type='text' name='attr_race' value='' /><br/>Race</div>
+			<div class="sheet-col-1-6 sheet-small-label sheet-center"><input class='sheet-underlined sheet-center' type='text' name='attr_char_class' value='' /><br/>Class</div>
 		</div>
 	</div>
 	<div class="sheet-player">
@@ -51,46 +52,58 @@
 					</div>
 
 					<div class="sheet-row">
-						<div class="sheet-col-1-6"><input type="number" name="attr_strength" min="1" step="1"/></div>
+						<div class="sheet-col-1-6"><input class='' type='number' name='attr_strength' value='' min='1' step='1'/></div>
 						<div class="sheet-col-1-6 sheet-core-stat-label">str</div>
-						<div class="sheet-col-1-6"><input type="number" name="attr_strength_mod" value="(floor((@{strength}-10)/2))" disabled="disabled"/></div>
-						<div class="sheet-col-1-6"><input type="number" name="attr_strength_mod_plus_half_lev" value="@{strength_mod} + floor(@{level}/2)" disabled="disabled"/></div>
-						<div class="sheet-col-1-6 sheet-center"><button type="roll" class="sheet-core-save" name="roll_Strength_Check" value="&{template:4eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=strength check}} {{subheader=@{character_name}}} {{rollname=strength check}} {{roll=[[ 1d20 + @{strength_mod} + (@{global_saving_bonus}) ]]}} {{rolladv=[[ 1d20 + @{strength_mod} + (@{global_saving_bonus}) ]]}} @{classactionstrengthsave}">Check</button></div>
+						<div class="sheet-col-1-6"><input class='' type='number' name='attr_strength_mod' value='(floor((@{strength}-10)/2))' disabled='disabled'/></div>
+						<div class="sheet-col-1-6"><input class='' type='number' name='attr_strength_mod_plus_half_lev' value='@{strength_mod} + floor(@{level}/2)' disabled='disabled'/></div>
+						<div class="sheet-col-1-6 sheet-center">
+						  <button type="roll" class="sheet-core-save" name="roll_Strength_Check"
+							  value="&{template:4eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=strength check}} {{subheader=@{character_name}}} {{rollname=strength check}} {{roll=[[ 1d20 + @{strength_mod} + (@{global_saving_bonus}) ]]}} {{rolladv=[[ 1d20 + @{strength_mod} + (@{global_saving_bonus}) ]]}} @{classactionstrengthsave}">Check</button></div>
 					</div>
 					<div class="sheet-row">
-						<div class="sheet-col-1-6"><input type="number" name="attr_constitution" min="1" step="1"/></div>
+						<div class="sheet-col-1-6"><input class='' type='number' name='attr_constitution' value='' min='1' step='1'/></div>
 						<div class="sheet-col-1-6 sheet-core-stat-label">con</div>
-						<div class="sheet-col-1-6"><input type="number" name="attr_constitution_mod" value="(floor((@{constitution}-10)/2))" disabled="disabled"/></div>
-						<div class="sheet-col-1-6"><input type="number" name="attr_constitution_mod_plus_half_lev" value="@{constitution_mod} + floor(@{level}/2)" disabled="disabled"/></div>
-						<div class="sheet-col-1-6 sheet-center"><button type="roll" class="sheet-core-save" name="roll_Constitution_Check" value="&{template:4eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=constitution check}} {{subheader=@{character_name}}} {{rollname=constitution check}} {{roll=[[ 1d20 + @{constitution_mod} + (@{global_saving_bonus}) ]]}} {{rolladv=[[ 1d20 + @{constitution_mod} + (@{global_saving_bonus}) ]]}} @{classactionstrengthsave}">Check</button></div>
+						<div class="sheet-col-1-6"><input class='' type='number' name='attr_constitution_mod' value='(floor((@{constitution}-10)/2))' disabled='disabled'/></div>
+						<div class="sheet-col-1-6"><input class='' type='number' name='attr_constitution_mod_plus_half_lev' value='@{constitution_mod} + floor(@{level}/2)' disabled='disabled'/></div>
+						<div class="sheet-col-1-6 sheet-center">
+						  <button type="roll" class="sheet-core-save" name="roll_Constitution_Check"
+							  value="&{template:4eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=constitution check}} {{subheader=@{character_name}}} {{rollname=constitution check}} {{roll=[[ 1d20 + @{constitution_mod} + (@{global_saving_bonus}) ]]}} {{rolladv=[[ 1d20 + @{constitution_mod} + (@{global_saving_bonus}) ]]}} @{classactionstrengthsave}">Check</button></div>
 					</div>
 					<div class="sheet-row">
-						<div class="sheet-col-1-6"><input type="number" name="attr_dexterity" min="1" step="1"/></div>
+						<div class="sheet-col-1-6"><input class='' type='number' name='attr_dexterity' value='' min='1' step='1'/></div>
 						<div class="sheet-col-1-6 sheet-core-stat-label">dex</div>
-						<div class="sheet-col-1-6"><input type="number" name="attr_dexterity_mod" value="(floor((@{dexterity}-10)/2))" disabled="disabled"/></div>
-						<div class="sheet-col-1-6"><input type="number" name="attr_dexterity_mod_plus_half_lev" value="@{dexterity_mod} + floor(@{level}/2)" disabled="disabled"/></div>
-						<div class="sheet-col-1-6 sheet-center"><button type="roll" class="sheet-core-save" name="roll_Dexterity_Check" value="&{template:4eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=dexterity check}} {{subheader=@{character_name}}} {{rollname=dexterity check}} {{roll=[[ 1d20 + @{dexterity_mod} + (@{global_saving_bonus}) ]]}} {{rolladv=[[ 1d20 + @{dexterity_mod} + (@{global_saving_bonus}) ]]}} @{classactionstrengthsave}">Check</button></div>
+						<div class="sheet-col-1-6"><input class='' type='number' name='attr_dexterity_mod' value='(floor((@{dexterity}-10)/2))' disabled='disabled'/></div>
+						<div class="sheet-col-1-6"><input class='' type='number' name='attr_dexterity_mod_plus_half_lev' value='@{dexterity_mod} + floor(@{level}/2)' disabled='disabled'/></div>
+						<div class="sheet-col-1-6 sheet-center">
+						  <button type="roll" class="sheet-core-save" name="roll_Dexterity_Check"
+							  value="&{template:4eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=dexterity check}} {{subheader=@{character_name}}} {{rollname=dexterity check}} {{roll=[[ 1d20 + @{dexterity_mod} + (@{global_saving_bonus}) ]]}} {{rolladv=[[ 1d20 + @{dexterity_mod} + (@{global_saving_bonus}) ]]}} @{classactionstrengthsave}">Check</button></div>
 					</div>
 					<div class="sheet-row">
-						<div class="sheet-col-1-6"><input type="number" name="attr_intelligence" min="1" step="1"/></div>
+						<div class="sheet-col-1-6"><input class='' type='number' name='attr_intelligence' value='' min='1' step='1'/></div>
 						<div class="sheet-col-1-6 sheet-core-stat-label">int</div>
-						<div class="sheet-col-1-6"><input type="number" name="attr_intelligence_mod" value="(floor((@{intelligence}-10)/2))" disabled="disabled"/></div>
-						<div class="sheet-col-1-6"><input type="number" name="attr_intelligence_mod_plus_half_lev" value="@{intelligence_mod} + floor(@{level}/2)" disabled="disabled"/></div>
-						<div class="sheet-col-1-6 sheet-center"><button type="roll" class="sheet-core-save" name="roll_Intelligence_Check" value="&{template:4eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=intelligence check}} {{subheader=@{character_name}}} {{rollname=intelligence check}} {{roll=[[ 1d20 + @{intelligence_mod} + (@{global_saving_bonus}) ]]}} {{rolladv=[[ 1d20 + @{intelligence_mod} + (@{global_saving_bonus}) ]]}} @{classactionstrengthsave}">Check</button></div>
+						<div class="sheet-col-1-6"><input class='' type='number' name='attr_intelligence_mod' value='(floor((@{intelligence}-10)/2))' disabled='disabled'/></div>
+						<div class="sheet-col-1-6"><input class='' type='number' name='attr_intelligence_mod_plus_half_lev' value='@{intelligence_mod} + floor(@{level}/2)' disabled='disabled'/></div>
+						<div class="sheet-col-1-6 sheet-center">
+						  <button type="roll" class="sheet-core-save" name="roll_Intelligence_Check"
+							  value="&{template:4eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=intelligence check}} {{subheader=@{character_name}}} {{rollname=intelligence check}} {{roll=[[ 1d20 + @{intelligence_mod} + (@{global_saving_bonus}) ]]}} {{rolladv=[[ 1d20 + @{intelligence_mod} + (@{global_saving_bonus}) ]]}} @{classactionstrengthsave}">Check</button></div>
 					</div>
 					<div class="sheet-row">
-						<div class="sheet-col-1-6"><input type="number" name="attr_wisdom" min="1" step="1"/></div>
+						<div class="sheet-col-1-6"><input class='' type='number' name='attr_wisdom' value='' min='1' step='1'/></div>
 						<div class="sheet-col-1-6 sheet-core-stat-label">wis</div>
-						<div class="sheet-col-1-6"><input type="number" name="attr_wisdom_mod" value="(floor((@{wisdom}-10)/2))" disabled="disabled"/></div>
-						<div class="sheet-col-1-6"><input type="number" name="attr_wisdom_mod_plus_half_lev" value="@{wisdom_mod} + floor(@{level}/2)" disabled="disabled"/></div>
-						<div class="sheet-col-1-6 sheet-center"><button type="roll" class="sheet-core-save" name="roll_Wisdom_Check" value="&{template:4eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=wisdom check}} {{subheader=@{character_name}}} {{rollname=wisdom check}} {{roll=[[ 1d20 + @{wisdom_mod} + (@{global_saving_bonus}) ]]}} {{rolladv=[[ 1d20 + @{wisdom_mod} + (@{global_saving_bonus}) ]]}} @{classactionstrengthsave}">Check</button></div>
+						<div class="sheet-col-1-6"><input class='' type='number' name='attr_wisdom_mod' value='(floor((@{wisdom}-10)/2))' disabled='disabled'/></div>
+						<div class="sheet-col-1-6"><input class='' type='number' name='attr_wisdom_mod_plus_half_lev' value='@{wisdom_mod} + floor(@{level}/2)' disabled='disabled'/></div>
+						<div class="sheet-col-1-6 sheet-center">
+						  <button type="roll" class="sheet-core-save" name="roll_Wisdom_Check"
+							  value="&{template:4eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=wisdom check}} {{subheader=@{character_name}}} {{rollname=wisdom check}} {{roll=[[ 1d20 + @{wisdom_mod} + (@{global_saving_bonus}) ]]}} {{rolladv=[[ 1d20 + @{wisdom_mod} + (@{global_saving_bonus}) ]]}} @{classactionstrengthsave}">Check</button></div>
 					</div>
 					<div class="sheet-row">
-						<div class="sheet-col-1-6"><input type="number" name="attr_charisma" min="1" step="1"/></div>
+						<div class="sheet-col-1-6"><input class='' type='number' name='attr_charisma' value='' min='1' step='1'/></div>
 						<div class="sheet-col-1-6 sheet-core-stat-label">cha</div>
-						<div class="sheet-col-1-6"><input type="number" name="attr_charisma_mod" value="(floor((@{charisma}-10)/2))" disabled="disabled"/></div>
-						<div class="sheet-col-1-6"><input type="number" name="attr_charisma_mod_plus_half_lev" value="@{charisma_mod} + floor(@{level}/2)" disabled="disabled"/></div>
-						<div class="sheet-col-1-6 sheet-center"><button type="roll" class="sheet-core-save" name="roll_Charisma_Check" value="&{template:4eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=charisma check}} {{subheader=@{character_name}}} {{rollname=charisma check}} {{roll=[[ 1d20 + @{charisma_mod} + (@{global_saving_bonus}) ]]}} {{rolladv=[[ 1d20 + @{charisma_mod} + (@{global_saving_bonus}) ]]}} @{classactionstrengthsave}">Check</button></div>
+						<div class="sheet-col-1-6"><input class='' type='number' name='attr_charisma_mod' value='(floor((@{charisma}-10)/2))' disabled='disabled'/></div>
+						<div class="sheet-col-1-6"><input class='' type='number' name='attr_charisma_mod_plus_half_lev' value='@{charisma_mod} + floor(@{level}/2)' disabled='disabled'/></div>
+						<div class="sheet-col-1-6 sheet-center">
+						  <button type="roll" class="sheet-core-save" name="roll_Charisma_Check"
+							  value="&{template:4eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=charisma check}} {{subheader=@{character_name}}} {{rollname=charisma check}} {{roll=[[ 1d20 + @{charisma_mod} + (@{global_saving_bonus}) ]]}} {{rolladv=[[ 1d20 + @{charisma_mod} + (@{global_saving_bonus}) ]]}} @{classactionstrengthsave}">Check</button></div>
 					</div>
 					
 				</div>
@@ -607,10 +620,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -648,7 +658,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -716,10 +725,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -757,7 +763,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -825,10 +830,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -866,7 +868,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -934,10 +935,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -975,7 +973,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -1043,10 +1040,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -1084,7 +1078,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -1152,10 +1145,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -1193,7 +1183,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -1261,10 +1250,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -1302,7 +1288,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -1370,10 +1355,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -1411,7 +1393,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -1479,10 +1460,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -1520,7 +1498,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -1588,10 +1565,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -1629,7 +1603,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -1697,10 +1670,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -1738,7 +1708,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -1806,10 +1775,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -1847,7 +1813,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -1915,10 +1880,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -1956,7 +1918,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -2024,10 +1985,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -2065,7 +2023,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -2133,10 +2090,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -2174,7 +2128,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -2242,10 +2195,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -2283,7 +2233,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -2351,10 +2300,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -2392,7 +2338,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -2460,10 +2405,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -2501,7 +2443,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -2569,10 +2510,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -2610,7 +2548,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -2678,10 +2615,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -2719,7 +2653,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -2787,10 +2720,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -2828,7 +2758,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -2896,10 +2825,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -2937,7 +2863,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -3005,10 +2930,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -3046,7 +2968,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -3114,10 +3035,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -3155,7 +3073,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -3223,10 +3140,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -3264,7 +3178,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -3332,10 +3245,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -3373,7 +3283,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -3441,10 +3350,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -3482,7 +3388,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -3550,10 +3455,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -3591,7 +3493,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -3659,10 +3560,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -3700,7 +3598,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -3773,10 +3670,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -3814,7 +3708,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -3882,10 +3775,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -3923,7 +3813,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -3991,10 +3880,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -4032,7 +3918,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -4100,10 +3985,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -4141,7 +4023,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -4209,10 +4090,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -4250,7 +4128,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -4318,10 +4195,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -4359,7 +4233,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -4427,10 +4300,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -4468,7 +4338,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -4536,10 +4405,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -4577,7 +4443,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -4645,10 +4510,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -4686,7 +4548,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -4754,10 +4615,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -4795,7 +4653,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -4863,10 +4720,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -4904,7 +4758,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -4972,10 +4825,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -5013,7 +4863,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -5081,10 +4930,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -5122,7 +4968,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -5190,10 +5035,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -5231,7 +5073,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -5299,10 +5140,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -5340,7 +5178,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -5408,10 +5245,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -5449,7 +5283,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -5517,10 +5350,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -5558,7 +5388,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -5626,10 +5455,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -5667,7 +5493,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -5735,10 +5560,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -5776,7 +5598,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -5844,10 +5665,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -5885,7 +5703,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -5953,10 +5770,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -5994,7 +5808,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -6062,10 +5875,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -6103,7 +5913,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -6171,10 +5980,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -6212,7 +6018,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -6280,10 +6085,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -6321,7 +6123,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -6389,10 +6190,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -6430,7 +6228,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -6498,10 +6295,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -6539,7 +6333,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -6607,10 +6400,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -6648,7 +6438,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -6716,10 +6505,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -6757,7 +6543,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -6825,10 +6610,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -6866,7 +6648,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -6939,10 +6720,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -6980,7 +6758,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -7048,10 +6825,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -7089,7 +6863,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -7157,10 +6930,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -7198,7 +6968,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -7266,10 +7035,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -7307,7 +7073,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -7375,10 +7140,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -7416,7 +7178,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -7484,10 +7245,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -7525,7 +7283,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -7593,10 +7350,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -7634,7 +7388,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -7702,10 +7455,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -7743,7 +7493,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -7811,10 +7560,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -7852,7 +7598,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -7920,10 +7665,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -7961,7 +7703,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -8029,10 +7770,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -8070,7 +7808,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -8138,10 +7875,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -8179,7 +7913,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -8247,10 +7980,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -8288,7 +8018,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -8356,10 +8085,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -8397,7 +8123,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -8465,10 +8190,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -8506,7 +8228,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -8574,10 +8295,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -8615,7 +8333,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -8683,10 +8400,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -8724,7 +8438,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -8792,10 +8505,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -8833,7 +8543,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -8901,10 +8610,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -8942,7 +8648,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -9010,10 +8715,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -9051,7 +8753,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -9119,10 +8820,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -9160,7 +8858,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -9228,10 +8925,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -9269,7 +8963,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -9337,10 +9030,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -9378,7 +9068,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -9446,10 +9135,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -9487,7 +9173,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -9555,10 +9240,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -9596,7 +9278,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -9664,10 +9345,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -9705,7 +9383,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -9773,10 +9450,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -9814,7 +9488,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -9882,10 +9555,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -9923,7 +9593,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>
@@ -9991,10 +9660,7 @@
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
 				  <div class="sheet-col-1-8 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
-				  
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label"></div>
-				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">Bonus</div>
-				  
+				  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
 				  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
 				</div>
 				
@@ -10032,7 +9698,6 @@
 					    <option value="charisma">Charisma</option>
 					  </select>
 					</div>
-					<div class="sheet-col-1-24 sheet-small-label sheet-center">+</div>
 					<div class="sheet-col-1-24 sheet-small-label sheet-center">
 					  <input type="number" name="attr_attackbonus" min="0" step="1"/>
 					</div>

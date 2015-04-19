@@ -1,15 +1,19 @@
+<!--(set_escape)-->
+  None
+<!--(end)-->
+
 <div class="sheet-overall-wrapper">
   
-	<!-- PC / NPC toggle -->
-	<input class="sheet-is-npc" type="checkbox" name="attr_is_npc" value="1"><span class="sheet-is-npc-tab"></span>
+  <!-- PC / NPC toggle -->
+  @!in_check(is_npc, cls='sheet-is-npc')!@<span class="sheet-is-npc-tab"></div>
 	
-	<div class="sheet-core-header sheet-padb">
+	<span class="sheet-core-header sheet-padb">
 		<div class="sheet-row">
 			<div class="sheet-col-1-3 sheet-margin-top"><img src="http://i.imgur.com/Y8KHPKm.png" alt="Dungeons and Dragons (5th edition)"></div>
 			<div class="sheet-col-1-8 sheet-center sheet-margin-top"><p class="sheet-last-updated">Sheet version<br/>29th Mar 2015</p></div>
-			<div class="sheet-col-1-4 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_character_name"><br/>Character Name</div>
-			<div class="sheet-col-1-8 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_race"><br/>Race</div>
-			<div class="sheet-col-1-6 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_class"><br/>Class</div>	
+			<div class="sheet-col-1-4 sheet-small-label sheet-center">@!in_text(character_name, cls='sheet-underlined sheet-center')!@<br/>Character Name</div>
+			<div class="sheet-col-1-8 sheet-small-label sheet-center">@!in_text(race, cls='sheet-underlined sheet-center')!@<br/>Race</div>
+			<div class="sheet-col-1-6 sheet-small-label sheet-center">@!in_text(char_class, cls='sheet-underlined sheet-center')!@<br/>Class</div>
 		</div>
 	</div>
 	<div class="sheet-player">
@@ -50,13 +54,15 @@
 						<div class="sheet-col-1-6 sheet-center sheet-small-label">Mod + 1/2 Level</div>
 					</div>
 
-					<!--(for ability in ["strength", "constitution", "dexterity", "intelligence", "wisdom", "charisma"])-->
+					<!--(for grp in [grp_str, grp_con, grp_dex, grp_int, grp_wis, grp_cha])-->
 					<div class="sheet-row">
-						<div class="sheet-col-1-6"><input type="number" name="attr_@!ability!@" min="1" step="1"/></div>
-						<div class="sheet-col-1-6 sheet-core-stat-label">@!ability[0:3]!@</div>
-						<div class="sheet-col-1-6"><input type="number" name="attr_@!ability!@_mod" value="(floor((@{@!ability!@}-10)/2))" disabled="disabled"/></div>
-						<div class="sheet-col-1-6"><input type="number" name="attr_@!ability!@_mod_plus_half_lev" value="@{@!ability!@_mod} + floor(@{level}/2)" disabled="disabled"/></div>
-						<div class="sheet-col-1-6 sheet-center"><button type="roll" class="sheet-core-save" name="roll_@!ability.capitalize()!@_Check" value="&{template:4eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=@!ability!@ check}} {{subheader=@{character_name}}} {{rollname=@!ability!@ check}} {{roll=[[ 1d20 + @{@!ability!@_mod} + (@{global_saving_bonus}) ]]}} {{rolladv=[[ 1d20 + @{@!ability!@_mod} + (@{global_saving_bonus}) ]]}} @{classactionstrengthsave}">Check</button></div>
+						<div class="sheet-col-1-6">@!in_num(grp.ability, minimum=1)!@</div>
+						<div class="sheet-col-1-6 sheet-core-stat-label">@!grp.ability.name[0:3]!@</div>
+						<div class="sheet-col-1-6">@!in_num(grp.mod)!@</div>
+						<div class="sheet-col-1-6">@!in_num(grp.mod_plus_half_lev)!@</div>
+						<div class="sheet-col-1-6 sheet-center">
+						  <button type="roll" class="sheet-core-save" name="@!grp.roll.name!@"
+							  value="@!grp.roll.value!@">Check</button></div>
 					</div>
 					<!--(end)-->
 					
