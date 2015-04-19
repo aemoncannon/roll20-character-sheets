@@ -9,7 +9,7 @@
 	
 	<span class="sheet-core-header sheet-padb">
 		<div class="sheet-row">
-			<div class="sheet-col-1-3 sheet-margin-top"><img src="http://i.imgur.com/Y8KHPKm.png" alt="Dungeons and Dragons (5th edition)"></div>
+			<div class="sheet-col-1-3 sheet-margin-top"><img src="http://i.imgur.com/Y8KHPKm.png" alt="Dungeons and Dragons (4th edition)"></div>
 			<div class="sheet-col-1-8 sheet-center sheet-margin-top"><p class="sheet-last-updated">Sheet version<br/>29th Mar 2015</p></div>
 			<div class="sheet-col-1-4 sheet-small-label sheet-center">@!in_text(character_name, cls='sheet-underlined sheet-center')!@<br/>Character Name</div>
 			<div class="sheet-col-1-8 sheet-small-label sheet-center">@!in_text(race, cls='sheet-underlined sheet-center')!@<br/>Race</div>
@@ -56,7 +56,7 @@
 
 					<!--(for grp in [grp_str, grp_con, grp_dex, grp_int, grp_wis, grp_cha])-->
 					<div class="sheet-row">
-						<div class="sheet-col-1-6">@!in_num(grp.ability, minimum=1)!@</div>
+						<div class="sheet-col-1-6">@!in_num(grp.ability)!@</div>
 						<div class="sheet-col-1-6 sheet-core-stat-label">@!grp.ability.name[0:3]!@</div>
 						<div class="sheet-col-1-6">@!in_num(grp.mod)!@</div>
 						<div class="sheet-col-1-6">@!in_num(grp.mod_plus_half_lev)!@</div>
@@ -75,13 +75,18 @@
 					<div class="sheet-row sheet-padb">
 						<div class="sheet-col-1-2 sheet-padr sheet-border-right">
 							<div class="sheet-row">
-								<div class="sheet-col-1-2 sheet-small-label sheet-center"><input class="sheet-underlined" type="number" name="attr_HP" step="1"><br/>Current</div>
-								<div class="sheet-col-1-2 sheet-small-label sheet-center"><input class="sheet-underlined" type="number" name="attr_HP_max" min="1" step="1"><br/>Max</div>
+							  <div class="sheet-col-1-2 sheet-small-label sheet-center">
+							    @!in_num(HP, cls='sheet-underlined')!@<br/>Current</div>
+							  <div class="sheet-col-1-2 sheet-small-label sheet-center">
+							    @!in_num(HP_max, cls='sheet-underlined')!@
+							    <br/>Max</div>
 							</div>
 						</div>
 						
-						<div class="sheet-col-1-4 sheet-padl sheet-padr sheet-border-right sheet-small-label sheet-center"><input class="sheet-underlined" type="number" name="attr_temp_HP" value="0" min="0" step="1" ><br/>Temp HP</div>
-						<div class="sheet-col-1-4 sheet-padl sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_speed" ><br/>Speed</div>
+						<div class="sheet-col-1-4 sheet-padl sheet-padr sheet-border-right sheet-small-label sheet-center">
+						  @!in_num(temp_HP, cls='sheet-underlined')!@<br/>Temp HP</div>
+						<div class="sheet-col-1-4 sheet-padl sheet-small-label sheet-center">
+						  @!in_num(speed, cls='sheet-underlined sheet-center')!@<br/>Speed</div>
 					</div>
 					
 					<div class="sheet-row">
@@ -89,9 +94,14 @@
 						<div class="sheet-col-1-2">
 							<h4 class="sheet-center">Initiative <span class="sheet-pictos">t</span></h4>
 							<div class="sheet-row sheet-padr">
-								<div class="sheet-col-1-3 sheet-small-label sheet-center" title="Only enter additional bonuses to initiative here. Your Dex mod is already included in the macro button"><input class="sheet-underlined sheet-center" type="number" name="attr_initiative" value="0" step="1"><br/>Bonus</div>
-								<div class="sheet-col-1-3 sheet-small-label sheet-center"><input class="sheet-underlined" type="number" name="attr_initiative_overall" value="@{dexterity_mod} + @{initiative}" disabled="disabled"><br/>Total</div>
-								<div class="sheet-col-1-3 sheet-center"><button type="roll" class="sheet-initiative sheet-large-button" name="roll_Initiative" value="&{template:5eDefault} {{title=Initiative}} {{subheader=@{character_name}}} {{rollname=Initiative}} {{roll=[[ 1d20 + @{selected|initiative_overall} [Initiative Mod] &{tracker} ]]}} @{classactioninitiative}">Initiative</button></div>
+							  <div class="sheet-col-1-3 sheet-small-label sheet-center" title="Only enter additional bonuses to initiative here. Your Dex mod is already included in the macro button">
+							    @!in_num(initiative, cls='sheet-underlined sheet-center')!@
+
+							    <br/>Bonus</div>
+							  <div class="sheet-col-1-3 sheet-small-label sheet-center">
+							    @!out_num(initiative_overall, cls='sheet-underlined')!@
+							    <br/>Total</div>
+								<div class="sheet-col-1-3 sheet-center"><button type="roll" class="sheet-initiative sheet-large-button" name="@!roll_init!@" value="@!roll_init.value!@">Initiative</button></div>
 							</div>
 						</div>
 						
@@ -99,8 +109,9 @@
 							<h4 class="sheet-center">Armour Class <span class="sheet-pictos-three">b</span></h4>
 							
 							<div class="sheet-row sheet-padb">
-								<div class="sheet-col-1-2 sheet-small-label sheet-center"><input class="sheet-underlined" type="number" name="attr_AC" value="@{AC_calc}" disabled="disabled" ><br/>AC (worn armour)</div>						
-								<div class="sheet-col-1-2 sheet-small-label sheet-center"><input class="sheet-underlined" type="number" name="attr_AC_no_armour" value="@{AC_no_armour_calc}" disabled="disabled"><br/>AC (no armour)</div>
+							  <div class="sheet-col-1-2 sheet-small-label sheet-center">
+							    @!out_num(AC, cls='sheet-underlined')!@
+							    <br/>AC (worn armour)</div>
 							</div>
 						</div>
 						
@@ -108,9 +119,14 @@
 					
 					<h4 class="sheet-center">Level and Experience<span class="sheet-pictos-three">d</span></h4>
 					<div class="sheet-row">
-					  <div class="sheet-col-1-4 sheet-small-label sheet-center"><input class="sheet-underlined" type="number" name="attr_level" min="0" step="1"><br/>Level</div>
-						<div class="sheet-col-1-4 sheet-small-label sheet-center"><input class="sheet-underlined" type="number" name="attr_xp" min="0" step="1"><br/>Current XP</div>
-						<div class="sheet-col-1-4 sheet-small-label sheet-center"><input class="sheet-underlined" type="number" name="attr_xp_next_level" min="0" step="1"><br/>XP for next level</div>
+					  <div class="sheet-col-1-4 sheet-small-label sheet-center">
+					    @!in_num(level, cls='sheet-underlined')!@<br/>Level</div>
+					  <div class="sheet-col-1-4 sheet-small-label sheet-center">
+					    @!in_num(xp, cls='sheet-underlined')!@
+					    <br/>Current XP</div>
+					  <div class="sheet-col-1-4 sheet-small-label sheet-center">
+					    @!in_num(xp_next_level, cls='sheet-underlined')!@
+					    <br/>XP for next level</div>
 					</div>
 
 					<h4 class="sheet-center">Defenses</h4>
@@ -121,35 +137,26 @@
 					  <div class="sheet-col-1-6 sheet-center sheet-small-label">10 + 1/2 Lev.</div>
 					  <div class="sheet-col-1-6 sheet-center sheet-small-label">Armor/Abil.</div>
 					  <div class="sheet-col-1-6 sheet-center sheet-small-label">Class</div>
-					  <div class="sheet-col-1-6 sheet-center sheet-small-label">Misc</div>
 					</div>
 
-					<!--(for defense in ["ac", "fort", "ref", "will"])-->
-					<div class="sheet-row">
-					  
-					  <div class="sheet-col-1-6"><input type="number" name="attr_@!defense!@" value="@{@!defense!@_bonus} + @{@!defense!@_class_bonus} + @{@!defense!@_misc_bonus} + @{10_plus_half_level}" disabled="disabled"/></div>
-
-					  <div class="sheet-col-1-6 sheet-core-stat-label">@!defense.upper()!@</div>
-					  
-					  <div class="sheet-col-1-6"><input type="number" name="attr_10_plus_half_level" value="10 + floor(@{level}/2)" disabled="disabled"></div>
-
-					  <div class="sheet-col-1-6"><input type="number" name="attr_@!defense!@_bonus" 
-					    <!--(if defense == "ac")-->
-					    value="@{armor_bonus}"
-					    <!--(elif defense == "fort")-->
-					    value="@!max('@{strength_mod}', '@{constitution_mod}')!@"
-					    <!--(elif defense == "ref")-->
-					    value="@!max('@{dexterity_mod}', '@{intelligence_mod}')!@ + @{armor_prof_penalty}"
-					    <!--(elif defense == "will")-->
-					    value="@!max('@{wisdom_mod}', '@{charisma_mod}')!@"
-					    <!--(end)-->
-					    disabled="disabled"/></div>
-					  
-					  <div class="sheet-col-1-6"><input type="number" name="attr_@!defense!@_class_bonus" min="0" step="1" value="0"/></div>
-
-					  <div class="sheet-col-1-6"><input type="number" name="attr_@!defense!@_misc_bonus" min="0" step="1" value="0"/></div>
-
-					</div>
+					<!--(for grp in [grp_ac, grp_fort, grp_ref, grp_will])-->
+					  <div class="sheet-row">
+					    <div class="sheet-col-1-6">
+					      @!out_num(grp.defense)!@
+					    </div>
+					    <div class="sheet-col-1-6 sheet-core-stat-label">
+					      @!grp.label!@
+					    </div>
+					    <div class="sheet-col-1-6">
+					      @!out_num(grp.half_lev)!@
+					    </div>
+					    <div class="sheet-col-1-6">
+					      @!out_num(grp.mod)!@
+					    </div>
+					    <div class="sheet-col-1-6">
+					      @!out_num(grp.class_mod)!@
+					    </div>
+					  </div>
 					<!--(end)-->
 					
 				</div>

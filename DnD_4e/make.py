@@ -48,8 +48,8 @@ def in_check(attr, checked=False, cls=""):
 def in_text(attr, cls=""):
     return el_in(attr, cls=cls)
 
-def in_num(attr, cls="", minimum="0", step="1"):
-    return el_in(attr, tpe="number", cls=cls, extra="min='%s' step='%s'" % (minimum, step))
+def in_num(attr, cls="", step="1"):
+    return el_in(attr, tpe="number", cls=cls, extra="min='%s' step='%s'" % (attr.minimum, step))
 
 def out_text(attr, cls=""):
     return el_in(attr, cls=cls, extra="disabled='disabled'")
@@ -61,9 +61,10 @@ all_attrs = {}
 
 class Attr(object):
 
-    def __init__(self, name, value=""):
+    def __init__(self, name, value="", minimum=0):
         self.name = name
         self.value = value
+        self.minimum = 0
         all_attrs[self.name] = self
 
     def __str__(self):
@@ -88,18 +89,47 @@ class Group(object):
     def __getattr__(self, name):
         return self.attrs[name]
 
-# Inputs
 Attr("is_npc", value="2")
 Attr("char_class")
 Attr("race")
 Attr("character_name")
 for abil in ["strength", "constitution", "dexterity", "intelligence", "wisdom", "charisma"]:
-    a = Attr(abil)
+    a = Attr(abil, minimum=1)
     b = Attr(abil + "_mod", value="(floor((@{%s}-10)/2))" % abil)
     c = Attr(abil + "_mod_plus_half_lev", value="@{%s_mod} + floor(@{level}/2)" % abil)
     d = Roll("roll_%s_Check" % abil.capitalize(),
              "&{template:4eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=%s check}} {{subheader=@{character_name}}} {{rollname=%s check}} {{roll=[[ 1d20 + @{%s_mod} + (@{global_saving_bonus}) ]]}} {{rolladv=[[ 1d20 + @{%s_mod} + (@{global_saving_bonus}) ]]}} @{classactionstrengthsave}" % (abil, abil, abil, abil))
     Group("grp_" + abil[0:3], {'ability': a, 'mod': b, 'mod_plus_half_lev': c, 'roll': d, 'label': abil[0:3].upper()})
+
+for defense in ["ac", "fort", "ref", "will"]:
+    a = Attr(defense, value="@{%s_bonus} + @{%s_class_bonus} + @{%s_misc_bonus} + @{10_plus_half_level}" % (defense, defense, defense))
+    b = Attr(defense + "_10_plus_half_level", value="@{10_plus_half_level}")
+    c = None
+    if defense == "ac":
+        c = Attr(defense + "_ability_bonus", value="@{armor_bonus}")
+    elif defense == "fort":
+        c = Attr(defense + "_ability_bonus", value=template_max('@{strength_mod}', '@{constitution_mod}'))
+    elif defense == "ref":
+        c = Attr(defense + "_ability_bonus", value=template_max('@{dexterity_mod}', '@{intelligence_mod}') + " + @{armor_prof_penalty}")
+    elif defense == "will":
+        c = Attr(defense + "_ability_bonus", value=template_max('@{wisdom_mod}', '@{charism_mod}'))
+    d = Attr(defense + "_class_bonus")
+    Group("grp_" + defense, {'defense': a, 'half_lev': b, 'mod': c, 'class_mod': d, 'label': defense.upper()})
+
+Attr("HP")
+Attr("HP_max", minimum=1)
+Attr("temp_HP")
+Attr("speed")
+Attr("initiative")
+Attr("initiative_overall", value="@{dexterity_mod} + @{initiative}")
+Attr("AC", value="@{AC_calc}")
+
+Roll("roll_init", "&{template:5eDefault} {{title=Initiative}} {{subheader=@{character_name}}} {{rollname=Initiative}} {{roll=[[ 1d20 + @{selected|initiative_overall} [Initiative Mod] &{tracker} ]]}} @{classactioninitiative}")
+
+Attr("level")
+Attr("xp")
+Attr("xp_next_level")
+Attr("10_plus_half_level", value="10 + floor(@{level}/2)")
     
 t = pyratemp.Template(filename="DnD_4e.html.template")
 
