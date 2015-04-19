@@ -116,6 +116,36 @@ for defense in ["ac", "fort", "ref", "will"]:
     d = Attr(defense + "_class_bonus")
     Group("grp_" + defense, {'defense': a, 'half_lev': b, 'mod': c, 'class_mod': d, 'label': defense.upper()})
 
+
+for pair in [('acrobatics', 'dexterity'),
+              ('arcana', 'intelligence'),
+              ('athletics', 'strength'),
+              ('bluff', 'charisma'),
+              ('diplomacy', 'charisma'),
+              ('dungeoneering', 'wisdom'),
+              ('endurance', 'constitution'),
+              ('heal', 'wisdom'),
+              ('history', 'intelligence'),
+              ('insight', 'wisdom'),
+              ('intimidate', 'charisma'),
+              ('nature', 'wisdom'),
+              ('perception', 'wisdom'),
+              ('religion', 'intelligence'),
+              ('stealth', 'dexterity'),
+              ('streetwise', 'charisma'),
+              ('thievery', 'dexterity')]:
+    skill, abil =  pair
+    roll = Roll("roll_%s_Check", value="&{template:5eDefault} {{ability=1}} {{title=%s (%s)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{%s} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{%s} + (@{global_check_bonus}) ]]}} @{classaction%s}" % (skill.capitalize(),skill.capitalize(), abil, skill, skill, skill))
+    label = "%s (%s)" % (skill.capitalize(), abil[0:3])
+    a = Attr(skill + "_trained_bonus", value="5")
+    b = None
+    if abil in ['strength', 'dexterity', 'constitution']:
+        b = Attr(skill + "_armor_check_penalty", value="@{armor_check_penalty}")
+    else:
+        b = Attr(skill + "_armor_check_penalty", value="0")
+    c = Attr(skill, value="@{%s_trained_bonus} + @{%s_mod_plus_half_lev} + @{%s_armor_check_penalty}" % (skill, abil, skill))
+    d = Attr("passive_" + skill, value="10 + @{%s}" % skill)
+
 Attr("HP")
 Attr("HP_max", minimum=1)
 Attr("temp_HP")
