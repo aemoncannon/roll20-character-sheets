@@ -220,25 +220,28 @@
 						<div class="sheet-col-1-12 sheet-offset-1-24 sheet-center sheet-small-label">Passive</div>
 					</div>
 
-
-					<!--(for skill in [('acrobatics', 'dexterity'),('arcana', 'intelligence'),('athletics', 'strength'),('bluff', 'charisma'),('diplomacy', 'charisma'),('dungeoneering', 'wisdom'),('endurance', 'constitution'),('heal', 'wisdom'),('history', 'intelligence'),('insight', 'wisdom'),('intimidate', 'charisma'),('nature', 'wisdom'),('perception', 'wisdom'),('religion', 'intelligence'),('stealth', 'dexterity'),('streetwise', 'charisma'),('thievery', 'dexterity')])-->
-					<div class="sheet-row sheet-skill-row">
-						<div class="sheet-col-1-12"><button class="sheet-skill-roll" type="roll" name="roll_@!skill[0].capitalize()!@_Check" value="&{template:5eDefault} {{ability=1}} {{title=@!skill[0].capitalize()!@ (@!skill[1]!@)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{@!skill[0]!@} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{@!skill[0]!@} + (@{global_check_bonus}) ]]}} @{classaction@!skill[0]!@}"></button></div>
-						<div class="sheet-col-1-6 sheet-skill-name">@!skill[0].capitalize()!@ (@!skill[1][0:3]!@)</div>
-						<div class="sheet-col-1-12">
-							<input type="checkbox" name="attr_@!skill[0]!@_prof_exp" value="5"/>
-						</div>
-						<!--(if skill[1] in ['strength', 'dexterity', 'constitution'])-->
-						<div class="sheet-col-1-12"><input type="number" name="attr_@!skill[0]!@_armor_check_penalty" value="@{armor_check_penalty}" disabled="disabled"></div>
-						<!--(else)-->
-						<div class="sheet-col-1-12"><input type="number" name="attr_@!skill[0]!@_armor_check_penalty" value="0" disabled="disabled"></div>
-						<!--(end)-->
-
-						<!-- total modifier for this skill -->
-						<div class="sheet-col-1-12"><input type="number" name="attr_@!skill[0]!@" value="@{@!skill[0]!@_prof_exp} + @{@!skill[1]!@_mod_plus_half_lev} + @{@!skill[0]!@_armor_check_penalty}" disabled="disabled"></div>
-						
-						<div class="sheet-col-1-12 sheet-offset-1-24"><input type="number" class="sheet-passive-skill-score" name="attr_passive_@!skill[0]!@" value="10 + @{@!skill[0]!@}" disabled="disabled"></div>
-					</div>
+					<!--(for grp in skill_groups)-->
+					  <div class="sheet-row sheet-skill-row">
+					    <div class="sheet-col-1-12">
+					      <button class="sheet-skill-roll" type="roll"
+					  	    name="@!grp.roll.name!@" value="@!grp.roll.value!@"></button>
+					    </div>
+					    <div class="sheet-col-1-6 sheet-skill-name">
+					      @!grp.label!@
+					    </div>
+					    <div class="sheet-col-1-12">
+					      @!in_check(grp.trained)!@
+					    </div>
+					    <div class="sheet-col-1-12">
+					      @!out_num(grp.armor_penalty)!@
+					    </div>
+					    <div class="sheet-col-1-12">
+					      @!out_num(grp.total)!@
+					    </div>
+					    <div class="sheet-col-1-12 sheet-offset-1-24">
+					      @!out_num(grp.passive, cls="sheet-passive-skill-score")!@
+					    </div>
+					  </div>
 					<!--(end)-->
 					
 				</div>
@@ -4521,12 +4524,18 @@
 			<div class="sheet-row sheet-padb">
 
 			  <!-- sum up the armor bonuses for all worn armor -->
-			  <div class="sheet-col-1-5 sheet-small-label sheet-center">AC<input class="sheet-underlined" type="number" name="attr_armor_bonus" value="@!sum_range('armor_worn_bonus', 1, 10)!@" disabled="disabled" ></div>
+			  <div class="sheet-col-1-5 sheet-small-label sheet-center">
+			    AC @!out_num(armor_bonus, cls="sheet-underlined")!@
+			  </div>
 
 			  <!-- sum up the armor check penalties for all worn armor -->
-			  <div class="sheet-col-1-5 sheet-small-label sheet-center">Armor Check Penalty<input class="sheet-underlined" type="number" name="attr_armor_check_penalty" value="@!sum_range('armor_worn_check_penalty', 1, 10)!@" disabled="disabled" ></div>
+			  <div class="sheet-col-1-5 sheet-small-label sheet-center">
+			    Armor Check Penalty @!out_num(armor_check_penalty, cls="sheet-underlined")!@
+			  </div>
 
-			  <div class="sheet-col-1-5 sheet-small-label sheet-center">Armor Prof. Penalty<input class="sheet-underlined" type="number" name="attr_armor_prof_penalty" value="@!sum_range('armor_worn_prof_penalty', 1, 10)!@" disabled="disabled" ></div>
+			  <div class="sheet-col-1-5 sheet-small-label sheet-center">
+			    Armor Prof. Penalty @!out_num(armor_prof_penalty, cls="sheet-underlined")!@"
+			  </div>
 			  
 			</div>
 					
@@ -4547,35 +4556,59 @@
 					</div>
 					
 
-					<!--(for i in range(1,11))-->
+					<!--(for grp in armor_groups)-->
 
 					<div class="sheet-row">
 
 					  <!-- the contribution of this armor, if it's worn -->
-					  <input type="hidden" name="attr_armor_worn_bonus@!i!@" value="@{armor_worn@!i!@} * @{armourtotalAC@!i!@}" />
+					  @!out_hidden(grp.armor_worn_bonus)!@
+
 					  <!-- the armor check penalty for this armor, if it's worn -->
-					  <input type="hidden" name="attr_armor_worn_check_penalty@!i!@" value="@{armor_worn@!i!@} * @{armor_check_penalty@!i!@}" />
+					  @!out_hidden(grp.armor_worn_check_penalty)!@
+
 					  <!-- the penalty for this armor, if it's worn and we're not proficient. -->
-					  <input type="hidden" name="attr_armor_worn_prof_penalty@!i!@" value="@{armor_worn@!i!@} * @!neg('@{armor_prof' + str(i) + '}')!@ * -2" />
+					  @!out_hidden(grp.armor_worn_prof_penalty)!@
 					  
-					  <div class="sheet-col-1-12 sheet-vert-middle sheet-checkbox-row"><input type="checkbox" name="attr_armor_worn@!i!@" value="1"/></div>
+					  <div class="sheet-col-1-12 sheet-vert-middle sheet-checkbox-row">
+					    @!in_check(grp.armor_worn, checked=True)!@
+					  </div>
 
-					  <div class="sheet-col-1-12 sheet-vert-middle sheet-checkbox-row"><input type="checkbox" name="attr_armor_prof@!i!@" value="1"/></div>
+					  <div class="sheet-col-1-12 sheet-vert-middle sheet-checkbox-row">
+					    @!in_check(grp.armor_prof, checked=True)!@
+					  </div>
 
-						<div class="sheet-col-1-6"><input type="text" name="attr_amourname@!i!@"></div>
-						<div class="sheet-col-1-12"><input type="number" name="attr_armourACbase@!i!@" value="0" step="1"></div>
-						<div class="sheet-col-1-12">
-							<select name="attr_armourtype@!i!@">
-								<option value="0" selected="selected">n/a</option>
-								<option value="1">Light</option>
-								<option value="2">Medium</option>
-								<option value="3">Heavy</option>
-							</select>
-						</div>
-						<div class="sheet-col-1-12"><input type="number" name="attr_light_armour_bonus@!i!@" value="@!eq(1, '@{armourtype' + str(i) + '}')!@ * @!max('@{dexterity_mod}', '@{intelligence_mod}')!@" disabled="disabled"></div>
-						<div class="sheet-col-1-12"><input type="number" name="attr_armourmagicbonus@!i!@" value="0" step="1"></div>
-						<div class="sheet-col-1-12"><input type="number" name="attr_armourtotalAC@!i!@" value="@{armourACbase@!i!@} + @{armourmagicbonus@!i!@} + @{light_armour_bonus@!i!@}" disabled="disabled"></div>
-						<div class="sheet-col-1-12"><input type="number" name="attr_armor_check_penalty@!i!@" value="0" step="1"></div>
+					  <div class="sheet-col-1-6">
+					    @!in_text(grp.armourname)!@
+					  </div>
+					  
+					  <div class="sheet-col-1-12">
+					    @!in_num(grp.armourACbase)!@
+					  </div>
+					  
+					  <div class="sheet-col-1-12">
+					    <select name="@!grp.armourtype!@">
+					      <option value="0" selected="selected">n/a</option>
+					      <option value="1">Light</option>
+					      <option value="2">Medium</option>
+					      <option value="3">Heavy</option>
+					    </select>
+					  </div>
+					  
+					  <div class="sheet-col-1-12">
+					    @!out_num(grp.light_arour_bonus)!@
+					  </div>
+					  
+					  <div class="sheet-col-1-12">
+					    @!in_num(grp.armourmagicbonus)!@
+					  </div>
+					  
+					  <div class="sheet-col-1-12">
+					    @!out_num(grp.armourtotalAC)!@
+					  </div>
+
+					  <div class="sheet-col-1-12">
+					    @!in_num(grp.armor_check_penalty)!@
+					  </div>
 
 					</div>
 					<!--(end)-->

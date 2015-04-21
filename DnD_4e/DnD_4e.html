@@ -309,228 +309,363 @@
 						<div class="sheet-col-1-12 sheet-offset-1-24 sheet-center sheet-small-label">Passive</div>
 					</div>
 
-
-					<div class="sheet-row sheet-skill-row">
-						<div class="sheet-col-1-12"><button class="sheet-skill-roll" type="roll" name="roll_Acrobatics_Check" value="&{template:5eDefault} {{ability=1}} {{title=Acrobatics (dexterity)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{acrobatics} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{acrobatics} + (@{global_check_bonus}) ]]}} @{classactionacrobatics}"></button></div>
-						<div class="sheet-col-1-6 sheet-skill-name">Acrobatics (dex)</div>
-						<div class="sheet-col-1-12">
-							<input type="checkbox" name="attr_acrobatics_prof_exp" value="5"/>
-						</div>
-						<div class="sheet-col-1-12"><input type="number" name="attr_acrobatics_armor_check_penalty" value="@{armor_check_penalty}" disabled="disabled"></div>
-
-						<!-- total modifier for this skill -->
-						<div class="sheet-col-1-12"><input type="number" name="attr_acrobatics" value="@{acrobatics_prof_exp} + @{dexterity_mod_plus_half_lev} + @{acrobatics_armor_check_penalty}" disabled="disabled"></div>
-						
-						<div class="sheet-col-1-12 sheet-offset-1-24"><input type="number" class="sheet-passive-skill-score" name="attr_passive_acrobatics" value="10 + @{acrobatics}" disabled="disabled"></div>
-					</div>
-					<div class="sheet-row sheet-skill-row">
-						<div class="sheet-col-1-12"><button class="sheet-skill-roll" type="roll" name="roll_Arcana_Check" value="&{template:5eDefault} {{ability=1}} {{title=Arcana (intelligence)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{arcana} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{arcana} + (@{global_check_bonus}) ]]}} @{classactionarcana}"></button></div>
-						<div class="sheet-col-1-6 sheet-skill-name">Arcana (int)</div>
-						<div class="sheet-col-1-12">
-							<input type="checkbox" name="attr_arcana_prof_exp" value="5"/>
-						</div>
-						<div class="sheet-col-1-12"><input type="number" name="attr_arcana_armor_check_penalty" value="0" disabled="disabled"></div>
-
-						<!-- total modifier for this skill -->
-						<div class="sheet-col-1-12"><input type="number" name="attr_arcana" value="@{arcana_prof_exp} + @{intelligence_mod_plus_half_lev} + @{arcana_armor_check_penalty}" disabled="disabled"></div>
-						
-						<div class="sheet-col-1-12 sheet-offset-1-24"><input type="number" class="sheet-passive-skill-score" name="attr_passive_arcana" value="10 + @{arcana}" disabled="disabled"></div>
-					</div>
-					<div class="sheet-row sheet-skill-row">
-						<div class="sheet-col-1-12"><button class="sheet-skill-roll" type="roll" name="roll_Athletics_Check" value="&{template:5eDefault} {{ability=1}} {{title=Athletics (strength)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{athletics} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{athletics} + (@{global_check_bonus}) ]]}} @{classactionathletics}"></button></div>
-						<div class="sheet-col-1-6 sheet-skill-name">Athletics (str)</div>
-						<div class="sheet-col-1-12">
-							<input type="checkbox" name="attr_athletics_prof_exp" value="5"/>
-						</div>
-						<div class="sheet-col-1-12"><input type="number" name="attr_athletics_armor_check_penalty" value="@{armor_check_penalty}" disabled="disabled"></div>
-
-						<!-- total modifier for this skill -->
-						<div class="sheet-col-1-12"><input type="number" name="attr_athletics" value="@{athletics_prof_exp} + @{strength_mod_plus_half_lev} + @{athletics_armor_check_penalty}" disabled="disabled"></div>
-						
-						<div class="sheet-col-1-12 sheet-offset-1-24"><input type="number" class="sheet-passive-skill-score" name="attr_passive_athletics" value="10 + @{athletics}" disabled="disabled"></div>
-					</div>
-					<div class="sheet-row sheet-skill-row">
-						<div class="sheet-col-1-12"><button class="sheet-skill-roll" type="roll" name="roll_Bluff_Check" value="&{template:5eDefault} {{ability=1}} {{title=Bluff (charisma)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{bluff} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{bluff} + (@{global_check_bonus}) ]]}} @{classactionbluff}"></button></div>
-						<div class="sheet-col-1-6 sheet-skill-name">Bluff (cha)</div>
-						<div class="sheet-col-1-12">
-							<input type="checkbox" name="attr_bluff_prof_exp" value="5"/>
-						</div>
-						<div class="sheet-col-1-12"><input type="number" name="attr_bluff_armor_check_penalty" value="0" disabled="disabled"></div>
-
-						<!-- total modifier for this skill -->
-						<div class="sheet-col-1-12"><input type="number" name="attr_bluff" value="@{bluff_prof_exp} + @{charisma_mod_plus_half_lev} + @{bluff_armor_check_penalty}" disabled="disabled"></div>
-						
-						<div class="sheet-col-1-12 sheet-offset-1-24"><input type="number" class="sheet-passive-skill-score" name="attr_passive_bluff" value="10 + @{bluff}" disabled="disabled"></div>
-					</div>
-					<div class="sheet-row sheet-skill-row">
-						<div class="sheet-col-1-12"><button class="sheet-skill-roll" type="roll" name="roll_Diplomacy_Check" value="&{template:5eDefault} {{ability=1}} {{title=Diplomacy (charisma)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{diplomacy} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{diplomacy} + (@{global_check_bonus}) ]]}} @{classactiondiplomacy}"></button></div>
-						<div class="sheet-col-1-6 sheet-skill-name">Diplomacy (cha)</div>
-						<div class="sheet-col-1-12">
-							<input type="checkbox" name="attr_diplomacy_prof_exp" value="5"/>
-						</div>
-						<div class="sheet-col-1-12"><input type="number" name="attr_diplomacy_armor_check_penalty" value="0" disabled="disabled"></div>
-
-						<!-- total modifier for this skill -->
-						<div class="sheet-col-1-12"><input type="number" name="attr_diplomacy" value="@{diplomacy_prof_exp} + @{charisma_mod_plus_half_lev} + @{diplomacy_armor_check_penalty}" disabled="disabled"></div>
-						
-						<div class="sheet-col-1-12 sheet-offset-1-24"><input type="number" class="sheet-passive-skill-score" name="attr_passive_diplomacy" value="10 + @{diplomacy}" disabled="disabled"></div>
-					</div>
-					<div class="sheet-row sheet-skill-row">
-						<div class="sheet-col-1-12"><button class="sheet-skill-roll" type="roll" name="roll_Dungeoneering_Check" value="&{template:5eDefault} {{ability=1}} {{title=Dungeoneering (wisdom)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{dungeoneering} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{dungeoneering} + (@{global_check_bonus}) ]]}} @{classactiondungeoneering}"></button></div>
-						<div class="sheet-col-1-6 sheet-skill-name">Dungeoneering (wis)</div>
-						<div class="sheet-col-1-12">
-							<input type="checkbox" name="attr_dungeoneering_prof_exp" value="5"/>
-						</div>
-						<div class="sheet-col-1-12"><input type="number" name="attr_dungeoneering_armor_check_penalty" value="0" disabled="disabled"></div>
-
-						<!-- total modifier for this skill -->
-						<div class="sheet-col-1-12"><input type="number" name="attr_dungeoneering" value="@{dungeoneering_prof_exp} + @{wisdom_mod_plus_half_lev} + @{dungeoneering_armor_check_penalty}" disabled="disabled"></div>
-						
-						<div class="sheet-col-1-12 sheet-offset-1-24"><input type="number" class="sheet-passive-skill-score" name="attr_passive_dungeoneering" value="10 + @{dungeoneering}" disabled="disabled"></div>
-					</div>
-					<div class="sheet-row sheet-skill-row">
-						<div class="sheet-col-1-12"><button class="sheet-skill-roll" type="roll" name="roll_Endurance_Check" value="&{template:5eDefault} {{ability=1}} {{title=Endurance (constitution)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{endurance} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{endurance} + (@{global_check_bonus}) ]]}} @{classactionendurance}"></button></div>
-						<div class="sheet-col-1-6 sheet-skill-name">Endurance (con)</div>
-						<div class="sheet-col-1-12">
-							<input type="checkbox" name="attr_endurance_prof_exp" value="5"/>
-						</div>
-						<div class="sheet-col-1-12"><input type="number" name="attr_endurance_armor_check_penalty" value="@{armor_check_penalty}" disabled="disabled"></div>
-
-						<!-- total modifier for this skill -->
-						<div class="sheet-col-1-12"><input type="number" name="attr_endurance" value="@{endurance_prof_exp} + @{constitution_mod_plus_half_lev} + @{endurance_armor_check_penalty}" disabled="disabled"></div>
-						
-						<div class="sheet-col-1-12 sheet-offset-1-24"><input type="number" class="sheet-passive-skill-score" name="attr_passive_endurance" value="10 + @{endurance}" disabled="disabled"></div>
-					</div>
-					<div class="sheet-row sheet-skill-row">
-						<div class="sheet-col-1-12"><button class="sheet-skill-roll" type="roll" name="roll_Heal_Check" value="&{template:5eDefault} {{ability=1}} {{title=Heal (wisdom)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{heal} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{heal} + (@{global_check_bonus}) ]]}} @{classactionheal}"></button></div>
-						<div class="sheet-col-1-6 sheet-skill-name">Heal (wis)</div>
-						<div class="sheet-col-1-12">
-							<input type="checkbox" name="attr_heal_prof_exp" value="5"/>
-						</div>
-						<div class="sheet-col-1-12"><input type="number" name="attr_heal_armor_check_penalty" value="0" disabled="disabled"></div>
-
-						<!-- total modifier for this skill -->
-						<div class="sheet-col-1-12"><input type="number" name="attr_heal" value="@{heal_prof_exp} + @{wisdom_mod_plus_half_lev} + @{heal_armor_check_penalty}" disabled="disabled"></div>
-						
-						<div class="sheet-col-1-12 sheet-offset-1-24"><input type="number" class="sheet-passive-skill-score" name="attr_passive_heal" value="10 + @{heal}" disabled="disabled"></div>
-					</div>
-					<div class="sheet-row sheet-skill-row">
-						<div class="sheet-col-1-12"><button class="sheet-skill-roll" type="roll" name="roll_History_Check" value="&{template:5eDefault} {{ability=1}} {{title=History (intelligence)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{history} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{history} + (@{global_check_bonus}) ]]}} @{classactionhistory}"></button></div>
-						<div class="sheet-col-1-6 sheet-skill-name">History (int)</div>
-						<div class="sheet-col-1-12">
-							<input type="checkbox" name="attr_history_prof_exp" value="5"/>
-						</div>
-						<div class="sheet-col-1-12"><input type="number" name="attr_history_armor_check_penalty" value="0" disabled="disabled"></div>
-
-						<!-- total modifier for this skill -->
-						<div class="sheet-col-1-12"><input type="number" name="attr_history" value="@{history_prof_exp} + @{intelligence_mod_plus_half_lev} + @{history_armor_check_penalty}" disabled="disabled"></div>
-						
-						<div class="sheet-col-1-12 sheet-offset-1-24"><input type="number" class="sheet-passive-skill-score" name="attr_passive_history" value="10 + @{history}" disabled="disabled"></div>
-					</div>
-					<div class="sheet-row sheet-skill-row">
-						<div class="sheet-col-1-12"><button class="sheet-skill-roll" type="roll" name="roll_Insight_Check" value="&{template:5eDefault} {{ability=1}} {{title=Insight (wisdom)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{insight} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{insight} + (@{global_check_bonus}) ]]}} @{classactioninsight}"></button></div>
-						<div class="sheet-col-1-6 sheet-skill-name">Insight (wis)</div>
-						<div class="sheet-col-1-12">
-							<input type="checkbox" name="attr_insight_prof_exp" value="5"/>
-						</div>
-						<div class="sheet-col-1-12"><input type="number" name="attr_insight_armor_check_penalty" value="0" disabled="disabled"></div>
-
-						<!-- total modifier for this skill -->
-						<div class="sheet-col-1-12"><input type="number" name="attr_insight" value="@{insight_prof_exp} + @{wisdom_mod_plus_half_lev} + @{insight_armor_check_penalty}" disabled="disabled"></div>
-						
-						<div class="sheet-col-1-12 sheet-offset-1-24"><input type="number" class="sheet-passive-skill-score" name="attr_passive_insight" value="10 + @{insight}" disabled="disabled"></div>
-					</div>
-					<div class="sheet-row sheet-skill-row">
-						<div class="sheet-col-1-12"><button class="sheet-skill-roll" type="roll" name="roll_Intimidate_Check" value="&{template:5eDefault} {{ability=1}} {{title=Intimidate (charisma)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{intimidate} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{intimidate} + (@{global_check_bonus}) ]]}} @{classactionintimidate}"></button></div>
-						<div class="sheet-col-1-6 sheet-skill-name">Intimidate (cha)</div>
-						<div class="sheet-col-1-12">
-							<input type="checkbox" name="attr_intimidate_prof_exp" value="5"/>
-						</div>
-						<div class="sheet-col-1-12"><input type="number" name="attr_intimidate_armor_check_penalty" value="0" disabled="disabled"></div>
-
-						<!-- total modifier for this skill -->
-						<div class="sheet-col-1-12"><input type="number" name="attr_intimidate" value="@{intimidate_prof_exp} + @{charisma_mod_plus_half_lev} + @{intimidate_armor_check_penalty}" disabled="disabled"></div>
-						
-						<div class="sheet-col-1-12 sheet-offset-1-24"><input type="number" class="sheet-passive-skill-score" name="attr_passive_intimidate" value="10 + @{intimidate}" disabled="disabled"></div>
-					</div>
-					<div class="sheet-row sheet-skill-row">
-						<div class="sheet-col-1-12"><button class="sheet-skill-roll" type="roll" name="roll_Nature_Check" value="&{template:5eDefault} {{ability=1}} {{title=Nature (wisdom)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{nature} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{nature} + (@{global_check_bonus}) ]]}} @{classactionnature}"></button></div>
-						<div class="sheet-col-1-6 sheet-skill-name">Nature (wis)</div>
-						<div class="sheet-col-1-12">
-							<input type="checkbox" name="attr_nature_prof_exp" value="5"/>
-						</div>
-						<div class="sheet-col-1-12"><input type="number" name="attr_nature_armor_check_penalty" value="0" disabled="disabled"></div>
-
-						<!-- total modifier for this skill -->
-						<div class="sheet-col-1-12"><input type="number" name="attr_nature" value="@{nature_prof_exp} + @{wisdom_mod_plus_half_lev} + @{nature_armor_check_penalty}" disabled="disabled"></div>
-						
-						<div class="sheet-col-1-12 sheet-offset-1-24"><input type="number" class="sheet-passive-skill-score" name="attr_passive_nature" value="10 + @{nature}" disabled="disabled"></div>
-					</div>
-					<div class="sheet-row sheet-skill-row">
-						<div class="sheet-col-1-12"><button class="sheet-skill-roll" type="roll" name="roll_Perception_Check" value="&{template:5eDefault} {{ability=1}} {{title=Perception (wisdom)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{perception} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{perception} + (@{global_check_bonus}) ]]}} @{classactionperception}"></button></div>
-						<div class="sheet-col-1-6 sheet-skill-name">Perception (wis)</div>
-						<div class="sheet-col-1-12">
-							<input type="checkbox" name="attr_perception_prof_exp" value="5"/>
-						</div>
-						<div class="sheet-col-1-12"><input type="number" name="attr_perception_armor_check_penalty" value="0" disabled="disabled"></div>
-
-						<!-- total modifier for this skill -->
-						<div class="sheet-col-1-12"><input type="number" name="attr_perception" value="@{perception_prof_exp} + @{wisdom_mod_plus_half_lev} + @{perception_armor_check_penalty}" disabled="disabled"></div>
-						
-						<div class="sheet-col-1-12 sheet-offset-1-24"><input type="number" class="sheet-passive-skill-score" name="attr_passive_perception" value="10 + @{perception}" disabled="disabled"></div>
-					</div>
-					<div class="sheet-row sheet-skill-row">
-						<div class="sheet-col-1-12"><button class="sheet-skill-roll" type="roll" name="roll_Religion_Check" value="&{template:5eDefault} {{ability=1}} {{title=Religion (intelligence)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{religion} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{religion} + (@{global_check_bonus}) ]]}} @{classactionreligion}"></button></div>
-						<div class="sheet-col-1-6 sheet-skill-name">Religion (int)</div>
-						<div class="sheet-col-1-12">
-							<input type="checkbox" name="attr_religion_prof_exp" value="5"/>
-						</div>
-						<div class="sheet-col-1-12"><input type="number" name="attr_religion_armor_check_penalty" value="0" disabled="disabled"></div>
-
-						<!-- total modifier for this skill -->
-						<div class="sheet-col-1-12"><input type="number" name="attr_religion" value="@{religion_prof_exp} + @{intelligence_mod_plus_half_lev} + @{religion_armor_check_penalty}" disabled="disabled"></div>
-						
-						<div class="sheet-col-1-12 sheet-offset-1-24"><input type="number" class="sheet-passive-skill-score" name="attr_passive_religion" value="10 + @{religion}" disabled="disabled"></div>
-					</div>
-					<div class="sheet-row sheet-skill-row">
-						<div class="sheet-col-1-12"><button class="sheet-skill-roll" type="roll" name="roll_Stealth_Check" value="&{template:5eDefault} {{ability=1}} {{title=Stealth (dexterity)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{stealth} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{stealth} + (@{global_check_bonus}) ]]}} @{classactionstealth}"></button></div>
-						<div class="sheet-col-1-6 sheet-skill-name">Stealth (dex)</div>
-						<div class="sheet-col-1-12">
-							<input type="checkbox" name="attr_stealth_prof_exp" value="5"/>
-						</div>
-						<div class="sheet-col-1-12"><input type="number" name="attr_stealth_armor_check_penalty" value="@{armor_check_penalty}" disabled="disabled"></div>
-
-						<!-- total modifier for this skill -->
-						<div class="sheet-col-1-12"><input type="number" name="attr_stealth" value="@{stealth_prof_exp} + @{dexterity_mod_plus_half_lev} + @{stealth_armor_check_penalty}" disabled="disabled"></div>
-						
-						<div class="sheet-col-1-12 sheet-offset-1-24"><input type="number" class="sheet-passive-skill-score" name="attr_passive_stealth" value="10 + @{stealth}" disabled="disabled"></div>
-					</div>
-					<div class="sheet-row sheet-skill-row">
-						<div class="sheet-col-1-12"><button class="sheet-skill-roll" type="roll" name="roll_Streetwise_Check" value="&{template:5eDefault} {{ability=1}} {{title=Streetwise (charisma)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{streetwise} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{streetwise} + (@{global_check_bonus}) ]]}} @{classactionstreetwise}"></button></div>
-						<div class="sheet-col-1-6 sheet-skill-name">Streetwise (cha)</div>
-						<div class="sheet-col-1-12">
-							<input type="checkbox" name="attr_streetwise_prof_exp" value="5"/>
-						</div>
-						<div class="sheet-col-1-12"><input type="number" name="attr_streetwise_armor_check_penalty" value="0" disabled="disabled"></div>
-
-						<!-- total modifier for this skill -->
-						<div class="sheet-col-1-12"><input type="number" name="attr_streetwise" value="@{streetwise_prof_exp} + @{charisma_mod_plus_half_lev} + @{streetwise_armor_check_penalty}" disabled="disabled"></div>
-						
-						<div class="sheet-col-1-12 sheet-offset-1-24"><input type="number" class="sheet-passive-skill-score" name="attr_passive_streetwise" value="10 + @{streetwise}" disabled="disabled"></div>
-					</div>
-					<div class="sheet-row sheet-skill-row">
-						<div class="sheet-col-1-12"><button class="sheet-skill-roll" type="roll" name="roll_Thievery_Check" value="&{template:5eDefault} {{ability=1}} {{title=Thievery (dexterity)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{thievery} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{thievery} + (@{global_check_bonus}) ]]}} @{classactionthievery}"></button></div>
-						<div class="sheet-col-1-6 sheet-skill-name">Thievery (dex)</div>
-						<div class="sheet-col-1-12">
-							<input type="checkbox" name="attr_thievery_prof_exp" value="5"/>
-						</div>
-						<div class="sheet-col-1-12"><input type="number" name="attr_thievery_armor_check_penalty" value="@{armor_check_penalty}" disabled="disabled"></div>
-
-						<!-- total modifier for this skill -->
-						<div class="sheet-col-1-12"><input type="number" name="attr_thievery" value="@{thievery_prof_exp} + @{dexterity_mod_plus_half_lev} + @{thievery_armor_check_penalty}" disabled="disabled"></div>
-						
-						<div class="sheet-col-1-12 sheet-offset-1-24"><input type="number" class="sheet-passive-skill-score" name="attr_passive_thievery" value="10 + @{thievery}" disabled="disabled"></div>
-					</div>
+					  <div class="sheet-row sheet-skill-row">
+					    <div class="sheet-col-1-12">
+					      <button class="sheet-skill-roll" type="roll"
+					  	    name="roll_Acrobatics_Check" value="&{template:5eDefault} {{ability=1}} {{title=Acrobatics (dexterity)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{acrobatics} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{acrobatics} + (@{global_check_bonus}) ]]}} @{classactionacrobatics}"></button>
+					    </div>
+					    <div class="sheet-col-1-6 sheet-skill-name">
+					      Acrobatics (dex)
+					    </div>
+					    <div class="sheet-col-1-12">
+					      <input class='' type='checkbox' name='attr_acrobatics_is_trained' value='5' />
+					    </div>
+					    <div class="sheet-col-1-12">
+					      <input class='' type='number' name='attr_acrobatics_armor_check_penalty' value='@{armor_check_penalty}' disabled='disabled'/>
+					    </div>
+					    <div class="sheet-col-1-12">
+					      <input class='' type='number' name='attr_acrobatics' value='@{acrobatics_is_trained} + @{dexterity_mod_plus_half_lev} + @{acrobatics_armor_check_penalty}' disabled='disabled'/>
+					    </div>
+					    <div class="sheet-col-1-12 sheet-offset-1-24">
+					      <input class='sheet-passive-skill-score' type='number' name='attr_passive_acrobatics' value='10 + @{acrobatics}' disabled='disabled'/>
+					    </div>
+					  </div>
+					  <div class="sheet-row sheet-skill-row">
+					    <div class="sheet-col-1-12">
+					      <button class="sheet-skill-roll" type="roll"
+					  	    name="roll_Arcana_Check" value="&{template:5eDefault} {{ability=1}} {{title=Arcana (intelligence)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{arcana} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{arcana} + (@{global_check_bonus}) ]]}} @{classactionarcana}"></button>
+					    </div>
+					    <div class="sheet-col-1-6 sheet-skill-name">
+					      Arcana (int)
+					    </div>
+					    <div class="sheet-col-1-12">
+					      <input class='' type='checkbox' name='attr_arcana_is_trained' value='5' />
+					    </div>
+					    <div class="sheet-col-1-12">
+					      <input class='' type='number' name='attr_arcana_armor_check_penalty' value='0' disabled='disabled'/>
+					    </div>
+					    <div class="sheet-col-1-12">
+					      <input class='' type='number' name='attr_arcana' value='@{arcana_is_trained} + @{intelligence_mod_plus_half_lev} + @{arcana_armor_check_penalty}' disabled='disabled'/>
+					    </div>
+					    <div class="sheet-col-1-12 sheet-offset-1-24">
+					      <input class='sheet-passive-skill-score' type='number' name='attr_passive_arcana' value='10 + @{arcana}' disabled='disabled'/>
+					    </div>
+					  </div>
+					  <div class="sheet-row sheet-skill-row">
+					    <div class="sheet-col-1-12">
+					      <button class="sheet-skill-roll" type="roll"
+					  	    name="roll_Athletics_Check" value="&{template:5eDefault} {{ability=1}} {{title=Athletics (strength)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{athletics} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{athletics} + (@{global_check_bonus}) ]]}} @{classactionathletics}"></button>
+					    </div>
+					    <div class="sheet-col-1-6 sheet-skill-name">
+					      Athletics (str)
+					    </div>
+					    <div class="sheet-col-1-12">
+					      <input class='' type='checkbox' name='attr_athletics_is_trained' value='5' />
+					    </div>
+					    <div class="sheet-col-1-12">
+					      <input class='' type='number' name='attr_athletics_armor_check_penalty' value='@{armor_check_penalty}' disabled='disabled'/>
+					    </div>
+					    <div class="sheet-col-1-12">
+					      <input class='' type='number' name='attr_athletics' value='@{athletics_is_trained} + @{strength_mod_plus_half_lev} + @{athletics_armor_check_penalty}' disabled='disabled'/>
+					    </div>
+					    <div class="sheet-col-1-12 sheet-offset-1-24">
+					      <input class='sheet-passive-skill-score' type='number' name='attr_passive_athletics' value='10 + @{athletics}' disabled='disabled'/>
+					    </div>
+					  </div>
+					  <div class="sheet-row sheet-skill-row">
+					    <div class="sheet-col-1-12">
+					      <button class="sheet-skill-roll" type="roll"
+					  	    name="roll_Bluff_Check" value="&{template:5eDefault} {{ability=1}} {{title=Bluff (charisma)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{bluff} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{bluff} + (@{global_check_bonus}) ]]}} @{classactionbluff}"></button>
+					    </div>
+					    <div class="sheet-col-1-6 sheet-skill-name">
+					      Bluff (cha)
+					    </div>
+					    <div class="sheet-col-1-12">
+					      <input class='' type='checkbox' name='attr_bluff_is_trained' value='5' />
+					    </div>
+					    <div class="sheet-col-1-12">
+					      <input class='' type='number' name='attr_bluff_armor_check_penalty' value='0' disabled='disabled'/>
+					    </div>
+					    <div class="sheet-col-1-12">
+					      <input class='' type='number' name='attr_bluff' value='@{bluff_is_trained} + @{charisma_mod_plus_half_lev} + @{bluff_armor_check_penalty}' disabled='disabled'/>
+					    </div>
+					    <div class="sheet-col-1-12 sheet-offset-1-24">
+					      <input class='sheet-passive-skill-score' type='number' name='attr_passive_bluff' value='10 + @{bluff}' disabled='disabled'/>
+					    </div>
+					  </div>
+					  <div class="sheet-row sheet-skill-row">
+					    <div class="sheet-col-1-12">
+					      <button class="sheet-skill-roll" type="roll"
+					  	    name="roll_Diplomacy_Check" value="&{template:5eDefault} {{ability=1}} {{title=Diplomacy (charisma)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{diplomacy} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{diplomacy} + (@{global_check_bonus}) ]]}} @{classactiondiplomacy}"></button>
+					    </div>
+					    <div class="sheet-col-1-6 sheet-skill-name">
+					      Diplomacy (cha)
+					    </div>
+					    <div class="sheet-col-1-12">
+					      <input class='' type='checkbox' name='attr_diplomacy_is_trained' value='5' />
+					    </div>
+					    <div class="sheet-col-1-12">
+					      <input class='' type='number' name='attr_diplomacy_armor_check_penalty' value='0' disabled='disabled'/>
+					    </div>
+					    <div class="sheet-col-1-12">
+					      <input class='' type='number' name='attr_diplomacy' value='@{diplomacy_is_trained} + @{charisma_mod_plus_half_lev} + @{diplomacy_armor_check_penalty}' disabled='disabled'/>
+					    </div>
+					    <div class="sheet-col-1-12 sheet-offset-1-24">
+					      <input class='sheet-passive-skill-score' type='number' name='attr_passive_diplomacy' value='10 + @{diplomacy}' disabled='disabled'/>
+					    </div>
+					  </div>
+					  <div class="sheet-row sheet-skill-row">
+					    <div class="sheet-col-1-12">
+					      <button class="sheet-skill-roll" type="roll"
+					  	    name="roll_Dungeoneering_Check" value="&{template:5eDefault} {{ability=1}} {{title=Dungeoneering (wisdom)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{dungeoneering} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{dungeoneering} + (@{global_check_bonus}) ]]}} @{classactiondungeoneering}"></button>
+					    </div>
+					    <div class="sheet-col-1-6 sheet-skill-name">
+					      Dungeoneering (wis)
+					    </div>
+					    <div class="sheet-col-1-12">
+					      <input class='' type='checkbox' name='attr_dungeoneering_is_trained' value='5' />
+					    </div>
+					    <div class="sheet-col-1-12">
+					      <input class='' type='number' name='attr_dungeoneering_armor_check_penalty' value='0' disabled='disabled'/>
+					    </div>
+					    <div class="sheet-col-1-12">
+					      <input class='' type='number' name='attr_dungeoneering' value='@{dungeoneering_is_trained} + @{wisdom_mod_plus_half_lev} + @{dungeoneering_armor_check_penalty}' disabled='disabled'/>
+					    </div>
+					    <div class="sheet-col-1-12 sheet-offset-1-24">
+					      <input class='sheet-passive-skill-score' type='number' name='attr_passive_dungeoneering' value='10 + @{dungeoneering}' disabled='disabled'/>
+					    </div>
+					  </div>
+					  <div class="sheet-row sheet-skill-row">
+					    <div class="sheet-col-1-12">
+					      <button class="sheet-skill-roll" type="roll"
+					  	    name="roll_Endurance_Check" value="&{template:5eDefault} {{ability=1}} {{title=Endurance (constitution)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{endurance} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{endurance} + (@{global_check_bonus}) ]]}} @{classactionendurance}"></button>
+					    </div>
+					    <div class="sheet-col-1-6 sheet-skill-name">
+					      Endurance (con)
+					    </div>
+					    <div class="sheet-col-1-12">
+					      <input class='' type='checkbox' name='attr_endurance_is_trained' value='5' />
+					    </div>
+					    <div class="sheet-col-1-12">
+					      <input class='' type='number' name='attr_endurance_armor_check_penalty' value='@{armor_check_penalty}' disabled='disabled'/>
+					    </div>
+					    <div class="sheet-col-1-12">
+					      <input class='' type='number' name='attr_endurance' value='@{endurance_is_trained} + @{constitution_mod_plus_half_lev} + @{endurance_armor_check_penalty}' disabled='disabled'/>
+					    </div>
+					    <div class="sheet-col-1-12 sheet-offset-1-24">
+					      <input class='sheet-passive-skill-score' type='number' name='attr_passive_endurance' value='10 + @{endurance}' disabled='disabled'/>
+					    </div>
+					  </div>
+					  <div class="sheet-row sheet-skill-row">
+					    <div class="sheet-col-1-12">
+					      <button class="sheet-skill-roll" type="roll"
+					  	    name="roll_Heal_Check" value="&{template:5eDefault} {{ability=1}} {{title=Heal (wisdom)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{heal} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{heal} + (@{global_check_bonus}) ]]}} @{classactionheal}"></button>
+					    </div>
+					    <div class="sheet-col-1-6 sheet-skill-name">
+					      Heal (wis)
+					    </div>
+					    <div class="sheet-col-1-12">
+					      <input class='' type='checkbox' name='attr_heal_is_trained' value='5' />
+					    </div>
+					    <div class="sheet-col-1-12">
+					      <input class='' type='number' name='attr_heal_armor_check_penalty' value='0' disabled='disabled'/>
+					    </div>
+					    <div class="sheet-col-1-12">
+					      <input class='' type='number' name='attr_heal' value='@{heal_is_trained} + @{wisdom_mod_plus_half_lev} + @{heal_armor_check_penalty}' disabled='disabled'/>
+					    </div>
+					    <div class="sheet-col-1-12 sheet-offset-1-24">
+					      <input class='sheet-passive-skill-score' type='number' name='attr_passive_heal' value='10 + @{heal}' disabled='disabled'/>
+					    </div>
+					  </div>
+					  <div class="sheet-row sheet-skill-row">
+					    <div class="sheet-col-1-12">
+					      <button class="sheet-skill-roll" type="roll"
+					  	    name="roll_History_Check" value="&{template:5eDefault} {{ability=1}} {{title=History (intelligence)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{history} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{history} + (@{global_check_bonus}) ]]}} @{classactionhistory}"></button>
+					    </div>
+					    <div class="sheet-col-1-6 sheet-skill-name">
+					      History (int)
+					    </div>
+					    <div class="sheet-col-1-12">
+					      <input class='' type='checkbox' name='attr_history_is_trained' value='5' />
+					    </div>
+					    <div class="sheet-col-1-12">
+					      <input class='' type='number' name='attr_history_armor_check_penalty' value='0' disabled='disabled'/>
+					    </div>
+					    <div class="sheet-col-1-12">
+					      <input class='' type='number' name='attr_history' value='@{history_is_trained} + @{intelligence_mod_plus_half_lev} + @{history_armor_check_penalty}' disabled='disabled'/>
+					    </div>
+					    <div class="sheet-col-1-12 sheet-offset-1-24">
+					      <input class='sheet-passive-skill-score' type='number' name='attr_passive_history' value='10 + @{history}' disabled='disabled'/>
+					    </div>
+					  </div>
+					  <div class="sheet-row sheet-skill-row">
+					    <div class="sheet-col-1-12">
+					      <button class="sheet-skill-roll" type="roll"
+					  	    name="roll_Insight_Check" value="&{template:5eDefault} {{ability=1}} {{title=Insight (wisdom)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{insight} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{insight} + (@{global_check_bonus}) ]]}} @{classactioninsight}"></button>
+					    </div>
+					    <div class="sheet-col-1-6 sheet-skill-name">
+					      Insight (wis)
+					    </div>
+					    <div class="sheet-col-1-12">
+					      <input class='' type='checkbox' name='attr_insight_is_trained' value='5' />
+					    </div>
+					    <div class="sheet-col-1-12">
+					      <input class='' type='number' name='attr_insight_armor_check_penalty' value='0' disabled='disabled'/>
+					    </div>
+					    <div class="sheet-col-1-12">
+					      <input class='' type='number' name='attr_insight' value='@{insight_is_trained} + @{wisdom_mod_plus_half_lev} + @{insight_armor_check_penalty}' disabled='disabled'/>
+					    </div>
+					    <div class="sheet-col-1-12 sheet-offset-1-24">
+					      <input class='sheet-passive-skill-score' type='number' name='attr_passive_insight' value='10 + @{insight}' disabled='disabled'/>
+					    </div>
+					  </div>
+					  <div class="sheet-row sheet-skill-row">
+					    <div class="sheet-col-1-12">
+					      <button class="sheet-skill-roll" type="roll"
+					  	    name="roll_Intimidate_Check" value="&{template:5eDefault} {{ability=1}} {{title=Intimidate (charisma)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{intimidate} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{intimidate} + (@{global_check_bonus}) ]]}} @{classactionintimidate}"></button>
+					    </div>
+					    <div class="sheet-col-1-6 sheet-skill-name">
+					      Intimidate (cha)
+					    </div>
+					    <div class="sheet-col-1-12">
+					      <input class='' type='checkbox' name='attr_intimidate_is_trained' value='5' />
+					    </div>
+					    <div class="sheet-col-1-12">
+					      <input class='' type='number' name='attr_intimidate_armor_check_penalty' value='0' disabled='disabled'/>
+					    </div>
+					    <div class="sheet-col-1-12">
+					      <input class='' type='number' name='attr_intimidate' value='@{intimidate_is_trained} + @{charisma_mod_plus_half_lev} + @{intimidate_armor_check_penalty}' disabled='disabled'/>
+					    </div>
+					    <div class="sheet-col-1-12 sheet-offset-1-24">
+					      <input class='sheet-passive-skill-score' type='number' name='attr_passive_intimidate' value='10 + @{intimidate}' disabled='disabled'/>
+					    </div>
+					  </div>
+					  <div class="sheet-row sheet-skill-row">
+					    <div class="sheet-col-1-12">
+					      <button class="sheet-skill-roll" type="roll"
+					  	    name="roll_Nature_Check" value="&{template:5eDefault} {{ability=1}} {{title=Nature (wisdom)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{nature} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{nature} + (@{global_check_bonus}) ]]}} @{classactionnature}"></button>
+					    </div>
+					    <div class="sheet-col-1-6 sheet-skill-name">
+					      Nature (wis)
+					    </div>
+					    <div class="sheet-col-1-12">
+					      <input class='' type='checkbox' name='attr_nature_is_trained' value='5' />
+					    </div>
+					    <div class="sheet-col-1-12">
+					      <input class='' type='number' name='attr_nature_armor_check_penalty' value='0' disabled='disabled'/>
+					    </div>
+					    <div class="sheet-col-1-12">
+					      <input class='' type='number' name='attr_nature' value='@{nature_is_trained} + @{wisdom_mod_plus_half_lev} + @{nature_armor_check_penalty}' disabled='disabled'/>
+					    </div>
+					    <div class="sheet-col-1-12 sheet-offset-1-24">
+					      <input class='sheet-passive-skill-score' type='number' name='attr_passive_nature' value='10 + @{nature}' disabled='disabled'/>
+					    </div>
+					  </div>
+					  <div class="sheet-row sheet-skill-row">
+					    <div class="sheet-col-1-12">
+					      <button class="sheet-skill-roll" type="roll"
+					  	    name="roll_Perception_Check" value="&{template:5eDefault} {{ability=1}} {{title=Perception (wisdom)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{perception} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{perception} + (@{global_check_bonus}) ]]}} @{classactionperception}"></button>
+					    </div>
+					    <div class="sheet-col-1-6 sheet-skill-name">
+					      Perception (wis)
+					    </div>
+					    <div class="sheet-col-1-12">
+					      <input class='' type='checkbox' name='attr_perception_is_trained' value='5' />
+					    </div>
+					    <div class="sheet-col-1-12">
+					      <input class='' type='number' name='attr_perception_armor_check_penalty' value='0' disabled='disabled'/>
+					    </div>
+					    <div class="sheet-col-1-12">
+					      <input class='' type='number' name='attr_perception' value='@{perception_is_trained} + @{wisdom_mod_plus_half_lev} + @{perception_armor_check_penalty}' disabled='disabled'/>
+					    </div>
+					    <div class="sheet-col-1-12 sheet-offset-1-24">
+					      <input class='sheet-passive-skill-score' type='number' name='attr_passive_perception' value='10 + @{perception}' disabled='disabled'/>
+					    </div>
+					  </div>
+					  <div class="sheet-row sheet-skill-row">
+					    <div class="sheet-col-1-12">
+					      <button class="sheet-skill-roll" type="roll"
+					  	    name="roll_Religion_Check" value="&{template:5eDefault} {{ability=1}} {{title=Religion (intelligence)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{religion} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{religion} + (@{global_check_bonus}) ]]}} @{classactionreligion}"></button>
+					    </div>
+					    <div class="sheet-col-1-6 sheet-skill-name">
+					      Religion (int)
+					    </div>
+					    <div class="sheet-col-1-12">
+					      <input class='' type='checkbox' name='attr_religion_is_trained' value='5' />
+					    </div>
+					    <div class="sheet-col-1-12">
+					      <input class='' type='number' name='attr_religion_armor_check_penalty' value='0' disabled='disabled'/>
+					    </div>
+					    <div class="sheet-col-1-12">
+					      <input class='' type='number' name='attr_religion' value='@{religion_is_trained} + @{intelligence_mod_plus_half_lev} + @{religion_armor_check_penalty}' disabled='disabled'/>
+					    </div>
+					    <div class="sheet-col-1-12 sheet-offset-1-24">
+					      <input class='sheet-passive-skill-score' type='number' name='attr_passive_religion' value='10 + @{religion}' disabled='disabled'/>
+					    </div>
+					  </div>
+					  <div class="sheet-row sheet-skill-row">
+					    <div class="sheet-col-1-12">
+					      <button class="sheet-skill-roll" type="roll"
+					  	    name="roll_Stealth_Check" value="&{template:5eDefault} {{ability=1}} {{title=Stealth (dexterity)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{stealth} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{stealth} + (@{global_check_bonus}) ]]}} @{classactionstealth}"></button>
+					    </div>
+					    <div class="sheet-col-1-6 sheet-skill-name">
+					      Stealth (dex)
+					    </div>
+					    <div class="sheet-col-1-12">
+					      <input class='' type='checkbox' name='attr_stealth_is_trained' value='5' />
+					    </div>
+					    <div class="sheet-col-1-12">
+					      <input class='' type='number' name='attr_stealth_armor_check_penalty' value='@{armor_check_penalty}' disabled='disabled'/>
+					    </div>
+					    <div class="sheet-col-1-12">
+					      <input class='' type='number' name='attr_stealth' value='@{stealth_is_trained} + @{dexterity_mod_plus_half_lev} + @{stealth_armor_check_penalty}' disabled='disabled'/>
+					    </div>
+					    <div class="sheet-col-1-12 sheet-offset-1-24">
+					      <input class='sheet-passive-skill-score' type='number' name='attr_passive_stealth' value='10 + @{stealth}' disabled='disabled'/>
+					    </div>
+					  </div>
+					  <div class="sheet-row sheet-skill-row">
+					    <div class="sheet-col-1-12">
+					      <button class="sheet-skill-roll" type="roll"
+					  	    name="roll_Streetwise_Check" value="&{template:5eDefault} {{ability=1}} {{title=Streetwise (charisma)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{streetwise} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{streetwise} + (@{global_check_bonus}) ]]}} @{classactionstreetwise}"></button>
+					    </div>
+					    <div class="sheet-col-1-6 sheet-skill-name">
+					      Streetwise (cha)
+					    </div>
+					    <div class="sheet-col-1-12">
+					      <input class='' type='checkbox' name='attr_streetwise_is_trained' value='5' />
+					    </div>
+					    <div class="sheet-col-1-12">
+					      <input class='' type='number' name='attr_streetwise_armor_check_penalty' value='0' disabled='disabled'/>
+					    </div>
+					    <div class="sheet-col-1-12">
+					      <input class='' type='number' name='attr_streetwise' value='@{streetwise_is_trained} + @{charisma_mod_plus_half_lev} + @{streetwise_armor_check_penalty}' disabled='disabled'/>
+					    </div>
+					    <div class="sheet-col-1-12 sheet-offset-1-24">
+					      <input class='sheet-passive-skill-score' type='number' name='attr_passive_streetwise' value='10 + @{streetwise}' disabled='disabled'/>
+					    </div>
+					  </div>
+					  <div class="sheet-row sheet-skill-row">
+					    <div class="sheet-col-1-12">
+					      <button class="sheet-skill-roll" type="roll"
+					  	    name="roll_Thievery_Check" value="&{template:5eDefault} {{ability=1}} {{title=Thievery (dexterity)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{thievery} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{thievery} + (@{global_check_bonus}) ]]}} @{classactionthievery}"></button>
+					    </div>
+					    <div class="sheet-col-1-6 sheet-skill-name">
+					      Thievery (dex)
+					    </div>
+					    <div class="sheet-col-1-12">
+					      <input class='' type='checkbox' name='attr_thievery_is_trained' value='5' />
+					    </div>
+					    <div class="sheet-col-1-12">
+					      <input class='' type='number' name='attr_thievery_armor_check_penalty' value='@{armor_check_penalty}' disabled='disabled'/>
+					    </div>
+					    <div class="sheet-col-1-12">
+					      <input class='' type='number' name='attr_thievery' value='@{thievery_is_trained} + @{dexterity_mod_plus_half_lev} + @{thievery_armor_check_penalty}' disabled='disabled'/>
+					    </div>
+					    <div class="sheet-col-1-12 sheet-offset-1-24">
+					      <input class='sheet-passive-skill-score' type='number' name='attr_passive_thievery' value='10 + @{thievery}' disabled='disabled'/>
+					    </div>
+					  </div>
 					
 				</div>
 			
