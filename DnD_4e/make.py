@@ -24,21 +24,13 @@ def fn_gteq(x, y):
     """Evaluates to 1 if x >= y, 0 otherwise."""
     return "( 1 - (floor(((%s) - 1 - (%s) ) / ( abs((%s) - 1 - (%s) ) + 0.001 ) ) + 1 ))" % (y,x,y,x)
 
-def fn_lt(x, y):
-    """Evaluates to 1 if x < y, 0 otherwise."""
-    return fn_gteq(y, x)
-
 def fn_lteq(x, y):
     """Evaluates to 1 if x <= y, 0 otherwise."""
     return "( floor( ( (%s) - (%s) ) / ( abs( (%s) - (%s) ) + 0.001 ) ) + 1 )" % (y,x,y,x)
 
-def fn_gt(x, y):
-    """Evaluates to 1 if x > y, 0 otherwise."""
-    return fn_lteq(y, x)
-
 def fn_eq(x, y):
     """Evaluates to 1 if x == y, 0 otherwise."""
-    return fn_lteq(y, x) + "*" + fn_gteq(y, x)
+    return "abs((((1 + abs((%s)-(%s))) - abs(1 - abs((%s)-(%s)))) / 2) - 1)" % (x,y,x,y)
 
 def fn_neg(x):
     """Evaluates to 1 if x == 0, 0 if x == 1."""
@@ -303,9 +295,7 @@ template_vars.update(
     dict(max=fn_max,
          min=fn_min,
          gteq=fn_gteq,
-         lt=fn_lt,
          lteq=fn_lteq,
-         gt=fn_gt,
          eq=fn_eq,
          neg=fn_neg,
          in_check=in_check,
@@ -321,8 +311,8 @@ template_vars.update(
          powers=powers
      ))
 
-#for _, attr in sorted(atts.get_dict().items()):
-#    print attr.name + " = " + str(attr.value)
+for _, attr in sorted(atts.get_dict().items()):
+    print attr.name + " = " + str(attr.value)
 
 result = t(**template_vars)
 f = open("DnD_4e.html", "w")

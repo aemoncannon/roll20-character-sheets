@@ -5045,7 +5045,9 @@
 			    Armor Prof. Penalty <input class="sheet-underlined" type="number" name="attr_armor_prof_penalty" value="(((((-2)) + (@{armor_worn_prof_penalty1} + @{armor_worn_prof_penalty2} + @{armor_worn_prof_penalty3} + @{armor_worn_prof_penalty4} + @{armor_worn_prof_penalty5} + @{armor_worn_prof_penalty6} + @{armor_worn_prof_penalty7} + @{armor_worn_prof_penalty8} + @{armor_worn_prof_penalty9} + @{armor_worn_prof_penalty10})) + abs(((-2)) - (@{armor_worn_prof_penalty1} + @{armor_worn_prof_penalty2} + @{armor_worn_prof_penalty3} + @{armor_worn_prof_penalty4} + @{armor_worn_prof_penalty5} + @{armor_worn_prof_penalty6} + @{armor_worn_prof_penalty7} + @{armor_worn_prof_penalty8} + @{armor_worn_prof_penalty9} + @{armor_worn_prof_penalty10}))) / 2)" disabled="disabled"/>
 			  </div>
 
-
+			  <div class="sheet-col-1-5 sheet-small-label sheet-center">
+			    Shield Reflex Bonus <input class="sheet-underlined" type="number" name="attr_shield_reflex_bonus" value="@{shield_worn_reflex_bonus1} + @{shield_worn_reflex_bonus2} + @{shield_worn_reflex_bonus3} + @{shield_worn_reflex_bonus4} + @{shield_worn_reflex_bonus5} + @{shield_worn_reflex_bonus6} + @{shield_worn_reflex_bonus7} + @{shield_worn_reflex_bonus8} + @{shield_worn_reflex_bonus9} + @{shield_worn_reflex_bonus10}" disabled="disabled"/>
+			  </div>
 			  
 			</div>
 					
@@ -5070,10 +5072,15 @@
 					<div class="sheet-row">
 
 					  <input class="" type="hidden" name="attr_armor_worn_bonus1" value="@{armor_worn1} * @{armourtotalAC1}" disabled="disabled"/>
-					  <input class="" type="hidden" name="attr_armor_is_shield1" value="( floor( ( (3) - (@{armourtype1}) ) / ( abs( (3) - (@{armourtype1}) ) + 0.001 ) ) + 1 )*( 1 - (floor(((3) - 1 - (@{armourtype1}) ) / ( abs((3) - 1 - (@{armourtype1}) ) + 0.001 ) ) + 1 )) + ( floor( ( (4) - (@{armourtype1}) ) / ( abs( (4) - (@{armourtype1}) ) + 0.001 ) ) + 1 )*( 1 - (floor(((4) - 1 - (@{armourtype1}) ) / ( abs((4) - 1 - (@{armourtype1}) ) + 0.001 ) ) + 1 ))" disabled="disabled"/>
+					  <input class="" type="hidden" name="attr_armor_is_shield1" value="abs((((1 + abs((3)-(@{armourtype1}))) - abs(1 - abs((3)-(@{armourtype1})))) / 2) - 1) + abs((((1 + abs((4)-(@{armourtype1}))) - abs(1 - abs((4)-(@{armourtype1})))) / 2) - 1)" disabled="disabled"/>
 					  <input class="" type="hidden" name="attr_shield_worn_reflex_bonus1" value="@{armor_is_shield1} * @{armor_prof1} * @{armor_worn1} * @{armourtotalAC1}" disabled="disabled"/>
 					  <input class="" type="hidden" name="attr_armor_worn_check_penalty1" value="@{armor_worn1} * @{armor_check_penalty1}" disabled="disabled"/>
-					  <input class="" type="hidden" name="attr_armor_worn_prof_penalty1" value="@{armor_worn1} * ( floor( ( (@{armor_prof1}) - (0) ) / ( abs( (@{armor_prof1}) - (0) ) + 0.001 ) ) + 1 )*( 1 - (floor(((@{armor_prof1}) - 1 - (0) ) / ( abs((@{armor_prof1}) - 1 - (0) ) + 0.001 ) ) + 1 )) * (-2)" disabled="disabled"/>
+					  <input class="" type="hidden" name="attr_armor_worn_prof_penalty1" value="@{armor_worn1} * abs((((1 + abs((@{armor_prof1})-(0))) - abs(1 - abs((@{armor_prof1})-(0)))) / 2) - 1) * (-2)" disabled="disabled"/>
+
+					  <input class="" type="number" name="attr_armor_worn1" value="1" disabled="disabled"/>
+					  <input class="" type="number" name="attr_armor_is_shield1" value="abs((((1 + abs((3)-(@{armourtype1}))) - abs(1 - abs((3)-(@{armourtype1})))) / 2) - 1) + abs((((1 + abs((4)-(@{armourtype1}))) - abs(1 - abs((4)-(@{armourtype1})))) / 2) - 1)" disabled="disabled"/>
+					  <input class="" type="number" name="attr_armor_prof1" value="1" disabled="disabled"/>
+					  <input class="" type="number" name="attr_shield_worn_reflex_bonus1" value="@{armor_is_shield1} * @{armor_prof1} * @{armor_worn1} * @{armourtotalAC1}" disabled="disabled"/>
 
 					  <div class="sheet-col-1-12 sheet-vert-middle sheet-checkbox-row">
 					    <input class="" type="checkbox" name="attr_armor_worn1" value="1" />
@@ -5102,7 +5109,7 @@
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
-					    <input class="" type="number" name="attr_light_armour_bonus1" value="( floor( ( (1) - (@{armourtype1}) ) / ( abs( (1) - (@{armourtype1}) ) + 0.001 ) ) + 1 )*( 1 - (floor(((1) - 1 - (@{armourtype1}) ) / ( abs((1) - 1 - (@{armourtype1}) ) + 0.001 ) ) + 1 )) * ((((@{dexterity_mod}) + (@{intelligence_mod})) + abs((@{dexterity_mod}) - (@{intelligence_mod}))) / 2)" disabled="disabled"/>
+					    <input class="" type="number" name="attr_light_armour_bonus1" value="abs((((1 + abs((1)-(@{armourtype1}))) - abs(1 - abs((1)-(@{armourtype1})))) / 2) - 1) * ((((@{dexterity_mod}) + (@{intelligence_mod})) + abs((@{dexterity_mod}) - (@{intelligence_mod}))) / 2)" disabled="disabled"/>
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
@@ -5122,10 +5129,15 @@
 					<div class="sheet-row">
 
 					  <input class="" type="hidden" name="attr_armor_worn_bonus2" value="@{armor_worn2} * @{armourtotalAC2}" disabled="disabled"/>
-					  <input class="" type="hidden" name="attr_armor_is_shield2" value="( floor( ( (3) - (@{armourtype2}) ) / ( abs( (3) - (@{armourtype2}) ) + 0.001 ) ) + 1 )*( 1 - (floor(((3) - 1 - (@{armourtype2}) ) / ( abs((3) - 1 - (@{armourtype2}) ) + 0.001 ) ) + 1 )) + ( floor( ( (4) - (@{armourtype2}) ) / ( abs( (4) - (@{armourtype2}) ) + 0.001 ) ) + 1 )*( 1 - (floor(((4) - 1 - (@{armourtype2}) ) / ( abs((4) - 1 - (@{armourtype2}) ) + 0.001 ) ) + 1 ))" disabled="disabled"/>
+					  <input class="" type="hidden" name="attr_armor_is_shield2" value="abs((((1 + abs((3)-(@{armourtype2}))) - abs(1 - abs((3)-(@{armourtype2})))) / 2) - 1) + abs((((1 + abs((4)-(@{armourtype2}))) - abs(1 - abs((4)-(@{armourtype2})))) / 2) - 1)" disabled="disabled"/>
 					  <input class="" type="hidden" name="attr_shield_worn_reflex_bonus2" value="@{armor_is_shield2} * @{armor_prof2} * @{armor_worn2} * @{armourtotalAC2}" disabled="disabled"/>
 					  <input class="" type="hidden" name="attr_armor_worn_check_penalty2" value="@{armor_worn2} * @{armor_check_penalty2}" disabled="disabled"/>
-					  <input class="" type="hidden" name="attr_armor_worn_prof_penalty2" value="@{armor_worn2} * ( floor( ( (@{armor_prof2}) - (0) ) / ( abs( (@{armor_prof2}) - (0) ) + 0.001 ) ) + 1 )*( 1 - (floor(((@{armor_prof2}) - 1 - (0) ) / ( abs((@{armor_prof2}) - 1 - (0) ) + 0.001 ) ) + 1 )) * (-2)" disabled="disabled"/>
+					  <input class="" type="hidden" name="attr_armor_worn_prof_penalty2" value="@{armor_worn2} * abs((((1 + abs((@{armor_prof2})-(0))) - abs(1 - abs((@{armor_prof2})-(0)))) / 2) - 1) * (-2)" disabled="disabled"/>
+
+					  <input class="" type="number" name="attr_armor_worn2" value="1" disabled="disabled"/>
+					  <input class="" type="number" name="attr_armor_is_shield2" value="abs((((1 + abs((3)-(@{armourtype2}))) - abs(1 - abs((3)-(@{armourtype2})))) / 2) - 1) + abs((((1 + abs((4)-(@{armourtype2}))) - abs(1 - abs((4)-(@{armourtype2})))) / 2) - 1)" disabled="disabled"/>
+					  <input class="" type="number" name="attr_armor_prof2" value="1" disabled="disabled"/>
+					  <input class="" type="number" name="attr_shield_worn_reflex_bonus2" value="@{armor_is_shield2} * @{armor_prof2} * @{armor_worn2} * @{armourtotalAC2}" disabled="disabled"/>
 
 					  <div class="sheet-col-1-12 sheet-vert-middle sheet-checkbox-row">
 					    <input class="" type="checkbox" name="attr_armor_worn2" value="1" />
@@ -5154,7 +5166,7 @@
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
-					    <input class="" type="number" name="attr_light_armour_bonus2" value="( floor( ( (1) - (@{armourtype2}) ) / ( abs( (1) - (@{armourtype2}) ) + 0.001 ) ) + 1 )*( 1 - (floor(((1) - 1 - (@{armourtype2}) ) / ( abs((1) - 1 - (@{armourtype2}) ) + 0.001 ) ) + 1 )) * ((((@{dexterity_mod}) + (@{intelligence_mod})) + abs((@{dexterity_mod}) - (@{intelligence_mod}))) / 2)" disabled="disabled"/>
+					    <input class="" type="number" name="attr_light_armour_bonus2" value="abs((((1 + abs((1)-(@{armourtype2}))) - abs(1 - abs((1)-(@{armourtype2})))) / 2) - 1) * ((((@{dexterity_mod}) + (@{intelligence_mod})) + abs((@{dexterity_mod}) - (@{intelligence_mod}))) / 2)" disabled="disabled"/>
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
@@ -5174,10 +5186,15 @@
 					<div class="sheet-row">
 
 					  <input class="" type="hidden" name="attr_armor_worn_bonus3" value="@{armor_worn3} * @{armourtotalAC3}" disabled="disabled"/>
-					  <input class="" type="hidden" name="attr_armor_is_shield3" value="( floor( ( (3) - (@{armourtype3}) ) / ( abs( (3) - (@{armourtype3}) ) + 0.001 ) ) + 1 )*( 1 - (floor(((3) - 1 - (@{armourtype3}) ) / ( abs((3) - 1 - (@{armourtype3}) ) + 0.001 ) ) + 1 )) + ( floor( ( (4) - (@{armourtype3}) ) / ( abs( (4) - (@{armourtype3}) ) + 0.001 ) ) + 1 )*( 1 - (floor(((4) - 1 - (@{armourtype3}) ) / ( abs((4) - 1 - (@{armourtype3}) ) + 0.001 ) ) + 1 ))" disabled="disabled"/>
+					  <input class="" type="hidden" name="attr_armor_is_shield3" value="abs((((1 + abs((3)-(@{armourtype3}))) - abs(1 - abs((3)-(@{armourtype3})))) / 2) - 1) + abs((((1 + abs((4)-(@{armourtype3}))) - abs(1 - abs((4)-(@{armourtype3})))) / 2) - 1)" disabled="disabled"/>
 					  <input class="" type="hidden" name="attr_shield_worn_reflex_bonus3" value="@{armor_is_shield3} * @{armor_prof3} * @{armor_worn3} * @{armourtotalAC3}" disabled="disabled"/>
 					  <input class="" type="hidden" name="attr_armor_worn_check_penalty3" value="@{armor_worn3} * @{armor_check_penalty3}" disabled="disabled"/>
-					  <input class="" type="hidden" name="attr_armor_worn_prof_penalty3" value="@{armor_worn3} * ( floor( ( (@{armor_prof3}) - (0) ) / ( abs( (@{armor_prof3}) - (0) ) + 0.001 ) ) + 1 )*( 1 - (floor(((@{armor_prof3}) - 1 - (0) ) / ( abs((@{armor_prof3}) - 1 - (0) ) + 0.001 ) ) + 1 )) * (-2)" disabled="disabled"/>
+					  <input class="" type="hidden" name="attr_armor_worn_prof_penalty3" value="@{armor_worn3} * abs((((1 + abs((@{armor_prof3})-(0))) - abs(1 - abs((@{armor_prof3})-(0)))) / 2) - 1) * (-2)" disabled="disabled"/>
+
+					  <input class="" type="number" name="attr_armor_worn3" value="1" disabled="disabled"/>
+					  <input class="" type="number" name="attr_armor_is_shield3" value="abs((((1 + abs((3)-(@{armourtype3}))) - abs(1 - abs((3)-(@{armourtype3})))) / 2) - 1) + abs((((1 + abs((4)-(@{armourtype3}))) - abs(1 - abs((4)-(@{armourtype3})))) / 2) - 1)" disabled="disabled"/>
+					  <input class="" type="number" name="attr_armor_prof3" value="1" disabled="disabled"/>
+					  <input class="" type="number" name="attr_shield_worn_reflex_bonus3" value="@{armor_is_shield3} * @{armor_prof3} * @{armor_worn3} * @{armourtotalAC3}" disabled="disabled"/>
 
 					  <div class="sheet-col-1-12 sheet-vert-middle sheet-checkbox-row">
 					    <input class="" type="checkbox" name="attr_armor_worn3" value="1" />
@@ -5206,7 +5223,7 @@
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
-					    <input class="" type="number" name="attr_light_armour_bonus3" value="( floor( ( (1) - (@{armourtype3}) ) / ( abs( (1) - (@{armourtype3}) ) + 0.001 ) ) + 1 )*( 1 - (floor(((1) - 1 - (@{armourtype3}) ) / ( abs((1) - 1 - (@{armourtype3}) ) + 0.001 ) ) + 1 )) * ((((@{dexterity_mod}) + (@{intelligence_mod})) + abs((@{dexterity_mod}) - (@{intelligence_mod}))) / 2)" disabled="disabled"/>
+					    <input class="" type="number" name="attr_light_armour_bonus3" value="abs((((1 + abs((1)-(@{armourtype3}))) - abs(1 - abs((1)-(@{armourtype3})))) / 2) - 1) * ((((@{dexterity_mod}) + (@{intelligence_mod})) + abs((@{dexterity_mod}) - (@{intelligence_mod}))) / 2)" disabled="disabled"/>
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
@@ -5226,10 +5243,15 @@
 					<div class="sheet-row">
 
 					  <input class="" type="hidden" name="attr_armor_worn_bonus4" value="@{armor_worn4} * @{armourtotalAC4}" disabled="disabled"/>
-					  <input class="" type="hidden" name="attr_armor_is_shield4" value="( floor( ( (3) - (@{armourtype4}) ) / ( abs( (3) - (@{armourtype4}) ) + 0.001 ) ) + 1 )*( 1 - (floor(((3) - 1 - (@{armourtype4}) ) / ( abs((3) - 1 - (@{armourtype4}) ) + 0.001 ) ) + 1 )) + ( floor( ( (4) - (@{armourtype4}) ) / ( abs( (4) - (@{armourtype4}) ) + 0.001 ) ) + 1 )*( 1 - (floor(((4) - 1 - (@{armourtype4}) ) / ( abs((4) - 1 - (@{armourtype4}) ) + 0.001 ) ) + 1 ))" disabled="disabled"/>
+					  <input class="" type="hidden" name="attr_armor_is_shield4" value="abs((((1 + abs((3)-(@{armourtype4}))) - abs(1 - abs((3)-(@{armourtype4})))) / 2) - 1) + abs((((1 + abs((4)-(@{armourtype4}))) - abs(1 - abs((4)-(@{armourtype4})))) / 2) - 1)" disabled="disabled"/>
 					  <input class="" type="hidden" name="attr_shield_worn_reflex_bonus4" value="@{armor_is_shield4} * @{armor_prof4} * @{armor_worn4} * @{armourtotalAC4}" disabled="disabled"/>
 					  <input class="" type="hidden" name="attr_armor_worn_check_penalty4" value="@{armor_worn4} * @{armor_check_penalty4}" disabled="disabled"/>
-					  <input class="" type="hidden" name="attr_armor_worn_prof_penalty4" value="@{armor_worn4} * ( floor( ( (@{armor_prof4}) - (0) ) / ( abs( (@{armor_prof4}) - (0) ) + 0.001 ) ) + 1 )*( 1 - (floor(((@{armor_prof4}) - 1 - (0) ) / ( abs((@{armor_prof4}) - 1 - (0) ) + 0.001 ) ) + 1 )) * (-2)" disabled="disabled"/>
+					  <input class="" type="hidden" name="attr_armor_worn_prof_penalty4" value="@{armor_worn4} * abs((((1 + abs((@{armor_prof4})-(0))) - abs(1 - abs((@{armor_prof4})-(0)))) / 2) - 1) * (-2)" disabled="disabled"/>
+
+					  <input class="" type="number" name="attr_armor_worn4" value="1" disabled="disabled"/>
+					  <input class="" type="number" name="attr_armor_is_shield4" value="abs((((1 + abs((3)-(@{armourtype4}))) - abs(1 - abs((3)-(@{armourtype4})))) / 2) - 1) + abs((((1 + abs((4)-(@{armourtype4}))) - abs(1 - abs((4)-(@{armourtype4})))) / 2) - 1)" disabled="disabled"/>
+					  <input class="" type="number" name="attr_armor_prof4" value="1" disabled="disabled"/>
+					  <input class="" type="number" name="attr_shield_worn_reflex_bonus4" value="@{armor_is_shield4} * @{armor_prof4} * @{armor_worn4} * @{armourtotalAC4}" disabled="disabled"/>
 
 					  <div class="sheet-col-1-12 sheet-vert-middle sheet-checkbox-row">
 					    <input class="" type="checkbox" name="attr_armor_worn4" value="1" />
@@ -5258,7 +5280,7 @@
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
-					    <input class="" type="number" name="attr_light_armour_bonus4" value="( floor( ( (1) - (@{armourtype4}) ) / ( abs( (1) - (@{armourtype4}) ) + 0.001 ) ) + 1 )*( 1 - (floor(((1) - 1 - (@{armourtype4}) ) / ( abs((1) - 1 - (@{armourtype4}) ) + 0.001 ) ) + 1 )) * ((((@{dexterity_mod}) + (@{intelligence_mod})) + abs((@{dexterity_mod}) - (@{intelligence_mod}))) / 2)" disabled="disabled"/>
+					    <input class="" type="number" name="attr_light_armour_bonus4" value="abs((((1 + abs((1)-(@{armourtype4}))) - abs(1 - abs((1)-(@{armourtype4})))) / 2) - 1) * ((((@{dexterity_mod}) + (@{intelligence_mod})) + abs((@{dexterity_mod}) - (@{intelligence_mod}))) / 2)" disabled="disabled"/>
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
@@ -5278,10 +5300,15 @@
 					<div class="sheet-row">
 
 					  <input class="" type="hidden" name="attr_armor_worn_bonus5" value="@{armor_worn5} * @{armourtotalAC5}" disabled="disabled"/>
-					  <input class="" type="hidden" name="attr_armor_is_shield5" value="( floor( ( (3) - (@{armourtype5}) ) / ( abs( (3) - (@{armourtype5}) ) + 0.001 ) ) + 1 )*( 1 - (floor(((3) - 1 - (@{armourtype5}) ) / ( abs((3) - 1 - (@{armourtype5}) ) + 0.001 ) ) + 1 )) + ( floor( ( (4) - (@{armourtype5}) ) / ( abs( (4) - (@{armourtype5}) ) + 0.001 ) ) + 1 )*( 1 - (floor(((4) - 1 - (@{armourtype5}) ) / ( abs((4) - 1 - (@{armourtype5}) ) + 0.001 ) ) + 1 ))" disabled="disabled"/>
+					  <input class="" type="hidden" name="attr_armor_is_shield5" value="abs((((1 + abs((3)-(@{armourtype5}))) - abs(1 - abs((3)-(@{armourtype5})))) / 2) - 1) + abs((((1 + abs((4)-(@{armourtype5}))) - abs(1 - abs((4)-(@{armourtype5})))) / 2) - 1)" disabled="disabled"/>
 					  <input class="" type="hidden" name="attr_shield_worn_reflex_bonus5" value="@{armor_is_shield5} * @{armor_prof5} * @{armor_worn5} * @{armourtotalAC5}" disabled="disabled"/>
 					  <input class="" type="hidden" name="attr_armor_worn_check_penalty5" value="@{armor_worn5} * @{armor_check_penalty5}" disabled="disabled"/>
-					  <input class="" type="hidden" name="attr_armor_worn_prof_penalty5" value="@{armor_worn5} * ( floor( ( (@{armor_prof5}) - (0) ) / ( abs( (@{armor_prof5}) - (0) ) + 0.001 ) ) + 1 )*( 1 - (floor(((@{armor_prof5}) - 1 - (0) ) / ( abs((@{armor_prof5}) - 1 - (0) ) + 0.001 ) ) + 1 )) * (-2)" disabled="disabled"/>
+					  <input class="" type="hidden" name="attr_armor_worn_prof_penalty5" value="@{armor_worn5} * abs((((1 + abs((@{armor_prof5})-(0))) - abs(1 - abs((@{armor_prof5})-(0)))) / 2) - 1) * (-2)" disabled="disabled"/>
+
+					  <input class="" type="number" name="attr_armor_worn5" value="1" disabled="disabled"/>
+					  <input class="" type="number" name="attr_armor_is_shield5" value="abs((((1 + abs((3)-(@{armourtype5}))) - abs(1 - abs((3)-(@{armourtype5})))) / 2) - 1) + abs((((1 + abs((4)-(@{armourtype5}))) - abs(1 - abs((4)-(@{armourtype5})))) / 2) - 1)" disabled="disabled"/>
+					  <input class="" type="number" name="attr_armor_prof5" value="1" disabled="disabled"/>
+					  <input class="" type="number" name="attr_shield_worn_reflex_bonus5" value="@{armor_is_shield5} * @{armor_prof5} * @{armor_worn5} * @{armourtotalAC5}" disabled="disabled"/>
 
 					  <div class="sheet-col-1-12 sheet-vert-middle sheet-checkbox-row">
 					    <input class="" type="checkbox" name="attr_armor_worn5" value="1" />
@@ -5310,7 +5337,7 @@
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
-					    <input class="" type="number" name="attr_light_armour_bonus5" value="( floor( ( (1) - (@{armourtype5}) ) / ( abs( (1) - (@{armourtype5}) ) + 0.001 ) ) + 1 )*( 1 - (floor(((1) - 1 - (@{armourtype5}) ) / ( abs((1) - 1 - (@{armourtype5}) ) + 0.001 ) ) + 1 )) * ((((@{dexterity_mod}) + (@{intelligence_mod})) + abs((@{dexterity_mod}) - (@{intelligence_mod}))) / 2)" disabled="disabled"/>
+					    <input class="" type="number" name="attr_light_armour_bonus5" value="abs((((1 + abs((1)-(@{armourtype5}))) - abs(1 - abs((1)-(@{armourtype5})))) / 2) - 1) * ((((@{dexterity_mod}) + (@{intelligence_mod})) + abs((@{dexterity_mod}) - (@{intelligence_mod}))) / 2)" disabled="disabled"/>
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
@@ -5330,10 +5357,15 @@
 					<div class="sheet-row">
 
 					  <input class="" type="hidden" name="attr_armor_worn_bonus6" value="@{armor_worn6} * @{armourtotalAC6}" disabled="disabled"/>
-					  <input class="" type="hidden" name="attr_armor_is_shield6" value="( floor( ( (3) - (@{armourtype6}) ) / ( abs( (3) - (@{armourtype6}) ) + 0.001 ) ) + 1 )*( 1 - (floor(((3) - 1 - (@{armourtype6}) ) / ( abs((3) - 1 - (@{armourtype6}) ) + 0.001 ) ) + 1 )) + ( floor( ( (4) - (@{armourtype6}) ) / ( abs( (4) - (@{armourtype6}) ) + 0.001 ) ) + 1 )*( 1 - (floor(((4) - 1 - (@{armourtype6}) ) / ( abs((4) - 1 - (@{armourtype6}) ) + 0.001 ) ) + 1 ))" disabled="disabled"/>
+					  <input class="" type="hidden" name="attr_armor_is_shield6" value="abs((((1 + abs((3)-(@{armourtype6}))) - abs(1 - abs((3)-(@{armourtype6})))) / 2) - 1) + abs((((1 + abs((4)-(@{armourtype6}))) - abs(1 - abs((4)-(@{armourtype6})))) / 2) - 1)" disabled="disabled"/>
 					  <input class="" type="hidden" name="attr_shield_worn_reflex_bonus6" value="@{armor_is_shield6} * @{armor_prof6} * @{armor_worn6} * @{armourtotalAC6}" disabled="disabled"/>
 					  <input class="" type="hidden" name="attr_armor_worn_check_penalty6" value="@{armor_worn6} * @{armor_check_penalty6}" disabled="disabled"/>
-					  <input class="" type="hidden" name="attr_armor_worn_prof_penalty6" value="@{armor_worn6} * ( floor( ( (@{armor_prof6}) - (0) ) / ( abs( (@{armor_prof6}) - (0) ) + 0.001 ) ) + 1 )*( 1 - (floor(((@{armor_prof6}) - 1 - (0) ) / ( abs((@{armor_prof6}) - 1 - (0) ) + 0.001 ) ) + 1 )) * (-2)" disabled="disabled"/>
+					  <input class="" type="hidden" name="attr_armor_worn_prof_penalty6" value="@{armor_worn6} * abs((((1 + abs((@{armor_prof6})-(0))) - abs(1 - abs((@{armor_prof6})-(0)))) / 2) - 1) * (-2)" disabled="disabled"/>
+
+					  <input class="" type="number" name="attr_armor_worn6" value="1" disabled="disabled"/>
+					  <input class="" type="number" name="attr_armor_is_shield6" value="abs((((1 + abs((3)-(@{armourtype6}))) - abs(1 - abs((3)-(@{armourtype6})))) / 2) - 1) + abs((((1 + abs((4)-(@{armourtype6}))) - abs(1 - abs((4)-(@{armourtype6})))) / 2) - 1)" disabled="disabled"/>
+					  <input class="" type="number" name="attr_armor_prof6" value="1" disabled="disabled"/>
+					  <input class="" type="number" name="attr_shield_worn_reflex_bonus6" value="@{armor_is_shield6} * @{armor_prof6} * @{armor_worn6} * @{armourtotalAC6}" disabled="disabled"/>
 
 					  <div class="sheet-col-1-12 sheet-vert-middle sheet-checkbox-row">
 					    <input class="" type="checkbox" name="attr_armor_worn6" value="1" />
@@ -5362,7 +5394,7 @@
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
-					    <input class="" type="number" name="attr_light_armour_bonus6" value="( floor( ( (1) - (@{armourtype6}) ) / ( abs( (1) - (@{armourtype6}) ) + 0.001 ) ) + 1 )*( 1 - (floor(((1) - 1 - (@{armourtype6}) ) / ( abs((1) - 1 - (@{armourtype6}) ) + 0.001 ) ) + 1 )) * ((((@{dexterity_mod}) + (@{intelligence_mod})) + abs((@{dexterity_mod}) - (@{intelligence_mod}))) / 2)" disabled="disabled"/>
+					    <input class="" type="number" name="attr_light_armour_bonus6" value="abs((((1 + abs((1)-(@{armourtype6}))) - abs(1 - abs((1)-(@{armourtype6})))) / 2) - 1) * ((((@{dexterity_mod}) + (@{intelligence_mod})) + abs((@{dexterity_mod}) - (@{intelligence_mod}))) / 2)" disabled="disabled"/>
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
@@ -5382,10 +5414,15 @@
 					<div class="sheet-row">
 
 					  <input class="" type="hidden" name="attr_armor_worn_bonus7" value="@{armor_worn7} * @{armourtotalAC7}" disabled="disabled"/>
-					  <input class="" type="hidden" name="attr_armor_is_shield7" value="( floor( ( (3) - (@{armourtype7}) ) / ( abs( (3) - (@{armourtype7}) ) + 0.001 ) ) + 1 )*( 1 - (floor(((3) - 1 - (@{armourtype7}) ) / ( abs((3) - 1 - (@{armourtype7}) ) + 0.001 ) ) + 1 )) + ( floor( ( (4) - (@{armourtype7}) ) / ( abs( (4) - (@{armourtype7}) ) + 0.001 ) ) + 1 )*( 1 - (floor(((4) - 1 - (@{armourtype7}) ) / ( abs((4) - 1 - (@{armourtype7}) ) + 0.001 ) ) + 1 ))" disabled="disabled"/>
+					  <input class="" type="hidden" name="attr_armor_is_shield7" value="abs((((1 + abs((3)-(@{armourtype7}))) - abs(1 - abs((3)-(@{armourtype7})))) / 2) - 1) + abs((((1 + abs((4)-(@{armourtype7}))) - abs(1 - abs((4)-(@{armourtype7})))) / 2) - 1)" disabled="disabled"/>
 					  <input class="" type="hidden" name="attr_shield_worn_reflex_bonus7" value="@{armor_is_shield7} * @{armor_prof7} * @{armor_worn7} * @{armourtotalAC7}" disabled="disabled"/>
 					  <input class="" type="hidden" name="attr_armor_worn_check_penalty7" value="@{armor_worn7} * @{armor_check_penalty7}" disabled="disabled"/>
-					  <input class="" type="hidden" name="attr_armor_worn_prof_penalty7" value="@{armor_worn7} * ( floor( ( (@{armor_prof7}) - (0) ) / ( abs( (@{armor_prof7}) - (0) ) + 0.001 ) ) + 1 )*( 1 - (floor(((@{armor_prof7}) - 1 - (0) ) / ( abs((@{armor_prof7}) - 1 - (0) ) + 0.001 ) ) + 1 )) * (-2)" disabled="disabled"/>
+					  <input class="" type="hidden" name="attr_armor_worn_prof_penalty7" value="@{armor_worn7} * abs((((1 + abs((@{armor_prof7})-(0))) - abs(1 - abs((@{armor_prof7})-(0)))) / 2) - 1) * (-2)" disabled="disabled"/>
+
+					  <input class="" type="number" name="attr_armor_worn7" value="1" disabled="disabled"/>
+					  <input class="" type="number" name="attr_armor_is_shield7" value="abs((((1 + abs((3)-(@{armourtype7}))) - abs(1 - abs((3)-(@{armourtype7})))) / 2) - 1) + abs((((1 + abs((4)-(@{armourtype7}))) - abs(1 - abs((4)-(@{armourtype7})))) / 2) - 1)" disabled="disabled"/>
+					  <input class="" type="number" name="attr_armor_prof7" value="1" disabled="disabled"/>
+					  <input class="" type="number" name="attr_shield_worn_reflex_bonus7" value="@{armor_is_shield7} * @{armor_prof7} * @{armor_worn7} * @{armourtotalAC7}" disabled="disabled"/>
 
 					  <div class="sheet-col-1-12 sheet-vert-middle sheet-checkbox-row">
 					    <input class="" type="checkbox" name="attr_armor_worn7" value="1" />
@@ -5414,7 +5451,7 @@
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
-					    <input class="" type="number" name="attr_light_armour_bonus7" value="( floor( ( (1) - (@{armourtype7}) ) / ( abs( (1) - (@{armourtype7}) ) + 0.001 ) ) + 1 )*( 1 - (floor(((1) - 1 - (@{armourtype7}) ) / ( abs((1) - 1 - (@{armourtype7}) ) + 0.001 ) ) + 1 )) * ((((@{dexterity_mod}) + (@{intelligence_mod})) + abs((@{dexterity_mod}) - (@{intelligence_mod}))) / 2)" disabled="disabled"/>
+					    <input class="" type="number" name="attr_light_armour_bonus7" value="abs((((1 + abs((1)-(@{armourtype7}))) - abs(1 - abs((1)-(@{armourtype7})))) / 2) - 1) * ((((@{dexterity_mod}) + (@{intelligence_mod})) + abs((@{dexterity_mod}) - (@{intelligence_mod}))) / 2)" disabled="disabled"/>
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
@@ -5434,10 +5471,15 @@
 					<div class="sheet-row">
 
 					  <input class="" type="hidden" name="attr_armor_worn_bonus8" value="@{armor_worn8} * @{armourtotalAC8}" disabled="disabled"/>
-					  <input class="" type="hidden" name="attr_armor_is_shield8" value="( floor( ( (3) - (@{armourtype8}) ) / ( abs( (3) - (@{armourtype8}) ) + 0.001 ) ) + 1 )*( 1 - (floor(((3) - 1 - (@{armourtype8}) ) / ( abs((3) - 1 - (@{armourtype8}) ) + 0.001 ) ) + 1 )) + ( floor( ( (4) - (@{armourtype8}) ) / ( abs( (4) - (@{armourtype8}) ) + 0.001 ) ) + 1 )*( 1 - (floor(((4) - 1 - (@{armourtype8}) ) / ( abs((4) - 1 - (@{armourtype8}) ) + 0.001 ) ) + 1 ))" disabled="disabled"/>
+					  <input class="" type="hidden" name="attr_armor_is_shield8" value="abs((((1 + abs((3)-(@{armourtype8}))) - abs(1 - abs((3)-(@{armourtype8})))) / 2) - 1) + abs((((1 + abs((4)-(@{armourtype8}))) - abs(1 - abs((4)-(@{armourtype8})))) / 2) - 1)" disabled="disabled"/>
 					  <input class="" type="hidden" name="attr_shield_worn_reflex_bonus8" value="@{armor_is_shield8} * @{armor_prof8} * @{armor_worn8} * @{armourtotalAC8}" disabled="disabled"/>
 					  <input class="" type="hidden" name="attr_armor_worn_check_penalty8" value="@{armor_worn8} * @{armor_check_penalty8}" disabled="disabled"/>
-					  <input class="" type="hidden" name="attr_armor_worn_prof_penalty8" value="@{armor_worn8} * ( floor( ( (@{armor_prof8}) - (0) ) / ( abs( (@{armor_prof8}) - (0) ) + 0.001 ) ) + 1 )*( 1 - (floor(((@{armor_prof8}) - 1 - (0) ) / ( abs((@{armor_prof8}) - 1 - (0) ) + 0.001 ) ) + 1 )) * (-2)" disabled="disabled"/>
+					  <input class="" type="hidden" name="attr_armor_worn_prof_penalty8" value="@{armor_worn8} * abs((((1 + abs((@{armor_prof8})-(0))) - abs(1 - abs((@{armor_prof8})-(0)))) / 2) - 1) * (-2)" disabled="disabled"/>
+
+					  <input class="" type="number" name="attr_armor_worn8" value="1" disabled="disabled"/>
+					  <input class="" type="number" name="attr_armor_is_shield8" value="abs((((1 + abs((3)-(@{armourtype8}))) - abs(1 - abs((3)-(@{armourtype8})))) / 2) - 1) + abs((((1 + abs((4)-(@{armourtype8}))) - abs(1 - abs((4)-(@{armourtype8})))) / 2) - 1)" disabled="disabled"/>
+					  <input class="" type="number" name="attr_armor_prof8" value="1" disabled="disabled"/>
+					  <input class="" type="number" name="attr_shield_worn_reflex_bonus8" value="@{armor_is_shield8} * @{armor_prof8} * @{armor_worn8} * @{armourtotalAC8}" disabled="disabled"/>
 
 					  <div class="sheet-col-1-12 sheet-vert-middle sheet-checkbox-row">
 					    <input class="" type="checkbox" name="attr_armor_worn8" value="1" />
@@ -5466,7 +5508,7 @@
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
-					    <input class="" type="number" name="attr_light_armour_bonus8" value="( floor( ( (1) - (@{armourtype8}) ) / ( abs( (1) - (@{armourtype8}) ) + 0.001 ) ) + 1 )*( 1 - (floor(((1) - 1 - (@{armourtype8}) ) / ( abs((1) - 1 - (@{armourtype8}) ) + 0.001 ) ) + 1 )) * ((((@{dexterity_mod}) + (@{intelligence_mod})) + abs((@{dexterity_mod}) - (@{intelligence_mod}))) / 2)" disabled="disabled"/>
+					    <input class="" type="number" name="attr_light_armour_bonus8" value="abs((((1 + abs((1)-(@{armourtype8}))) - abs(1 - abs((1)-(@{armourtype8})))) / 2) - 1) * ((((@{dexterity_mod}) + (@{intelligence_mod})) + abs((@{dexterity_mod}) - (@{intelligence_mod}))) / 2)" disabled="disabled"/>
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
@@ -5486,10 +5528,15 @@
 					<div class="sheet-row">
 
 					  <input class="" type="hidden" name="attr_armor_worn_bonus9" value="@{armor_worn9} * @{armourtotalAC9}" disabled="disabled"/>
-					  <input class="" type="hidden" name="attr_armor_is_shield9" value="( floor( ( (3) - (@{armourtype9}) ) / ( abs( (3) - (@{armourtype9}) ) + 0.001 ) ) + 1 )*( 1 - (floor(((3) - 1 - (@{armourtype9}) ) / ( abs((3) - 1 - (@{armourtype9}) ) + 0.001 ) ) + 1 )) + ( floor( ( (4) - (@{armourtype9}) ) / ( abs( (4) - (@{armourtype9}) ) + 0.001 ) ) + 1 )*( 1 - (floor(((4) - 1 - (@{armourtype9}) ) / ( abs((4) - 1 - (@{armourtype9}) ) + 0.001 ) ) + 1 ))" disabled="disabled"/>
+					  <input class="" type="hidden" name="attr_armor_is_shield9" value="abs((((1 + abs((3)-(@{armourtype9}))) - abs(1 - abs((3)-(@{armourtype9})))) / 2) - 1) + abs((((1 + abs((4)-(@{armourtype9}))) - abs(1 - abs((4)-(@{armourtype9})))) / 2) - 1)" disabled="disabled"/>
 					  <input class="" type="hidden" name="attr_shield_worn_reflex_bonus9" value="@{armor_is_shield9} * @{armor_prof9} * @{armor_worn9} * @{armourtotalAC9}" disabled="disabled"/>
 					  <input class="" type="hidden" name="attr_armor_worn_check_penalty9" value="@{armor_worn9} * @{armor_check_penalty9}" disabled="disabled"/>
-					  <input class="" type="hidden" name="attr_armor_worn_prof_penalty9" value="@{armor_worn9} * ( floor( ( (@{armor_prof9}) - (0) ) / ( abs( (@{armor_prof9}) - (0) ) + 0.001 ) ) + 1 )*( 1 - (floor(((@{armor_prof9}) - 1 - (0) ) / ( abs((@{armor_prof9}) - 1 - (0) ) + 0.001 ) ) + 1 )) * (-2)" disabled="disabled"/>
+					  <input class="" type="hidden" name="attr_armor_worn_prof_penalty9" value="@{armor_worn9} * abs((((1 + abs((@{armor_prof9})-(0))) - abs(1 - abs((@{armor_prof9})-(0)))) / 2) - 1) * (-2)" disabled="disabled"/>
+
+					  <input class="" type="number" name="attr_armor_worn9" value="1" disabled="disabled"/>
+					  <input class="" type="number" name="attr_armor_is_shield9" value="abs((((1 + abs((3)-(@{armourtype9}))) - abs(1 - abs((3)-(@{armourtype9})))) / 2) - 1) + abs((((1 + abs((4)-(@{armourtype9}))) - abs(1 - abs((4)-(@{armourtype9})))) / 2) - 1)" disabled="disabled"/>
+					  <input class="" type="number" name="attr_armor_prof9" value="1" disabled="disabled"/>
+					  <input class="" type="number" name="attr_shield_worn_reflex_bonus9" value="@{armor_is_shield9} * @{armor_prof9} * @{armor_worn9} * @{armourtotalAC9}" disabled="disabled"/>
 
 					  <div class="sheet-col-1-12 sheet-vert-middle sheet-checkbox-row">
 					    <input class="" type="checkbox" name="attr_armor_worn9" value="1" />
@@ -5518,7 +5565,7 @@
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
-					    <input class="" type="number" name="attr_light_armour_bonus9" value="( floor( ( (1) - (@{armourtype9}) ) / ( abs( (1) - (@{armourtype9}) ) + 0.001 ) ) + 1 )*( 1 - (floor(((1) - 1 - (@{armourtype9}) ) / ( abs((1) - 1 - (@{armourtype9}) ) + 0.001 ) ) + 1 )) * ((((@{dexterity_mod}) + (@{intelligence_mod})) + abs((@{dexterity_mod}) - (@{intelligence_mod}))) / 2)" disabled="disabled"/>
+					    <input class="" type="number" name="attr_light_armour_bonus9" value="abs((((1 + abs((1)-(@{armourtype9}))) - abs(1 - abs((1)-(@{armourtype9})))) / 2) - 1) * ((((@{dexterity_mod}) + (@{intelligence_mod})) + abs((@{dexterity_mod}) - (@{intelligence_mod}))) / 2)" disabled="disabled"/>
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
@@ -5538,10 +5585,15 @@
 					<div class="sheet-row">
 
 					  <input class="" type="hidden" name="attr_armor_worn_bonus10" value="@{armor_worn10} * @{armourtotalAC10}" disabled="disabled"/>
-					  <input class="" type="hidden" name="attr_armor_is_shield10" value="( floor( ( (3) - (@{armourtype10}) ) / ( abs( (3) - (@{armourtype10}) ) + 0.001 ) ) + 1 )*( 1 - (floor(((3) - 1 - (@{armourtype10}) ) / ( abs((3) - 1 - (@{armourtype10}) ) + 0.001 ) ) + 1 )) + ( floor( ( (4) - (@{armourtype10}) ) / ( abs( (4) - (@{armourtype10}) ) + 0.001 ) ) + 1 )*( 1 - (floor(((4) - 1 - (@{armourtype10}) ) / ( abs((4) - 1 - (@{armourtype10}) ) + 0.001 ) ) + 1 ))" disabled="disabled"/>
+					  <input class="" type="hidden" name="attr_armor_is_shield10" value="abs((((1 + abs((3)-(@{armourtype10}))) - abs(1 - abs((3)-(@{armourtype10})))) / 2) - 1) + abs((((1 + abs((4)-(@{armourtype10}))) - abs(1 - abs((4)-(@{armourtype10})))) / 2) - 1)" disabled="disabled"/>
 					  <input class="" type="hidden" name="attr_shield_worn_reflex_bonus10" value="@{armor_is_shield10} * @{armor_prof10} * @{armor_worn10} * @{armourtotalAC10}" disabled="disabled"/>
 					  <input class="" type="hidden" name="attr_armor_worn_check_penalty10" value="@{armor_worn10} * @{armor_check_penalty10}" disabled="disabled"/>
-					  <input class="" type="hidden" name="attr_armor_worn_prof_penalty10" value="@{armor_worn10} * ( floor( ( (@{armor_prof10}) - (0) ) / ( abs( (@{armor_prof10}) - (0) ) + 0.001 ) ) + 1 )*( 1 - (floor(((@{armor_prof10}) - 1 - (0) ) / ( abs((@{armor_prof10}) - 1 - (0) ) + 0.001 ) ) + 1 )) * (-2)" disabled="disabled"/>
+					  <input class="" type="hidden" name="attr_armor_worn_prof_penalty10" value="@{armor_worn10} * abs((((1 + abs((@{armor_prof10})-(0))) - abs(1 - abs((@{armor_prof10})-(0)))) / 2) - 1) * (-2)" disabled="disabled"/>
+
+					  <input class="" type="number" name="attr_armor_worn10" value="1" disabled="disabled"/>
+					  <input class="" type="number" name="attr_armor_is_shield10" value="abs((((1 + abs((3)-(@{armourtype10}))) - abs(1 - abs((3)-(@{armourtype10})))) / 2) - 1) + abs((((1 + abs((4)-(@{armourtype10}))) - abs(1 - abs((4)-(@{armourtype10})))) / 2) - 1)" disabled="disabled"/>
+					  <input class="" type="number" name="attr_armor_prof10" value="1" disabled="disabled"/>
+					  <input class="" type="number" name="attr_shield_worn_reflex_bonus10" value="@{armor_is_shield10} * @{armor_prof10} * @{armor_worn10} * @{armourtotalAC10}" disabled="disabled"/>
 
 					  <div class="sheet-col-1-12 sheet-vert-middle sheet-checkbox-row">
 					    <input class="" type="checkbox" name="attr_armor_worn10" value="1" />
@@ -5570,7 +5622,7 @@
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
-					    <input class="" type="number" name="attr_light_armour_bonus10" value="( floor( ( (1) - (@{armourtype10}) ) / ( abs( (1) - (@{armourtype10}) ) + 0.001 ) ) + 1 )*( 1 - (floor(((1) - 1 - (@{armourtype10}) ) / ( abs((1) - 1 - (@{armourtype10}) ) + 0.001 ) ) + 1 )) * ((((@{dexterity_mod}) + (@{intelligence_mod})) + abs((@{dexterity_mod}) - (@{intelligence_mod}))) / 2)" disabled="disabled"/>
+					    <input class="" type="number" name="attr_light_armour_bonus10" value="abs((((1 + abs((1)-(@{armourtype10}))) - abs(1 - abs((1)-(@{armourtype10})))) / 2) - 1) * ((((@{dexterity_mod}) + (@{intelligence_mod})) + abs((@{dexterity_mod}) - (@{intelligence_mod}))) / 2)" disabled="disabled"/>
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
