@@ -61,11 +61,11 @@ def ref(attr_name):
     return "@{%s}" % attr_name
 
 def el_in(attr, tpe="text", cls="", extra=""):
-    return "<input class='%s' type='%s' name='%s' value='%s' %s %s/>" % (cls, tpe, "attr_" + attr.name, attr.value, extra)
+    return "<input class=\"%s\" type=\"%s\" name=\"%s\" value=\"%s\" %s/>" % (cls, tpe, "attr_" + attr.name, attr.value, extra)
 
 def in_check(attr, checked=False, cls=""):
     if checked:
-        return el_in(attr, tpe="checkbox", cls=cls, extra="checked='checked'")
+        return el_in(attr, tpe="checkbox", cls=cls, extra="checked=\"checked\"")
     else:
         return el_in(attr, tpe="checkbox", cls=cls)
 
@@ -73,24 +73,25 @@ def in_text(attr, cls=""):
     return el_in(attr, cls=cls)
 
 def in_num(attr, cls="", step="1"):
-    return el_in(attr, tpe="number", cls=cls, extra="min='%s' step='%s'" % (attr.minimum, step))
+    return el_in(attr, tpe="number", cls=cls, extra="min=\"%s\" step=\"%s\"" % (attr.minimum, step))
 
 def out_hidden(attr):
-    return el_in(attr, tpe="hidden", cls=cls, extra="disabled='disabled'", hidden=hidden)
+    return el_in(attr, tpe="hidden", extra="disabled=\"disabled\"")
 
 def out_text(attr, cls=""):
-    return el_in(attr, cls=cls, extra="disabled='disabled'", hidden=hidden)
+    return el_in(attr, cls=cls, extra="disabled=\"disabled\"")
 
 def out_num(attr, cls=""):
-    return el_in(attr, tpe="number", cls=cls, extra="disabled='disabled'", hidden=hidden)
+    return el_in(attr, tpe="number", cls=cls, extra="disabled=\"disabled\"")
 
 class Attr(object):
 
-    def __init__(self, name, value="", minimum=0):
+    def __init__(self, name, value="", minimum=0, dynamic=False):
         self.name = name
         self.value = value
         self.minimum = 0
-        atts.add_attr(self)
+        if not dynamic:
+            atts.add_attr(self)
 
     def __str__(self):
         return "@{" + self.name + "}"
@@ -100,22 +101,24 @@ class Roll(object):
     def __init__(self, name, value=""):
         self.name = name
         self.value = value
+        atts.add_attr(self)
 
     def __str__(self):
         return self.name
 
 class Group(object):
 
-    def __init__(self, prefix="", suffix=""):
+    def __init__(self, prefix="", suffix="", dynamic = False):
         self.prefix = prefix
         self.suffix = suffix
         self.attrs = {}
+        self.dynamic = dynamic
 
     def __getattr__(self, name):
         return self.attrs[name]
 
     def attr(self, name, value="", minimum=0):
-        att = Attr(self.prefix + name + self.suffix, value=value, minimum=minimum)
+        att = Attr(self.prefix + name + self.suffix, value=value, minimum=minimum, dynamic=self.dynamic)
         self.attrs[name] = att
         return att
 
@@ -139,9 +142,10 @@ Attr("char_class")
 Attr("race")
 Attr("character_name")
 Attr("level")
+Attr("half_level", value=fn_floor(fn_div(atts.level, 2)))
+Attr("ten_plus_half_level", value=fn_sum(10, atts.half_level))
 Attr("xp")
 Attr("xp_next_level")
-Attr("ten_plus_half_level", value=fn_sum(10, fn_floor(fn_div(atts.level,2))))
 
 Attr("HP")
 Attr("HP_max", minimum=1)
@@ -166,7 +170,7 @@ for abil in ["strength", "constitution", "dexterity", "intelligence", "wisdom", 
     g = Group(prefix=(abil + "_"))
     g.attr("base", minimum=1)
     g.attr("mod", value=fn_floor(fn_div(fn_quant(fn_sum(g.base, fn_quant(-10))), 2)))
-    g.attr("mod_plus_half_lev", value=fn_sum(g.mod, fn_floor(fn_div(atts.level, 2))))
+    g.attr("mod_plus_half_lev", value=fn_sum(g.mod, atts.half_level))
     g.set_roll(Roll("roll_%s_Check" % abil.capitalize(),
         " ".join(["&{template:4eDefault}",
                   "{{character_name=@{character_name}}}",
@@ -192,7 +196,7 @@ for defense in ["ac", "fort", "ref", "will"]:
         g.attr("ability_bonus", value=fn_max(atts.wisdom_mod, atts.charisma_mod))
     g.attr("class_bonus")
     g.set_label(defense.upper())
-    g.attr(defense, value=fn_sum(g.ability_bonus, g.class_bonus, atts.ten_plus_half_level))
+    g.attr("total", value=fn_sum(g.ability_bonus, g.class_bonus, atts.ten_plus_half_level))
     defense_groups.append(g)
 
 
@@ -256,6 +260,31 @@ for i in range(1, NUM_ARMORS+1):
     g.attr("armor_worn_prof_penalty", value=fn_prod(g.armor_worn, g.armor_prof, fn_quant(-2)))
     armor_groups.append(g)
 
+
+# Note: We handle groups in html with a <fieldset> tag, so the group prefix
+# is unknowable until runtime.
+powers = Group(dynamic=True)
+
+# See PHB page 55 for power card description.
+powers.attr("name")
+powers.attr("type")
+powers.attr("level")
+powers.attr("is_available")
+powers.attr("keywords")
+powers.attr("actiontype")
+powers.attr("attacktype")
+powers.attr("attacktarget")
+powers.attr("attacker")
+powers.attr("attackbonus")
+powers.attr("attackee")
+powers.attr("requirements")
+powers.attr("on_miss")
+powers.attr("secondary_attack")
+powers.attr("effect")
+powers.attr("sustain")
+powers.attr("notes")
+
+
 Attr("armor_bonus", value=fn_sum(*[g.armor_worn_bonus for g in armor_groups]))
 Attr("armor_check_penalty", value=fn_sum(*[g.armor_worn_check_penalty for g in armor_groups]))
 Attr("armor_prof_penalty", value=fn_min(fn_quant(-2), fn_sum(*[g.armor_worn_prof_penalty for g in armor_groups])))
@@ -279,14 +308,16 @@ template_vars.update(
          in_text=in_text,
          out_num=out_num,
          out_text=out_text,
+         out_hidden=out_hidden,
          skill_groups=skill_groups,
          defense_groups=defense_groups,
          armor_groups=armor_groups,
-         ability_groups=ability_groups
+         ability_groups=ability_groups,
+         powers=powers
      ))
 
-for _, attr in sorted(atts.get_dict().items()):
-    print attr.name + " = " + str(attr.value)
+#for _, attr in sorted(atts.get_dict().items()):
+#    print attr.name + " = " + str(attr.value)
 
 result = t(**template_vars)
 f = open("DnD_4e.html", "w")
