@@ -89,7 +89,7 @@ class Attr(object):
     def __init__(self, name, value="", minimum=0, dynamic=False):
         self.name = name
         self.value = value
-        self.minimum = 0
+        self.minimum = minimum
         if not dynamic:
             atts.add_attr(self)
 
@@ -137,14 +137,14 @@ class Group(object):
 
 atts = Group()
 
-Attr("is_npc", value="2")
+Attr("is_npc", value=1)
 Attr("char_class")
 Attr("race")
 Attr("character_name")
-Attr("level")
+Attr("level", value=1)
 Attr("half_level", value=fn_floor(fn_div(atts.level, 2)))
 Attr("ten_plus_half_level", value=fn_sum(10, atts.half_level))
-Attr("xp")
+Attr("xp", value=0)
 Attr("xp_next_level")
 
 Attr("HP")
@@ -194,7 +194,7 @@ for defense in ["ac", "fort", "ref", "will"]:
         g.attr("ability_bonus", value=fn_sum(fn_max(atts.dexterity_mod, atts.intelligence_mod), ref("armor_prof_penalty")))
     elif defense == "will":
         g.attr("ability_bonus", value=fn_max(atts.wisdom_mod, atts.charisma_mod))
-    g.attr("class_bonus")
+    g.attr("class_bonus", value=0)
     g.set_label(defense.upper())
     g.attr("total", value=fn_sum(g.ability_bonus, g.class_bonus, atts.ten_plus_half_level))
     defense_groups.append(g)
@@ -245,19 +245,19 @@ NUM_ARMORS = 10
 armor_groups = []
 for i in range(1, NUM_ARMORS+1):
     g = Group(suffix=str(i))
-    g.attr("armor_worn", value="0")
-    g.attr("armor_prof", value="0")
+    g.attr("armor_worn", value=1)
+    g.attr("armor_prof", value=1)
     g.attr("armourname")
-    g.attr("armourACbase")
-    g.attr("armourtype")
+    g.attr("armourACbase", value=0)
+    g.attr("armourtype", value=0)
     g.attr("light_armour_bonus",
            value=fn_prod(fn_eq(1, g.armourtype), fn_max(atts.dexterity_mod, atts.intelligence_mod)))
-    g.attr("armourmagicbonus")
+    g.attr("armourmagicbonus", value=0)
     g.attr("armourtotalAC", value=fn_sum(g.armourACbase, g.armourmagicbonus, g.light_armour_bonus))
-    g.attr("armor_check_penalty")
+    g.attr("armor_check_penalty", value=0, minimum=-10)
     g.attr("armor_worn_bonus", value=fn_prod(g.armor_worn, g.armourtotalAC))
     g.attr("armor_worn_check_penalty", value=fn_prod(g.armor_worn, g.armor_check_penalty))
-    g.attr("armor_worn_prof_penalty", value=fn_prod(g.armor_worn, g.armor_prof, fn_quant(-2)))
+    g.attr("armor_worn_prof_penalty", value=fn_prod(g.armor_worn, fn_neg(g.armor_prof), fn_quant(-2)))
     armor_groups.append(g)
 
 
@@ -287,7 +287,7 @@ powers.attr("notes")
 
 Attr("armor_bonus", value=fn_sum(*[g.armor_worn_bonus for g in armor_groups]))
 Attr("armor_check_penalty", value=fn_sum(*[g.armor_worn_check_penalty for g in armor_groups]))
-Attr("armor_prof_penalty", value=fn_min(fn_quant(-2), fn_sum(*[g.armor_worn_prof_penalty for g in armor_groups])))
+Attr("armor_prof_penalty", value=fn_max(fn_quant(-2), fn_sum(*[g.armor_worn_prof_penalty for g in armor_groups])))
 
     
 t = pyratemp.Template(filename="DnD_4e.html.template")

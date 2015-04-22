@@ -2,9 +2,9 @@
 <div class="sheet-overall-wrapper">
   
   <!-- PC / NPC toggle -->
-  <input class="sheet-is-npc" type="checkbox" name="attr_is_npc" value="2" /><span class="sheet-is-npc-tab"></div>
+  <input class="sheet-is-npc" type="checkbox" name="attr_is_npc" value="1" /><span class="sheet-is-npc-tab"></span>
 	
-	<span class="sheet-core-header sheet-padb">
+	<div class="sheet-core-header sheet-padb">
 		<div class="sheet-row">
 			<div class="sheet-col-1-3 sheet-margin-top"><img src="http://i.imgur.com/Y8KHPKm.png" alt="Dungeons and Dragons (4th edition)"></div>
 			<div class="sheet-col-1-8 sheet-center sheet-margin-top"><p class="sheet-last-updated">Sheet version<br/>29th Mar 2015</p></div>
@@ -12,9 +12,9 @@
 			<div class="sheet-col-1-8 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_race" value="" /><br/>Race</div>
 			<div class="sheet-col-1-6 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_char_class" value="" /><br/>Class</div>
 		</div>
-	</div>
+</div>
+
 	<div class="sheet-player">
-		
 		<input type="radio" name="attr_tab" class="sheet-tab sheet-tab1" value="1" title="Core Stats" checked="checked"/>
 		<span class="sheet-tab sheet-tab1">Core Stats</span>
 		<input type="radio" name="attr_tab" class="sheet-tab sheet-tab2" value="2"/>
@@ -52,55 +52,55 @@
 					</div>
 
 					<div class="sheet-row">
-						<div class="sheet-col-1-6"><input class="" type="number" name="attr_strength_base" value="" min="0" step="1"/></div>
+						<div class="sheet-col-1-6"><input class="" type="number" name="attr_strength_base" value="" min="1" step="1"/></div>
 						<div class="sheet-col-1-6 sheet-core-stat-label">STR</div>
-						<div class="sheet-col-1-6"><input class="" type="number" name="attr_strength_mod" value="floor((@{strength_base} + (-10)) / 2)" min="0" step="1"/></div>
-						<div class="sheet-col-1-6"><input class="" type="number" name="attr_strength_mod_plus_half_lev" value="@{strength_mod} + @{half_level}" min="0" step="1"/></div>
+						<div class="sheet-col-1-6"><input class="" type="number" name="attr_strength_mod" value="floor((@{strength_base} + (-10)) / 2)" disabled="disabled"/></div>
+						<div class="sheet-col-1-6"><input class="" type="number" name="attr_strength_mod_plus_half_lev" value="@{strength_mod} + @{half_level}" disabled="disabled"/></div>
 						<div class="sheet-col-1-6 sheet-center">
 						  <button type="roll" class="sheet-core-save" name="roll_Strength_Check"
 							  value="&{template:4eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=strength check}} {{subheader=@{character_name}}} {{rollname=strength check}} {{roll=[[ 1d20 + @{strength_mod} + (@{global_saving_bonus}) ]]}} {{rolladv=[[ 1d20 + @{strength_mod} + (@{global_saving_bonus}) ]]}}">Check</button></div>
 					</div>
 					<div class="sheet-row">
-						<div class="sheet-col-1-6"><input class="" type="number" name="attr_constitution_base" value="" min="0" step="1"/></div>
+						<div class="sheet-col-1-6"><input class="" type="number" name="attr_constitution_base" value="" min="1" step="1"/></div>
 						<div class="sheet-col-1-6 sheet-core-stat-label">CON</div>
-						<div class="sheet-col-1-6"><input class="" type="number" name="attr_constitution_mod" value="floor((@{constitution_base} + (-10)) / 2)" min="0" step="1"/></div>
-						<div class="sheet-col-1-6"><input class="" type="number" name="attr_constitution_mod_plus_half_lev" value="@{constitution_mod} + @{half_level}" min="0" step="1"/></div>
+						<div class="sheet-col-1-6"><input class="" type="number" name="attr_constitution_mod" value="floor((@{constitution_base} + (-10)) / 2)" disabled="disabled"/></div>
+						<div class="sheet-col-1-6"><input class="" type="number" name="attr_constitution_mod_plus_half_lev" value="@{constitution_mod} + @{half_level}" disabled="disabled"/></div>
 						<div class="sheet-col-1-6 sheet-center">
 						  <button type="roll" class="sheet-core-save" name="roll_Constitution_Check"
 							  value="&{template:4eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=constitution check}} {{subheader=@{character_name}}} {{rollname=constitution check}} {{roll=[[ 1d20 + @{constitution_mod} + (@{global_saving_bonus}) ]]}} {{rolladv=[[ 1d20 + @{constitution_mod} + (@{global_saving_bonus}) ]]}}">Check</button></div>
 					</div>
 					<div class="sheet-row">
-						<div class="sheet-col-1-6"><input class="" type="number" name="attr_dexterity_base" value="" min="0" step="1"/></div>
+						<div class="sheet-col-1-6"><input class="" type="number" name="attr_dexterity_base" value="" min="1" step="1"/></div>
 						<div class="sheet-col-1-6 sheet-core-stat-label">DEX</div>
-						<div class="sheet-col-1-6"><input class="" type="number" name="attr_dexterity_mod" value="floor((@{dexterity_base} + (-10)) / 2)" min="0" step="1"/></div>
-						<div class="sheet-col-1-6"><input class="" type="number" name="attr_dexterity_mod_plus_half_lev" value="@{dexterity_mod} + @{half_level}" min="0" step="1"/></div>
+						<div class="sheet-col-1-6"><input class="" type="number" name="attr_dexterity_mod" value="floor((@{dexterity_base} + (-10)) / 2)" disabled="disabled"/></div>
+						<div class="sheet-col-1-6"><input class="" type="number" name="attr_dexterity_mod_plus_half_lev" value="@{dexterity_mod} + @{half_level}" disabled="disabled"/></div>
 						<div class="sheet-col-1-6 sheet-center">
 						  <button type="roll" class="sheet-core-save" name="roll_Dexterity_Check"
 							  value="&{template:4eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=dexterity check}} {{subheader=@{character_name}}} {{rollname=dexterity check}} {{roll=[[ 1d20 + @{dexterity_mod} + (@{global_saving_bonus}) ]]}} {{rolladv=[[ 1d20 + @{dexterity_mod} + (@{global_saving_bonus}) ]]}}">Check</button></div>
 					</div>
 					<div class="sheet-row">
-						<div class="sheet-col-1-6"><input class="" type="number" name="attr_intelligence_base" value="" min="0" step="1"/></div>
+						<div class="sheet-col-1-6"><input class="" type="number" name="attr_intelligence_base" value="" min="1" step="1"/></div>
 						<div class="sheet-col-1-6 sheet-core-stat-label">INT</div>
-						<div class="sheet-col-1-6"><input class="" type="number" name="attr_intelligence_mod" value="floor((@{intelligence_base} + (-10)) / 2)" min="0" step="1"/></div>
-						<div class="sheet-col-1-6"><input class="" type="number" name="attr_intelligence_mod_plus_half_lev" value="@{intelligence_mod} + @{half_level}" min="0" step="1"/></div>
+						<div class="sheet-col-1-6"><input class="" type="number" name="attr_intelligence_mod" value="floor((@{intelligence_base} + (-10)) / 2)" disabled="disabled"/></div>
+						<div class="sheet-col-1-6"><input class="" type="number" name="attr_intelligence_mod_plus_half_lev" value="@{intelligence_mod} + @{half_level}" disabled="disabled"/></div>
 						<div class="sheet-col-1-6 sheet-center">
 						  <button type="roll" class="sheet-core-save" name="roll_Intelligence_Check"
 							  value="&{template:4eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=intelligence check}} {{subheader=@{character_name}}} {{rollname=intelligence check}} {{roll=[[ 1d20 + @{intelligence_mod} + (@{global_saving_bonus}) ]]}} {{rolladv=[[ 1d20 + @{intelligence_mod} + (@{global_saving_bonus}) ]]}}">Check</button></div>
 					</div>
 					<div class="sheet-row">
-						<div class="sheet-col-1-6"><input class="" type="number" name="attr_wisdom_base" value="" min="0" step="1"/></div>
+						<div class="sheet-col-1-6"><input class="" type="number" name="attr_wisdom_base" value="" min="1" step="1"/></div>
 						<div class="sheet-col-1-6 sheet-core-stat-label">WIS</div>
-						<div class="sheet-col-1-6"><input class="" type="number" name="attr_wisdom_mod" value="floor((@{wisdom_base} + (-10)) / 2)" min="0" step="1"/></div>
-						<div class="sheet-col-1-6"><input class="" type="number" name="attr_wisdom_mod_plus_half_lev" value="@{wisdom_mod} + @{half_level}" min="0" step="1"/></div>
+						<div class="sheet-col-1-6"><input class="" type="number" name="attr_wisdom_mod" value="floor((@{wisdom_base} + (-10)) / 2)" disabled="disabled"/></div>
+						<div class="sheet-col-1-6"><input class="" type="number" name="attr_wisdom_mod_plus_half_lev" value="@{wisdom_mod} + @{half_level}" disabled="disabled"/></div>
 						<div class="sheet-col-1-6 sheet-center">
 						  <button type="roll" class="sheet-core-save" name="roll_Wisdom_Check"
 							  value="&{template:4eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=wisdom check}} {{subheader=@{character_name}}} {{rollname=wisdom check}} {{roll=[[ 1d20 + @{wisdom_mod} + (@{global_saving_bonus}) ]]}} {{rolladv=[[ 1d20 + @{wisdom_mod} + (@{global_saving_bonus}) ]]}}">Check</button></div>
 					</div>
 					<div class="sheet-row">
-						<div class="sheet-col-1-6"><input class="" type="number" name="attr_charisma_base" value="" min="0" step="1"/></div>
+						<div class="sheet-col-1-6"><input class="" type="number" name="attr_charisma_base" value="" min="1" step="1"/></div>
 						<div class="sheet-col-1-6 sheet-core-stat-label">CHA</div>
-						<div class="sheet-col-1-6"><input class="" type="number" name="attr_charisma_mod" value="floor((@{charisma_base} + (-10)) / 2)" min="0" step="1"/></div>
-						<div class="sheet-col-1-6"><input class="" type="number" name="attr_charisma_mod_plus_half_lev" value="@{charisma_mod} + @{half_level}" min="0" step="1"/></div>
+						<div class="sheet-col-1-6"><input class="" type="number" name="attr_charisma_mod" value="floor((@{charisma_base} + (-10)) / 2)" disabled="disabled"/></div>
+						<div class="sheet-col-1-6"><input class="" type="number" name="attr_charisma_mod_plus_half_lev" value="@{charisma_mod} + @{half_level}" disabled="disabled"/></div>
 						<div class="sheet-col-1-6 sheet-center">
 						  <button type="roll" class="sheet-core-save" name="roll_Charisma_Check"
 							  value="&{template:4eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=charisma check}} {{subheader=@{character_name}}} {{rollname=charisma check}} {{roll=[[ 1d20 + @{charisma_mod} + (@{global_saving_bonus}) ]]}} {{rolladv=[[ 1d20 + @{charisma_mod} + (@{global_saving_bonus}) ]]}}">Check</button></div>
@@ -118,7 +118,7 @@
 							  <div class="sheet-col-1-2 sheet-small-label sheet-center">
 							    <input class="sheet-underlined" type="number" name="attr_HP" value="" min="0" step="1"/><br/>Current</div>
 							  <div class="sheet-col-1-2 sheet-small-label sheet-center">
-							    <input class="sheet-underlined" type="number" name="attr_HP_max" value="" min="0" step="1"/>
+							    <input class="sheet-underlined" type="number" name="attr_HP_max" value="" min="1" step="1"/>
 							    <br/>Max</div>
 							</div>
 						</div>
@@ -160,13 +160,14 @@
 					<h4 class="sheet-center">Level and Experience<span class="sheet-pictos-three">d</span></h4>
 					<div class="sheet-row">
 					  <div class="sheet-col-1-4 sheet-small-label sheet-center">
-					    <input class="sheet-underlined" type="number" name="attr_level" value="" min="0" step="1"/><br/>Level</div>
+					    <input class="sheet-underlined" type="number" name="attr_level" value="1" min="0" step="1"/><br/>Level</div>
 					  <div class="sheet-col-1-4 sheet-small-label sheet-center">
-					    <input class="sheet-underlined" type="number" name="attr_xp" value="" min="0" step="1"/>
+					    <input class="sheet-underlined" type="number" name="attr_xp" value="0" min="0" step="1"/>
 					    <br/>Current XP</div>
 					  <div class="sheet-col-1-4 sheet-small-label sheet-center">
 					    <input class="sheet-underlined" type="number" name="attr_xp_next_level" value="" min="0" step="1"/>
 					    <br/>XP for next level</div>
+					  <input class="" type="hidden" name="attr_half_level" value="floor(@{level} / 2)" disabled="disabled"/>
 					</div>
 
 					<h4 class="sheet-center">Defenses</h4>
@@ -193,7 +194,7 @@
 					      <input class="" type="number" name="attr_ac_ability_bonus" value="@{armor_bonus}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-6">
-					      <input class="" type="number" name="attr_ac_class_bonus" value="" disabled="disabled"/>
+					      <input class="" type="number" name="attr_ac_class_bonus" value="0" disabled="disabled"/>
 					    </div>
 					  </div>
 					  <div class="sheet-row">
@@ -210,7 +211,7 @@
 					      <input class="" type="number" name="attr_fort_ability_bonus" value="((((@{strength_mod}) + (@{constitution_mod})) + abs((@{strength_mod}) - (@{constitution_mod}))) / 2)" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-6">
-					      <input class="" type="number" name="attr_fort_class_bonus" value="" disabled="disabled"/>
+					      <input class="" type="number" name="attr_fort_class_bonus" value="0" disabled="disabled"/>
 					    </div>
 					  </div>
 					  <div class="sheet-row">
@@ -227,7 +228,7 @@
 					      <input class="" type="number" name="attr_ref_ability_bonus" value="((((@{dexterity_mod}) + (@{intelligence_mod})) + abs((@{dexterity_mod}) - (@{intelligence_mod}))) / 2) + @{armor_prof_penalty}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-6">
-					      <input class="" type="number" name="attr_ref_class_bonus" value="" disabled="disabled"/>
+					      <input class="" type="number" name="attr_ref_class_bonus" value="0" disabled="disabled"/>
 					    </div>
 					  </div>
 					  <div class="sheet-row">
@@ -244,7 +245,7 @@
 					      <input class="" type="number" name="attr_will_ability_bonus" value="((((@{wisdom_mod}) + (@{charisma_mod})) + abs((@{wisdom_mod}) - (@{charisma_mod}))) / 2)" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-6">
-					      <input class="" type="number" name="attr_will_class_bonus" value="" disabled="disabled"/>
+					      <input class="" type="number" name="attr_will_class_bonus" value="0" disabled="disabled"/>
 					    </div>
 					  </div>
 					
@@ -794,8 +795,161 @@
 
 		<div class="sheet-section-powers">
 
+		    <!-- See PHB page 55 for power card description. -->
+
+		      <fieldset class="repeating_powers">   
+		      <div class="sheet-margin-bottom sheet-padr sheet-padl">
+
+			<div class="sheet-row">
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Available</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Level</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Type</div>
+			</div>
+
+			<div class="sheet-row">
+			  <div class="sheet-col-1-12">
+			    <input class="" type="checkbox" name="attr_is_available" value="" />
+			  </div>
+			  <div class="sheet-col-1-12">
+			    <select name="attr_level" class="dtype">
+			      <option value="1">1</option>
+			      <option value="2">2</option>
+			      <option value="3">3</option>
+			      <option value="4">4</option>
+			      <option value="5">5</option>
+			      <option value="6">6</option>
+			      <option value="7">7</option>
+			      <option value="8">8</option>
+			      <option value="9">9</option>
+			      <option value="10">10</option>
+			      <option value="11">11</option>
+			      <option value="12">12</option>
+			      <option value="13">13</option>
+			      <option value="14">14</option>
+			      <option value="15">15</option>
+			      <option value="16">16</option>
+			      <option value="17">17</option>
+			      <option value="18">18</option>
+			      <option value="19">19</option>
+			      <option value="20">20</option>
+			      <option value="21">21</option>
+			      <option value="22">22</option>
+			      <option value="23">23</option>
+			      <option value="24">24</option>
+			      <option value="25">25</option>
+			      <option value="26">26</option>
+			      <option value="27">27</option>
+			      <option value="28">28</option>
+			      <option value="29">29</option>
+			    </select>
+			  </div>
+			  <div class="sheet-col-1-12">
+			    <select name="attr_type" class="dtype">
+			      <option value="atwill">At Will</option>
+			      <option value="encounter">Encounter</option>
+			      <option value="daily">Daily</option>
+			    </select> 
+			  </div>
+			</div>
+
+			<div class="sheet-row">
+			  <div class="sheet-col-1-4 sheet-vert-bottom sheet-center sheet-small-label">Name</div>
+			  <div class="sheet-col-1-4 sheet-vert-bottom sheet-center sheet-small-label">Keywords</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Action Type</div>
+			  <div class="sheet-col-1-4 sheet-vert-bottom sheet-center sheet-small-label">Type/Range</div>
+			  <div class="sheet-col-1-4 sheet-vert-bottom sheet-center sheet-small-label">Target</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attacker</div>
+			  <div class="sheet-col-1-24 sheet-vert-bottom sheet-center sheet-small-label">+</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-center sheet-small-label">Attackee</div>
+			</div>
+				
+			<div class="sheet-row">
+			  <div class="sheet-col-1-4">
+			    <input class="" type="text" name="attr_name" value="" />
+			  </div>
+			  <div class="sheet-col-1-4">
+			    <input class="" type="text" name="attr_keywords" value="" />
+			  </div>
+			  <div class="sheet-col-1-12">
+			    <select name="attr_actiontype" class="dtype">
+			      <option value="standard">Standard</option>
+			      <option value="move">Move</option>
+			      <option value="interrupt">Immediate interrupt</option>
+			      <option value="reaction">Immediate reaction</option>
+			      <option value="minor">Minor</option>
+			      <option value="free">Free</option>
+			      <option value="trigger">Trigger(see notes)</option>
+			    </select> 
+			  </div>
+			  <div class="sheet-col-1-4">
+			    <input class="" type="text" name="attr_attacktype" value="" />
+			  </div>
+			  <div class="sheet-col-1-4">
+			    <input class="" type="text" name="attr_attacktarget" value="" />
+			  </div>
+			  <div class="sheet-col-1-12">
+			    <select name="attr_attacker" class="dtype">
+			      <option value="strength">Strength</option>
+			      <option value="constitution">Constitution</option>
+			      <option value="dexterity">Dexterity</option>
+			      <option value="intelligence">Intelligence</option>
+			      <option value="wisdom">Wisdom</option>
+			      <option value="charisma">Charisma</option>
+			    </select>
+			  </div>
+			  <div class="sheet-col-1-24 sheet-small-label sheet-center">
+			    <input class="" type="number" name="attr_attackbonus" value="" min="0" step="1"/>
+			  </div>
+			  <div class="sheet-col-1-12">
+			    <select name="attr_attackee" class="dtype">
+			      <option value="ac">AC</option>
+			      <option value="fort">FORT</option>
+			      <option value="ref">REF</option>
+			      <option value="will">WILL</option>
+			    </select>
+			  </div>
+			</div>
+
+				
+			<div class="sheet-row">
+			  <div class="sheet-col-1-4 sheet-vert-bottom sheet-center sheet-small-label">Requirements</div>
+			  <div class="sheet-col-1-4 sheet-vert-bottom sheet-center sheet-small-label">Miss</div>
+			  <div class="sheet-col-1-4 sheet-vert-bottom sheet-center sheet-small-label">Secondary</div>
+			  <div class="sheet-col-1-4 sheet-vert-bottom sheet-center sheet-small-label">Effect</div>
+			  <div class="sheet-col-1-4 sheet-vert-bottom sheet-center sheet-small-label">Sustain</div>
+			</div>
+			<div class="sheet-row">
+			  <div class="sheet-col-1-4">
+			    <input class="" type="text" name="attr_requirements" value="" />
+			  </div>
+			  <div class="sheet-col-1-4">
+			    <input class="" type="text" name="attr_on_miss" value="" />
+			  </div>
+			  <div class="sheet-col-1-4">
+			    <input class="" type="text" name="attr_secondary_attack" value="" />
+			  </div>
+			  <div class="sheet-col-1-4">
+			    <input class="" type="text" name="attr_effect" value="" />
+			  </div>
+			  <div class="sheet-col-1-4">
+			    <input class="" type="text" name="attr_sustain" value="" />
+			  </div>
+			</div>
+
+			<div class="sheet-row">
+			  <div class="sheet-col-1-2 sheet-vert-bottom sheet-center sheet-small-label">Notes</div>
+			</div>
+			<div class="sheet-row">
+			  <div class="sheet-col-1-2">
+			    <input class="" type="text" name="attr_notes" value="" />
+			  </div>
+			</div>
+		      </div>
+		      <hr/>
+		      </fieldset>
+		    
+		    </div>
 		  
-		</div>
 
 		<div class="sheet-section-weapons">
 			
@@ -4869,7 +5023,594 @@
 
 		<div class="sheet-section-armour">
 			
+			<div class="sheet-row">
+			
+				<div class="sheet-col-1">
+					<h4 class="sheet-center">Armour Class <span class="sheet-pictos-three">b</span></h4> 
+				</div>
+			</div>
+						
+			<div class="sheet-row sheet-padb">
 
+			  <!-- sum up the armor bonuses for all worn armor -->
+			  <div class="sheet-col-1-5 sheet-small-label sheet-center">
+			    AC <input class="sheet-underlined" type="number" name="attr_armor_bonus" value="@{armor_worn_bonus1} + @{armor_worn_bonus2} + @{armor_worn_bonus3} + @{armor_worn_bonus4} + @{armor_worn_bonus5} + @{armor_worn_bonus6} + @{armor_worn_bonus7} + @{armor_worn_bonus8} + @{armor_worn_bonus9} + @{armor_worn_bonus10}" disabled="disabled"/>
+			  </div>
+
+			  <!-- sum up the armor check penalties for all worn armor -->
+			  <div class="sheet-col-1-5 sheet-small-label sheet-center">
+			    Armor Check Penalty <input class="sheet-underlined" type="number" name="attr_armor_check_penalty" value="@{armor_worn_check_penalty1} + @{armor_worn_check_penalty2} + @{armor_worn_check_penalty3} + @{armor_worn_check_penalty4} + @{armor_worn_check_penalty5} + @{armor_worn_check_penalty6} + @{armor_worn_check_penalty7} + @{armor_worn_check_penalty8} + @{armor_worn_check_penalty9} + @{armor_worn_check_penalty10}" disabled="disabled"/>
+			  </div>
+
+			  <div class="sheet-col-1-5 sheet-small-label sheet-center">
+			    Armor Prof. Penalty <input class="sheet-underlined" type="number" name="attr_armor_prof_penalty" value="(((((-2)) + (@{armor_worn_prof_penalty1} + @{armor_worn_prof_penalty2} + @{armor_worn_prof_penalty3} + @{armor_worn_prof_penalty4} + @{armor_worn_prof_penalty5} + @{armor_worn_prof_penalty6} + @{armor_worn_prof_penalty7} + @{armor_worn_prof_penalty8} + @{armor_worn_prof_penalty9} + @{armor_worn_prof_penalty10})) + abs(((-2)) - (@{armor_worn_prof_penalty1} + @{armor_worn_prof_penalty2} + @{armor_worn_prof_penalty3} + @{armor_worn_prof_penalty4} + @{armor_worn_prof_penalty5} + @{armor_worn_prof_penalty6} + @{armor_worn_prof_penalty7} + @{armor_worn_prof_penalty8} + @{armor_worn_prof_penalty9} + @{armor_worn_prof_penalty10}))) / 2)" disabled="disabled"/>
+			  </div>
+			  
+			</div>
+					
+			<div class="sheet-row">
+			
+				<div class="sheet-col-1">
+		
+					<div class="sheet-row sheet-sub-header">	
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Worn?</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Proficient?</div>
+					  <div class="sheet-col-1-6 sheet-center sheet-small-label sheet-vert-bottom">Name</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Base AC</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Type</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Light Mod</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Magic Mod</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Total AC</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Armor Check</div>
+					</div>
+					
+
+
+					<div class="sheet-row">
+
+					  <!-- the contribution of this armor, if it's worn -->
+					  <input class="" type="hidden" name="attr_armor_worn_bonus1" value="@{armor_worn1} * @{armourtotalAC1}" disabled="disabled"/>
+
+					  <!-- the armor check penalty for this armor, if it's worn -->
+					  <input class="" type="hidden" name="attr_armor_worn_check_penalty1" value="@{armor_worn1} * @{armor_check_penalty1}" disabled="disabled"/>
+
+					  <!-- the penalty for this armor, if it's worn and we're not proficient. -->
+					  <input class="" type="hidden" name="attr_armor_worn_prof_penalty1" value="@{armor_worn1} * ( floor( ( (@{armor_prof1}) - (0) ) / ( abs( (@{armor_prof1}) - (0) ) + 0.001 ) ) + 1 )*( 1 - (floor(((@{armor_prof1}) - 1 - (0) ) / ( abs((@{armor_prof1}) - 1 - (0) ) + 0.001 ) ) + 1 )) * (-2)" disabled="disabled"/>
+					  
+					  <div class="sheet-col-1-12 sheet-vert-middle sheet-checkbox-row">
+					    <input class="" type="checkbox" name="attr_armor_worn1" value="1" />
+					  </div>
+
+					  <div class="sheet-col-1-12 sheet-vert-middle sheet-checkbox-row">
+					    <input class="" type="checkbox" name="attr_armor_prof1" value="1" />
+					  </div>
+
+					  <div class="sheet-col-1-6">
+					    <input class="" type="text" name="attr_armourname1" value="" />
+					  </div>
+					  
+					  <div class="sheet-col-1-12">
+					    <input class="" type="number" name="attr_armourACbase1" value="0" min="0" step="1"/>
+					  </div>
+					  
+					  <div class="sheet-col-1-12">
+					    <select name="attr_armourtype1">
+					      <option value="0" selected="selected">n/a</option>
+					      <option value="1">Light</option>
+					      <option value="2">Medium</option>
+					      <option value="3">Heavy</option>
+					    </select>
+					  </div>
+					  
+					  <div class="sheet-col-1-12">
+					    <input class="" type="number" name="attr_light_armour_bonus1" value="( floor( ( (1) - (@{armourtype1}) ) / ( abs( (1) - (@{armourtype1}) ) + 0.001 ) ) + 1 )*( 1 - (floor(((1) - 1 - (@{armourtype1}) ) / ( abs((1) - 1 - (@{armourtype1}) ) + 0.001 ) ) + 1 )) * ((((@{dexterity_mod}) + (@{intelligence_mod})) + abs((@{dexterity_mod}) - (@{intelligence_mod}))) / 2)" disabled="disabled"/>
+					  </div>
+					  
+					  <div class="sheet-col-1-12">
+					    <input class="" type="number" name="attr_armourmagicbonus1" value="0" min="0" step="1"/>
+					  </div>
+					  
+					  <div class="sheet-col-1-12">
+					    <input class="" type="number" name="attr_armourtotalAC1" value="@{armourACbase1} + @{armourmagicbonus1} + @{light_armour_bonus1}" disabled="disabled"/>
+					  </div>
+
+					  <div class="sheet-col-1-12">
+					    <input class="" type="number" name="attr_armor_check_penalty1" value="0" min="-10" step="1"/>
+					  </div>
+
+					</div>
+
+					<div class="sheet-row">
+
+					  <!-- the contribution of this armor, if it's worn -->
+					  <input class="" type="hidden" name="attr_armor_worn_bonus2" value="@{armor_worn2} * @{armourtotalAC2}" disabled="disabled"/>
+
+					  <!-- the armor check penalty for this armor, if it's worn -->
+					  <input class="" type="hidden" name="attr_armor_worn_check_penalty2" value="@{armor_worn2} * @{armor_check_penalty2}" disabled="disabled"/>
+
+					  <!-- the penalty for this armor, if it's worn and we're not proficient. -->
+					  <input class="" type="hidden" name="attr_armor_worn_prof_penalty2" value="@{armor_worn2} * ( floor( ( (@{armor_prof2}) - (0) ) / ( abs( (@{armor_prof2}) - (0) ) + 0.001 ) ) + 1 )*( 1 - (floor(((@{armor_prof2}) - 1 - (0) ) / ( abs((@{armor_prof2}) - 1 - (0) ) + 0.001 ) ) + 1 )) * (-2)" disabled="disabled"/>
+					  
+					  <div class="sheet-col-1-12 sheet-vert-middle sheet-checkbox-row">
+					    <input class="" type="checkbox" name="attr_armor_worn2" value="1" />
+					  </div>
+
+					  <div class="sheet-col-1-12 sheet-vert-middle sheet-checkbox-row">
+					    <input class="" type="checkbox" name="attr_armor_prof2" value="1" />
+					  </div>
+
+					  <div class="sheet-col-1-6">
+					    <input class="" type="text" name="attr_armourname2" value="" />
+					  </div>
+					  
+					  <div class="sheet-col-1-12">
+					    <input class="" type="number" name="attr_armourACbase2" value="0" min="0" step="1"/>
+					  </div>
+					  
+					  <div class="sheet-col-1-12">
+					    <select name="attr_armourtype2">
+					      <option value="0" selected="selected">n/a</option>
+					      <option value="1">Light</option>
+					      <option value="2">Medium</option>
+					      <option value="3">Heavy</option>
+					    </select>
+					  </div>
+					  
+					  <div class="sheet-col-1-12">
+					    <input class="" type="number" name="attr_light_armour_bonus2" value="( floor( ( (1) - (@{armourtype2}) ) / ( abs( (1) - (@{armourtype2}) ) + 0.001 ) ) + 1 )*( 1 - (floor(((1) - 1 - (@{armourtype2}) ) / ( abs((1) - 1 - (@{armourtype2}) ) + 0.001 ) ) + 1 )) * ((((@{dexterity_mod}) + (@{intelligence_mod})) + abs((@{dexterity_mod}) - (@{intelligence_mod}))) / 2)" disabled="disabled"/>
+					  </div>
+					  
+					  <div class="sheet-col-1-12">
+					    <input class="" type="number" name="attr_armourmagicbonus2" value="0" min="0" step="1"/>
+					  </div>
+					  
+					  <div class="sheet-col-1-12">
+					    <input class="" type="number" name="attr_armourtotalAC2" value="@{armourACbase2} + @{armourmagicbonus2} + @{light_armour_bonus2}" disabled="disabled"/>
+					  </div>
+
+					  <div class="sheet-col-1-12">
+					    <input class="" type="number" name="attr_armor_check_penalty2" value="0" min="-10" step="1"/>
+					  </div>
+
+					</div>
+
+					<div class="sheet-row">
+
+					  <!-- the contribution of this armor, if it's worn -->
+					  <input class="" type="hidden" name="attr_armor_worn_bonus3" value="@{armor_worn3} * @{armourtotalAC3}" disabled="disabled"/>
+
+					  <!-- the armor check penalty for this armor, if it's worn -->
+					  <input class="" type="hidden" name="attr_armor_worn_check_penalty3" value="@{armor_worn3} * @{armor_check_penalty3}" disabled="disabled"/>
+
+					  <!-- the penalty for this armor, if it's worn and we're not proficient. -->
+					  <input class="" type="hidden" name="attr_armor_worn_prof_penalty3" value="@{armor_worn3} * ( floor( ( (@{armor_prof3}) - (0) ) / ( abs( (@{armor_prof3}) - (0) ) + 0.001 ) ) + 1 )*( 1 - (floor(((@{armor_prof3}) - 1 - (0) ) / ( abs((@{armor_prof3}) - 1 - (0) ) + 0.001 ) ) + 1 )) * (-2)" disabled="disabled"/>
+					  
+					  <div class="sheet-col-1-12 sheet-vert-middle sheet-checkbox-row">
+					    <input class="" type="checkbox" name="attr_armor_worn3" value="1" />
+					  </div>
+
+					  <div class="sheet-col-1-12 sheet-vert-middle sheet-checkbox-row">
+					    <input class="" type="checkbox" name="attr_armor_prof3" value="1" />
+					  </div>
+
+					  <div class="sheet-col-1-6">
+					    <input class="" type="text" name="attr_armourname3" value="" />
+					  </div>
+					  
+					  <div class="sheet-col-1-12">
+					    <input class="" type="number" name="attr_armourACbase3" value="0" min="0" step="1"/>
+					  </div>
+					  
+					  <div class="sheet-col-1-12">
+					    <select name="attr_armourtype3">
+					      <option value="0" selected="selected">n/a</option>
+					      <option value="1">Light</option>
+					      <option value="2">Medium</option>
+					      <option value="3">Heavy</option>
+					    </select>
+					  </div>
+					  
+					  <div class="sheet-col-1-12">
+					    <input class="" type="number" name="attr_light_armour_bonus3" value="( floor( ( (1) - (@{armourtype3}) ) / ( abs( (1) - (@{armourtype3}) ) + 0.001 ) ) + 1 )*( 1 - (floor(((1) - 1 - (@{armourtype3}) ) / ( abs((1) - 1 - (@{armourtype3}) ) + 0.001 ) ) + 1 )) * ((((@{dexterity_mod}) + (@{intelligence_mod})) + abs((@{dexterity_mod}) - (@{intelligence_mod}))) / 2)" disabled="disabled"/>
+					  </div>
+					  
+					  <div class="sheet-col-1-12">
+					    <input class="" type="number" name="attr_armourmagicbonus3" value="0" min="0" step="1"/>
+					  </div>
+					  
+					  <div class="sheet-col-1-12">
+					    <input class="" type="number" name="attr_armourtotalAC3" value="@{armourACbase3} + @{armourmagicbonus3} + @{light_armour_bonus3}" disabled="disabled"/>
+					  </div>
+
+					  <div class="sheet-col-1-12">
+					    <input class="" type="number" name="attr_armor_check_penalty3" value="0" min="-10" step="1"/>
+					  </div>
+
+					</div>
+
+					<div class="sheet-row">
+
+					  <!-- the contribution of this armor, if it's worn -->
+					  <input class="" type="hidden" name="attr_armor_worn_bonus4" value="@{armor_worn4} * @{armourtotalAC4}" disabled="disabled"/>
+
+					  <!-- the armor check penalty for this armor, if it's worn -->
+					  <input class="" type="hidden" name="attr_armor_worn_check_penalty4" value="@{armor_worn4} * @{armor_check_penalty4}" disabled="disabled"/>
+
+					  <!-- the penalty for this armor, if it's worn and we're not proficient. -->
+					  <input class="" type="hidden" name="attr_armor_worn_prof_penalty4" value="@{armor_worn4} * ( floor( ( (@{armor_prof4}) - (0) ) / ( abs( (@{armor_prof4}) - (0) ) + 0.001 ) ) + 1 )*( 1 - (floor(((@{armor_prof4}) - 1 - (0) ) / ( abs((@{armor_prof4}) - 1 - (0) ) + 0.001 ) ) + 1 )) * (-2)" disabled="disabled"/>
+					  
+					  <div class="sheet-col-1-12 sheet-vert-middle sheet-checkbox-row">
+					    <input class="" type="checkbox" name="attr_armor_worn4" value="1" />
+					  </div>
+
+					  <div class="sheet-col-1-12 sheet-vert-middle sheet-checkbox-row">
+					    <input class="" type="checkbox" name="attr_armor_prof4" value="1" />
+					  </div>
+
+					  <div class="sheet-col-1-6">
+					    <input class="" type="text" name="attr_armourname4" value="" />
+					  </div>
+					  
+					  <div class="sheet-col-1-12">
+					    <input class="" type="number" name="attr_armourACbase4" value="0" min="0" step="1"/>
+					  </div>
+					  
+					  <div class="sheet-col-1-12">
+					    <select name="attr_armourtype4">
+					      <option value="0" selected="selected">n/a</option>
+					      <option value="1">Light</option>
+					      <option value="2">Medium</option>
+					      <option value="3">Heavy</option>
+					    </select>
+					  </div>
+					  
+					  <div class="sheet-col-1-12">
+					    <input class="" type="number" name="attr_light_armour_bonus4" value="( floor( ( (1) - (@{armourtype4}) ) / ( abs( (1) - (@{armourtype4}) ) + 0.001 ) ) + 1 )*( 1 - (floor(((1) - 1 - (@{armourtype4}) ) / ( abs((1) - 1 - (@{armourtype4}) ) + 0.001 ) ) + 1 )) * ((((@{dexterity_mod}) + (@{intelligence_mod})) + abs((@{dexterity_mod}) - (@{intelligence_mod}))) / 2)" disabled="disabled"/>
+					  </div>
+					  
+					  <div class="sheet-col-1-12">
+					    <input class="" type="number" name="attr_armourmagicbonus4" value="0" min="0" step="1"/>
+					  </div>
+					  
+					  <div class="sheet-col-1-12">
+					    <input class="" type="number" name="attr_armourtotalAC4" value="@{armourACbase4} + @{armourmagicbonus4} + @{light_armour_bonus4}" disabled="disabled"/>
+					  </div>
+
+					  <div class="sheet-col-1-12">
+					    <input class="" type="number" name="attr_armor_check_penalty4" value="0" min="-10" step="1"/>
+					  </div>
+
+					</div>
+
+					<div class="sheet-row">
+
+					  <!-- the contribution of this armor, if it's worn -->
+					  <input class="" type="hidden" name="attr_armor_worn_bonus5" value="@{armor_worn5} * @{armourtotalAC5}" disabled="disabled"/>
+
+					  <!-- the armor check penalty for this armor, if it's worn -->
+					  <input class="" type="hidden" name="attr_armor_worn_check_penalty5" value="@{armor_worn5} * @{armor_check_penalty5}" disabled="disabled"/>
+
+					  <!-- the penalty for this armor, if it's worn and we're not proficient. -->
+					  <input class="" type="hidden" name="attr_armor_worn_prof_penalty5" value="@{armor_worn5} * ( floor( ( (@{armor_prof5}) - (0) ) / ( abs( (@{armor_prof5}) - (0) ) + 0.001 ) ) + 1 )*( 1 - (floor(((@{armor_prof5}) - 1 - (0) ) / ( abs((@{armor_prof5}) - 1 - (0) ) + 0.001 ) ) + 1 )) * (-2)" disabled="disabled"/>
+					  
+					  <div class="sheet-col-1-12 sheet-vert-middle sheet-checkbox-row">
+					    <input class="" type="checkbox" name="attr_armor_worn5" value="1" />
+					  </div>
+
+					  <div class="sheet-col-1-12 sheet-vert-middle sheet-checkbox-row">
+					    <input class="" type="checkbox" name="attr_armor_prof5" value="1" />
+					  </div>
+
+					  <div class="sheet-col-1-6">
+					    <input class="" type="text" name="attr_armourname5" value="" />
+					  </div>
+					  
+					  <div class="sheet-col-1-12">
+					    <input class="" type="number" name="attr_armourACbase5" value="0" min="0" step="1"/>
+					  </div>
+					  
+					  <div class="sheet-col-1-12">
+					    <select name="attr_armourtype5">
+					      <option value="0" selected="selected">n/a</option>
+					      <option value="1">Light</option>
+					      <option value="2">Medium</option>
+					      <option value="3">Heavy</option>
+					    </select>
+					  </div>
+					  
+					  <div class="sheet-col-1-12">
+					    <input class="" type="number" name="attr_light_armour_bonus5" value="( floor( ( (1) - (@{armourtype5}) ) / ( abs( (1) - (@{armourtype5}) ) + 0.001 ) ) + 1 )*( 1 - (floor(((1) - 1 - (@{armourtype5}) ) / ( abs((1) - 1 - (@{armourtype5}) ) + 0.001 ) ) + 1 )) * ((((@{dexterity_mod}) + (@{intelligence_mod})) + abs((@{dexterity_mod}) - (@{intelligence_mod}))) / 2)" disabled="disabled"/>
+					  </div>
+					  
+					  <div class="sheet-col-1-12">
+					    <input class="" type="number" name="attr_armourmagicbonus5" value="0" min="0" step="1"/>
+					  </div>
+					  
+					  <div class="sheet-col-1-12">
+					    <input class="" type="number" name="attr_armourtotalAC5" value="@{armourACbase5} + @{armourmagicbonus5} + @{light_armour_bonus5}" disabled="disabled"/>
+					  </div>
+
+					  <div class="sheet-col-1-12">
+					    <input class="" type="number" name="attr_armor_check_penalty5" value="0" min="-10" step="1"/>
+					  </div>
+
+					</div>
+
+					<div class="sheet-row">
+
+					  <!-- the contribution of this armor, if it's worn -->
+					  <input class="" type="hidden" name="attr_armor_worn_bonus6" value="@{armor_worn6} * @{armourtotalAC6}" disabled="disabled"/>
+
+					  <!-- the armor check penalty for this armor, if it's worn -->
+					  <input class="" type="hidden" name="attr_armor_worn_check_penalty6" value="@{armor_worn6} * @{armor_check_penalty6}" disabled="disabled"/>
+
+					  <!-- the penalty for this armor, if it's worn and we're not proficient. -->
+					  <input class="" type="hidden" name="attr_armor_worn_prof_penalty6" value="@{armor_worn6} * ( floor( ( (@{armor_prof6}) - (0) ) / ( abs( (@{armor_prof6}) - (0) ) + 0.001 ) ) + 1 )*( 1 - (floor(((@{armor_prof6}) - 1 - (0) ) / ( abs((@{armor_prof6}) - 1 - (0) ) + 0.001 ) ) + 1 )) * (-2)" disabled="disabled"/>
+					  
+					  <div class="sheet-col-1-12 sheet-vert-middle sheet-checkbox-row">
+					    <input class="" type="checkbox" name="attr_armor_worn6" value="1" />
+					  </div>
+
+					  <div class="sheet-col-1-12 sheet-vert-middle sheet-checkbox-row">
+					    <input class="" type="checkbox" name="attr_armor_prof6" value="1" />
+					  </div>
+
+					  <div class="sheet-col-1-6">
+					    <input class="" type="text" name="attr_armourname6" value="" />
+					  </div>
+					  
+					  <div class="sheet-col-1-12">
+					    <input class="" type="number" name="attr_armourACbase6" value="0" min="0" step="1"/>
+					  </div>
+					  
+					  <div class="sheet-col-1-12">
+					    <select name="attr_armourtype6">
+					      <option value="0" selected="selected">n/a</option>
+					      <option value="1">Light</option>
+					      <option value="2">Medium</option>
+					      <option value="3">Heavy</option>
+					    </select>
+					  </div>
+					  
+					  <div class="sheet-col-1-12">
+					    <input class="" type="number" name="attr_light_armour_bonus6" value="( floor( ( (1) - (@{armourtype6}) ) / ( abs( (1) - (@{armourtype6}) ) + 0.001 ) ) + 1 )*( 1 - (floor(((1) - 1 - (@{armourtype6}) ) / ( abs((1) - 1 - (@{armourtype6}) ) + 0.001 ) ) + 1 )) * ((((@{dexterity_mod}) + (@{intelligence_mod})) + abs((@{dexterity_mod}) - (@{intelligence_mod}))) / 2)" disabled="disabled"/>
+					  </div>
+					  
+					  <div class="sheet-col-1-12">
+					    <input class="" type="number" name="attr_armourmagicbonus6" value="0" min="0" step="1"/>
+					  </div>
+					  
+					  <div class="sheet-col-1-12">
+					    <input class="" type="number" name="attr_armourtotalAC6" value="@{armourACbase6} + @{armourmagicbonus6} + @{light_armour_bonus6}" disabled="disabled"/>
+					  </div>
+
+					  <div class="sheet-col-1-12">
+					    <input class="" type="number" name="attr_armor_check_penalty6" value="0" min="-10" step="1"/>
+					  </div>
+
+					</div>
+
+					<div class="sheet-row">
+
+					  <!-- the contribution of this armor, if it's worn -->
+					  <input class="" type="hidden" name="attr_armor_worn_bonus7" value="@{armor_worn7} * @{armourtotalAC7}" disabled="disabled"/>
+
+					  <!-- the armor check penalty for this armor, if it's worn -->
+					  <input class="" type="hidden" name="attr_armor_worn_check_penalty7" value="@{armor_worn7} * @{armor_check_penalty7}" disabled="disabled"/>
+
+					  <!-- the penalty for this armor, if it's worn and we're not proficient. -->
+					  <input class="" type="hidden" name="attr_armor_worn_prof_penalty7" value="@{armor_worn7} * ( floor( ( (@{armor_prof7}) - (0) ) / ( abs( (@{armor_prof7}) - (0) ) + 0.001 ) ) + 1 )*( 1 - (floor(((@{armor_prof7}) - 1 - (0) ) / ( abs((@{armor_prof7}) - 1 - (0) ) + 0.001 ) ) + 1 )) * (-2)" disabled="disabled"/>
+					  
+					  <div class="sheet-col-1-12 sheet-vert-middle sheet-checkbox-row">
+					    <input class="" type="checkbox" name="attr_armor_worn7" value="1" />
+					  </div>
+
+					  <div class="sheet-col-1-12 sheet-vert-middle sheet-checkbox-row">
+					    <input class="" type="checkbox" name="attr_armor_prof7" value="1" />
+					  </div>
+
+					  <div class="sheet-col-1-6">
+					    <input class="" type="text" name="attr_armourname7" value="" />
+					  </div>
+					  
+					  <div class="sheet-col-1-12">
+					    <input class="" type="number" name="attr_armourACbase7" value="0" min="0" step="1"/>
+					  </div>
+					  
+					  <div class="sheet-col-1-12">
+					    <select name="attr_armourtype7">
+					      <option value="0" selected="selected">n/a</option>
+					      <option value="1">Light</option>
+					      <option value="2">Medium</option>
+					      <option value="3">Heavy</option>
+					    </select>
+					  </div>
+					  
+					  <div class="sheet-col-1-12">
+					    <input class="" type="number" name="attr_light_armour_bonus7" value="( floor( ( (1) - (@{armourtype7}) ) / ( abs( (1) - (@{armourtype7}) ) + 0.001 ) ) + 1 )*( 1 - (floor(((1) - 1 - (@{armourtype7}) ) / ( abs((1) - 1 - (@{armourtype7}) ) + 0.001 ) ) + 1 )) * ((((@{dexterity_mod}) + (@{intelligence_mod})) + abs((@{dexterity_mod}) - (@{intelligence_mod}))) / 2)" disabled="disabled"/>
+					  </div>
+					  
+					  <div class="sheet-col-1-12">
+					    <input class="" type="number" name="attr_armourmagicbonus7" value="0" min="0" step="1"/>
+					  </div>
+					  
+					  <div class="sheet-col-1-12">
+					    <input class="" type="number" name="attr_armourtotalAC7" value="@{armourACbase7} + @{armourmagicbonus7} + @{light_armour_bonus7}" disabled="disabled"/>
+					  </div>
+
+					  <div class="sheet-col-1-12">
+					    <input class="" type="number" name="attr_armor_check_penalty7" value="0" min="-10" step="1"/>
+					  </div>
+
+					</div>
+
+					<div class="sheet-row">
+
+					  <!-- the contribution of this armor, if it's worn -->
+					  <input class="" type="hidden" name="attr_armor_worn_bonus8" value="@{armor_worn8} * @{armourtotalAC8}" disabled="disabled"/>
+
+					  <!-- the armor check penalty for this armor, if it's worn -->
+					  <input class="" type="hidden" name="attr_armor_worn_check_penalty8" value="@{armor_worn8} * @{armor_check_penalty8}" disabled="disabled"/>
+
+					  <!-- the penalty for this armor, if it's worn and we're not proficient. -->
+					  <input class="" type="hidden" name="attr_armor_worn_prof_penalty8" value="@{armor_worn8} * ( floor( ( (@{armor_prof8}) - (0) ) / ( abs( (@{armor_prof8}) - (0) ) + 0.001 ) ) + 1 )*( 1 - (floor(((@{armor_prof8}) - 1 - (0) ) / ( abs((@{armor_prof8}) - 1 - (0) ) + 0.001 ) ) + 1 )) * (-2)" disabled="disabled"/>
+					  
+					  <div class="sheet-col-1-12 sheet-vert-middle sheet-checkbox-row">
+					    <input class="" type="checkbox" name="attr_armor_worn8" value="1" />
+					  </div>
+
+					  <div class="sheet-col-1-12 sheet-vert-middle sheet-checkbox-row">
+					    <input class="" type="checkbox" name="attr_armor_prof8" value="1" />
+					  </div>
+
+					  <div class="sheet-col-1-6">
+					    <input class="" type="text" name="attr_armourname8" value="" />
+					  </div>
+					  
+					  <div class="sheet-col-1-12">
+					    <input class="" type="number" name="attr_armourACbase8" value="0" min="0" step="1"/>
+					  </div>
+					  
+					  <div class="sheet-col-1-12">
+					    <select name="attr_armourtype8">
+					      <option value="0" selected="selected">n/a</option>
+					      <option value="1">Light</option>
+					      <option value="2">Medium</option>
+					      <option value="3">Heavy</option>
+					    </select>
+					  </div>
+					  
+					  <div class="sheet-col-1-12">
+					    <input class="" type="number" name="attr_light_armour_bonus8" value="( floor( ( (1) - (@{armourtype8}) ) / ( abs( (1) - (@{armourtype8}) ) + 0.001 ) ) + 1 )*( 1 - (floor(((1) - 1 - (@{armourtype8}) ) / ( abs((1) - 1 - (@{armourtype8}) ) + 0.001 ) ) + 1 )) * ((((@{dexterity_mod}) + (@{intelligence_mod})) + abs((@{dexterity_mod}) - (@{intelligence_mod}))) / 2)" disabled="disabled"/>
+					  </div>
+					  
+					  <div class="sheet-col-1-12">
+					    <input class="" type="number" name="attr_armourmagicbonus8" value="0" min="0" step="1"/>
+					  </div>
+					  
+					  <div class="sheet-col-1-12">
+					    <input class="" type="number" name="attr_armourtotalAC8" value="@{armourACbase8} + @{armourmagicbonus8} + @{light_armour_bonus8}" disabled="disabled"/>
+					  </div>
+
+					  <div class="sheet-col-1-12">
+					    <input class="" type="number" name="attr_armor_check_penalty8" value="0" min="-10" step="1"/>
+					  </div>
+
+					</div>
+
+					<div class="sheet-row">
+
+					  <!-- the contribution of this armor, if it's worn -->
+					  <input class="" type="hidden" name="attr_armor_worn_bonus9" value="@{armor_worn9} * @{armourtotalAC9}" disabled="disabled"/>
+
+					  <!-- the armor check penalty for this armor, if it's worn -->
+					  <input class="" type="hidden" name="attr_armor_worn_check_penalty9" value="@{armor_worn9} * @{armor_check_penalty9}" disabled="disabled"/>
+
+					  <!-- the penalty for this armor, if it's worn and we're not proficient. -->
+					  <input class="" type="hidden" name="attr_armor_worn_prof_penalty9" value="@{armor_worn9} * ( floor( ( (@{armor_prof9}) - (0) ) / ( abs( (@{armor_prof9}) - (0) ) + 0.001 ) ) + 1 )*( 1 - (floor(((@{armor_prof9}) - 1 - (0) ) / ( abs((@{armor_prof9}) - 1 - (0) ) + 0.001 ) ) + 1 )) * (-2)" disabled="disabled"/>
+					  
+					  <div class="sheet-col-1-12 sheet-vert-middle sheet-checkbox-row">
+					    <input class="" type="checkbox" name="attr_armor_worn9" value="1" />
+					  </div>
+
+					  <div class="sheet-col-1-12 sheet-vert-middle sheet-checkbox-row">
+					    <input class="" type="checkbox" name="attr_armor_prof9" value="1" />
+					  </div>
+
+					  <div class="sheet-col-1-6">
+					    <input class="" type="text" name="attr_armourname9" value="" />
+					  </div>
+					  
+					  <div class="sheet-col-1-12">
+					    <input class="" type="number" name="attr_armourACbase9" value="0" min="0" step="1"/>
+					  </div>
+					  
+					  <div class="sheet-col-1-12">
+					    <select name="attr_armourtype9">
+					      <option value="0" selected="selected">n/a</option>
+					      <option value="1">Light</option>
+					      <option value="2">Medium</option>
+					      <option value="3">Heavy</option>
+					    </select>
+					  </div>
+					  
+					  <div class="sheet-col-1-12">
+					    <input class="" type="number" name="attr_light_armour_bonus9" value="( floor( ( (1) - (@{armourtype9}) ) / ( abs( (1) - (@{armourtype9}) ) + 0.001 ) ) + 1 )*( 1 - (floor(((1) - 1 - (@{armourtype9}) ) / ( abs((1) - 1 - (@{armourtype9}) ) + 0.001 ) ) + 1 )) * ((((@{dexterity_mod}) + (@{intelligence_mod})) + abs((@{dexterity_mod}) - (@{intelligence_mod}))) / 2)" disabled="disabled"/>
+					  </div>
+					  
+					  <div class="sheet-col-1-12">
+					    <input class="" type="number" name="attr_armourmagicbonus9" value="0" min="0" step="1"/>
+					  </div>
+					  
+					  <div class="sheet-col-1-12">
+					    <input class="" type="number" name="attr_armourtotalAC9" value="@{armourACbase9} + @{armourmagicbonus9} + @{light_armour_bonus9}" disabled="disabled"/>
+					  </div>
+
+					  <div class="sheet-col-1-12">
+					    <input class="" type="number" name="attr_armor_check_penalty9" value="0" min="-10" step="1"/>
+					  </div>
+
+					</div>
+
+					<div class="sheet-row">
+
+					  <!-- the contribution of this armor, if it's worn -->
+					  <input class="" type="hidden" name="attr_armor_worn_bonus10" value="@{armor_worn10} * @{armourtotalAC10}" disabled="disabled"/>
+
+					  <!-- the armor check penalty for this armor, if it's worn -->
+					  <input class="" type="hidden" name="attr_armor_worn_check_penalty10" value="@{armor_worn10} * @{armor_check_penalty10}" disabled="disabled"/>
+
+					  <!-- the penalty for this armor, if it's worn and we're not proficient. -->
+					  <input class="" type="hidden" name="attr_armor_worn_prof_penalty10" value="@{armor_worn10} * ( floor( ( (@{armor_prof10}) - (0) ) / ( abs( (@{armor_prof10}) - (0) ) + 0.001 ) ) + 1 )*( 1 - (floor(((@{armor_prof10}) - 1 - (0) ) / ( abs((@{armor_prof10}) - 1 - (0) ) + 0.001 ) ) + 1 )) * (-2)" disabled="disabled"/>
+					  
+					  <div class="sheet-col-1-12 sheet-vert-middle sheet-checkbox-row">
+					    <input class="" type="checkbox" name="attr_armor_worn10" value="1" />
+					  </div>
+
+					  <div class="sheet-col-1-12 sheet-vert-middle sheet-checkbox-row">
+					    <input class="" type="checkbox" name="attr_armor_prof10" value="1" />
+					  </div>
+
+					  <div class="sheet-col-1-6">
+					    <input class="" type="text" name="attr_armourname10" value="" />
+					  </div>
+					  
+					  <div class="sheet-col-1-12">
+					    <input class="" type="number" name="attr_armourACbase10" value="0" min="0" step="1"/>
+					  </div>
+					  
+					  <div class="sheet-col-1-12">
+					    <select name="attr_armourtype10">
+					      <option value="0" selected="selected">n/a</option>
+					      <option value="1">Light</option>
+					      <option value="2">Medium</option>
+					      <option value="3">Heavy</option>
+					    </select>
+					  </div>
+					  
+					  <div class="sheet-col-1-12">
+					    <input class="" type="number" name="attr_light_armour_bonus10" value="( floor( ( (1) - (@{armourtype10}) ) / ( abs( (1) - (@{armourtype10}) ) + 0.001 ) ) + 1 )*( 1 - (floor(((1) - 1 - (@{armourtype10}) ) / ( abs((1) - 1 - (@{armourtype10}) ) + 0.001 ) ) + 1 )) * ((((@{dexterity_mod}) + (@{intelligence_mod})) + abs((@{dexterity_mod}) - (@{intelligence_mod}))) / 2)" disabled="disabled"/>
+					  </div>
+					  
+					  <div class="sheet-col-1-12">
+					    <input class="" type="number" name="attr_armourmagicbonus10" value="0" min="0" step="1"/>
+					  </div>
+					  
+					  <div class="sheet-col-1-12">
+					    <input class="" type="number" name="attr_armourtotalAC10" value="@{armourACbase10} + @{armourmagicbonus10} + @{light_armour_bonus10}" disabled="disabled"/>
+					  </div>
+
+					  <div class="sheet-col-1-12">
+					    <input class="" type="number" name="attr_armor_check_penalty10" value="0" min="-10" step="1"/>
+					  </div>
+
+					</div>
+		
+				</div>
+				
+			</div>
+			
+			<hr/>
 		</div>
 	
 	</div>
@@ -5320,4 +6061,4 @@
 			</div>
 		</div>
 
-</rolltemplate>
+</rolltemplate>
