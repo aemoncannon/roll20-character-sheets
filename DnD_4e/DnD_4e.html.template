@@ -4532,18 +4532,20 @@
 						
 			<div class="sheet-row sheet-padb">
 
-			  <!-- sum up the armor bonuses for all worn armor -->
 			  <div class="sheet-col-1-5 sheet-small-label sheet-center">
-			    AC @!out_num(armor_bonus, cls="sheet-underlined")!@
+			    AC @!out_num(armor_AC_bonus, cls="sheet-underlined")!@
 			  </div>
 
-			  <!-- sum up the armor check penalties for all worn armor -->
 			  <div class="sheet-col-1-5 sheet-small-label sheet-center">
 			    Armor Check Penalty @!out_num(armor_check_penalty, cls="sheet-underlined")!@
 			  </div>
 
 			  <div class="sheet-col-1-5 sheet-small-label sheet-center">
 			    Armor Prof. Penalty @!out_num(armor_prof_penalty, cls="sheet-underlined")!@
+			  </div>
+
+			  <div class="sheet-col-1-5 sheet-small-label sheet-center">
+			    Shield Reflex Bonus @!out_num(shield_reflex_bonus, cls="sheet-underlined")!@
 			  </div>
 			  
 			</div>
@@ -4569,15 +4571,17 @@
 
 					<div class="sheet-row">
 
-					  <!-- the contribution of this armor, if it's worn -->
 					  @!out_hidden(grp.armor_worn_bonus)!@
-
-					  <!-- the armor check penalty for this armor, if it's worn -->
+					  @!out_hidden(grp.armor_is_shield)!@
+					  @!out_hidden(grp.shield_worn_reflex_bonus)!@
 					  @!out_hidden(grp.armor_worn_check_penalty)!@
-
-					  <!-- the penalty for this armor, if it's worn and we're not proficient. -->
 					  @!out_hidden(grp.armor_worn_prof_penalty)!@
-					  
+
+					  @!out_num(grp.armor_worn)!@
+					  @!out_num(grp.armor_is_shield)!@
+					  @!out_num(grp.armor_prof)!@
+					  @!out_num(grp.shield_worn_reflex_bonus)!@
+
 					  <div class="sheet-col-1-12 sheet-vert-middle sheet-checkbox-row">
 					    @!in_check(grp.armor_worn)!@
 					  </div>
@@ -4598,8 +4602,9 @@
 					    <select name="attr_@!grp.armourtype.name!@">
 					      <option value="0" selected="selected">n/a</option>
 					      <option value="1">Light</option>
-					      <option value="2">Medium</option>
-					      <option value="3">Heavy</option>
+					      <option value="2">Heavy</option>
+					      <option value="3">Light Shield</option>
+					      <option value="4">Heavy Shield</option>
 					    </select>
 					  </div>
 					  
