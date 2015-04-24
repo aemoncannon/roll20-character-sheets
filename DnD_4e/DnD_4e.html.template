@@ -4573,14 +4573,10 @@
 
 					  @!out_hidden(grp.armor_worn_bonus)!@
 					  @!out_hidden(grp.armor_is_shield)!@
+					  @!out_hidden(grp.armor_is_armor)!@
 					  @!out_hidden(grp.shield_worn_reflex_bonus)!@
 					  @!out_hidden(grp.armor_worn_check_penalty)!@
-					  @!out_hidden(grp.armor_worn_prof_penalty)!@
-
-					  @!out_num(grp.armor_worn)!@
-					  @!out_num(grp.armor_is_shield)!@
-					  @!out_num(grp.armor_prof)!@
-					  @!out_num(grp.shield_worn_reflex_bonus)!@
+					  @!out_hidden(grp.armor_worn_prof_penalty)!@w
 
 					  <div class="sheet-col-1-12 sheet-vert-middle sheet-checkbox-row">
 					    @!in_check(grp.armor_worn)!@

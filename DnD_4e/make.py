@@ -4,7 +4,7 @@ def fn_sum(*args):
     return " + ".join([str(x) for x in args])
 
 def fn_prod(*args):
-    return " * ".join([str(x) for x in args])
+    return " * ".join(["(" + str(x) + ")" for x in args])
 
 def fn_div(arg1, arg2):
     return str(arg1) + " / " + str(arg2)
@@ -235,6 +235,10 @@ for pair in [('acrobatics', 'dexterity'),
     skill_groups.append(g)
     
 NUM_ARMORS = 10
+LIGHT_ARMOR = 1
+HEAVY_ARMOR = 2
+LIGHT_SHIELD = 3
+HEAVY_SHIELD = 4
 armor_groups = []
 for i in range(1, NUM_ARMORS+1):
     g = Group(suffix=str(i))
@@ -243,7 +247,8 @@ for i in range(1, NUM_ARMORS+1):
     g.attr("armourname")
     g.attr("armourACbase", value=0)
     g.attr("armourtype", value=0)
-    g.attr("armor_is_shield", value=fn_sum(fn_eq(3, g.armourtype), fn_eq(4, g.armourtype)))
+    g.attr("armor_is_armor", value=fn_sum(fn_eq(LIGHT_ARMOR, g.armourtype), fn_eq(HEAVY_ARMOR, g.armourtype)))
+    g.attr("armor_is_shield", value=fn_sum(fn_eq(LIGHT_SHIELD, g.armourtype), fn_eq(HEAVY_SHIELD, g.armourtype)))
     g.attr("light_armour_bonus",
            value=fn_prod(fn_eq(1, g.armourtype), fn_max(atts.dexterity_mod, atts.intelligence_mod)))
     g.attr("armourmagicbonus", value=0)
@@ -252,7 +257,7 @@ for i in range(1, NUM_ARMORS+1):
     g.attr("armor_worn_bonus", value=fn_prod(g.armor_worn, g.armourtotalAC))
     g.attr("shield_worn_reflex_bonus", value=fn_prod(g.armor_is_shield, g.armor_prof, g.armor_worn, g.armourtotalAC))
     g.attr("armor_worn_check_penalty", value=fn_prod(g.armor_worn, g.armor_check_penalty))
-    g.attr("armor_worn_prof_penalty", value=fn_prod(g.armor_worn, fn_neg(g.armor_prof), fn_quant(-2)))
+    g.attr("armor_worn_prof_penalty", value=fn_prod(g.armor_is_armor, g.armor_worn, fn_neg(g.armor_prof), fn_quant(-2)))
     armor_groups.append(g)
 
 Attr("armor_AC_bonus", value=fn_sum(*[g.armor_worn_bonus for g in armor_groups]))
