@@ -273,16 +273,23 @@ Attr("armor_prof_penalty", value=fn_max(fn_quant(-2), fn_sum(*[g.armor_worn_prof
 
 NUM_WEAPONS = 10
 weapon_groups = []
+WEAPON_TYPE_STR_BASED = 0
+WEAPON_TYPE_DEX_BASED = 1
 for i in range(1, NUM_WEAPONS+1):
     g = Group(suffix=str(i))
     g.attr("weapon_name")
     g.attr("weapon_worn", value=1)
+    g.attr("weapon_offhand", value=1)
     g.attr("weapon_prof", value=1)
     g.attr("weapon_prof_bonus", value=0)
     g.attr("weapon_type", value=0)
     g.attr("weapon_dmg_dice_count", value=1)
     g.attr("weapon_dmg_dice_type", value=6)
     g.attr("weapon_enhancement_bonus", value=0) # Magic or other bonus
+    g.attr("weapon_ability_bonus", value=fn_sum(fn_prod(fn_eq(g.weapon_type, WEAPON_TYPE_STR_BASED),
+                                                        atts.strength_mod_plus_half_level),
+                                                fn_prod(fn_eq(g.weapon_type, WEAPON_TYPE_DEX_BASED),
+                                                        atts.dexterity_mod_plus_half_level)))
     g.attr("weapon_total_hit_bonus", value=fn_sum(g.weapon_enhancement_bonus, fn_prod(g.weapon_prof, g.weapon_prof_bonus)))
     g.attr("weapon_notes")
     weapon_groups.append(g)
@@ -292,26 +299,49 @@ Attr("weapon_dmg_dice_count", value=fn_sum(*[fn_prod(g.weapon_worn, g.weapon_dmg
 Attr("weapon_dmg_dice_type", value=fn_sum(*[fn_prod(g.weapon_worn, g.weapon_dmg_dice_type) for g in weapon_groups]))
 Attr("weapon_total_hit_bonus", value=fn_sum(*[fn_prod(g.weapon_worn, g.weapon_total_hit_bonus) for g in weapon_groups]))
 
-def make_action_roll(action):
+Attr("weapon_offhand_dmg_dice_count", value=fn_sum(*[fn_prod(g.weapon_offhand, g.weapon_dmg_dice_count) for g in weapon_groups]))
+Attr("weapon_offhand_dmg_dice_type", value=fn_sum(*[fn_prod(g.weapon_offhand, g.weapon_dmg_dice_type) for g in weapon_groups]))
+Attr("weapon_offhand_total_hit_bonus", value=fn_sum(*[fn_prod(g.weapon_offhand, g.weapon_total_hit_bonus) for g in weapon_groups]))
+
+def make_action_roll(action, offhand=False):
     return Roll("roll_" + action.prefix,
                      " ".join(["&{template:5eDefault}",
                                "{{attack=%s}}" % action.ability_name,
                                "{{title=%s}}" % (action.name),
                                "{{subheader=@{character_name}}}",
-                               "{{subheaderright=Basic Action}}",
                                "{{rollname=Result}}",
-                               "{{roll=[[ 1d20 + %s]]}}" % (fn_sum(action.total_bonus,
-                                                                   atts.weapon_total_hit_bonus))
+                               "{{roll=[[ 1d20 + %s]]}}" % (
+                                   fn_sum(action.total_bonus,
+                                          fn_prod(action.is_weapon,
+                                                  atts.weapon_total_hit_bonus))
+                                   if not offhand else
+                                   fn_sum(action.total_bonus,
+                                          fn_prod(action.is_weapon,
+                                                  atts.weapon_total_offhand_hit_bonus))
+                               )
                            ]))
 
-def make_damage_roll(action):
+def make_damage_roll(action, offhand=False):
     return Roll("roll_" + action.prefix + "damage",
                      " ".join(["&{template:5eDefault}",
                                "{{title=Damage}}",
                                "{{rollname=Result}}",
-                               "{{roll=[[ (%s)d(%s) ]]}}" % (fn_prod(action.dmg_dice_multiplier,
-                                                                 atts.weapon_dmg_dice_count),
-                                                         atts.weapon_dmg_dice_type)
+                               "{{roll=[[ (%s)d(%s) + (%s)d(%s) ]]}}" % (
+                                   # Weapon damage
+                                   fn_prod(action.is_weapon,
+                                           fn_prod(action.dmg_dice_multiplier,
+                                                   atts.weapon_dmg_dice_count)
+                                           if not offhand else
+                                           fn_prod(action.dmg_dice_multiplier,
+                                                   atts.weapon_offhand_dmg_dice_count)
+                                       ),
+                                   atts.weapon_dmg_dice_type
+                                   if not offhand else
+                                   atts.weapon_offhand_dmg_dice_type,
+
+                                   # Non-weapon damage
+                                   fn_prod(fn_neg(action.is_weapon), action.dmg_dice_multiplier),
+                                   action.dmg_dice_type)
                            ]))
 
 
@@ -322,6 +352,7 @@ action.attr("name", value="Melee Basic Attack")
 action.attr("keywords", value="At Will")
 action.attr("actiontype", value="Standard")
 action.attr("attacktype", value="Melee")
+action.attr("is_weapon", value=1)
 action.attr("attacktarget", value="One creature")
 action.attr("attacker", value=atts.strength_mod_plus_half_level)
 action.attr("ability_name", value="Strength")
@@ -329,14 +360,18 @@ action.attr("attackbonus", value=0)
 action.attr("total_bonus", value=fn_sum(action.attacker, action.attackbonus))
 action.attr("attackee", value="AC")
 action.attr("dmg_dice_multiplier", value="1")
+action.attr("dmg_dice_type", value="0")
 action.set('roll', make_action_roll(action))
 action.set('damage_roll', make_damage_roll(action))
+action.set('offhand_roll', make_action_roll(action))
+action.set('offhand_damage_roll', make_damage_roll(action))
 basic_actions.append(action)
 
 action = Group(prefix="rangedbasic_")
 action.attr("name", value="Ranged Basic Attack")
 action.attr("keywords", value="At Will")
 action.attr("actiontype", value="Standard")
+action.attr("is_weapon", value=1)
 action.attr("attacktype", value="Melee")
 action.attr("attacktarget", value="One creature")
 action.attr("attacker", value=atts.dexterity_mod_plus_half_level)
@@ -345,14 +380,18 @@ action.attr("attackbonus", value=0)
 action.attr("total_bonus", value=fn_sum(action.attacker, action.attackbonus))
 action.attr("attackee", value="AC")
 action.attr("dmg_dice_multiplier", value="1")
+action.attr("dmg_dice_type", value="0")
 action.set('roll', make_action_roll(action))
 action.set('damage_roll', make_damage_roll(action))
+action.set('offhand_roll', make_action_roll(action))
+action.set('offhand_damage_roll', make_damage_roll(action))
 basic_actions.append(action)
 
 action = Group(prefix="aidanother_")
 action.attr("name", value="Aid another")
 action.attr("keywords", value="At Will")
 action.attr("actiontype", value="Standard")
+action.attr("is_weapon", value=0)
 action.attr("attacktype", value="Melee")
 action.attr("attacktarget", value="One creature")
 action.attr("attacker", value=atts.strength_mod_plus_half_level)
@@ -369,6 +408,7 @@ action.attr("name", value="Bull Rush")
 action.attr("keywords", value="At Will")
 action.attr("actiontype", value="Standard")
 action.attr("attacktype", value="Melee")
+action.attr("is_weapon", value=0)
 action.attr("attacktarget", value="One creature")
 action.attr("attacker", value=atts.strength_mod_plus_half_level)
 action.attr("ability_name", value="Strength")
@@ -384,6 +424,7 @@ action.attr("name", value="Grab")
 action.attr("keywords", value="At Will")
 action.attr("actiontype", value="Standard")
 action.attr("attacktype", value="Ranged")
+action.attr("is_weapon", value=0)
 action.attr("attacktarget", value="One creature")
 action.attr("attacker", value=atts.strength_mod_plus_half_level)
 action.attr("ability_name", value="Strength")
@@ -410,18 +451,26 @@ powers.attr("attacktype")
 powers.attr("attacktarget")
 powers.attr("attacker")
 powers.attr("ability_bonus", value=0)
+powers.attr("ability_name", value=powers.ability_bonus) #TODO
 powers.attr("attackbonus")
 powers.attr("total_bonus", value=fn_sum(fn_floor(powers.ability_bonus), powers.attackbonus,
                                         fn_quant(fn_prod(powers.is_weapon, atts.weapon_total_hit_bonus))))
 powers.attr("attackee")
+
+powers.attr("dmg_dice_multiplier", value=1)
+powers.attr("dmg_dice_type", value=0)
+powers.attr("dmg_ability_bonus", value=0)
+
 powers.attr("requirements")
 powers.attr("on_miss")
 powers.attr("secondary_attack")
 powers.attr("effect")
 powers.attr("sustain")
 powers.attr("notes")
-action.set('roll', make_action_roll(powers))
-action.set('damage_roll', make_damage_roll(powers))
+powers.set('roll', make_action_roll(powers))
+powers.set('damage_roll', make_damage_roll(powers))
+powers.set('offhand_roll', make_action_roll(powers))
+powers.set('offhand_damage_roll', make_damage_roll(powers))
 
 
 t = pyratemp.Template(filename="DnD_4e.html.template")
