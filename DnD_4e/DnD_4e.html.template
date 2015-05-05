@@ -576,6 +576,13 @@
 			<div class="sheet-row">
 			
 				<div class="sheet-col-1">
+
+					  @!out_hidden(weapon_dmg_dice_count)!@
+					  @!out_hidden(weapon_dmg_dice_type)!@
+					  @!out_hidden(weapon_total_hit_bonus)!@
+
+
+					<!--(for grp in weapon_groups)-->
 		
 					<div class="sheet-row sheet-sub-header">
 					  <div class="sheet-col-1-6 sheet-center sheet-small-label sheet-vert-bottom">Name</div>
@@ -590,12 +597,6 @@
 					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Abil.Bonus</div>
 					</div>
 
-					  @!out_hidden(weapon_dmg_dice_count)!@
-					  @!out_hidden(weapon_dmg_dice_type)!@
-					  @!out_hidden(weapon_total_hit_bonus)!@
-					
-
-					<!--(for grp in weapon_groups)-->
 
 					<div class="sheet-row">
 

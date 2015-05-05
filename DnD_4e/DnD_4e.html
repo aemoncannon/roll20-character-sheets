@@ -1294,6 +1294,12 @@
 			<div class="sheet-row">
 			
 				<div class="sheet-col-1">
+
+					  <input class="" type="hidden" name="attr_weapon_dmg_dice_count" value="(@{weapon_worn1}) * (@{weapon_dmg_dice_count1}) + (@{weapon_worn2}) * (@{weapon_dmg_dice_count2}) + (@{weapon_worn3}) * (@{weapon_dmg_dice_count3}) + (@{weapon_worn4}) * (@{weapon_dmg_dice_count4}) + (@{weapon_worn5}) * (@{weapon_dmg_dice_count5}) + (@{weapon_worn6}) * (@{weapon_dmg_dice_count6}) + (@{weapon_worn7}) * (@{weapon_dmg_dice_count7}) + (@{weapon_worn8}) * (@{weapon_dmg_dice_count8}) + (@{weapon_worn9}) * (@{weapon_dmg_dice_count9}) + (@{weapon_worn10}) * (@{weapon_dmg_dice_count10})" disabled="disabled"/>
+					  <input class="" type="hidden" name="attr_weapon_dmg_dice_type" value="(@{weapon_worn1}) * (@{weapon_dmg_dice_type1}) + (@{weapon_worn2}) * (@{weapon_dmg_dice_type2}) + (@{weapon_worn3}) * (@{weapon_dmg_dice_type3}) + (@{weapon_worn4}) * (@{weapon_dmg_dice_type4}) + (@{weapon_worn5}) * (@{weapon_dmg_dice_type5}) + (@{weapon_worn6}) * (@{weapon_dmg_dice_type6}) + (@{weapon_worn7}) * (@{weapon_dmg_dice_type7}) + (@{weapon_worn8}) * (@{weapon_dmg_dice_type8}) + (@{weapon_worn9}) * (@{weapon_dmg_dice_type9}) + (@{weapon_worn10}) * (@{weapon_dmg_dice_type10})" disabled="disabled"/>
+					  <input class="" type="hidden" name="attr_weapon_total_hit_bonus" value="(@{weapon_worn1}) * (@{weapon_total_hit_bonus1}) + (@{weapon_worn2}) * (@{weapon_total_hit_bonus2}) + (@{weapon_worn3}) * (@{weapon_total_hit_bonus3}) + (@{weapon_worn4}) * (@{weapon_total_hit_bonus4}) + (@{weapon_worn5}) * (@{weapon_total_hit_bonus5}) + (@{weapon_worn6}) * (@{weapon_total_hit_bonus6}) + (@{weapon_worn7}) * (@{weapon_total_hit_bonus7}) + (@{weapon_worn8}) * (@{weapon_total_hit_bonus8}) + (@{weapon_worn9}) * (@{weapon_total_hit_bonus9}) + (@{weapon_worn10}) * (@{weapon_total_hit_bonus10})" disabled="disabled"/>
+
+
 		
 					<div class="sheet-row sheet-sub-header">
 					  <div class="sheet-col-1-6 sheet-center sheet-small-label sheet-vert-bottom">Name</div>
@@ -1307,11 +1313,6 @@
 					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Enh.Bonus</div>
 					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Abil.Bonus</div>
 					</div>
-
-					  <input class="" type="hidden" name="attr_weapon_dmg_dice_count" value="(@{weapon_worn1}) * (@{weapon_dmg_dice_count1}) + (@{weapon_worn2}) * (@{weapon_dmg_dice_count2}) + (@{weapon_worn3}) * (@{weapon_dmg_dice_count3}) + (@{weapon_worn4}) * (@{weapon_dmg_dice_count4}) + (@{weapon_worn5}) * (@{weapon_dmg_dice_count5}) + (@{weapon_worn6}) * (@{weapon_dmg_dice_count6}) + (@{weapon_worn7}) * (@{weapon_dmg_dice_count7}) + (@{weapon_worn8}) * (@{weapon_dmg_dice_count8}) + (@{weapon_worn9}) * (@{weapon_dmg_dice_count9}) + (@{weapon_worn10}) * (@{weapon_dmg_dice_count10})" disabled="disabled"/>
-					  <input class="" type="hidden" name="attr_weapon_dmg_dice_type" value="(@{weapon_worn1}) * (@{weapon_dmg_dice_type1}) + (@{weapon_worn2}) * (@{weapon_dmg_dice_type2}) + (@{weapon_worn3}) * (@{weapon_dmg_dice_type3}) + (@{weapon_worn4}) * (@{weapon_dmg_dice_type4}) + (@{weapon_worn5}) * (@{weapon_dmg_dice_type5}) + (@{weapon_worn6}) * (@{weapon_dmg_dice_type6}) + (@{weapon_worn7}) * (@{weapon_dmg_dice_type7}) + (@{weapon_worn8}) * (@{weapon_dmg_dice_type8}) + (@{weapon_worn9}) * (@{weapon_dmg_dice_type9}) + (@{weapon_worn10}) * (@{weapon_dmg_dice_type10})" disabled="disabled"/>
-					  <input class="" type="hidden" name="attr_weapon_total_hit_bonus" value="(@{weapon_worn1}) * (@{weapon_total_hit_bonus1}) + (@{weapon_worn2}) * (@{weapon_total_hit_bonus2}) + (@{weapon_worn3}) * (@{weapon_total_hit_bonus3}) + (@{weapon_worn4}) * (@{weapon_total_hit_bonus4}) + (@{weapon_worn5}) * (@{weapon_total_hit_bonus5}) + (@{weapon_worn6}) * (@{weapon_total_hit_bonus6}) + (@{weapon_worn7}) * (@{weapon_total_hit_bonus7}) + (@{weapon_worn8}) * (@{weapon_total_hit_bonus8}) + (@{weapon_worn9}) * (@{weapon_total_hit_bonus9}) + (@{weapon_worn10}) * (@{weapon_total_hit_bonus10})" disabled="disabled"/>
-					
 
 
 					<div class="sheet-row">
@@ -1373,6 +1374,20 @@
 
 					</div>
 					<hr/><br/>
+		
+					<div class="sheet-row sheet-sub-header">
+					  <div class="sheet-col-1-6 sheet-center sheet-small-label sheet-vert-bottom">Name</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Worn?</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Worn off-hand?</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Proficient?</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Prof. Bonus</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Type</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom"># Dmg Dice</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Dmg Die</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Enh.Bonus</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Abil.Bonus</div>
+					</div>
+
 
 					<div class="sheet-row">
 
@@ -1433,6 +1448,20 @@
 
 					</div>
 					<hr/><br/>
+		
+					<div class="sheet-row sheet-sub-header">
+					  <div class="sheet-col-1-6 sheet-center sheet-small-label sheet-vert-bottom">Name</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Worn?</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Worn off-hand?</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Proficient?</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Prof. Bonus</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Type</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom"># Dmg Dice</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Dmg Die</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Enh.Bonus</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Abil.Bonus</div>
+					</div>
+
 
 					<div class="sheet-row">
 
@@ -1493,6 +1522,20 @@
 
 					</div>
 					<hr/><br/>
+		
+					<div class="sheet-row sheet-sub-header">
+					  <div class="sheet-col-1-6 sheet-center sheet-small-label sheet-vert-bottom">Name</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Worn?</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Worn off-hand?</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Proficient?</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Prof. Bonus</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Type</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom"># Dmg Dice</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Dmg Die</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Enh.Bonus</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Abil.Bonus</div>
+					</div>
+
 
 					<div class="sheet-row">
 
@@ -1553,6 +1596,20 @@
 
 					</div>
 					<hr/><br/>
+		
+					<div class="sheet-row sheet-sub-header">
+					  <div class="sheet-col-1-6 sheet-center sheet-small-label sheet-vert-bottom">Name</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Worn?</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Worn off-hand?</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Proficient?</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Prof. Bonus</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Type</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom"># Dmg Dice</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Dmg Die</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Enh.Bonus</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Abil.Bonus</div>
+					</div>
+
 
 					<div class="sheet-row">
 
@@ -1613,6 +1670,20 @@
 
 					</div>
 					<hr/><br/>
+		
+					<div class="sheet-row sheet-sub-header">
+					  <div class="sheet-col-1-6 sheet-center sheet-small-label sheet-vert-bottom">Name</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Worn?</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Worn off-hand?</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Proficient?</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Prof. Bonus</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Type</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom"># Dmg Dice</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Dmg Die</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Enh.Bonus</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Abil.Bonus</div>
+					</div>
+
 
 					<div class="sheet-row">
 
@@ -1673,6 +1744,20 @@
 
 					</div>
 					<hr/><br/>
+		
+					<div class="sheet-row sheet-sub-header">
+					  <div class="sheet-col-1-6 sheet-center sheet-small-label sheet-vert-bottom">Name</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Worn?</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Worn off-hand?</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Proficient?</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Prof. Bonus</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Type</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom"># Dmg Dice</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Dmg Die</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Enh.Bonus</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Abil.Bonus</div>
+					</div>
+
 
 					<div class="sheet-row">
 
@@ -1733,6 +1818,20 @@
 
 					</div>
 					<hr/><br/>
+		
+					<div class="sheet-row sheet-sub-header">
+					  <div class="sheet-col-1-6 sheet-center sheet-small-label sheet-vert-bottom">Name</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Worn?</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Worn off-hand?</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Proficient?</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Prof. Bonus</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Type</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom"># Dmg Dice</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Dmg Die</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Enh.Bonus</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Abil.Bonus</div>
+					</div>
+
 
 					<div class="sheet-row">
 
@@ -1793,6 +1892,20 @@
 
 					</div>
 					<hr/><br/>
+		
+					<div class="sheet-row sheet-sub-header">
+					  <div class="sheet-col-1-6 sheet-center sheet-small-label sheet-vert-bottom">Name</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Worn?</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Worn off-hand?</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Proficient?</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Prof. Bonus</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Type</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom"># Dmg Dice</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Dmg Die</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Enh.Bonus</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Abil.Bonus</div>
+					</div>
+
 
 					<div class="sheet-row">
 
@@ -1853,6 +1966,20 @@
 
 					</div>
 					<hr/><br/>
+		
+					<div class="sheet-row sheet-sub-header">
+					  <div class="sheet-col-1-6 sheet-center sheet-small-label sheet-vert-bottom">Name</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Worn?</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Worn off-hand?</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Proficient?</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Prof. Bonus</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Type</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom"># Dmg Dice</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Dmg Die</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Enh.Bonus</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Abil.Bonus</div>
+					</div>
+
 
 					<div class="sheet-row">
 
