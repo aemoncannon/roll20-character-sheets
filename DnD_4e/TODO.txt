@@ -1,0 +1,6 @@
+* Roll make fucntions are broken for powers.
+* Add handling for ability-based damage modifier for powers.
+* Add handling for non-W-based damage roll for powers.
+* Rolls for offhand attack and damage for weapon powers.
+* Move weapon contribution to power to-hit roll into Roll.
+* For powers, toggle visibility of offhand button based on is_weapon checkbox.

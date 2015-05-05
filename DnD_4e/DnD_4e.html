@@ -51,7 +51,6 @@
 						<div class="sheet-col-1-6 sheet-center sheet-small-label">Mod + 1/2 Level</div>
 					</div>
 
-					<input class="" type="hidden" name="attr_strength_index" value="0" disabled="disabled"/>
 					<div class="sheet-row">
 						<div class="sheet-col-1-6"><input class="" type="number" name="attr_strength_base" value="" min="1" step="1"/></div>
 						<div class="sheet-col-1-6 sheet-core-stat-label">STR</div>
@@ -61,7 +60,6 @@
 						  <button type="roll" class="sheet-core-save" name="roll_Strength_Check"
 							  value="&{template:4eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=strength check}} {{subheader=@{character_name}}} {{rollname=strength check}} {{roll=[[ 1d20 + @{strength_mod_plus_half_level} + (@{global_saving_bonus}) ]]}} {{rolladv=[[ 1d20 + @{strength_mod_plus_half_level} + (@{global_saving_bonus}) ]]}}">Check</button></div>
 					</div>
-					<input class="" type="hidden" name="attr_constitution_index" value="1" disabled="disabled"/>
 					<div class="sheet-row">
 						<div class="sheet-col-1-6"><input class="" type="number" name="attr_constitution_base" value="" min="1" step="1"/></div>
 						<div class="sheet-col-1-6 sheet-core-stat-label">CON</div>
@@ -71,7 +69,6 @@
 						  <button type="roll" class="sheet-core-save" name="roll_Constitution_Check"
 							  value="&{template:4eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=constitution check}} {{subheader=@{character_name}}} {{rollname=constitution check}} {{roll=[[ 1d20 + @{constitution_mod_plus_half_level} + (@{global_saving_bonus}) ]]}} {{rolladv=[[ 1d20 + @{constitution_mod_plus_half_level} + (@{global_saving_bonus}) ]]}}">Check</button></div>
 					</div>
-					<input class="" type="hidden" name="attr_dexterity_index" value="2" disabled="disabled"/>
 					<div class="sheet-row">
 						<div class="sheet-col-1-6"><input class="" type="number" name="attr_dexterity_base" value="" min="1" step="1"/></div>
 						<div class="sheet-col-1-6 sheet-core-stat-label">DEX</div>
@@ -81,7 +78,6 @@
 						  <button type="roll" class="sheet-core-save" name="roll_Dexterity_Check"
 							  value="&{template:4eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=dexterity check}} {{subheader=@{character_name}}} {{rollname=dexterity check}} {{roll=[[ 1d20 + @{dexterity_mod_plus_half_level} + (@{global_saving_bonus}) ]]}} {{rolladv=[[ 1d20 + @{dexterity_mod_plus_half_level} + (@{global_saving_bonus}) ]]}}">Check</button></div>
 					</div>
-					<input class="" type="hidden" name="attr_intelligence_index" value="3" disabled="disabled"/>
 					<div class="sheet-row">
 						<div class="sheet-col-1-6"><input class="" type="number" name="attr_intelligence_base" value="" min="1" step="1"/></div>
 						<div class="sheet-col-1-6 sheet-core-stat-label">INT</div>
@@ -91,7 +87,6 @@
 						  <button type="roll" class="sheet-core-save" name="roll_Intelligence_Check"
 							  value="&{template:4eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=intelligence check}} {{subheader=@{character_name}}} {{rollname=intelligence check}} {{roll=[[ 1d20 + @{intelligence_mod_plus_half_level} + (@{global_saving_bonus}) ]]}} {{rolladv=[[ 1d20 + @{intelligence_mod_plus_half_level} + (@{global_saving_bonus}) ]]}}">Check</button></div>
 					</div>
-					<input class="" type="hidden" name="attr_wisdom_index" value="4" disabled="disabled"/>
 					<div class="sheet-row">
 						<div class="sheet-col-1-6"><input class="" type="number" name="attr_wisdom_base" value="" min="1" step="1"/></div>
 						<div class="sheet-col-1-6 sheet-core-stat-label">WIS</div>
@@ -101,7 +96,6 @@
 						  <button type="roll" class="sheet-core-save" name="roll_Wisdom_Check"
 							  value="&{template:4eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=wisdom check}} {{subheader=@{character_name}}} {{rollname=wisdom check}} {{roll=[[ 1d20 + @{wisdom_mod_plus_half_level} + (@{global_saving_bonus}) ]]}} {{rolladv=[[ 1d20 + @{wisdom_mod_plus_half_level} + (@{global_saving_bonus}) ]]}}">Check</button></div>
 					</div>
-					<input class="" type="hidden" name="attr_charisma_index" value="5" disabled="disabled"/>
 					<div class="sheet-row">
 						<div class="sheet-col-1-6"><input class="" type="number" name="attr_charisma_base" value="" min="1" step="1"/></div>
 						<div class="sheet-col-1-6 sheet-core-stat-label">CHA</div>
@@ -819,6 +813,112 @@
 				
 			<div class="sheet-row">
 			  <div class="sheet-col-1-8">
+			    <input class="" type="text" name="attr_meleebasic_name" value="Melee Basic Attack" disabled="disabled"/>
+			  </div>
+			  <div class="sheet-col-1-8">
+			    <input class="" type="text" name="attr_meleebasic_keywords" value="At Will" disabled="disabled"/>
+			  </div>
+			  <div class="sheet-col-1-12">
+			    <input class="" type="text" name="attr_meleebasic_actiontype" value="Standard" disabled="disabled"/>
+			  </div>
+			  <div class="sheet-col-1-8">
+			    <input class="" type="text" name="attr_meleebasic_attacktype" value="Melee" disabled="disabled"/>
+			  </div>
+			  <div class="sheet-col-1-8">
+			    <input class="" type="text" name="attr_meleebasic_attacktarget" value="One creature" disabled="disabled"/>
+			  </div>
+			  <div class="sheet-col-1-12">
+			    <input class="" type="text" name="attr_meleebasic_ability_name" value="Strength" disabled="disabled"/>
+			  </div>
+			  <div class="sheet-col-1-12">
+			    <input class="" type="hidden" name="attr_meleebasic_attacker" value="@{strength_mod_plus_half_level}" disabled="disabled"/>
+			    <input class="" type="hidden" name="attr_meleebasic_attackbonus" value="0" disabled="disabled"/>
+			    <input class="" type="number" name="attr_meleebasic_total_bonus" value="@{meleebasic_attacker} + @{meleebasic_attackbonus}" disabled="disabled"/>
+			  </div>
+			  <div class="sheet-col-1-12">
+			    <input class="" type="text" name="attr_meleebasic_attackee" value="AC" disabled="disabled"/>
+			  </div>
+			  <div class="sheet-col-1-12">
+			    <button class="sheet-skill-roll" type="roll" name="roll_meleebasic_"
+			    	    value="&{template:5eDefault} {{attack=@{meleebasic_ability_name}}} {{title=@{meleebasic_name}}} {{subheader=@{character_name}}} {{subheaderright=Basic Action}} {{rollname=Result}} {{roll=[[ 1d20 + @{meleebasic_total_bonus} + @{weapon_total_hit_bonus}]]}}">Att.</button>
+			      <input class="" type="hidden" name="attr_meleebasic_dmg_dice_multiplier" value="1" disabled="disabled"/>
+                               <button class="sheet-skill-roll" type="roll" name="roll_meleebasic_damage"
+			       	       value="&{template:5eDefault} {{title=Damage}} {{rollname=Result}} {{roll=[[ ((@{meleebasic_dmg_dice_multiplier}) * (@{weapon_dmg_dice_count}))d(@{weapon_dmg_dice_type}) ]]}}">Dmg</button>
+			  </div>
+			</div>
+
+			
+		      </div>
+		      <hr/>
+
+		      <div class="sheet-margin-bottom sheet-padr sheet-padl">
+			<div class="sheet-row">
+			  <div class="sheet-col-1-8 sheet-vert-bottom sheet-small-label">Name</div>
+			  <div class="sheet-col-1-8 sheet-vert-bottom sheet-small-label">Keywords</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Action Type</div>
+			  <div class="sheet-col-1-8 sheet-vert-bottom sheet-small-label">Type/Range</div>
+			  <div class="sheet-col-1-8 sheet-vert-bottom sheet-small-label">Target</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Ability</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Bonus</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">vs</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">&nbsp;</div>
+			</div>
+				
+			<div class="sheet-row">
+			  <div class="sheet-col-1-8">
+			    <input class="" type="text" name="attr_rangedbasic_name" value="Ranged Basic Attack" disabled="disabled"/>
+			  </div>
+			  <div class="sheet-col-1-8">
+			    <input class="" type="text" name="attr_rangedbasic_keywords" value="At Will" disabled="disabled"/>
+			  </div>
+			  <div class="sheet-col-1-12">
+			    <input class="" type="text" name="attr_rangedbasic_actiontype" value="Standard" disabled="disabled"/>
+			  </div>
+			  <div class="sheet-col-1-8">
+			    <input class="" type="text" name="attr_rangedbasic_attacktype" value="Melee" disabled="disabled"/>
+			  </div>
+			  <div class="sheet-col-1-8">
+			    <input class="" type="text" name="attr_rangedbasic_attacktarget" value="One creature" disabled="disabled"/>
+			  </div>
+			  <div class="sheet-col-1-12">
+			    <input class="" type="text" name="attr_rangedbasic_ability_name" value="Dexterity" disabled="disabled"/>
+			  </div>
+			  <div class="sheet-col-1-12">
+			    <input class="" type="hidden" name="attr_rangedbasic_attacker" value="@{dexterity_mod_plus_half_level}" disabled="disabled"/>
+			    <input class="" type="hidden" name="attr_rangedbasic_attackbonus" value="0" disabled="disabled"/>
+			    <input class="" type="number" name="attr_rangedbasic_total_bonus" value="@{rangedbasic_attacker} + @{rangedbasic_attackbonus}" disabled="disabled"/>
+			  </div>
+			  <div class="sheet-col-1-12">
+			    <input class="" type="text" name="attr_rangedbasic_attackee" value="AC" disabled="disabled"/>
+			  </div>
+			  <div class="sheet-col-1-12">
+			    <button class="sheet-skill-roll" type="roll" name="roll_rangedbasic_"
+			    	    value="&{template:5eDefault} {{attack=@{rangedbasic_ability_name}}} {{title=@{rangedbasic_name}}} {{subheader=@{character_name}}} {{subheaderright=Basic Action}} {{rollname=Result}} {{roll=[[ 1d20 + @{rangedbasic_total_bonus} + @{weapon_total_hit_bonus}]]}}">Att.</button>
+			      <input class="" type="hidden" name="attr_rangedbasic_dmg_dice_multiplier" value="1" disabled="disabled"/>
+                               <button class="sheet-skill-roll" type="roll" name="roll_rangedbasic_damage"
+			       	       value="&{template:5eDefault} {{title=Damage}} {{rollname=Result}} {{roll=[[ ((@{rangedbasic_dmg_dice_multiplier}) * (@{weapon_dmg_dice_count}))d(@{weapon_dmg_dice_type}) ]]}}">Dmg</button>
+			  </div>
+			</div>
+
+			
+		      </div>
+		      <hr/>
+
+		      <div class="sheet-margin-bottom sheet-padr sheet-padl">
+			<div class="sheet-row">
+			  <div class="sheet-col-1-8 sheet-vert-bottom sheet-small-label">Name</div>
+			  <div class="sheet-col-1-8 sheet-vert-bottom sheet-small-label">Keywords</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Action Type</div>
+			  <div class="sheet-col-1-8 sheet-vert-bottom sheet-small-label">Type/Range</div>
+			  <div class="sheet-col-1-8 sheet-vert-bottom sheet-small-label">Target</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Ability</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Bonus</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">vs</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">&nbsp;</div>
+			</div>
+				
+			<div class="sheet-row">
+			  <div class="sheet-col-1-8">
 			    <input class="" type="text" name="attr_aidanother_name" value="Aid another" disabled="disabled"/>
 			  </div>
 			  <div class="sheet-col-1-8">
@@ -846,11 +946,7 @@
 			  </div>
 			  <div class="sheet-col-1-12">
 			    <button class="sheet-skill-roll" type="roll" name="roll_aidanother_"
-			    	    value="&{template:5eDefault} {{attack=@{aidanother_ability_name}}} {{title=@{aidanother_name}}} {{subheader=@{character_name}}} {{subheaderright=Basic Action}} {{rollname=Result}} {{roll=[[ 1d20 + @{aidanother_total_bonus}]]}}"></button>
-			      <input class="" type="hidden" name="attr_aidanother_weapon_dice_count" value="2" disabled="disabled"/>
-			      <input class="" type="hidden" name="attr_aidanother_weapon_dice_type" value="6" disabled="disabled"/>
-                               <button class="sheet-skill-roll" type="roll" name="roll_aidanother_damage"
-			       	       value="&{template:5eDefault} {{title=Damage}} {{rollname=Result}} {{roll=[[ @{aidanother_weapon_dice_count}d@{aidanother_weapon_dice_type} ]]}}"></button>
+			    	    value="&{template:5eDefault} {{attack=@{aidanother_ability_name}}} {{title=@{aidanother_name}}} {{subheader=@{character_name}}} {{subheaderright=Basic Action}} {{rollname=Result}} {{roll=[[ 1d20 + @{aidanother_total_bonus} + @{weapon_total_hit_bonus}]]}}">Att.</button>
 			  </div>
 			</div>
 
@@ -903,7 +999,7 @@
 			  </div>
 			  <div class="sheet-col-1-12">
 			    <button class="sheet-skill-roll" type="roll" name="roll_bullrush_"
-			    	    value="&{template:5eDefault} {{attack=@{bullrush_ability_name}}} {{title=@{bullrush_name}}} {{subheader=@{character_name}}} {{subheaderright=Basic Action}} {{rollname=Result}} {{roll=[[ 1d20 + @{bullrush_total_bonus}]]}}"></button>
+			    	    value="&{template:5eDefault} {{attack=@{bullrush_ability_name}}} {{title=@{bullrush_name}}} {{subheader=@{character_name}}} {{subheaderright=Basic Action}} {{rollname=Result}} {{roll=[[ 1d20 + @{bullrush_total_bonus} + @{weapon_total_hit_bonus}]]}}">Att.</button>
 			  </div>
 			</div>
 
@@ -944,7 +1040,7 @@
 			    <input class="" type="text" name="attr_grab_attacktarget" value="One creature" disabled="disabled"/>
 			  </div>
 			  <div class="sheet-col-1-12">
-			    <input class="" type="text" name="attr_grab_ability_name" value="Stregth" disabled="disabled"/>
+			    <input class="" type="text" name="attr_grab_ability_name" value="Strength" disabled="disabled"/>
 			  </div>
 			  <div class="sheet-col-1-12">
 			    <input class="" type="hidden" name="attr_grab_attacker" value="@{strength_mod_plus_half_level}" disabled="disabled"/>
@@ -956,7 +1052,7 @@
 			  </div>
 			  <div class="sheet-col-1-12">
 			    <button class="sheet-skill-roll" type="roll" name="roll_grab_"
-			    	    value="&{template:5eDefault} {{attack=@{grab_ability_name}}} {{title=@{grab_name}}} {{subheader=@{character_name}}} {{subheaderright=Basic Action}} {{rollname=Result}} {{roll=[[ 1d20 + @{grab_total_bonus}]]}}"></button>
+			    	    value="&{template:5eDefault} {{attack=@{grab_ability_name}}} {{title=@{grab_name}}} {{subheader=@{character_name}}} {{subheaderright=Basic Action}} {{rollname=Result}} {{roll=[[ 1d20 + @{grab_total_bonus} + @{weapon_total_hit_bonus}]]}}">Att.</button>
 			  </div>
 			</div>
 
@@ -1032,6 +1128,7 @@
 			  <div class="sheet-col-1-8 sheet-vert-bottom sheet-small-label">Keywords</div>
 			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Action Type</div>
 			  <div class="sheet-col-1-8 sheet-vert-bottom sheet-small-label">Type/Range</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Weapon?</div>
 			  <div class="sheet-col-1-8 sheet-vert-bottom sheet-small-label">Target</div>
 			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Ability</div>
 			  <div class="sheet-col-1-24 sheet-vert-bottom sheet-small-label">+</div>
@@ -1060,25 +1157,28 @@
 			  <div class="sheet-col-1-8">
 			    <input class="" type="text" name="attr_attacktype" value="" />
 			  </div>
+			  <div class="sheet-col-1-12  sheet-center">
+			    <input class="" type="checkbox" name="attr_is_weapon" value="1" />
+			  </div>			  
 			  <div class="sheet-col-1-8">
 			    <input class="" type="text" name="attr_attacktarget" value="" />
 			  </div>
 			  <div class="sheet-col-1-12">
-			    <select name="attr_ability_index" class="dtype">
-			      <option value="0">STR</option>
-			      <option value="1">CON</option>
-			      <option value="2">DEX</option>
-			      <option value="3">INT</option>
-			      <option value="4">WIS</option>
-			      <option value="5">CHA</option>
+			    <select name="attr_ability_bonus" class="dtype">
+			      <option value="@{strength_mod_plus_half_level} + 0.0">STR</option>
+			      <option value="@{constitution_mod_plus_half_level} + 0.001">CON</option>
+			      <option value="@{dexterity_mod_plus_half_level} + 0.002">DEX</option>
+			      <option value="@{intelligence_mod_plus_half_level} + 0.003">INT</option>
+			      <option value="@{wisdom_mod_plus_half_level} + 0.004">WIS</option>
+			      <option value="@{charisma_mod_plus_half_level} + 0.005">CHA</option>
 			    </select>
 			  </div>
 			  <div class="sheet-col-1-24 sheet-small-label sheet-center">
 			    <input class="" type="number" name="attr_attackbonus" value="" min="0" step="1"/>
 			  </div>
 			  <div class="sheet-col-1-12">
-			    <input class="" type="hidden" name="attr_ability_bonus" value="(abs((((1 + abs((@{ability_index})-(@{strength_index}))) - abs(1 - abs((@{ability_index})-(@{strength_index})))) / 2) - 1)) * (@{strength_mod_plus_half_level}) + (abs((((1 + abs((@{ability_index})-(@{constitution_index}))) - abs(1 - abs((@{ability_index})-(@{constitution_index})))) / 2) - 1)) * (@{constitution_mod_plus_half_level}) + (abs((((1 + abs((@{ability_index})-(@{dexterity_index}))) - abs(1 - abs((@{ability_index})-(@{dexterity_index})))) / 2) - 1)) * (@{dexterity_mod_plus_half_level}) + (abs((((1 + abs((@{ability_index})-(@{intelligence_index}))) - abs(1 - abs((@{ability_index})-(@{intelligence_index})))) / 2) - 1)) * (@{intelligence_mod_plus_half_level}) + (abs((((1 + abs((@{ability_index})-(@{wisdom_index}))) - abs(1 - abs((@{ability_index})-(@{wisdom_index})))) / 2) - 1)) * (@{wisdom_mod_plus_half_level}) + (abs((((1 + abs((@{ability_index})-(@{charisma_index}))) - abs(1 - abs((@{ability_index})-(@{charisma_index})))) / 2) - 1)) * (@{charisma_mod_plus_half_level})" disabled="disabled"/>	
-			    <input class="" type="number" name="attr_total_bonus" value="@{ability_bonus} + @{attackbonus} + (@{is_weapon}) * (@{weapon_total_hit_bonus})" disabled="disabled"/>
+			    <input class="" type="hidden" name="attr_ability_bonus" value="0" disabled="disabled"/>
+			    <input class="" type="number" name="attr_total_bonus" value="floor(@{ability_bonus}) + @{attackbonus} + ((@{is_weapon}) * (@{weapon_total_hit_bonus}))" disabled="disabled"/>
 			  </div>			  
 			  <div class="sheet-col-1-12">
 			    <select name="attr_attackee" class="dtype">
@@ -1133,12 +1233,6 @@
 
 		<div class="sheet-section-weapons">
 			
-			<div class="sheet-row sheet-padb">
-			    dice count <input class="" type="number" name="attr_weapon_dmg_dice_count" value="(@{weapon_worn1}) * (@{weapon_dmg_dice_count1}) + (@{weapon_worn2}) * (@{weapon_dmg_dice_count2}) + (@{weapon_worn3}) * (@{weapon_dmg_dice_count3}) + (@{weapon_worn4}) * (@{weapon_dmg_dice_count4}) + (@{weapon_worn5}) * (@{weapon_dmg_dice_count5}) + (@{weapon_worn6}) * (@{weapon_dmg_dice_count6}) + (@{weapon_worn7}) * (@{weapon_dmg_dice_count7}) + (@{weapon_worn8}) * (@{weapon_dmg_dice_count8}) + (@{weapon_worn9}) * (@{weapon_dmg_dice_count9}) + (@{weapon_worn10}) * (@{weapon_dmg_dice_count10})" disabled="disabled"/>
-			    dice type <input class="" type="number" name="attr_weapon_dmg_dice_type" value="(@{weapon_worn1}) * (@{weapon_dmg_dice_type1}) + (@{weapon_worn2}) * (@{weapon_dmg_dice_type2}) + (@{weapon_worn3}) * (@{weapon_dmg_dice_type3}) + (@{weapon_worn4}) * (@{weapon_dmg_dice_type4}) + (@{weapon_worn5}) * (@{weapon_dmg_dice_type5}) + (@{weapon_worn6}) * (@{weapon_dmg_dice_type6}) + (@{weapon_worn7}) * (@{weapon_dmg_dice_type7}) + (@{weapon_worn8}) * (@{weapon_dmg_dice_type8}) + (@{weapon_worn9}) * (@{weapon_dmg_dice_type9}) + (@{weapon_worn10}) * (@{weapon_dmg_dice_type10})" disabled="disabled"/>
-			    to hit <input class="" type="number" name="attr_weapon_total_hit_bonus" value="(@{weapon_worn1}) * (@{weapon_total_hit_bonus1}) + (@{weapon_worn2}) * (@{weapon_total_hit_bonus2}) + (@{weapon_worn3}) * (@{weapon_total_hit_bonus3}) + (@{weapon_worn4}) * (@{weapon_total_hit_bonus4}) + (@{weapon_worn5}) * (@{weapon_total_hit_bonus5}) + (@{weapon_worn6}) * (@{weapon_total_hit_bonus6}) + (@{weapon_worn7}) * (@{weapon_total_hit_bonus7}) + (@{weapon_worn8}) * (@{weapon_total_hit_bonus8}) + (@{weapon_worn9}) * (@{weapon_total_hit_bonus9}) + (@{weapon_worn10}) * (@{weapon_total_hit_bonus10})" disabled="disabled"/>
-			</div>
-					
 			<div class="sheet-row">
 			
 				<div class="sheet-col-1">
@@ -1149,11 +1243,14 @@
 					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Proficient?</div>
 					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Prof. Bonus</div>
 					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Type</div>
-					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Num Dice</div>
-					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Dice Size</div>
-					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">+</div>
-					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Notes</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom"># Dmg Dice</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Dmg Die</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Enh.Bonus</div>
 					</div>
+
+					  <input class="" type="hidden" name="attr_weapon_dmg_dice_count" value="(@{weapon_worn1}) * (@{weapon_dmg_dice_count1}) + (@{weapon_worn2}) * (@{weapon_dmg_dice_count2}) + (@{weapon_worn3}) * (@{weapon_dmg_dice_count3}) + (@{weapon_worn4}) * (@{weapon_dmg_dice_count4}) + (@{weapon_worn5}) * (@{weapon_dmg_dice_count5}) + (@{weapon_worn6}) * (@{weapon_dmg_dice_count6}) + (@{weapon_worn7}) * (@{weapon_dmg_dice_count7}) + (@{weapon_worn8}) * (@{weapon_dmg_dice_count8}) + (@{weapon_worn9}) * (@{weapon_dmg_dice_count9}) + (@{weapon_worn10}) * (@{weapon_dmg_dice_count10})" disabled="disabled"/>
+					  <input class="" type="hidden" name="attr_weapon_dmg_dice_type" value="(@{weapon_worn1}) * (@{weapon_dmg_dice_type1}) + (@{weapon_worn2}) * (@{weapon_dmg_dice_type2}) + (@{weapon_worn3}) * (@{weapon_dmg_dice_type3}) + (@{weapon_worn4}) * (@{weapon_dmg_dice_type4}) + (@{weapon_worn5}) * (@{weapon_dmg_dice_type5}) + (@{weapon_worn6}) * (@{weapon_dmg_dice_type6}) + (@{weapon_worn7}) * (@{weapon_dmg_dice_type7}) + (@{weapon_worn8}) * (@{weapon_dmg_dice_type8}) + (@{weapon_worn9}) * (@{weapon_dmg_dice_type9}) + (@{weapon_worn10}) * (@{weapon_dmg_dice_type10})" disabled="disabled"/>
+					  <input class="" type="hidden" name="attr_weapon_total_hit_bonus" value="(@{weapon_worn1}) * (@{weapon_total_hit_bonus1}) + (@{weapon_worn2}) * (@{weapon_total_hit_bonus2}) + (@{weapon_worn3}) * (@{weapon_total_hit_bonus3}) + (@{weapon_worn4}) * (@{weapon_total_hit_bonus4}) + (@{weapon_worn5}) * (@{weapon_total_hit_bonus5}) + (@{weapon_worn6}) * (@{weapon_total_hit_bonus6}) + (@{weapon_worn7}) * (@{weapon_total_hit_bonus7}) + (@{weapon_worn8}) * (@{weapon_total_hit_bonus8}) + (@{weapon_worn9}) * (@{weapon_total_hit_bonus9}) + (@{weapon_worn10}) * (@{weapon_total_hit_bonus10})" disabled="disabled"/>
 					
 
 
@@ -1181,7 +1278,8 @@
 					    <select name="attr_weapon_type1">
 					      <option value="0" selected="selected">Melee (str)</option>
 					      <option value="1">Ranged (dex)</option>
-					      <option value="2">Heavy Ranged (str)</option>
+					      <option value="2">Light Thrown (dex)</option>
+					      <option value="2">Heavy Thrown (str)</option>
 					    </select>
 					  </div>
 					  
@@ -1198,7 +1296,7 @@
 					  </div>
 
 					  <div class="sheet-row sheet-sub-header">
-					    <div class="sheet-col-1-6 sheet-small-label sheet-vert-bottom">Notes</div>
+					    <div class="sheet-col-1-6 sheet-small-label sheet-vert-bottom sheet-center">Notes</div>
 					  </div>
 					  
 					  <div>
@@ -1206,6 +1304,7 @@
 					  </div>
 
 					</div>
+					<hr/><br/>
 
 					<div class="sheet-row">
 
@@ -1231,7 +1330,8 @@
 					    <select name="attr_weapon_type2">
 					      <option value="0" selected="selected">Melee (str)</option>
 					      <option value="1">Ranged (dex)</option>
-					      <option value="2">Heavy Ranged (str)</option>
+					      <option value="2">Light Thrown (dex)</option>
+					      <option value="2">Heavy Thrown (str)</option>
 					    </select>
 					  </div>
 					  
@@ -1248,7 +1348,7 @@
 					  </div>
 
 					  <div class="sheet-row sheet-sub-header">
-					    <div class="sheet-col-1-6 sheet-small-label sheet-vert-bottom">Notes</div>
+					    <div class="sheet-col-1-6 sheet-small-label sheet-vert-bottom sheet-center">Notes</div>
 					  </div>
 					  
 					  <div>
@@ -1256,6 +1356,7 @@
 					  </div>
 
 					</div>
+					<hr/><br/>
 
 					<div class="sheet-row">
 
@@ -1281,7 +1382,8 @@
 					    <select name="attr_weapon_type3">
 					      <option value="0" selected="selected">Melee (str)</option>
 					      <option value="1">Ranged (dex)</option>
-					      <option value="2">Heavy Ranged (str)</option>
+					      <option value="2">Light Thrown (dex)</option>
+					      <option value="2">Heavy Thrown (str)</option>
 					    </select>
 					  </div>
 					  
@@ -1298,7 +1400,7 @@
 					  </div>
 
 					  <div class="sheet-row sheet-sub-header">
-					    <div class="sheet-col-1-6 sheet-small-label sheet-vert-bottom">Notes</div>
+					    <div class="sheet-col-1-6 sheet-small-label sheet-vert-bottom sheet-center">Notes</div>
 					  </div>
 					  
 					  <div>
@@ -1306,6 +1408,7 @@
 					  </div>
 
 					</div>
+					<hr/><br/>
 
 					<div class="sheet-row">
 
@@ -1331,7 +1434,8 @@
 					    <select name="attr_weapon_type4">
 					      <option value="0" selected="selected">Melee (str)</option>
 					      <option value="1">Ranged (dex)</option>
-					      <option value="2">Heavy Ranged (str)</option>
+					      <option value="2">Light Thrown (dex)</option>
+					      <option value="2">Heavy Thrown (str)</option>
 					    </select>
 					  </div>
 					  
@@ -1348,7 +1452,7 @@
 					  </div>
 
 					  <div class="sheet-row sheet-sub-header">
-					    <div class="sheet-col-1-6 sheet-small-label sheet-vert-bottom">Notes</div>
+					    <div class="sheet-col-1-6 sheet-small-label sheet-vert-bottom sheet-center">Notes</div>
 					  </div>
 					  
 					  <div>
@@ -1356,6 +1460,7 @@
 					  </div>
 
 					</div>
+					<hr/><br/>
 
 					<div class="sheet-row">
 
@@ -1381,7 +1486,8 @@
 					    <select name="attr_weapon_type5">
 					      <option value="0" selected="selected">Melee (str)</option>
 					      <option value="1">Ranged (dex)</option>
-					      <option value="2">Heavy Ranged (str)</option>
+					      <option value="2">Light Thrown (dex)</option>
+					      <option value="2">Heavy Thrown (str)</option>
 					    </select>
 					  </div>
 					  
@@ -1398,7 +1504,7 @@
 					  </div>
 
 					  <div class="sheet-row sheet-sub-header">
-					    <div class="sheet-col-1-6 sheet-small-label sheet-vert-bottom">Notes</div>
+					    <div class="sheet-col-1-6 sheet-small-label sheet-vert-bottom sheet-center">Notes</div>
 					  </div>
 					  
 					  <div>
@@ -1406,6 +1512,7 @@
 					  </div>
 
 					</div>
+					<hr/><br/>
 
 					<div class="sheet-row">
 
@@ -1431,7 +1538,8 @@
 					    <select name="attr_weapon_type6">
 					      <option value="0" selected="selected">Melee (str)</option>
 					      <option value="1">Ranged (dex)</option>
-					      <option value="2">Heavy Ranged (str)</option>
+					      <option value="2">Light Thrown (dex)</option>
+					      <option value="2">Heavy Thrown (str)</option>
 					    </select>
 					  </div>
 					  
@@ -1448,7 +1556,7 @@
 					  </div>
 
 					  <div class="sheet-row sheet-sub-header">
-					    <div class="sheet-col-1-6 sheet-small-label sheet-vert-bottom">Notes</div>
+					    <div class="sheet-col-1-6 sheet-small-label sheet-vert-bottom sheet-center">Notes</div>
 					  </div>
 					  
 					  <div>
@@ -1456,6 +1564,7 @@
 					  </div>
 
 					</div>
+					<hr/><br/>
 
 					<div class="sheet-row">
 
@@ -1481,7 +1590,8 @@
 					    <select name="attr_weapon_type7">
 					      <option value="0" selected="selected">Melee (str)</option>
 					      <option value="1">Ranged (dex)</option>
-					      <option value="2">Heavy Ranged (str)</option>
+					      <option value="2">Light Thrown (dex)</option>
+					      <option value="2">Heavy Thrown (str)</option>
 					    </select>
 					  </div>
 					  
@@ -1498,7 +1608,7 @@
 					  </div>
 
 					  <div class="sheet-row sheet-sub-header">
-					    <div class="sheet-col-1-6 sheet-small-label sheet-vert-bottom">Notes</div>
+					    <div class="sheet-col-1-6 sheet-small-label sheet-vert-bottom sheet-center">Notes</div>
 					  </div>
 					  
 					  <div>
@@ -1506,6 +1616,7 @@
 					  </div>
 
 					</div>
+					<hr/><br/>
 
 					<div class="sheet-row">
 
@@ -1531,7 +1642,8 @@
 					    <select name="attr_weapon_type8">
 					      <option value="0" selected="selected">Melee (str)</option>
 					      <option value="1">Ranged (dex)</option>
-					      <option value="2">Heavy Ranged (str)</option>
+					      <option value="2">Light Thrown (dex)</option>
+					      <option value="2">Heavy Thrown (str)</option>
 					    </select>
 					  </div>
 					  
@@ -1548,7 +1660,7 @@
 					  </div>
 
 					  <div class="sheet-row sheet-sub-header">
-					    <div class="sheet-col-1-6 sheet-small-label sheet-vert-bottom">Notes</div>
+					    <div class="sheet-col-1-6 sheet-small-label sheet-vert-bottom sheet-center">Notes</div>
 					  </div>
 					  
 					  <div>
@@ -1556,6 +1668,7 @@
 					  </div>
 
 					</div>
+					<hr/><br/>
 
 					<div class="sheet-row">
 
@@ -1581,7 +1694,8 @@
 					    <select name="attr_weapon_type9">
 					      <option value="0" selected="selected">Melee (str)</option>
 					      <option value="1">Ranged (dex)</option>
-					      <option value="2">Heavy Ranged (str)</option>
+					      <option value="2">Light Thrown (dex)</option>
+					      <option value="2">Heavy Thrown (str)</option>
 					    </select>
 					  </div>
 					  
@@ -1598,7 +1712,7 @@
 					  </div>
 
 					  <div class="sheet-row sheet-sub-header">
-					    <div class="sheet-col-1-6 sheet-small-label sheet-vert-bottom">Notes</div>
+					    <div class="sheet-col-1-6 sheet-small-label sheet-vert-bottom sheet-center">Notes</div>
 					  </div>
 					  
 					  <div>
@@ -1606,6 +1720,7 @@
 					  </div>
 
 					</div>
+					<hr/><br/>
 
 					<div class="sheet-row">
 
@@ -1631,7 +1746,8 @@
 					    <select name="attr_weapon_type10">
 					      <option value="0" selected="selected">Melee (str)</option>
 					      <option value="1">Ranged (dex)</option>
-					      <option value="2">Heavy Ranged (str)</option>
+					      <option value="2">Light Thrown (dex)</option>
+					      <option value="2">Heavy Thrown (str)</option>
 					    </select>
 					  </div>
 					  
@@ -1648,7 +1764,7 @@
 					  </div>
 
 					  <div class="sheet-row sheet-sub-header">
-					    <div class="sheet-col-1-6 sheet-small-label sheet-vert-bottom">Notes</div>
+					    <div class="sheet-col-1-6 sheet-small-label sheet-vert-bottom sheet-center">Notes</div>
 					  </div>
 					  
 					  <div>
@@ -1656,6 +1772,7 @@
 					  </div>
 
 					</div>
+					<hr/><br/>
 		
 				</div>
 				

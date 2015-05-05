@@ -115,6 +115,9 @@ class Group(object):
         self.attrs[name] = att
         return att
 
+    def has_attr(self, key):
+        return key in self.attrs
+
     def set(self, key, value):
         self.extras[key] = value
 
@@ -174,7 +177,7 @@ for abil in ["strength", "constitution", "dexterity", "intelligence", "wisdom", 
                   "{{roll=[[ 1d20 + %s + (%s) ]]}}" % (g.mod_plus_half_level, atts.global_saving_bonus),
                   "{{rolladv=[[ 1d20 + %s + (%s) ]]}}" % (g.mod_plus_half_level, atts.global_saving_bonus)])))
     g.set('label', abil[0:3].upper())
-    g.attr("index", value=len(ability_groups))
+    g.set('uniqued_mod', fn_sum(g.mod_plus_half_level, len(ability_groups) * 0.001))
     ability_groups.append(g)
 
 defense_groups = []
@@ -297,7 +300,8 @@ def make_action_roll(action):
                                "{{subheader=@{character_name}}}",
                                "{{subheaderright=Basic Action}}",
                                "{{rollname=Result}}",
-                               "{{roll=[[ 1d20 + %s]]}}" % (action.total_bonus)
+                               "{{roll=[[ 1d20 + %s]]}}" % (fn_sum(action.total_bonus,
+                                                                   atts.weapon_total_hit_bonus))
                            ]))
 
 def make_damage_roll(action):
@@ -305,13 +309,47 @@ def make_damage_roll(action):
                      " ".join(["&{template:5eDefault}",
                                "{{title=Damage}}",
                                "{{rollname=Result}}",
-                               "{{roll=[[ %sd%s ]]}}" % (action.weapon_dice_count, action.weapon_dice_type)
+                               "{{roll=[[ (%s)d(%s) ]]}}" % (fn_prod(action.dmg_dice_multiplier,
+                                                                 atts.weapon_dmg_dice_count),
+                                                         atts.weapon_dmg_dice_type)
                            ]))
 
 
 basic_actions = []
-action = Group(prefix="aidanother_")
 
+action = Group(prefix="meleebasic_")
+action.attr("name", value="Melee Basic Attack")
+action.attr("keywords", value="At Will")
+action.attr("actiontype", value="Standard")
+action.attr("attacktype", value="Melee")
+action.attr("attacktarget", value="One creature")
+action.attr("attacker", value=atts.strength_mod_plus_half_level)
+action.attr("ability_name", value="Strength")
+action.attr("attackbonus", value=0)
+action.attr("total_bonus", value=fn_sum(action.attacker, action.attackbonus))
+action.attr("attackee", value="AC")
+action.attr("dmg_dice_multiplier", value="1")
+action.set('roll', make_action_roll(action))
+action.set('damage_roll', make_damage_roll(action))
+basic_actions.append(action)
+
+action = Group(prefix="rangedbasic_")
+action.attr("name", value="Ranged Basic Attack")
+action.attr("keywords", value="At Will")
+action.attr("actiontype", value="Standard")
+action.attr("attacktype", value="Melee")
+action.attr("attacktarget", value="One creature")
+action.attr("attacker", value=atts.dexterity_mod_plus_half_level)
+action.attr("ability_name", value="Dexterity")
+action.attr("attackbonus", value=0)
+action.attr("total_bonus", value=fn_sum(action.attacker, action.attackbonus))
+action.attr("attackee", value="AC")
+action.attr("dmg_dice_multiplier", value="1")
+action.set('roll', make_action_roll(action))
+action.set('damage_roll', make_damage_roll(action))
+basic_actions.append(action)
+
+action = Group(prefix="aidanother_")
 action.attr("name", value="Aid another")
 action.attr("keywords", value="At Will")
 action.attr("actiontype", value="Standard")
@@ -322,12 +360,8 @@ action.attr("ability_name", value="Strength")
 action.attr("attackbonus", value=0)
 action.attr("total_bonus", value=fn_sum(action.attacker, action.attackbonus))
 action.attr("attackee", value="ac")
-action.attr("weapon_dice_count", value="2")
-action.attr("weapon_dice_type", value="6")
-
 action.attr("effect", value="If you succeed, deal no damage, but choose one ally. That ally gets a +2 bonus to his or her next attack roll against the target or to all defenses against the target's next attack. This bonus ends if not used by the end of your next turn.")
 action.set('roll', make_action_roll(action))
-action.set('damage_roll', make_damage_roll(action))
 basic_actions.append(action)
 
 action = Group(prefix="bullrush_")
@@ -352,7 +386,7 @@ action.attr("actiontype", value="Standard")
 action.attr("attacktype", value="Ranged")
 action.attr("attacktarget", value="One creature")
 action.attr("attacker", value=atts.strength_mod_plus_half_level)
-action.attr("ability_name", value="Stregth")
+action.attr("ability_name", value="Strength")
 action.attr("attackbonus", value=0)
 action.attr("total_bonus", value=fn_sum(action.attacker, action.attackbonus))
 action.attr("attackee", value="reflex")
@@ -375,11 +409,10 @@ powers.attr("actiontype")
 powers.attr("attacktype")
 powers.attr("attacktarget")
 powers.attr("attacker")
-powers.attr("ability_index")
-powers.attr("ability_bonus", value=fn_sum(*[fn_prod(fn_eq(powers.ability_index, abil.index), abil.mod_plus_half_level) for abil in ability_groups]))
+powers.attr("ability_bonus", value=0)
 powers.attr("attackbonus")
-powers.attr("total_bonus", value=fn_sum(powers.ability_bonus, powers.attackbonus,
-                                        fn_prod(powers.is_weapon, atts.weapon_total_hit_bonus)))
+powers.attr("total_bonus", value=fn_sum(fn_floor(powers.ability_bonus), powers.attackbonus,
+                                        fn_quant(fn_prod(powers.is_weapon, atts.weapon_total_hit_bonus))))
 powers.attr("attackee")
 powers.attr("requirements")
 powers.attr("on_miss")
@@ -387,6 +420,8 @@ powers.attr("secondary_attack")
 powers.attr("effect")
 powers.attr("sustain")
 powers.attr("notes")
+action.set('roll', make_action_roll(powers))
+action.set('damage_roll', make_damage_roll(powers))
 
 
 t = pyratemp.Template(filename="DnD_4e.html.template")

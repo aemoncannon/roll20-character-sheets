@@ -55,7 +55,6 @@
 					</div>
 
 					<!--(for grp in ability_groups)-->
-					@!out_hidden(grp.index)!@
 					<div class="sheet-row">
 						<div class="sheet-col-1-6">@!in_num(grp.base)!@</div>
 						<div class="sheet-col-1-6 sheet-core-stat-label">@!grp.get('label')!@</div>
@@ -371,17 +370,16 @@
 			  </div>
 			  <div class="sheet-col-1-12">
 			    <button class="sheet-skill-roll" type="roll" name="@!grp.get('roll').name!@"
-			    	    value="@!grp.get('roll').value!@"></button>
+			    	    value="@!grp.get('roll').value!@">Att.</button>
                             <!--(if grp.get('damage_roll'))-->
-			      @!out_hidden(grp.weapon_dice_count)!@
-			      @!out_hidden(grp.weapon_dice_type)!@
+			      @!out_hidden(grp.dmg_dice_multiplier)!@
                                <button class="sheet-skill-roll" type="roll" name="@!grp.get('damage_roll').name!@"
-			       	       value="@!grp.get('damage_roll').value!@"></button>
+			       	       value="@!grp.get('damage_roll').value!@">Dmg</button>
                             <!--(end)-->
 			  </div>
 			</div>
 
-			<!--(if grp.effect.value)-->
+			<!--(if grp.has_attr('effect'))-->
 			<div class="sheet-row">
 			    @!out_text(grp.effect)!@
 			</div>
@@ -430,6 +428,7 @@
 			  <div class="sheet-col-1-8 sheet-vert-bottom sheet-small-label">Keywords</div>
 			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Action Type</div>
 			  <div class="sheet-col-1-8 sheet-vert-bottom sheet-small-label">Type/Range</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Weapon?</div>
 			  <div class="sheet-col-1-8 sheet-vert-bottom sheet-small-label">Target</div>
 			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Ability</div>
 			  <div class="sheet-col-1-24 sheet-vert-bottom sheet-small-label">+</div>
@@ -458,13 +457,16 @@
 			  <div class="sheet-col-1-8">
 			    @!in_text(powers.attacktype)!@
 			  </div>
+			  <div class="sheet-col-1-12  sheet-center">
+			    @!in_check(powers.is_weapon)!@
+			  </div>			  
 			  <div class="sheet-col-1-8">
 			    @!in_text(powers.attacktarget)!@
 			  </div>
 			  <div class="sheet-col-1-12">
-			    <select name="attr_@!powers.ability_index.name!@" class="dtype">
+			    <select name="attr_@!powers.ability_bonus.name!@" class="dtype">
 			      <!--(for ability in ability_groups)-->
-			      <option value="@!ability.index.value!@">@!ability.get('label')!@</option>
+			      <option value="@!ability.get('uniqued_mod')!@">@!ability.get('label')!@</option>
 			      <!--(end)-->
 			    </select>
 			  </div>
@@ -472,7 +474,7 @@
 			    @!in_num(powers.attackbonus)!@
 			  </div>
 			  <div class="sheet-col-1-12">
-			    @!out_hidden(powers.ability_bonus)!@	
+			    @!out_hidden(powers.ability_bonus)!@
 			    @!out_num(powers.total_bonus)!@
 			  </div>			  
 			  <div class="sheet-col-1-12">
@@ -517,6 +519,15 @@
 			    @!in_text(powers.notes)!@
 			  </div>
 			</div>
+
+			    <button class="sheet-skill-roll" type="roll" name="@!powers.get('roll').name!@"
+			    	    value="@!powers.get('roll').value!@">Att.</button>
+                            <!--(if powers.get('damage_roll'))-->
+			      @!out_hidden(powers.dmg_dice_multiplier)!@
+                               <button class="sheet-skill-roll" type="roll" name="@!powers.get('damage_roll').name!@"
+			       	       value="@!powers.get('damage_roll').value!@">Dmg</button>
+                            <!--(end)-->
+
 		      </div>
 		      <hr/>
 		      </fieldset>
@@ -527,12 +538,6 @@
 
 		<div class="sheet-section-weapons">
 			
-			<div class="sheet-row sheet-padb">
-			    dice count @!out_num(weapon_dmg_dice_count)!@
-			    dice type @!out_num(weapon_dmg_dice_type)!@
-			    to hit @!out_num(weapon_total_hit_bonus)!@
-			</div>
-					
 			<div class="sheet-row">
 			
 				<div class="sheet-col-1">
@@ -543,11 +548,14 @@
 					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Proficient?</div>
 					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Prof. Bonus</div>
 					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Type</div>
-					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Num Dice</div>
-					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Dice Size</div>
-					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">+</div>
-					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Notes</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom"># Dmg Dice</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Dmg Die</div>
+					  <div class="sheet-col-1-12 sheet-center sheet-small-label sheet-vert-bottom">Enh.Bonus</div>
 					</div>
+
+					  @!out_hidden(weapon_dmg_dice_count)!@
+					  @!out_hidden(weapon_dmg_dice_type)!@
+					  @!out_hidden(weapon_total_hit_bonus)!@
 					
 
 					<!--(for grp in weapon_groups)-->
@@ -576,7 +584,8 @@
 					    <select name="attr_@!grp.weapon_type.name!@">
 					      <option value="0" selected="selected">Melee (str)</option>
 					      <option value="1">Ranged (dex)</option>
-					      <option value="2">Heavy Ranged (str)</option>
+					      <option value="2">Light Thrown (dex)</option>
+					      <option value="2">Heavy Thrown (str)</option>
 					    </select>
 					  </div>
 					  
@@ -593,7 +602,7 @@
 					  </div>
 
 					  <div class="sheet-row sheet-sub-header">
-					    <div class="sheet-col-1-6 sheet-small-label sheet-vert-bottom">Notes</div>
+					    <div class="sheet-col-1-6 sheet-small-label sheet-vert-bottom sheet-center">Notes</div>
 					  </div>
 					  
 					  <div>
@@ -601,6 +610,7 @@
 					  </div>
 
 					</div>
+					<hr/><br/>
 					<!--(end)-->
 		
 				</div>
