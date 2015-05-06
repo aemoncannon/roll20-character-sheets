@@ -146,20 +146,18 @@ Attr("xp_next_level")
 Attr("HP")
 Attr("HP_max", minimum=1)
 Attr("temp_HP")
-Attr("speed")
-Attr("initiative")
-Attr("initiative_overall", value=fn_sum(ref("dexterity_mod"), atts.initiative))
+Attr("base_speed")
+Attr("speed", value=fn_sum(atts.base_speed, ref("misc_speed_bonus")))
+Attr("initiative", value=fn_sum(ref("dexterity_mod_plus_half_level"), ref("misc_initiative_bonus")))
 Attr("AC", value=ref("armor_AC_bonus"))
-
-# TODO
-Attr("global_saving_bonus")
 
 Roll("roll_init", " ".join(["&{template:5eDefault}",
                             "{{title=Initiative}}",
                             "{{subheader=@{character_name}}}",
                             "{{rollname=Initiative}}",
-                            "{{roll=[[ 1d20 + @{selected|initiative_overall} [Initiative Mod] &{tracker} ]]}}",
-                            "@{classactioninitiative}"]))
+                            # This sends the computed initiative directly to the tracker.
+                            "{{roll=[[ 1d20 + @{selected|initiative} [Initiative Mod] &{tracker} ]]}}"
+                        ]))
 
 ability_groups = []
 for abil in ["strength", "constitution", "dexterity", "intelligence", "wisdom", "charisma"]:
@@ -174,27 +172,27 @@ for abil in ["strength", "constitution", "dexterity", "intelligence", "wisdom", 
                   "{{title=%s check}}" % abil,
                   "{{subheader=%s}}" % atts.character_name,
                   "{{rollname=%s check}}" % abil,
-                  "{{roll=[[ 1d20 + %s + (%s) ]]}}" % (g.mod_plus_half_level, atts.global_saving_bonus),
-                  "{{rolladv=[[ 1d20 + %s + (%s) ]]}}" % (g.mod_plus_half_level, atts.global_saving_bonus)])))
+                  "{{roll=[[ 1d20 + (%s) ]]}}" % (g.mod_plus_half_level),
+                  "{{rolladv=[[ 1d20 + (%s) ]]}}" % (g.mod_plus_half_level)])))
     g.set('label', abil[0:3].upper())
     g.set('uniqued_mod', fn_sum(g.mod_plus_half_level, len(ability_groups) * 0.001))
     ability_groups.append(g)
 
 defense_groups = []
-for defense in ["ac", "fort", "ref", "will"]:
+for defense in ["ac", "fort", "reflex", "will"]:
     g = Group(prefix=(defense + "_"))
     if defense == "ac":
         g.attr("ability_bonus", value=ref("armor_AC_bonus"))
     elif defense == "fort":
         g.attr("ability_bonus", value=fn_max(atts.strength_mod, atts.constitution_mod))
-    elif defense == "ref":
+    elif defense == "reflex":
         g.attr("ability_bonus", value=fn_sum(fn_max(atts.dexterity_mod, atts.intelligence_mod), ref("armor_prof_penalty"),
                                              ref("shield_reflex_bonus")))
     elif defense == "will":
         g.attr("ability_bonus", value=fn_max(atts.wisdom_mod, atts.charisma_mod))
-    g.attr("class_bonus", value=0)
+    g.attr("misc_bonus", value=ref("misc_" + defense + "_bonus"))
     g.set('label', defense.upper())
-    g.attr("total", value=fn_sum(g.ability_bonus, g.class_bonus, atts.ten_plus_half_level))
+    g.attr("total", value=fn_sum(g.ability_bonus, g.misc_bonus, atts.ten_plus_half_level))
     defense_groups.append(g)
 
 
@@ -480,6 +478,28 @@ powers.set('offhand_roll', make_action_roll(powers))
 powers.set('offhand_damage_roll', make_damage_roll(powers))
 
 
+NUM_BONUSES = 10
+bonus_groups = []
+for i in range(1, NUM_BONUSES+1):
+    g = Group(prefix="bonus_", suffix=str(i))
+    g.attr("description")
+    g.attr("initiative_bonus", value=0)
+    g.attr("speed_bonus", value=0)
+    g.attr("ac_bonus", value=0)
+    g.attr("fort_bonus", value=0)
+    g.attr("reflex_bonus", value=0)
+    g.attr("will_bonus", value=0)
+    bonus_groups.append(g)
+
+# Aggregate bonus effects
+Attr("misc_initiative_bonus", value=fn_sum(*[g.initiative_bonus for g in bonus_groups]))
+Attr("misc_speed_bonus", value=fn_sum(*[g.speed_bonus for g in bonus_groups]))
+Attr("misc_ac_bonus", value=fn_sum(*[g.ac_bonus for g in bonus_groups]))
+Attr("misc_fort_bonus", value=fn_sum(*[g.fort_bonus for g in bonus_groups]))
+Attr("misc_reflex_bonus", value=fn_sum(*[g.reflex_bonus for g in bonus_groups]))
+Attr("misc_will_bonus", value=fn_sum(*[g.will_bonus for g in bonus_groups]))
+
+
 t = pyratemp.Template(filename="DnD_4e.html.template")
 
 template_vars = {}
@@ -501,6 +521,7 @@ template_vars.update(
          defense_groups=defense_groups,
          armor_groups=armor_groups,
          weapon_groups=weapon_groups,
+         bonus_groups=bonus_groups,
          ability_groups=ability_groups,
          powers=powers,
          basic_actions=basic_actions

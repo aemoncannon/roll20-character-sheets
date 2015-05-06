@@ -284,7 +284,7 @@ input.sheet-is-npc {
  input.sheet-tab3:checked ~ div.sheet-section-background,
  input.sheet-tab4:checked ~ div.sheet-section-powers,
  input.sheet-tab5:checked ~ div.sheet-section-weapons,
- input.sheet-tab6:checked ~ div.sheet-section-spellbook,
+ input.sheet-tab6:checked ~ div.sheet-section-bonuses,
  input.sheet-tab8:checked ~ div.sheet-section-armour,
  input.sheet-tab7:checked ~ div.sheet-section-inventory {
 	display: block;

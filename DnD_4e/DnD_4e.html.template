@@ -20,18 +20,28 @@
 	<div class="sheet-player">
 		<input type="radio" name="attr_tab" class="sheet-tab sheet-tab1" value="1" title="Core Stats" checked="checked"/>
 		<span class="sheet-tab sheet-tab1">Core Stats</span>
+		
 		<input type="radio" name="attr_tab" class="sheet-tab sheet-tab2" value="2"/>
 		<span class="sheet-tab sheet-tab2">Skills</span>
+		
 		<input type="radio" name="attr_tab" class="sheet-tab sheet-tab3" value="3"/>
 		<span class="sheet-tab sheet-tab3">Background</span>
+
+		<input type="radio" name="attr_tab" class="sheet-tab sheet-tab6" value="6"/>
+		<span class="sheet-tab sheet-tab6">Bonuses</span>
+		
 		<input type="radio" name="attr_tab" class="sheet-tab sheet-tab4" value="4"/>
 		<span class="sheet-tab sheet-tab4">Powers</span>
+		
 		<input type="radio" name="attr_tab" class="sheet-tab sheet-tab5" value="5"/>
 		<span class="sheet-tab sheet-tab5">Weapons</span>
+		
 		<input type="radio" name="attr_tab" class="sheet-tab sheet-tab8" value="8"/>
 		<span class="sheet-tab sheet-tab8">Armour</span>
+		
 		<input type="radio" name="attr_tab" class="sheet-tab sheet-tab7" value="7"/>
 		<span class="sheet-tab sheet-tab7">Inventory</span>
+		
 		<input type="radio" name="attr_tab" class="sheet-tab sheet-tab99" value="99"/>
 		<span class="sheet-tab sheet-tab99">Show All</span>
 		
@@ -82,9 +92,19 @@
 						</div>
 						
 						<div class="sheet-col-1-4 sheet-padl sheet-padr sheet-border-right sheet-small-label sheet-center">
-						  @!in_num(temp_HP, cls='sheet-underlined')!@<br/>Temp HP</div>
-						<div class="sheet-col-1-4 sheet-padl sheet-small-label sheet-center">
-						  @!in_num(speed, cls='sheet-underlined sheet-center')!@<br/>Speed</div>
+						  @!in_num(temp_HP, cls='sheet-underlined')!@<br/>Temp HP
+						</div>
+
+						<div class="sheet-col-1-4 sheet-padr sheet-padl sheet-border-right">
+							<div class="sheet-row">
+							  <div class="sheet-col-1-2 sheet-small-label sheet-center">
+							  @!in_num(base_speed, cls='sheet-underlined sheet-center')!@<br/>Base Speed
+							  </div>
+							  <div class="sheet-col-1-2 sheet-small-label sheet-center">
+							    @!out_num(speed)!@<br/>Speed
+							</div>
+						</div>
+					   </div>
 					</div>
 					
 					<div class="sheet-row">
@@ -92,14 +112,14 @@
 						<div class="sheet-col-1-2">
 							<h4 class="sheet-center">Initiative <span class="sheet-pictos">t</span></h4>
 							<div class="sheet-row sheet-padr">
-							  <div class="sheet-col-1-3 sheet-small-label sheet-center" title="Only enter additional bonuses to initiative here. Your Dex mod is already included in the macro button">
-							    @!in_num(initiative, cls='sheet-underlined sheet-center')!@
-
-							    <br/>Bonus</div>
 							  <div class="sheet-col-1-3 sheet-small-label sheet-center">
-							    @!out_num(initiative_overall, cls='sheet-underlined')!@
+							    @!out_num(initiative, cls='sheet-underlined')!@
 							    <br/>Total</div>
-								<div class="sheet-col-1-3 sheet-center"><button type="roll" class="sheet-initiative sheet-large-button" name="@!roll_init!@" value="@!roll_init.value!@">Initiative</button></div>
+								<div class="sheet-col-1-3 sheet-center">
+								     <button type="roll" class="sheet-initiative
+								     sheet-large-button" name="@!roll_init!@"
+								     value="@!roll_init.value!@">Initiative</button>
+								</div>
 							</div>
 						</div>
 						
@@ -135,7 +155,7 @@
 					  <div class="sheet-col-1-6 sheet-center sheet-small-label">&nbsp;</div>
 					  <div class="sheet-col-1-6 sheet-center sheet-small-label">10 + 1/2 Lev.</div>
 					  <div class="sheet-col-1-6 sheet-center sheet-small-label">Armor/Abil.</div>
-					  <div class="sheet-col-1-6 sheet-center sheet-small-label">Class</div>
+					  <div class="sheet-col-1-6 sheet-center sheet-small-label">Misc Bonus</div>
 					</div>
 
 					<!--(for grp in defense_groups)-->
@@ -153,47 +173,10 @@
 					      @!out_num(grp.ability_bonus)!@
 					    </div>
 					    <div class="sheet-col-1-6">
-					      @!out_num(grp.class_bonus)!@
+					      @!out_num(grp.misc_bonus)!@
 					    </div>
 					  </div>
 					<!--(end)-->
-					
-				</div>
-				
-			</div>
-			
-
-			<div class="sheet-row">
-			
-				<div class="sheet-col-5-12 sheet-padr">
-					
-					<h4 class="sheet-center">Bonuses/Penalties <span class="sheet-pictos">3</span></h4>				
-		
-					<p class="sheet-small-note">Auto add a bonus/penalty to rolls made using the sheet macros.<br>Usage :  you acquire a magic item that gives +1 to your spell save DC, enter 1 in the spell save DC field.  You are under the effects of the Bless spell, enter 1d4 in both attack roll fields, and the saving throw one.</p>
-					
-					<div class="sheet-row">
-						<div class="sheet-col-6-13 sheet-center sheet-small-label sheet-sub-header">Melee</div>
-						<div class="sheet-col-1-13">&nbsp;</div>
-						<div class="sheet-col-6-13 sheet-center sheet-small-label sheet-sub-header">Ranged</div>
-					</div>
-					
-					<div class="sheet-row">
-						<div class="sheet-col-3-13 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_global_melee_attack_bonus" value="0"><br/>Attack Rolls</div>
-						<div class="sheet-col-3-13 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_global_melee_damage_bonus" value="0"><br/>Damage Rolls</div>
-						<div class="sheet-col-1-13">&nbsp;</div>
-						<div class="sheet-col-3-13 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_global_ranged_attack_bonus" value="0"><br/>Attack Rolls</div>
-						<div class="sheet-col-3-13 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_global_ranged_damage_bonus" value="0"><br/>Damage Rolls</div>
-					</div>
-					
-
-					<div class="sheet-row">
-						<div class="sheet-col-1 sheet-center sheet-small-label sheet-sub-header">Saves and skill checks</div>
-					</div>
-					
-					<div class="sheet-row">
-						<div class="sheet-col-1-2 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_global_saving_bonus" value="0"><br/>Saving throws</div>
-						<div class="sheet-col-1-2 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_global_check_bonus" value="0"><br/>Ability/Skill Checks</div>
-					</div>
 					
 				</div>
 				
@@ -318,6 +301,47 @@
 			</div>
 
 			<hr/>
+		</div>
+
+		<div class="sheet-section-bonuses">
+
+		  <h3>Misc Feats & Bonuses</h3>
+
+		    <!--(for grp in bonus_groups)-->
+
+		      <div class="sheet-margin-bottom sheet-padr sheet-padl">
+
+		        @!in_text(grp.description)!@
+				
+			<div class="sheet-row">
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Init</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Speed</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">AC</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Fort.</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Reflex</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Will</div>	
+			</div>
+			<div class="sheet-row">
+			  <div class="sheet-col-1-12">@!in_num(grp.initiative_bonus)!@</div>
+			  <div class="sheet-col-1-12">@!in_num(grp.speed_bonus)!@</div>
+			  <div class="sheet-col-1-12">@!in_num(grp.ac_bonus)!@</div>
+			  <div class="sheet-col-1-12">@!in_num(grp.fort_bonus)!@</div>
+			  <div class="sheet-col-1-12">@!in_num(grp.reflex_bonus)!@</div>
+			  <div class="sheet-col-1-12">@!in_num(grp.will_bonus)!@</div>
+			</div>
+
+		      </div>
+		      <hr/><br/>
+		      
+		    <!--(end)-->
+
+		      @!out_hidden(misc_initiative_bonus)!@
+		      @!out_hidden(misc_speed_bonus)!@
+		      @!out_hidden(misc_ac_bonus)!@
+		      @!out_hidden(misc_fort_bonus)!@
+		      @!out_hidden(misc_reflex_bonus)!@ 
+		      @!out_hidden(misc_will_bonus)!@ 
+
 		</div>
 
 		<div class="sheet-section-powers">
@@ -497,8 +521,8 @@
 			  </div>			  
 			  <div class="sheet-col-1-12">
 			    <select name="attr_@!powers.attackee.name!@" class="dtype">
-			      <!--(for defense in ["ac", "fort", "ref", "will"])-->
-			      <option value="@!defense!@">@!defense.upper()!@</option>
+			      <!--(for defense in defense_groups)-->
+			      <option value="@!defense.get('label').upper()!@">@!defense.get('label').upper()!@</option>
 			      <!--(end)-->
 			    </select>
 			  </div>

@@ -17,18 +17,28 @@
 	<div class="sheet-player">
 		<input type="radio" name="attr_tab" class="sheet-tab sheet-tab1" value="1" title="Core Stats" checked="checked"/>
 		<span class="sheet-tab sheet-tab1">Core Stats</span>
+		
 		<input type="radio" name="attr_tab" class="sheet-tab sheet-tab2" value="2"/>
 		<span class="sheet-tab sheet-tab2">Skills</span>
+		
 		<input type="radio" name="attr_tab" class="sheet-tab sheet-tab3" value="3"/>
 		<span class="sheet-tab sheet-tab3">Background</span>
+
+		<input type="radio" name="attr_tab" class="sheet-tab sheet-tab6" value="6"/>
+		<span class="sheet-tab sheet-tab6">Bonuses</span>
+		
 		<input type="radio" name="attr_tab" class="sheet-tab sheet-tab4" value="4"/>
 		<span class="sheet-tab sheet-tab4">Powers</span>
+		
 		<input type="radio" name="attr_tab" class="sheet-tab sheet-tab5" value="5"/>
 		<span class="sheet-tab sheet-tab5">Weapons</span>
+		
 		<input type="radio" name="attr_tab" class="sheet-tab sheet-tab8" value="8"/>
 		<span class="sheet-tab sheet-tab8">Armour</span>
+		
 		<input type="radio" name="attr_tab" class="sheet-tab sheet-tab7" value="7"/>
 		<span class="sheet-tab sheet-tab7">Inventory</span>
+		
 		<input type="radio" name="attr_tab" class="sheet-tab sheet-tab99" value="99"/>
 		<span class="sheet-tab sheet-tab99">Show All</span>
 		
@@ -56,7 +66,7 @@
 						<div class="sheet-col-1-6"><input class="" type="number" name="attr_strength_mod_plus_half_level" value="@{strength_mod} + @{half_level}" disabled="disabled"/></div>
 						<div class="sheet-col-1-6 sheet-center">
 						  <button type="roll" class="sheet-core-save" name="roll_Strength_Check"
-							  value="&{template:4eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=strength check}} {{subheader=@{character_name}}} {{rollname=strength check}} {{roll=[[ 1d20 + @{strength_mod_plus_half_level} + (@{global_saving_bonus}) ]]}} {{rolladv=[[ 1d20 + @{strength_mod_plus_half_level} + (@{global_saving_bonus}) ]]}}">Check</button></div>
+							  value="&{template:4eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=strength check}} {{subheader=@{character_name}}} {{rollname=strength check}} {{roll=[[ 1d20 + (@{strength_mod_plus_half_level}) ]]}} {{rolladv=[[ 1d20 + (@{strength_mod_plus_half_level}) ]]}}">Check</button></div>
 					</div>
 					<div class="sheet-row">
 						<div class="sheet-col-1-6"><input class="" type="number" name="attr_constitution_base" value="" min="1" step="1"/></div>
@@ -65,7 +75,7 @@
 						<div class="sheet-col-1-6"><input class="" type="number" name="attr_constitution_mod_plus_half_level" value="@{constitution_mod} + @{half_level}" disabled="disabled"/></div>
 						<div class="sheet-col-1-6 sheet-center">
 						  <button type="roll" class="sheet-core-save" name="roll_Constitution_Check"
-							  value="&{template:4eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=constitution check}} {{subheader=@{character_name}}} {{rollname=constitution check}} {{roll=[[ 1d20 + @{constitution_mod_plus_half_level} + (@{global_saving_bonus}) ]]}} {{rolladv=[[ 1d20 + @{constitution_mod_plus_half_level} + (@{global_saving_bonus}) ]]}}">Check</button></div>
+							  value="&{template:4eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=constitution check}} {{subheader=@{character_name}}} {{rollname=constitution check}} {{roll=[[ 1d20 + (@{constitution_mod_plus_half_level}) ]]}} {{rolladv=[[ 1d20 + (@{constitution_mod_plus_half_level}) ]]}}">Check</button></div>
 					</div>
 					<div class="sheet-row">
 						<div class="sheet-col-1-6"><input class="" type="number" name="attr_dexterity_base" value="" min="1" step="1"/></div>
@@ -74,7 +84,7 @@
 						<div class="sheet-col-1-6"><input class="" type="number" name="attr_dexterity_mod_plus_half_level" value="@{dexterity_mod} + @{half_level}" disabled="disabled"/></div>
 						<div class="sheet-col-1-6 sheet-center">
 						  <button type="roll" class="sheet-core-save" name="roll_Dexterity_Check"
-							  value="&{template:4eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=dexterity check}} {{subheader=@{character_name}}} {{rollname=dexterity check}} {{roll=[[ 1d20 + @{dexterity_mod_plus_half_level} + (@{global_saving_bonus}) ]]}} {{rolladv=[[ 1d20 + @{dexterity_mod_plus_half_level} + (@{global_saving_bonus}) ]]}}">Check</button></div>
+							  value="&{template:4eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=dexterity check}} {{subheader=@{character_name}}} {{rollname=dexterity check}} {{roll=[[ 1d20 + (@{dexterity_mod_plus_half_level}) ]]}} {{rolladv=[[ 1d20 + (@{dexterity_mod_plus_half_level}) ]]}}">Check</button></div>
 					</div>
 					<div class="sheet-row">
 						<div class="sheet-col-1-6"><input class="" type="number" name="attr_intelligence_base" value="" min="1" step="1"/></div>
@@ -83,7 +93,7 @@
 						<div class="sheet-col-1-6"><input class="" type="number" name="attr_intelligence_mod_plus_half_level" value="@{intelligence_mod} + @{half_level}" disabled="disabled"/></div>
 						<div class="sheet-col-1-6 sheet-center">
 						  <button type="roll" class="sheet-core-save" name="roll_Intelligence_Check"
-							  value="&{template:4eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=intelligence check}} {{subheader=@{character_name}}} {{rollname=intelligence check}} {{roll=[[ 1d20 + @{intelligence_mod_plus_half_level} + (@{global_saving_bonus}) ]]}} {{rolladv=[[ 1d20 + @{intelligence_mod_plus_half_level} + (@{global_saving_bonus}) ]]}}">Check</button></div>
+							  value="&{template:4eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=intelligence check}} {{subheader=@{character_name}}} {{rollname=intelligence check}} {{roll=[[ 1d20 + (@{intelligence_mod_plus_half_level}) ]]}} {{rolladv=[[ 1d20 + (@{intelligence_mod_plus_half_level}) ]]}}">Check</button></div>
 					</div>
 					<div class="sheet-row">
 						<div class="sheet-col-1-6"><input class="" type="number" name="attr_wisdom_base" value="" min="1" step="1"/></div>
@@ -92,7 +102,7 @@
 						<div class="sheet-col-1-6"><input class="" type="number" name="attr_wisdom_mod_plus_half_level" value="@{wisdom_mod} + @{half_level}" disabled="disabled"/></div>
 						<div class="sheet-col-1-6 sheet-center">
 						  <button type="roll" class="sheet-core-save" name="roll_Wisdom_Check"
-							  value="&{template:4eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=wisdom check}} {{subheader=@{character_name}}} {{rollname=wisdom check}} {{roll=[[ 1d20 + @{wisdom_mod_plus_half_level} + (@{global_saving_bonus}) ]]}} {{rolladv=[[ 1d20 + @{wisdom_mod_plus_half_level} + (@{global_saving_bonus}) ]]}}">Check</button></div>
+							  value="&{template:4eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=wisdom check}} {{subheader=@{character_name}}} {{rollname=wisdom check}} {{roll=[[ 1d20 + (@{wisdom_mod_plus_half_level}) ]]}} {{rolladv=[[ 1d20 + (@{wisdom_mod_plus_half_level}) ]]}}">Check</button></div>
 					</div>
 					<div class="sheet-row">
 						<div class="sheet-col-1-6"><input class="" type="number" name="attr_charisma_base" value="" min="1" step="1"/></div>
@@ -101,7 +111,7 @@
 						<div class="sheet-col-1-6"><input class="" type="number" name="attr_charisma_mod_plus_half_level" value="@{charisma_mod} + @{half_level}" disabled="disabled"/></div>
 						<div class="sheet-col-1-6 sheet-center">
 						  <button type="roll" class="sheet-core-save" name="roll_Charisma_Check"
-							  value="&{template:4eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=charisma check}} {{subheader=@{character_name}}} {{rollname=charisma check}} {{roll=[[ 1d20 + @{charisma_mod_plus_half_level} + (@{global_saving_bonus}) ]]}} {{rolladv=[[ 1d20 + @{charisma_mod_plus_half_level} + (@{global_saving_bonus}) ]]}}">Check</button></div>
+							  value="&{template:4eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=charisma check}} {{subheader=@{character_name}}} {{rollname=charisma check}} {{roll=[[ 1d20 + (@{charisma_mod_plus_half_level}) ]]}} {{rolladv=[[ 1d20 + (@{charisma_mod_plus_half_level}) ]]}}">Check</button></div>
 					</div>
 					
 				</div>
@@ -122,9 +132,19 @@
 						</div>
 						
 						<div class="sheet-col-1-4 sheet-padl sheet-padr sheet-border-right sheet-small-label sheet-center">
-						  <input class="sheet-underlined" type="number" name="attr_temp_HP" value="" min="0" step="1"/><br/>Temp HP</div>
-						<div class="sheet-col-1-4 sheet-padl sheet-small-label sheet-center">
-						  <input class="sheet-underlined sheet-center" type="number" name="attr_speed" value="" min="0" step="1"/><br/>Speed</div>
+						  <input class="sheet-underlined" type="number" name="attr_temp_HP" value="" min="0" step="1"/><br/>Temp HP
+						</div>
+
+						<div class="sheet-col-1-4 sheet-padr sheet-padl sheet-border-right">
+							<div class="sheet-row">
+							  <div class="sheet-col-1-2 sheet-small-label sheet-center">
+							  <input class="sheet-underlined sheet-center" type="number" name="attr_base_speed" value="" min="0" step="1"/><br/>Base Speed
+							  </div>
+							  <div class="sheet-col-1-2 sheet-small-label sheet-center">
+							    <input class="" type="number" name="attr_speed" value="@{base_speed} + @{misc_speed_bonus}" disabled="disabled"/><br/>Speed
+							</div>
+						</div>
+					   </div>
 					</div>
 					
 					<div class="sheet-row">
@@ -132,14 +152,14 @@
 						<div class="sheet-col-1-2">
 							<h4 class="sheet-center">Initiative <span class="sheet-pictos">t</span></h4>
 							<div class="sheet-row sheet-padr">
-							  <div class="sheet-col-1-3 sheet-small-label sheet-center" title="Only enter additional bonuses to initiative here. Your Dex mod is already included in the macro button">
-							    <input class="sheet-underlined sheet-center" type="number" name="attr_initiative" value="" min="0" step="1"/>
-
-							    <br/>Bonus</div>
 							  <div class="sheet-col-1-3 sheet-small-label sheet-center">
-							    <input class="sheet-underlined" type="number" name="attr_initiative_overall" value="@{dexterity_mod} + @{initiative}" disabled="disabled"/>
+							    <input class="sheet-underlined" type="number" name="attr_initiative" value="@{dexterity_mod_plus_half_level} + @{misc_initiative_bonus}" disabled="disabled"/>
 							    <br/>Total</div>
-								<div class="sheet-col-1-3 sheet-center"><button type="roll" class="sheet-initiative sheet-large-button" name="roll_init" value="&{template:5eDefault} {{title=Initiative}} {{subheader=@{character_name}}} {{rollname=Initiative}} {{roll=[[ 1d20 + @{selected|initiative_overall} [Initiative Mod] &{tracker} ]]}} @{classactioninitiative}">Initiative</button></div>
+								<div class="sheet-col-1-3 sheet-center">
+								     <button type="roll" class="sheet-initiative
+								     sheet-large-button" name="roll_init"
+								     value="&{template:5eDefault} {{title=Initiative}} {{subheader=@{character_name}}} {{rollname=Initiative}} {{roll=[[ 1d20 + @{selected|initiative} [Initiative Mod] &{tracker} ]]}}">Initiative</button>
+								</div>
 							</div>
 						</div>
 						
@@ -175,12 +195,12 @@
 					  <div class="sheet-col-1-6 sheet-center sheet-small-label">&nbsp;</div>
 					  <div class="sheet-col-1-6 sheet-center sheet-small-label">10 + 1/2 Lev.</div>
 					  <div class="sheet-col-1-6 sheet-center sheet-small-label">Armor/Abil.</div>
-					  <div class="sheet-col-1-6 sheet-center sheet-small-label">Class</div>
+					  <div class="sheet-col-1-6 sheet-center sheet-small-label">Misc Bonus</div>
 					</div>
 
 					  <div class="sheet-row">
 					    <div class="sheet-col-1-6">
-					      <input class="" type="number" name="attr_ac_total" value="@{ac_ability_bonus} + @{ac_class_bonus} + @{ten_plus_half_level}" disabled="disabled"/>
+					      <input class="" type="number" name="attr_ac_total" value="@{ac_ability_bonus} + @{ac_misc_bonus} + @{ten_plus_half_level}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-6 sheet-core-stat-label">
 					      AC
@@ -192,12 +212,12 @@
 					      <input class="" type="number" name="attr_ac_ability_bonus" value="@{armor_AC_bonus}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-6">
-					      <input class="" type="number" name="attr_ac_class_bonus" value="0" disabled="disabled"/>
+					      <input class="" type="number" name="attr_ac_misc_bonus" value="@{misc_ac_bonus}" disabled="disabled"/>
 					    </div>
 					  </div>
 					  <div class="sheet-row">
 					    <div class="sheet-col-1-6">
-					      <input class="" type="number" name="attr_fort_total" value="@{fort_ability_bonus} + @{fort_class_bonus} + @{ten_plus_half_level}" disabled="disabled"/>
+					      <input class="" type="number" name="attr_fort_total" value="@{fort_ability_bonus} + @{fort_misc_bonus} + @{ten_plus_half_level}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-6 sheet-core-stat-label">
 					      FORT
@@ -209,29 +229,29 @@
 					      <input class="" type="number" name="attr_fort_ability_bonus" value="((((@{strength_mod}) + (@{constitution_mod})) + abs((@{strength_mod}) - (@{constitution_mod}))) / 2)" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-6">
-					      <input class="" type="number" name="attr_fort_class_bonus" value="0" disabled="disabled"/>
+					      <input class="" type="number" name="attr_fort_misc_bonus" value="@{misc_fort_bonus}" disabled="disabled"/>
 					    </div>
 					  </div>
 					  <div class="sheet-row">
 					    <div class="sheet-col-1-6">
-					      <input class="" type="number" name="attr_ref_total" value="@{ref_ability_bonus} + @{ref_class_bonus} + @{ten_plus_half_level}" disabled="disabled"/>
+					      <input class="" type="number" name="attr_reflex_total" value="@{reflex_ability_bonus} + @{reflex_misc_bonus} + @{ten_plus_half_level}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-6 sheet-core-stat-label">
-					      REF
+					      REFLEX
 					    </div>
 					    <div class="sheet-col-1-6">
 					      <input class="" type="number" name="attr_ten_plus_half_level" value="10 + @{half_level}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-6">
-					      <input class="" type="number" name="attr_ref_ability_bonus" value="((((@{dexterity_mod}) + (@{intelligence_mod})) + abs((@{dexterity_mod}) - (@{intelligence_mod}))) / 2) + @{armor_prof_penalty} + @{shield_reflex_bonus}" disabled="disabled"/>
+					      <input class="" type="number" name="attr_reflex_ability_bonus" value="((((@{dexterity_mod}) + (@{intelligence_mod})) + abs((@{dexterity_mod}) - (@{intelligence_mod}))) / 2) + @{armor_prof_penalty} + @{shield_reflex_bonus}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-6">
-					      <input class="" type="number" name="attr_ref_class_bonus" value="0" disabled="disabled"/>
+					      <input class="" type="number" name="attr_reflex_misc_bonus" value="@{misc_reflex_bonus}" disabled="disabled"/>
 					    </div>
 					  </div>
 					  <div class="sheet-row">
 					    <div class="sheet-col-1-6">
-					      <input class="" type="number" name="attr_will_total" value="@{will_ability_bonus} + @{will_class_bonus} + @{ten_plus_half_level}" disabled="disabled"/>
+					      <input class="" type="number" name="attr_will_total" value="@{will_ability_bonus} + @{will_misc_bonus} + @{ten_plus_half_level}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-6 sheet-core-stat-label">
 					      WILL
@@ -243,46 +263,9 @@
 					      <input class="" type="number" name="attr_will_ability_bonus" value="((((@{wisdom_mod}) + (@{charisma_mod})) + abs((@{wisdom_mod}) - (@{charisma_mod}))) / 2)" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-6">
-					      <input class="" type="number" name="attr_will_class_bonus" value="0" disabled="disabled"/>
+					      <input class="" type="number" name="attr_will_misc_bonus" value="@{misc_will_bonus}" disabled="disabled"/>
 					    </div>
 					  </div>
-					
-				</div>
-				
-			</div>
-			
-
-			<div class="sheet-row">
-			
-				<div class="sheet-col-5-12 sheet-padr">
-					
-					<h4 class="sheet-center">Bonuses/Penalties <span class="sheet-pictos">3</span></h4>				
-		
-					<p class="sheet-small-note">Auto add a bonus/penalty to rolls made using the sheet macros.<br>Usage :  you acquire a magic item that gives +1 to your spell save DC, enter 1 in the spell save DC field.  You are under the effects of the Bless spell, enter 1d4 in both attack roll fields, and the saving throw one.</p>
-					
-					<div class="sheet-row">
-						<div class="sheet-col-6-13 sheet-center sheet-small-label sheet-sub-header">Melee</div>
-						<div class="sheet-col-1-13">&nbsp;</div>
-						<div class="sheet-col-6-13 sheet-center sheet-small-label sheet-sub-header">Ranged</div>
-					</div>
-					
-					<div class="sheet-row">
-						<div class="sheet-col-3-13 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_global_melee_attack_bonus" value="0"><br/>Attack Rolls</div>
-						<div class="sheet-col-3-13 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_global_melee_damage_bonus" value="0"><br/>Damage Rolls</div>
-						<div class="sheet-col-1-13">&nbsp;</div>
-						<div class="sheet-col-3-13 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_global_ranged_attack_bonus" value="0"><br/>Attack Rolls</div>
-						<div class="sheet-col-3-13 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_global_ranged_damage_bonus" value="0"><br/>Damage Rolls</div>
-					</div>
-					
-
-					<div class="sheet-row">
-						<div class="sheet-col-1 sheet-center sheet-small-label sheet-sub-header">Saves and skill checks</div>
-					</div>
-					
-					<div class="sheet-row">
-						<div class="sheet-col-1-2 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_global_saving_bonus" value="0"><br/>Saving throws</div>
-						<div class="sheet-col-1-2 sheet-small-label sheet-center"><input class="sheet-underlined sheet-center" type="text" name="attr_global_check_bonus" value="0"><br/>Ability/Skill Checks</div>
-					</div>
 					
 				</div>
 				
@@ -791,6 +774,270 @@
 			<hr/>
 		</div>
 
+		<div class="sheet-section-bonuses">
+
+		  <h3>Misc Feats & Bonuses</h3>
+
+
+		      <div class="sheet-margin-bottom sheet-padr sheet-padl">
+
+		        <input class="" type="text" name="attr_bonus_description1" value="" />
+				
+			<div class="sheet-row">
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Init</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Speed</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">AC</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Fort.</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Reflex</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Will</div>	
+			</div>
+			<div class="sheet-row">
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_initiative_bonus1" value="0" min="0" step="1"/></div>
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_speed_bonus1" value="0" min="0" step="1"/></div>
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_ac_bonus1" value="0" min="0" step="1"/></div>
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_fort_bonus1" value="0" min="0" step="1"/></div>
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_reflex_bonus1" value="0" min="0" step="1"/></div>
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_will_bonus1" value="0" min="0" step="1"/></div>
+			</div>
+
+		      </div>
+		      <hr/><br/>
+		      
+
+		      <div class="sheet-margin-bottom sheet-padr sheet-padl">
+
+		        <input class="" type="text" name="attr_bonus_description2" value="" />
+				
+			<div class="sheet-row">
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Init</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Speed</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">AC</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Fort.</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Reflex</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Will</div>	
+			</div>
+			<div class="sheet-row">
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_initiative_bonus2" value="0" min="0" step="1"/></div>
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_speed_bonus2" value="0" min="0" step="1"/></div>
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_ac_bonus2" value="0" min="0" step="1"/></div>
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_fort_bonus2" value="0" min="0" step="1"/></div>
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_reflex_bonus2" value="0" min="0" step="1"/></div>
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_will_bonus2" value="0" min="0" step="1"/></div>
+			</div>
+
+		      </div>
+		      <hr/><br/>
+		      
+
+		      <div class="sheet-margin-bottom sheet-padr sheet-padl">
+
+		        <input class="" type="text" name="attr_bonus_description3" value="" />
+				
+			<div class="sheet-row">
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Init</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Speed</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">AC</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Fort.</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Reflex</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Will</div>	
+			</div>
+			<div class="sheet-row">
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_initiative_bonus3" value="0" min="0" step="1"/></div>
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_speed_bonus3" value="0" min="0" step="1"/></div>
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_ac_bonus3" value="0" min="0" step="1"/></div>
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_fort_bonus3" value="0" min="0" step="1"/></div>
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_reflex_bonus3" value="0" min="0" step="1"/></div>
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_will_bonus3" value="0" min="0" step="1"/></div>
+			</div>
+
+		      </div>
+		      <hr/><br/>
+		      
+
+		      <div class="sheet-margin-bottom sheet-padr sheet-padl">
+
+		        <input class="" type="text" name="attr_bonus_description4" value="" />
+				
+			<div class="sheet-row">
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Init</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Speed</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">AC</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Fort.</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Reflex</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Will</div>	
+			</div>
+			<div class="sheet-row">
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_initiative_bonus4" value="0" min="0" step="1"/></div>
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_speed_bonus4" value="0" min="0" step="1"/></div>
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_ac_bonus4" value="0" min="0" step="1"/></div>
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_fort_bonus4" value="0" min="0" step="1"/></div>
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_reflex_bonus4" value="0" min="0" step="1"/></div>
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_will_bonus4" value="0" min="0" step="1"/></div>
+			</div>
+
+		      </div>
+		      <hr/><br/>
+		      
+
+		      <div class="sheet-margin-bottom sheet-padr sheet-padl">
+
+		        <input class="" type="text" name="attr_bonus_description5" value="" />
+				
+			<div class="sheet-row">
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Init</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Speed</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">AC</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Fort.</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Reflex</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Will</div>	
+			</div>
+			<div class="sheet-row">
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_initiative_bonus5" value="0" min="0" step="1"/></div>
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_speed_bonus5" value="0" min="0" step="1"/></div>
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_ac_bonus5" value="0" min="0" step="1"/></div>
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_fort_bonus5" value="0" min="0" step="1"/></div>
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_reflex_bonus5" value="0" min="0" step="1"/></div>
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_will_bonus5" value="0" min="0" step="1"/></div>
+			</div>
+
+		      </div>
+		      <hr/><br/>
+		      
+
+		      <div class="sheet-margin-bottom sheet-padr sheet-padl">
+
+		        <input class="" type="text" name="attr_bonus_description6" value="" />
+				
+			<div class="sheet-row">
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Init</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Speed</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">AC</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Fort.</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Reflex</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Will</div>	
+			</div>
+			<div class="sheet-row">
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_initiative_bonus6" value="0" min="0" step="1"/></div>
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_speed_bonus6" value="0" min="0" step="1"/></div>
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_ac_bonus6" value="0" min="0" step="1"/></div>
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_fort_bonus6" value="0" min="0" step="1"/></div>
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_reflex_bonus6" value="0" min="0" step="1"/></div>
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_will_bonus6" value="0" min="0" step="1"/></div>
+			</div>
+
+		      </div>
+		      <hr/><br/>
+		      
+
+		      <div class="sheet-margin-bottom sheet-padr sheet-padl">
+
+		        <input class="" type="text" name="attr_bonus_description7" value="" />
+				
+			<div class="sheet-row">
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Init</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Speed</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">AC</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Fort.</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Reflex</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Will</div>	
+			</div>
+			<div class="sheet-row">
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_initiative_bonus7" value="0" min="0" step="1"/></div>
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_speed_bonus7" value="0" min="0" step="1"/></div>
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_ac_bonus7" value="0" min="0" step="1"/></div>
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_fort_bonus7" value="0" min="0" step="1"/></div>
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_reflex_bonus7" value="0" min="0" step="1"/></div>
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_will_bonus7" value="0" min="0" step="1"/></div>
+			</div>
+
+		      </div>
+		      <hr/><br/>
+		      
+
+		      <div class="sheet-margin-bottom sheet-padr sheet-padl">
+
+		        <input class="" type="text" name="attr_bonus_description8" value="" />
+				
+			<div class="sheet-row">
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Init</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Speed</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">AC</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Fort.</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Reflex</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Will</div>	
+			</div>
+			<div class="sheet-row">
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_initiative_bonus8" value="0" min="0" step="1"/></div>
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_speed_bonus8" value="0" min="0" step="1"/></div>
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_ac_bonus8" value="0" min="0" step="1"/></div>
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_fort_bonus8" value="0" min="0" step="1"/></div>
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_reflex_bonus8" value="0" min="0" step="1"/></div>
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_will_bonus8" value="0" min="0" step="1"/></div>
+			</div>
+
+		      </div>
+		      <hr/><br/>
+		      
+
+		      <div class="sheet-margin-bottom sheet-padr sheet-padl">
+
+		        <input class="" type="text" name="attr_bonus_description9" value="" />
+				
+			<div class="sheet-row">
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Init</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Speed</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">AC</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Fort.</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Reflex</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Will</div>	
+			</div>
+			<div class="sheet-row">
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_initiative_bonus9" value="0" min="0" step="1"/></div>
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_speed_bonus9" value="0" min="0" step="1"/></div>
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_ac_bonus9" value="0" min="0" step="1"/></div>
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_fort_bonus9" value="0" min="0" step="1"/></div>
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_reflex_bonus9" value="0" min="0" step="1"/></div>
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_will_bonus9" value="0" min="0" step="1"/></div>
+			</div>
+
+		      </div>
+		      <hr/><br/>
+		      
+
+		      <div class="sheet-margin-bottom sheet-padr sheet-padl">
+
+		        <input class="" type="text" name="attr_bonus_description10" value="" />
+				
+			<div class="sheet-row">
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Init</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Speed</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">AC</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Fort.</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Reflex</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Will</div>	
+			</div>
+			<div class="sheet-row">
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_initiative_bonus10" value="0" min="0" step="1"/></div>
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_speed_bonus10" value="0" min="0" step="1"/></div>
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_ac_bonus10" value="0" min="0" step="1"/></div>
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_fort_bonus10" value="0" min="0" step="1"/></div>
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_reflex_bonus10" value="0" min="0" step="1"/></div>
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_will_bonus10" value="0" min="0" step="1"/></div>
+			</div>
+
+		      </div>
+		      <hr/><br/>
+		      
+
+		      <input class="" type="hidden" name="attr_misc_initiative_bonus" value="@{bonus_initiative_bonus1} + @{bonus_initiative_bonus2} + @{bonus_initiative_bonus3} + @{bonus_initiative_bonus4} + @{bonus_initiative_bonus5} + @{bonus_initiative_bonus6} + @{bonus_initiative_bonus7} + @{bonus_initiative_bonus8} + @{bonus_initiative_bonus9} + @{bonus_initiative_bonus10}" disabled="disabled"/>
+		      <input class="" type="hidden" name="attr_misc_speed_bonus" value="@{bonus_speed_bonus1} + @{bonus_speed_bonus2} + @{bonus_speed_bonus3} + @{bonus_speed_bonus4} + @{bonus_speed_bonus5} + @{bonus_speed_bonus6} + @{bonus_speed_bonus7} + @{bonus_speed_bonus8} + @{bonus_speed_bonus9} + @{bonus_speed_bonus10}" disabled="disabled"/>
+		      <input class="" type="hidden" name="attr_misc_ac_bonus" value="@{bonus_ac_bonus1} + @{bonus_ac_bonus2} + @{bonus_ac_bonus3} + @{bonus_ac_bonus4} + @{bonus_ac_bonus5} + @{bonus_ac_bonus6} + @{bonus_ac_bonus7} + @{bonus_ac_bonus8} + @{bonus_ac_bonus9} + @{bonus_ac_bonus10}" disabled="disabled"/>
+		      <input class="" type="hidden" name="attr_misc_fort_bonus" value="@{bonus_fort_bonus1} + @{bonus_fort_bonus2} + @{bonus_fort_bonus3} + @{bonus_fort_bonus4} + @{bonus_fort_bonus5} + @{bonus_fort_bonus6} + @{bonus_fort_bonus7} + @{bonus_fort_bonus8} + @{bonus_fort_bonus9} + @{bonus_fort_bonus10}" disabled="disabled"/>
+		      <input class="" type="hidden" name="attr_misc_reflex_bonus" value="@{bonus_reflex_bonus1} + @{bonus_reflex_bonus2} + @{bonus_reflex_bonus3} + @{bonus_reflex_bonus4} + @{bonus_reflex_bonus5} + @{bonus_reflex_bonus6} + @{bonus_reflex_bonus7} + @{bonus_reflex_bonus8} + @{bonus_reflex_bonus9} + @{bonus_reflex_bonus10}" disabled="disabled"/> 
+		      <input class="" type="hidden" name="attr_misc_will_bonus" value="@{bonus_will_bonus1} + @{bonus_will_bonus2} + @{bonus_will_bonus3} + @{bonus_will_bonus4} + @{bonus_will_bonus5} + @{bonus_will_bonus6} + @{bonus_will_bonus7} + @{bonus_will_bonus8} + @{bonus_will_bonus9} + @{bonus_will_bonus10}" disabled="disabled"/> 
+
+		</div>
+
 		<div class="sheet-section-powers">
 
 		  <h3>Basic At Will Actions</h3>
@@ -1215,10 +1462,10 @@
 			  </div>			  
 			  <div class="sheet-col-1-12">
 			    <select name="attr_attackee" class="dtype">
-			      <option value="ac">AC</option>
-			      <option value="fort">FORT</option>
-			      <option value="ref">REF</option>
-			      <option value="will">WILL</option>
+			      <option value="AC">AC</option>
+			      <option value="FORT">FORT</option>
+			      <option value="REFLEX">REFLEX</option>
+			      <option value="WILL">WILL</option>
 			    </select>
 			  </div>
 
