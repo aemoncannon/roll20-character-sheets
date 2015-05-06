@@ -326,7 +326,7 @@ def make_damage_roll(action, offhand=False):
                      " ".join(["&{template:5eDefault}",
                                "{{title=Damage}}",
                                "{{rollname=Result}}",
-                               "{{roll=[[ (%s)d(%s) + (%s)d(%s) ]]}}" % (
+                               "{{roll=[[ (%s)d(%s) + (%s)d(%s) + (%s)]]}}" % (
                                    # Weapon damage
                                    fn_prod(action.is_weapon,
                                            fn_prod(action.dmg_dice_multiplier,
@@ -341,7 +341,11 @@ def make_damage_roll(action, offhand=False):
 
                                    # Non-weapon damage
                                    fn_prod(fn_neg(action.is_weapon), action.dmg_dice_multiplier),
-                                   action.dmg_dice_type)
+                                   action.dmg_dice_type,
+
+                                   # General ability bonus to damage.
+                                   fn_floor(action.dmg_ability_bonus))
+                               
                            ]))
 
 
@@ -361,6 +365,7 @@ action.attr("total_bonus", value=fn_sum(action.attacker, action.attackbonus))
 action.attr("attackee", value="AC")
 action.attr("dmg_dice_multiplier", value="1")
 action.attr("dmg_dice_type", value="0")
+action.attr("dmg_ability_bonus", value=atts.strength_mod_plus_half_level)
 action.set('roll', make_action_roll(action))
 action.set('damage_roll', make_damage_roll(action))
 action.set('offhand_roll', make_action_roll(action))
@@ -381,6 +386,8 @@ action.attr("total_bonus", value=fn_sum(action.attacker, action.attackbonus))
 action.attr("attackee", value="AC")
 action.attr("dmg_dice_multiplier", value="1")
 action.attr("dmg_dice_type", value="0")
+action.attr("dmg_ability_bonus", value=atts.dexterity_mod_plus_half_level)
+
 action.set('roll', make_action_roll(action))
 action.set('damage_roll', make_damage_roll(action))
 action.set('offhand_roll', make_action_roll(action))

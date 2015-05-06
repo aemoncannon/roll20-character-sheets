@@ -378,9 +378,11 @@
 			    <button class="sheet-skill-roll" type="roll" name="@!grp.get('roll').name!@"
 			    	    value="@!grp.get('roll').value!@">Att.</button>
                             <!--(if grp.get('damage_roll'))-->
-
-
+			    
 			      @!out_hidden(grp.dmg_dice_multiplier)!@
+			      @!out_hidden(grp.dmg_dice_type)!@
+			      @!out_hidden(grp.dmg_ability_bonus)!@
+			      
                                <button class="sheet-skill-roll" type="roll" name="@!grp.get('damage_roll').name!@"
 			       	       value="@!grp.get('damage_roll').value!@">Dmg</button>
 				  <span style="float:right">
@@ -466,8 +468,8 @@
 			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">vs</div>
 
 			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label"># Dmg Dice</div>
-			  <div class="sheet-col-1-8 sheet-vert-bottom sheet-small-label">Non-weapon Die</div>
-			  <div class="sheet-col-1-8 sheet-vert-bottom sheet-small-label sheet-center">+</div>
+			  <div class="sheet-col-1-8 sheet-vert-bottom sheet-small-label">Non-weap.Dmg.Die</div>
+			  <div class="sheet-col-1-8 sheet-vert-bottom sheet-small-label sheet-center">Dmg.Abil.Bonus</div>
 			</div>
 			<div class="sheet-row">
 
@@ -480,6 +482,7 @@
 			  <div class="sheet-col-1-12">
 			    @!out_hidden(powers.ability_name)!@
 			    <select name="attr_@!powers.ability_bonus.name!@" class="dtype">
+			      <option value="0">n/a</option>
 			      <!--(for ability in ability_groups)-->
 			      <option value="@!ability.get('uniqued_mod')!@">@!ability.get('label')!@</option>
 			      <!--(end)-->
@@ -508,6 +511,7 @@
 			  </div>
 			  <div class="sheet-col-1-8">
 			    <select name="attr_@!powers.dmg_ability_bonus.name!@" class="dtype">
+			      <option value="0">n/a</option>
 			      <!--(for ability in ability_groups)-->
 			      <option value="@!ability.get('uniqued_mod')!@">@!ability.get('label')!@</option>
 			      <!--(end)-->
