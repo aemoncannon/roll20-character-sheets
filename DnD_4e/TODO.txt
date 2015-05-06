@@ -1,5 +1,6 @@
 * For powers, toggle visibility of offhand button based on is_weapon checkbox.
 * More info in the attack cards. keywords, etc
 * More info in the dmg cards. effect, notes
+* Add title generator that uses pretty names for math functions.
 
 IMPOSSIBLE * Specific names on buttons, to make them useful in macro bar.

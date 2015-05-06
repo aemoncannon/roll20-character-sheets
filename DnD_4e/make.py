@@ -332,11 +332,13 @@ def make_action_roll(action, offhand=False):
     return Roll("roll_" + action.prefix,
                      " ".join(["&{template:5eDefault}",
                                "{{attack=1}}",
-                               "{{defence=%s}}" % action.attackee,
+                               "{{keywords=%s}}" % action.keywords,
+                               "{{target=%s}}" % action.attacktarget,
+                               "{{defense=%s}}" % action.attackee,
                                "{{title=%s}}" % (action.name),
                                "{{subheader=@{character_name}}}",
                                "{{rollname=Result}}",
-                               "{{roll=[[ 1d20 + %s]]}}" % (
+                               "{{roll=[[ 1d20 + [[%s]]]]}}" % (
                                    fn_sum(action.total_bonus,
                                           fn_prod(action.is_weapon,
                                                   atts.weapon_total_hit_bonus))
@@ -351,8 +353,9 @@ def make_damage_roll(action, offhand=False):
     return Roll("roll_" + action.prefix + "damage",
                      " ".join(["&{template:5eDefault}",
                                "{{title=Damage}}",
+                               "{{effect=%s}}" % action.effect if action.has_attr('effect') else "",
                                "{{rollname=Result}}",
-                               "{{roll=[[ (%s)d(%s) + (%s)d(%s) + (%s)]]}}" % (
+                               "{{roll=[[ [[%s]]d[[%s]] + [[%s]]d[[%s]] + [[%s]]]]}}" % (
                                    # Weapon damage
                                    fn_prod(action.is_weapon,
                                            fn_prod(action.dmg_dice_multiplier,
@@ -499,8 +502,8 @@ powers.attr("total_bonus", value=fn_sum(atts.half_level,
                                         fn_quant(fn_prod(powers.is_weapon, atts.weapon_total_hit_bonus))))
 powers.attr("attackee", options=[(d.get('label').upper(), d.get('label').upper()) for d in defense_groups])
 
-powers.attr("dmg_dice_multiplier", value=1)
-powers.attr("dmg_dice_type", value=0)
+powers.attr("dmg_dice_multiplier")
+powers.attr("dmg_dice_type")
 powers.attr("dmg_ability_bonus", value=0, options=([(0,"n/a")] + [(a.get('uniqued_mod'),a.get('label')) for a in ability_groups]))
 
 powers.attr("requirements")
