@@ -1,1 +1,5 @@
 * For powers, toggle visibility of offhand button based on is_weapon checkbox.
+* More info in the attack cards. keywords, etc
+* More info in the dmg cards. effect, notes
+
+IMPOSSIBLE * Specific names on buttons, to make them useful in macro bar.

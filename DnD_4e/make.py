@@ -61,6 +61,11 @@ def in_check(attr, checked=False, cls=""):
     else:
         return el_in(attr, tpe="checkbox", cls=cls)
 
+def in_select(attr):
+    return (("<select name='attr_%s'>\n" % attr.name) +
+            "\n".join("<option value='%s'>%s</option>" % (val,label) for val,label in attr.options) +
+            "\n</select>")
+
 def in_text(attr, cls=""):
     return el_in(attr, cls=cls)
 
@@ -78,10 +83,11 @@ def out_num(attr, cls=""):
 
 class Attr(object):
 
-    def __init__(self, name, value="", minimum=0, dynamic=False):
+    def __init__(self, name, value="", minimum=0, dynamic=False, options=None):
         self.name = name
         self.value = value
         self.minimum = minimum
+        self.options = options or []
         if not dynamic:
             atts.add_attr(self)
 
@@ -110,8 +116,9 @@ class Group(object):
     def __getattr__(self, name):
         return self.attrs[name]
 
-    def attr(self, name, value="", minimum=0):
-        att = Attr(self.prefix + name + self.suffix, value=value, minimum=minimum, dynamic=self.dynamic)
+    def attr(self, name, value="", minimum=0, options=None):
+        att = Attr(self.prefix + name + self.suffix, value=value, minimum=minimum,
+                   dynamic=self.dynamic, options=options)
         self.attrs[name] = att
         return att
 
@@ -139,16 +146,22 @@ Attr("race")
 Attr("character_name")
 Attr("level", value=1)
 Attr("half_level", value=fn_floor(fn_div(atts.level, 2)))
-Attr("ten_plus_half_level", value=fn_sum(10, atts.half_level))
 Attr("xp", value=0)
 Attr("xp_next_level")
 
 Attr("HP")
 Attr("HP_max", minimum=1)
 Attr("temp_HP")
+
+Attr("healing_surge_value")
+Attr("healing_surges")
+Attr("healing_surges_per_day")
+
+Attr("action_points")
+
 Attr("base_speed")
 Attr("speed", value=fn_sum(atts.base_speed, ref("misc_speed_bonus")))
-Attr("initiative", value=fn_sum(ref("dexterity_mod_plus_half_level"), ref("misc_initiative_bonus")))
+Attr("initiative", value=fn_sum(atts.half_level, ref("dexterity_mod"), ref("misc_initiative_bonus")))
 Attr("AC", value=ref("armor_AC_bonus"))
 
 Roll("roll_init", " ".join(["&{template:5eDefault}",
@@ -164,7 +177,6 @@ for abil in ["strength", "constitution", "dexterity", "intelligence", "wisdom", 
     g = Group(prefix=(abil + "_"))
     g.attr("base", minimum=1)
     g.attr("mod", value=fn_floor(fn_div(fn_quant(fn_sum(g.base, fn_quant(-10))), 2)))
-    g.attr("mod_plus_half_level", value=fn_sum(g.mod, atts.half_level))
     g.set('roll', Roll("roll_%s_Check" % abil.capitalize(),
         " ".join(["&{template:4eDefault}",
                   "{{character_name=@{character_name}}}",
@@ -172,10 +184,10 @@ for abil in ["strength", "constitution", "dexterity", "intelligence", "wisdom", 
                   "{{title=%s check}}" % abil,
                   "{{subheader=%s}}" % atts.character_name,
                   "{{rollname=%s check}}" % abil,
-                  "{{roll=[[ 1d20 + (%s) ]]}}" % (g.mod_plus_half_level),
-                  "{{rolladv=[[ 1d20 + (%s) ]]}}" % (g.mod_plus_half_level)])))
+                  "{{roll=[[ 1d20 + (%s) + (%s) ]]}}" % (atts.half_level, g.mod),
+                  "{{rolladv=[[ 1d20 + (%s) + (%s) ]]}}" % (atts.half_level, g.mod)])))
     g.set('label', abil[0:3].upper())
-    g.set('uniqued_mod', fn_sum(g.mod_plus_half_level, len(ability_groups) * 0.001))
+    g.set('uniqued_mod', fn_sum(g.mod, len(ability_groups) * 0.001))
     ability_groups.append(g)
 
 defense_groups = []
@@ -192,7 +204,7 @@ for defense in ["ac", "fort", "reflex", "will"]:
         g.attr("ability_bonus", value=fn_max(atts.wisdom_mod, atts.charisma_mod))
     g.attr("misc_bonus", value=ref("misc_" + defense + "_bonus"))
     g.set('label', defense.upper())
-    g.attr("total", value=fn_sum(g.ability_bonus, g.misc_bonus, atts.ten_plus_half_level))
+    g.attr("total", value=fn_sum(g.ability_bonus, g.misc_bonus, 10, atts.half_level))
     defense_groups.append(g)
 
 
@@ -222,8 +234,13 @@ for pair in [('acrobatics', 'dexterity'),
         g.attr("armor_check_penalty", value=ref("armor_check_penalty"))
     else:
         g.attr("armor_check_penalty", value=0)
-    g.attr("ability_mod_plus_half_level", value=ref(abil + "_mod_plus_half_level"))
-    g.attr("total", value=fn_sum(g.is_trained, g.ability_mod_plus_half_level, ref("armor_check_penalty")))
+    g.attr("ability_mod", value=ref(abil + "_mod"))
+    g.attr("misc_bonus", ref("misc_" + skill + "_bonus"))
+    g.attr("total", value=fn_sum(g.is_trained,
+                                 atts.half_level,
+                                 g.ability_mod,
+                                 ref("armor_check_penalty"),
+                                 g.misc_bonus))
     g.attr("passive", value=fn_sum(10, g.total))
     g.set('roll', Roll("roll_%s_Check" % skill.capitalize(),
                " ".join(["&{template:5eDefault}",
@@ -249,7 +266,12 @@ for i in range(1, NUM_ARMORS+1):
     g.attr("armor_prof", value=1)
     g.attr("armourname")
     g.attr("armourACbase", value=0)
-    g.attr("armourtype", value=0)
+    g.attr("armourtype", value=0, options=[
+        (0, "n/a"),
+        (LIGHT_ARMOR, "Light"),
+        (HEAVY_ARMOR, "Heavy"),
+        (LIGHT_SHIELD, "Light Shield"),
+        (HEAVY_SHIELD, "Heavy Shield")])
     g.attr("armor_is_armor", value=fn_sum(fn_eq(LIGHT_ARMOR, g.armourtype), fn_eq(HEAVY_ARMOR, g.armourtype)))
     g.attr("armor_is_shield", value=fn_sum(fn_eq(LIGHT_SHIELD, g.armourtype), fn_eq(HEAVY_SHIELD, g.armourtype)))
     g.attr("light_armour_bonus",
@@ -280,14 +302,19 @@ for i in range(1, NUM_WEAPONS+1):
     g.attr("weapon_offhand", value=1)
     g.attr("weapon_prof", value=1)
     g.attr("weapon_prof_bonus", value=0)
-    g.attr("weapon_type", value=0)
+    g.attr("weapon_type", value=0, options=[(WEAPON_TYPE_STR_BASED, "Melee/Heavy thrown (str)"),
+                                            (WEAPON_TYPE_DEX_BASED, "Ranged/Light thrown (dex)")])
     g.attr("weapon_dmg_dice_count", value=1)
     g.attr("weapon_dmg_dice_type", value=6)
     g.attr("weapon_enhancement_bonus", value=0) # Magic or other bonus
+    
+    # Note this attribute not actually used anywhere a.t.m, as each power already has a 'base attack bonus'
+    # factored into its roll. Keep this just for display I guess.
     g.attr("weapon_ability_bonus", value=fn_sum(fn_prod(fn_eq(g.weapon_type, WEAPON_TYPE_STR_BASED),
-                                                        atts.strength_mod_plus_half_level),
+                                                        fn_sum(atts.half_level, atts.strength_mod)),
                                                 fn_prod(fn_eq(g.weapon_type, WEAPON_TYPE_DEX_BASED),
-                                                        atts.dexterity_mod_plus_half_level)))
+                                                        fn_sum(atts.half_level, atts.dexterity_mod))))
+
     g.attr("weapon_total_hit_bonus", value=fn_sum(g.weapon_enhancement_bonus, fn_prod(g.weapon_prof, g.weapon_prof_bonus)))
     g.attr("weapon_notes")
     weapon_groups.append(g)
@@ -304,7 +331,8 @@ Attr("weapon_offhand_total_hit_bonus", value=fn_sum(*[fn_prod(g.weapon_offhand, 
 def make_action_roll(action, offhand=False):
     return Roll("roll_" + action.prefix,
                      " ".join(["&{template:5eDefault}",
-                               "{{attack=%s}}" % action.ability_name,
+                               "{{attack=1}}",
+                               "{{defence=%s}}" % action.attackee,
                                "{{title=%s}}" % (action.name),
                                "{{subheader=@{character_name}}}",
                                "{{rollname=Result}}",
@@ -356,14 +384,13 @@ action.attr("actiontype", value="Standard")
 action.attr("attacktype", value="Melee")
 action.attr("is_weapon", value=1)
 action.attr("attacktarget", value="One creature")
-action.attr("attacker", value=atts.strength_mod_plus_half_level)
-action.attr("ability_name", value="Strength")
-action.attr("attackbonus", value=0)
-action.attr("total_bonus", value=fn_sum(action.attacker, action.attackbonus))
+action.attr("ability_mod", value=atts.strength_mod)
+action.attr("power_modifier", value=0)
+action.attr("total_bonus", value=fn_sum(atts.half_level, action.ability_mod, action.power_modifier))
 action.attr("attackee", value="AC")
 action.attr("dmg_dice_multiplier", value="1")
 action.attr("dmg_dice_type", value="0")
-action.attr("dmg_ability_bonus", value=atts.strength_mod_plus_half_level)
+action.attr("dmg_ability_bonus", value=atts.strength_mod)
 action.set('roll', make_action_roll(action))
 action.set('damage_roll', make_damage_roll(action))
 action.set('offhand_roll', make_action_roll(action))
@@ -377,14 +404,13 @@ action.attr("actiontype", value="Standard")
 action.attr("is_weapon", value=1)
 action.attr("attacktype", value="Melee")
 action.attr("attacktarget", value="One creature")
-action.attr("attacker", value=atts.dexterity_mod_plus_half_level)
-action.attr("ability_name", value="Dexterity")
-action.attr("attackbonus", value=0)
-action.attr("total_bonus", value=fn_sum(action.attacker, action.attackbonus))
+action.attr("ability_mod", value=atts.dexterity_mod)
+action.attr("power_modifier", value=0)
+action.attr("total_bonus", value=fn_sum(atts.half_level, action.ability_mod, action.power_modifier))
 action.attr("attackee", value="AC")
 action.attr("dmg_dice_multiplier", value="1")
 action.attr("dmg_dice_type", value="0")
-action.attr("dmg_ability_bonus", value=atts.dexterity_mod_plus_half_level)
+action.attr("dmg_ability_bonus", value=atts.dexterity_mod)
 
 action.set('roll', make_action_roll(action))
 action.set('damage_roll', make_damage_roll(action))
@@ -399,11 +425,10 @@ action.attr("actiontype", value="Standard")
 action.attr("is_weapon", value=0)
 action.attr("attacktype", value="Melee")
 action.attr("attacktarget", value="One creature")
-action.attr("attacker", value=atts.strength_mod_plus_half_level)
-action.attr("ability_name", value="Strength")
-action.attr("attackbonus", value=0)
-action.attr("total_bonus", value=fn_sum(action.attacker, action.attackbonus))
-action.attr("attackee", value="ac")
+action.attr("ability_mod", value=atts.strength_mod)
+action.attr("power_modifier", value=0)
+action.attr("total_bonus", value=fn_sum(atts.half_level, action.ability_mod, action.power_modifier))
+action.attr("attackee", value="AC")
 action.attr("effect", value="If you succeed, deal no damage, but choose one ally. That ally gets a +2 bonus to his or her next attack roll against the target or to all defenses against the target's next attack. This bonus ends if not used by the end of your next turn.")
 action.set('roll', make_action_roll(action))
 basic_actions.append(action)
@@ -415,11 +440,10 @@ action.attr("actiontype", value="Standard")
 action.attr("attacktype", value="Melee")
 action.attr("is_weapon", value=0)
 action.attr("attacktarget", value="One creature")
-action.attr("attacker", value=atts.strength_mod_plus_half_level)
-action.attr("ability_name", value="Strength")
-action.attr("attackbonus", value=0)
-action.attr("total_bonus", value=fn_sum(action.attacker, action.attackbonus))
-action.attr("attackee", value="fort")
+action.attr("ability_mod", value=atts.strength_mod)
+action.attr("power_modifier", value=0)
+action.attr("total_bonus", value=fn_sum(atts.half_level, action.ability_mod, action.power_modifier))
+action.attr("attackee", value="Fort")
 action.attr("effect", value="You push the target 1 square and then shift 1 square into the space it left.")
 action.set('roll', make_action_roll(action))
 basic_actions.append(action)
@@ -431,11 +455,10 @@ action.attr("actiontype", value="Standard")
 action.attr("attacktype", value="Ranged")
 action.attr("is_weapon", value=0)
 action.attr("attacktarget", value="One creature")
-action.attr("attacker", value=atts.strength_mod_plus_half_level)
-action.attr("ability_name", value="Strength")
-action.attr("attackbonus", value=0)
-action.attr("total_bonus", value=fn_sum(action.attacker, action.attackbonus))
-action.attr("attackee", value="reflex")
+action.attr("ability_mod", value=atts.strength_mod)
+action.attr("power_modifier", value=0)
+action.attr("total_bonus", value=fn_sum(atts.half_level, action.ability_mod, action.power_modifier))
+action.attr("attackee", value="Reflex")
 action.attr("effect", value="You grab the target until the end of your next turn. You can end the grab as a free action.")
 action.set('roll', make_action_roll(action))
 basic_actions.append(action)
@@ -446,25 +469,39 @@ basic_actions.append(action)
 powers = Group(dynamic=True)
 # See PHB page 55 for power card description.
 powers.attr("name")
-powers.attr("type")
-powers.attr("level")
+powers.attr("type", options=[("At will", "At will"), ("Encounter", "Encounter"), ("Daily", "Daily")])
+powers.attr("level", options=[(i,i) for i in range(1,30)])
 powers.attr("is_available")
 powers.attr("is_weapon", value=1)
 powers.attr("keywords")
-powers.attr("actiontype")
+powers.attr("actiontype", options=[
+    			      ("Standard", "Standard"),
+			      ("Move", "Move"),
+			      ("Immediate interrupt", "Immediate interrupt"),
+			      ("Immediate reaction", "Immediate reaction"),
+			      ("Minor", "Minor"),
+			      ("Free", "Free"),
+			      ("Trigger(see notes)", "Trigger(see notes)")])
 powers.attr("attacktype")
 powers.attr("attacktarget")
-powers.attr("attacker")
-powers.attr("ability_bonus", value=0)
-powers.attr("ability_name", value=powers.ability_bonus) #TODO
-powers.attr("attackbonus")
-powers.attr("total_bonus", value=fn_sum(fn_floor(powers.ability_bonus), powers.attackbonus,
+powers.attr("ability_mod", value=0, options=(
+    [(0,"n/a")] + [(a.get('uniqued_mod'),a.get('label')) for a in ability_groups]))
+
+# Some powers list two ability modifiers :-(
+powers.attr("ability_mod2", value=0, options=(
+    [(0,"n/a")] + [(a.get('uniqued_mod'),a.get('label')) for a in ability_groups]))
+
+powers.attr("power_modifier")
+powers.attr("total_bonus", value=fn_sum(atts.half_level,
+                                        fn_floor(powers.ability_mod),
+                                        fn_floor(powers.ability_mod2),                                        
+                                        powers.power_modifier,
                                         fn_quant(fn_prod(powers.is_weapon, atts.weapon_total_hit_bonus))))
-powers.attr("attackee")
+powers.attr("attackee", options=[(d.get('label').upper(), d.get('label').upper()) for d in defense_groups])
 
 powers.attr("dmg_dice_multiplier", value=1)
 powers.attr("dmg_dice_type", value=0)
-powers.attr("dmg_ability_bonus", value=0)
+powers.attr("dmg_ability_bonus", value=0, options=([(0,"n/a")] + [(a.get('uniqued_mod'),a.get('label')) for a in ability_groups]))
 
 powers.attr("requirements")
 powers.attr("on_miss")
@@ -478,42 +515,66 @@ powers.set('offhand_roll', make_action_roll(powers))
 powers.set('offhand_damage_roll', make_damage_roll(powers))
 
 
+bonuses = [
+    (0, "none"),
+    (1, "initiative"),
+    (2, "speed"),
+
+    (3, "ac"),
+    (4, "fort"),
+    (5, "reflex"),
+    (6, "will"),
+    
+    (7, "acrobatics"),
+    (8, "arcana"),
+    (9, "athletics"),
+    (10, "bluff"),
+    (11, "diplomacy"),
+    (12, "dungeoneering"),
+    (13, "endurance"),
+    (14, "heal"),
+    (15, "history"),
+    (16, "insight"),
+    (17, "intimidate"),
+    (18, "nature"),
+    (19, "perception"),
+    (20, "religion"),
+    (21, "stealth"),
+    (22, "streetwise"),
+    (23, "thievery")
+]
+
 NUM_BONUSES = 10
 bonus_groups = []
 for i in range(1, NUM_BONUSES+1):
     g = Group(prefix="bonus_", suffix=str(i))
     g.attr("description")
-    g.attr("initiative_bonus", value=0)
-    g.attr("speed_bonus", value=0)
-    g.attr("ac_bonus", value=0)
-    g.attr("fort_bonus", value=0)
-    g.attr("reflex_bonus", value=0)
-    g.attr("will_bonus", value=0)
+    g.attr("category", value=0, options=[(val, name.capitalize()) for val,name in bonuses])
+    g.attr("modifier", value=0)
     bonus_groups.append(g)
 
 # Aggregate bonus effects
-Attr("misc_initiative_bonus", value=fn_sum(*[g.initiative_bonus for g in bonus_groups]))
-Attr("misc_speed_bonus", value=fn_sum(*[g.speed_bonus for g in bonus_groups]))
-Attr("misc_ac_bonus", value=fn_sum(*[g.ac_bonus for g in bonus_groups]))
-Attr("misc_fort_bonus", value=fn_sum(*[g.fort_bonus for g in bonus_groups]))
-Attr("misc_reflex_bonus", value=fn_sum(*[g.reflex_bonus for g in bonus_groups]))
-Attr("misc_will_bonus", value=fn_sum(*[g.will_bonus for g in bonus_groups]))
-
+for val, name in bonuses:
+    Attr("misc_" + name + "_bonus",
+         value=fn_sum(*[fn_prod(fn_eq(g.category, val), g.modifier) for g in bonus_groups]))
 
 t = pyratemp.Template(filename="DnD_4e.html.template")
 
 template_vars = {}
 template_vars.update(atts.get_dict())
 template_vars.update(
-    dict(max=fn_max,
+    dict(atts=atts,
+         max=fn_max,
          min=fn_min,
          gteq=fn_gteq,
          lteq=fn_lteq,
          eq=fn_eq,
          neg=fn_neg,
+         sum=fn_sum,
          in_check=in_check,
          in_num=in_num,
          in_text=in_text,
+         in_select=in_select,
          out_num=out_num,
          out_text=out_text,
          out_hidden=out_hidden,
@@ -522,6 +583,7 @@ template_vars.update(
          armor_groups=armor_groups,
          weapon_groups=weapon_groups,
          bonus_groups=bonus_groups,
+         bonuses=bonuses,
          ability_groups=ability_groups,
          powers=powers,
          basic_actions=basic_actions

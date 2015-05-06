@@ -55,63 +55,56 @@
 					<div class="sheet-row sheet-sub-header">
 						<div class="sheet-col-1-6 sheet-center sheet-small-label">Score</div>
 						<div class="sheet-col-1-6 sheet-center sheet-small-label">&nbsp;</div>
-						<div class="sheet-col-1-6 sheet-center sheet-small-label">Mod</div>
-						<div class="sheet-col-1-6 sheet-center sheet-small-label">Mod + 1/2 Level</div>
+						<div class="sheet-col-1-6 sheet-center sheet-small-label">Abil.Mod</div>
 					</div>
 
 					<div class="sheet-row">
 						<div class="sheet-col-1-6"><input class="" type="number" name="attr_strength_base" value="" min="1" step="1"/></div>
 						<div class="sheet-col-1-6 sheet-core-stat-label">STR</div>
 						<div class="sheet-col-1-6"><input class="" type="number" name="attr_strength_mod" value="floor((@{strength_base} + (-10)) / 2)" disabled="disabled"/></div>
-						<div class="sheet-col-1-6"><input class="" type="number" name="attr_strength_mod_plus_half_level" value="@{strength_mod} + @{half_level}" disabled="disabled"/></div>
 						<div class="sheet-col-1-6 sheet-center">
 						  <button type="roll" class="sheet-core-save" name="roll_Strength_Check"
-							  value="&{template:4eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=strength check}} {{subheader=@{character_name}}} {{rollname=strength check}} {{roll=[[ 1d20 + (@{strength_mod_plus_half_level}) ]]}} {{rolladv=[[ 1d20 + (@{strength_mod_plus_half_level}) ]]}}">Check</button></div>
+							  value="&{template:4eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=strength check}} {{subheader=@{character_name}}} {{rollname=strength check}} {{roll=[[ 1d20 + (@{half_level}) + (@{strength_mod}) ]]}} {{rolladv=[[ 1d20 + (@{half_level}) + (@{strength_mod}) ]]}}">Check</button></div>
 					</div>
 					<div class="sheet-row">
 						<div class="sheet-col-1-6"><input class="" type="number" name="attr_constitution_base" value="" min="1" step="1"/></div>
 						<div class="sheet-col-1-6 sheet-core-stat-label">CON</div>
 						<div class="sheet-col-1-6"><input class="" type="number" name="attr_constitution_mod" value="floor((@{constitution_base} + (-10)) / 2)" disabled="disabled"/></div>
-						<div class="sheet-col-1-6"><input class="" type="number" name="attr_constitution_mod_plus_half_level" value="@{constitution_mod} + @{half_level}" disabled="disabled"/></div>
 						<div class="sheet-col-1-6 sheet-center">
 						  <button type="roll" class="sheet-core-save" name="roll_Constitution_Check"
-							  value="&{template:4eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=constitution check}} {{subheader=@{character_name}}} {{rollname=constitution check}} {{roll=[[ 1d20 + (@{constitution_mod_plus_half_level}) ]]}} {{rolladv=[[ 1d20 + (@{constitution_mod_plus_half_level}) ]]}}">Check</button></div>
+							  value="&{template:4eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=constitution check}} {{subheader=@{character_name}}} {{rollname=constitution check}} {{roll=[[ 1d20 + (@{half_level}) + (@{constitution_mod}) ]]}} {{rolladv=[[ 1d20 + (@{half_level}) + (@{constitution_mod}) ]]}}">Check</button></div>
 					</div>
 					<div class="sheet-row">
 						<div class="sheet-col-1-6"><input class="" type="number" name="attr_dexterity_base" value="" min="1" step="1"/></div>
 						<div class="sheet-col-1-6 sheet-core-stat-label">DEX</div>
 						<div class="sheet-col-1-6"><input class="" type="number" name="attr_dexterity_mod" value="floor((@{dexterity_base} + (-10)) / 2)" disabled="disabled"/></div>
-						<div class="sheet-col-1-6"><input class="" type="number" name="attr_dexterity_mod_plus_half_level" value="@{dexterity_mod} + @{half_level}" disabled="disabled"/></div>
 						<div class="sheet-col-1-6 sheet-center">
 						  <button type="roll" class="sheet-core-save" name="roll_Dexterity_Check"
-							  value="&{template:4eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=dexterity check}} {{subheader=@{character_name}}} {{rollname=dexterity check}} {{roll=[[ 1d20 + (@{dexterity_mod_plus_half_level}) ]]}} {{rolladv=[[ 1d20 + (@{dexterity_mod_plus_half_level}) ]]}}">Check</button></div>
+							  value="&{template:4eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=dexterity check}} {{subheader=@{character_name}}} {{rollname=dexterity check}} {{roll=[[ 1d20 + (@{half_level}) + (@{dexterity_mod}) ]]}} {{rolladv=[[ 1d20 + (@{half_level}) + (@{dexterity_mod}) ]]}}">Check</button></div>
 					</div>
 					<div class="sheet-row">
 						<div class="sheet-col-1-6"><input class="" type="number" name="attr_intelligence_base" value="" min="1" step="1"/></div>
 						<div class="sheet-col-1-6 sheet-core-stat-label">INT</div>
 						<div class="sheet-col-1-6"><input class="" type="number" name="attr_intelligence_mod" value="floor((@{intelligence_base} + (-10)) / 2)" disabled="disabled"/></div>
-						<div class="sheet-col-1-6"><input class="" type="number" name="attr_intelligence_mod_plus_half_level" value="@{intelligence_mod} + @{half_level}" disabled="disabled"/></div>
 						<div class="sheet-col-1-6 sheet-center">
 						  <button type="roll" class="sheet-core-save" name="roll_Intelligence_Check"
-							  value="&{template:4eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=intelligence check}} {{subheader=@{character_name}}} {{rollname=intelligence check}} {{roll=[[ 1d20 + (@{intelligence_mod_plus_half_level}) ]]}} {{rolladv=[[ 1d20 + (@{intelligence_mod_plus_half_level}) ]]}}">Check</button></div>
+							  value="&{template:4eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=intelligence check}} {{subheader=@{character_name}}} {{rollname=intelligence check}} {{roll=[[ 1d20 + (@{half_level}) + (@{intelligence_mod}) ]]}} {{rolladv=[[ 1d20 + (@{half_level}) + (@{intelligence_mod}) ]]}}">Check</button></div>
 					</div>
 					<div class="sheet-row">
 						<div class="sheet-col-1-6"><input class="" type="number" name="attr_wisdom_base" value="" min="1" step="1"/></div>
 						<div class="sheet-col-1-6 sheet-core-stat-label">WIS</div>
 						<div class="sheet-col-1-6"><input class="" type="number" name="attr_wisdom_mod" value="floor((@{wisdom_base} + (-10)) / 2)" disabled="disabled"/></div>
-						<div class="sheet-col-1-6"><input class="" type="number" name="attr_wisdom_mod_plus_half_level" value="@{wisdom_mod} + @{half_level}" disabled="disabled"/></div>
 						<div class="sheet-col-1-6 sheet-center">
 						  <button type="roll" class="sheet-core-save" name="roll_Wisdom_Check"
-							  value="&{template:4eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=wisdom check}} {{subheader=@{character_name}}} {{rollname=wisdom check}} {{roll=[[ 1d20 + (@{wisdom_mod_plus_half_level}) ]]}} {{rolladv=[[ 1d20 + (@{wisdom_mod_plus_half_level}) ]]}}">Check</button></div>
+							  value="&{template:4eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=wisdom check}} {{subheader=@{character_name}}} {{rollname=wisdom check}} {{roll=[[ 1d20 + (@{half_level}) + (@{wisdom_mod}) ]]}} {{rolladv=[[ 1d20 + (@{half_level}) + (@{wisdom_mod}) ]]}}">Check</button></div>
 					</div>
 					<div class="sheet-row">
 						<div class="sheet-col-1-6"><input class="" type="number" name="attr_charisma_base" value="" min="1" step="1"/></div>
 						<div class="sheet-col-1-6 sheet-core-stat-label">CHA</div>
 						<div class="sheet-col-1-6"><input class="" type="number" name="attr_charisma_mod" value="floor((@{charisma_base} + (-10)) / 2)" disabled="disabled"/></div>
-						<div class="sheet-col-1-6"><input class="" type="number" name="attr_charisma_mod_plus_half_level" value="@{charisma_mod} + @{half_level}" disabled="disabled"/></div>
 						<div class="sheet-col-1-6 sheet-center">
 						  <button type="roll" class="sheet-core-save" name="roll_Charisma_Check"
-							  value="&{template:4eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=charisma check}} {{subheader=@{character_name}}} {{rollname=charisma check}} {{roll=[[ 1d20 + (@{charisma_mod_plus_half_level}) ]]}} {{rolladv=[[ 1d20 + (@{charisma_mod_plus_half_level}) ]]}}">Check</button></div>
+							  value="&{template:4eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=charisma check}} {{subheader=@{character_name}}} {{rollname=charisma check}} {{roll=[[ 1d20 + (@{half_level}) + (@{charisma_mod}) ]]}} {{rolladv=[[ 1d20 + (@{half_level}) + (@{charisma_mod}) ]]}}">Check</button></div>
 					</div>
 					
 				</div>
@@ -146,6 +139,19 @@
 						</div>
 					   </div>
 					</div>
+
+					<h4 class="sheet-center">Healing Surges & Action points</h4>
+					<div class="sheet-row">
+					  <div class="sheet-col-1-4 sheet-small-label sheet-center">
+					    <input class="" type="number" name="attr_healing_surges" value="" min="0" step="1"/><br/>HS Remaining</div>					
+					  <div class="sheet-col-1-4 sheet-small-label sheet-center">
+					    <input class="" type="number" name="attr_healing_surge_value" value="" min="0" step="1"/><br/>HS Value</div>
+					  <div class="sheet-col-1-4 sheet-small-label sheet-center">
+					    <input class="" type="number" name="attr_healing_surges_per_day" value="" disabled="disabled"/>
+					    <br/>HS Per Day</div>
+					  <div class="sheet-col-1-4 sheet-small-label sheet-center">
+					    <input class="" type="number" name="attr_action_points" value="" min="0" step="1"/><br/>Action Points</div>
+					</div>
 					
 					<div class="sheet-row">
 					
@@ -153,7 +159,7 @@
 							<h4 class="sheet-center">Initiative <span class="sheet-pictos">t</span></h4>
 							<div class="sheet-row sheet-padr">
 							  <div class="sheet-col-1-3 sheet-small-label sheet-center">
-							    <input class="sheet-underlined" type="number" name="attr_initiative" value="@{dexterity_mod_plus_half_level} + @{misc_initiative_bonus}" disabled="disabled"/>
+							    <input class="sheet-underlined" type="number" name="attr_initiative" value="@{half_level} + @{dexterity_mod} + @{misc_initiative_bonus}" disabled="disabled"/>
 							    <br/>Total</div>
 								<div class="sheet-col-1-3 sheet-center">
 								     <button type="roll" class="sheet-initiative
@@ -193,20 +199,16 @@
 					<div class="sheet-row sheet-sub-header">
 					  <div class="sheet-col-1-6 sheet-center sheet-small-label">Score</div>
 					  <div class="sheet-col-1-6 sheet-center sheet-small-label">&nbsp;</div>
-					  <div class="sheet-col-1-6 sheet-center sheet-small-label">10 + 1/2 Lev.</div>
 					  <div class="sheet-col-1-6 sheet-center sheet-small-label">Armor/Abil.</div>
 					  <div class="sheet-col-1-6 sheet-center sheet-small-label">Misc Bonus</div>
 					</div>
 
 					  <div class="sheet-row">
 					    <div class="sheet-col-1-6">
-					      <input class="" type="number" name="attr_ac_total" value="@{ac_ability_bonus} + @{ac_misc_bonus} + @{ten_plus_half_level}" disabled="disabled"/>
+					      <input class="" type="number" name="attr_ac_total" value="@{ac_ability_bonus} + @{ac_misc_bonus} + 10 + @{half_level}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-6 sheet-core-stat-label">
 					      AC
-					    </div>
-					    <div class="sheet-col-1-6">
-					      <input class="" type="number" name="attr_ten_plus_half_level" value="10 + @{half_level}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-6">
 					      <input class="" type="number" name="attr_ac_ability_bonus" value="@{armor_AC_bonus}" disabled="disabled"/>
@@ -217,13 +219,10 @@
 					  </div>
 					  <div class="sheet-row">
 					    <div class="sheet-col-1-6">
-					      <input class="" type="number" name="attr_fort_total" value="@{fort_ability_bonus} + @{fort_misc_bonus} + @{ten_plus_half_level}" disabled="disabled"/>
+					      <input class="" type="number" name="attr_fort_total" value="@{fort_ability_bonus} + @{fort_misc_bonus} + 10 + @{half_level}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-6 sheet-core-stat-label">
 					      FORT
-					    </div>
-					    <div class="sheet-col-1-6">
-					      <input class="" type="number" name="attr_ten_plus_half_level" value="10 + @{half_level}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-6">
 					      <input class="" type="number" name="attr_fort_ability_bonus" value="((((@{strength_mod}) + (@{constitution_mod})) + abs((@{strength_mod}) - (@{constitution_mod}))) / 2)" disabled="disabled"/>
@@ -234,13 +233,10 @@
 					  </div>
 					  <div class="sheet-row">
 					    <div class="sheet-col-1-6">
-					      <input class="" type="number" name="attr_reflex_total" value="@{reflex_ability_bonus} + @{reflex_misc_bonus} + @{ten_plus_half_level}" disabled="disabled"/>
+					      <input class="" type="number" name="attr_reflex_total" value="@{reflex_ability_bonus} + @{reflex_misc_bonus} + 10 + @{half_level}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-6 sheet-core-stat-label">
 					      REFLEX
-					    </div>
-					    <div class="sheet-col-1-6">
-					      <input class="" type="number" name="attr_ten_plus_half_level" value="10 + @{half_level}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-6">
 					      <input class="" type="number" name="attr_reflex_ability_bonus" value="((((@{dexterity_mod}) + (@{intelligence_mod})) + abs((@{dexterity_mod}) - (@{intelligence_mod}))) / 2) + @{armor_prof_penalty} + @{shield_reflex_bonus}" disabled="disabled"/>
@@ -251,13 +247,10 @@
 					  </div>
 					  <div class="sheet-row">
 					    <div class="sheet-col-1-6">
-					      <input class="" type="number" name="attr_will_total" value="@{will_ability_bonus} + @{will_misc_bonus} + @{ten_plus_half_level}" disabled="disabled"/>
+					      <input class="" type="number" name="attr_will_total" value="@{will_ability_bonus} + @{will_misc_bonus} + 10 + @{half_level}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-6 sheet-core-stat-label">
 					      WILL
-					    </div>
-					    <div class="sheet-col-1-6">
-					      <input class="" type="number" name="attr_ten_plus_half_level" value="10 + @{half_level}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-6">
 					      <input class="" type="number" name="attr_will_ability_bonus" value="((((@{wisdom_mod}) + (@{charisma_mod})) + abs((@{wisdom_mod}) - (@{charisma_mod}))) / 2)" disabled="disabled"/>
@@ -287,7 +280,8 @@
 						<div class="sheet-col-1-6 sheet-small-label">Skill</div>
 						<div class="sheet-col-1-12 sheet-center sheet-small-label">Trained</div>
 						<div class="sheet-col-1-12 sheet-center sheet-small-label">Armor Penalty</div>
-						<div class="sheet-col-1-12 sheet-center sheet-small-label">Abil. + 1/2 Level</div>
+						<div class="sheet-col-1-12 sheet-center sheet-small-label">Abil. Bonus</div>
+						<div class="sheet-col-1-12 sheet-center sheet-small-label">Misc Bonus</div>
 						<div class="sheet-col-1-12 sheet-center sheet-small-label">Total</div>
 						<div class="sheet-col-1-12 sheet-offset-1-24 sheet-center sheet-small-label">Passive</div>
 					</div>
@@ -307,10 +301,13 @@
 					      <input class="" type="number" name="attr_acrobatics_armor_check_penalty" value="@{armor_check_penalty}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12">
-					      <input class="" type="number" name="attr_acrobatics_ability_mod_plus_half_level" value="@{dexterity_mod_plus_half_level}" disabled="disabled"/>
+					      <input class="" type="number" name="attr_acrobatics_ability_mod" value="@{dexterity_mod}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12">
-					      <input class="" type="number" name="attr_acrobatics_total" value="@{acrobatics_is_trained} + @{acrobatics_ability_mod_plus_half_level} + @{armor_check_penalty}" disabled="disabled"/>
+					      <input class="" type="number" name="attr_acrobatics_misc_bonus" value="@{misc_acrobatics_bonus}" disabled="disabled"/>
+					    </div>					    
+					    <div class="sheet-col-1-12">
+					      <input class="" type="number" name="attr_acrobatics_total" value="@{acrobatics_is_trained} + @{half_level} + @{acrobatics_ability_mod} + @{armor_check_penalty} + @{acrobatics_misc_bonus}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12 sheet-offset-1-24">
 					      <input class="sheet-passive-skill-score" type="number" name="attr_acrobatics_passive" value="10 + @{acrobatics_total}" disabled="disabled"/>
@@ -331,10 +328,13 @@
 					      <input class="" type="number" name="attr_arcana_armor_check_penalty" value="0" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12">
-					      <input class="" type="number" name="attr_arcana_ability_mod_plus_half_level" value="@{intelligence_mod_plus_half_level}" disabled="disabled"/>
+					      <input class="" type="number" name="attr_arcana_ability_mod" value="@{intelligence_mod}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12">
-					      <input class="" type="number" name="attr_arcana_total" value="@{arcana_is_trained} + @{arcana_ability_mod_plus_half_level} + @{armor_check_penalty}" disabled="disabled"/>
+					      <input class="" type="number" name="attr_arcana_misc_bonus" value="@{misc_arcana_bonus}" disabled="disabled"/>
+					    </div>					    
+					    <div class="sheet-col-1-12">
+					      <input class="" type="number" name="attr_arcana_total" value="@{arcana_is_trained} + @{half_level} + @{arcana_ability_mod} + @{armor_check_penalty} + @{arcana_misc_bonus}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12 sheet-offset-1-24">
 					      <input class="sheet-passive-skill-score" type="number" name="attr_arcana_passive" value="10 + @{arcana_total}" disabled="disabled"/>
@@ -355,10 +355,13 @@
 					      <input class="" type="number" name="attr_athletics_armor_check_penalty" value="@{armor_check_penalty}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12">
-					      <input class="" type="number" name="attr_athletics_ability_mod_plus_half_level" value="@{strength_mod_plus_half_level}" disabled="disabled"/>
+					      <input class="" type="number" name="attr_athletics_ability_mod" value="@{strength_mod}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12">
-					      <input class="" type="number" name="attr_athletics_total" value="@{athletics_is_trained} + @{athletics_ability_mod_plus_half_level} + @{armor_check_penalty}" disabled="disabled"/>
+					      <input class="" type="number" name="attr_athletics_misc_bonus" value="@{misc_athletics_bonus}" disabled="disabled"/>
+					    </div>					    
+					    <div class="sheet-col-1-12">
+					      <input class="" type="number" name="attr_athletics_total" value="@{athletics_is_trained} + @{half_level} + @{athletics_ability_mod} + @{armor_check_penalty} + @{athletics_misc_bonus}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12 sheet-offset-1-24">
 					      <input class="sheet-passive-skill-score" type="number" name="attr_athletics_passive" value="10 + @{athletics_total}" disabled="disabled"/>
@@ -379,10 +382,13 @@
 					      <input class="" type="number" name="attr_bluff_armor_check_penalty" value="0" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12">
-					      <input class="" type="number" name="attr_bluff_ability_mod_plus_half_level" value="@{charisma_mod_plus_half_level}" disabled="disabled"/>
+					      <input class="" type="number" name="attr_bluff_ability_mod" value="@{charisma_mod}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12">
-					      <input class="" type="number" name="attr_bluff_total" value="@{bluff_is_trained} + @{bluff_ability_mod_plus_half_level} + @{armor_check_penalty}" disabled="disabled"/>
+					      <input class="" type="number" name="attr_bluff_misc_bonus" value="@{misc_bluff_bonus}" disabled="disabled"/>
+					    </div>					    
+					    <div class="sheet-col-1-12">
+					      <input class="" type="number" name="attr_bluff_total" value="@{bluff_is_trained} + @{half_level} + @{bluff_ability_mod} + @{armor_check_penalty} + @{bluff_misc_bonus}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12 sheet-offset-1-24">
 					      <input class="sheet-passive-skill-score" type="number" name="attr_bluff_passive" value="10 + @{bluff_total}" disabled="disabled"/>
@@ -403,10 +409,13 @@
 					      <input class="" type="number" name="attr_diplomacy_armor_check_penalty" value="0" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12">
-					      <input class="" type="number" name="attr_diplomacy_ability_mod_plus_half_level" value="@{charisma_mod_plus_half_level}" disabled="disabled"/>
+					      <input class="" type="number" name="attr_diplomacy_ability_mod" value="@{charisma_mod}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12">
-					      <input class="" type="number" name="attr_diplomacy_total" value="@{diplomacy_is_trained} + @{diplomacy_ability_mod_plus_half_level} + @{armor_check_penalty}" disabled="disabled"/>
+					      <input class="" type="number" name="attr_diplomacy_misc_bonus" value="@{misc_diplomacy_bonus}" disabled="disabled"/>
+					    </div>					    
+					    <div class="sheet-col-1-12">
+					      <input class="" type="number" name="attr_diplomacy_total" value="@{diplomacy_is_trained} + @{half_level} + @{diplomacy_ability_mod} + @{armor_check_penalty} + @{diplomacy_misc_bonus}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12 sheet-offset-1-24">
 					      <input class="sheet-passive-skill-score" type="number" name="attr_diplomacy_passive" value="10 + @{diplomacy_total}" disabled="disabled"/>
@@ -427,10 +436,13 @@
 					      <input class="" type="number" name="attr_dungeoneering_armor_check_penalty" value="0" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12">
-					      <input class="" type="number" name="attr_dungeoneering_ability_mod_plus_half_level" value="@{wisdom_mod_plus_half_level}" disabled="disabled"/>
+					      <input class="" type="number" name="attr_dungeoneering_ability_mod" value="@{wisdom_mod}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12">
-					      <input class="" type="number" name="attr_dungeoneering_total" value="@{dungeoneering_is_trained} + @{dungeoneering_ability_mod_plus_half_level} + @{armor_check_penalty}" disabled="disabled"/>
+					      <input class="" type="number" name="attr_dungeoneering_misc_bonus" value="@{misc_dungeoneering_bonus}" disabled="disabled"/>
+					    </div>					    
+					    <div class="sheet-col-1-12">
+					      <input class="" type="number" name="attr_dungeoneering_total" value="@{dungeoneering_is_trained} + @{half_level} + @{dungeoneering_ability_mod} + @{armor_check_penalty} + @{dungeoneering_misc_bonus}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12 sheet-offset-1-24">
 					      <input class="sheet-passive-skill-score" type="number" name="attr_dungeoneering_passive" value="10 + @{dungeoneering_total}" disabled="disabled"/>
@@ -451,10 +463,13 @@
 					      <input class="" type="number" name="attr_endurance_armor_check_penalty" value="@{armor_check_penalty}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12">
-					      <input class="" type="number" name="attr_endurance_ability_mod_plus_half_level" value="@{constitution_mod_plus_half_level}" disabled="disabled"/>
+					      <input class="" type="number" name="attr_endurance_ability_mod" value="@{constitution_mod}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12">
-					      <input class="" type="number" name="attr_endurance_total" value="@{endurance_is_trained} + @{endurance_ability_mod_plus_half_level} + @{armor_check_penalty}" disabled="disabled"/>
+					      <input class="" type="number" name="attr_endurance_misc_bonus" value="@{misc_endurance_bonus}" disabled="disabled"/>
+					    </div>					    
+					    <div class="sheet-col-1-12">
+					      <input class="" type="number" name="attr_endurance_total" value="@{endurance_is_trained} + @{half_level} + @{endurance_ability_mod} + @{armor_check_penalty} + @{endurance_misc_bonus}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12 sheet-offset-1-24">
 					      <input class="sheet-passive-skill-score" type="number" name="attr_endurance_passive" value="10 + @{endurance_total}" disabled="disabled"/>
@@ -475,10 +490,13 @@
 					      <input class="" type="number" name="attr_heal_armor_check_penalty" value="0" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12">
-					      <input class="" type="number" name="attr_heal_ability_mod_plus_half_level" value="@{wisdom_mod_plus_half_level}" disabled="disabled"/>
+					      <input class="" type="number" name="attr_heal_ability_mod" value="@{wisdom_mod}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12">
-					      <input class="" type="number" name="attr_heal_total" value="@{heal_is_trained} + @{heal_ability_mod_plus_half_level} + @{armor_check_penalty}" disabled="disabled"/>
+					      <input class="" type="number" name="attr_heal_misc_bonus" value="@{misc_heal_bonus}" disabled="disabled"/>
+					    </div>					    
+					    <div class="sheet-col-1-12">
+					      <input class="" type="number" name="attr_heal_total" value="@{heal_is_trained} + @{half_level} + @{heal_ability_mod} + @{armor_check_penalty} + @{heal_misc_bonus}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12 sheet-offset-1-24">
 					      <input class="sheet-passive-skill-score" type="number" name="attr_heal_passive" value="10 + @{heal_total}" disabled="disabled"/>
@@ -499,10 +517,13 @@
 					      <input class="" type="number" name="attr_history_armor_check_penalty" value="0" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12">
-					      <input class="" type="number" name="attr_history_ability_mod_plus_half_level" value="@{intelligence_mod_plus_half_level}" disabled="disabled"/>
+					      <input class="" type="number" name="attr_history_ability_mod" value="@{intelligence_mod}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12">
-					      <input class="" type="number" name="attr_history_total" value="@{history_is_trained} + @{history_ability_mod_plus_half_level} + @{armor_check_penalty}" disabled="disabled"/>
+					      <input class="" type="number" name="attr_history_misc_bonus" value="@{misc_history_bonus}" disabled="disabled"/>
+					    </div>					    
+					    <div class="sheet-col-1-12">
+					      <input class="" type="number" name="attr_history_total" value="@{history_is_trained} + @{half_level} + @{history_ability_mod} + @{armor_check_penalty} + @{history_misc_bonus}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12 sheet-offset-1-24">
 					      <input class="sheet-passive-skill-score" type="number" name="attr_history_passive" value="10 + @{history_total}" disabled="disabled"/>
@@ -523,10 +544,13 @@
 					      <input class="" type="number" name="attr_insight_armor_check_penalty" value="0" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12">
-					      <input class="" type="number" name="attr_insight_ability_mod_plus_half_level" value="@{wisdom_mod_plus_half_level}" disabled="disabled"/>
+					      <input class="" type="number" name="attr_insight_ability_mod" value="@{wisdom_mod}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12">
-					      <input class="" type="number" name="attr_insight_total" value="@{insight_is_trained} + @{insight_ability_mod_plus_half_level} + @{armor_check_penalty}" disabled="disabled"/>
+					      <input class="" type="number" name="attr_insight_misc_bonus" value="@{misc_insight_bonus}" disabled="disabled"/>
+					    </div>					    
+					    <div class="sheet-col-1-12">
+					      <input class="" type="number" name="attr_insight_total" value="@{insight_is_trained} + @{half_level} + @{insight_ability_mod} + @{armor_check_penalty} + @{insight_misc_bonus}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12 sheet-offset-1-24">
 					      <input class="sheet-passive-skill-score" type="number" name="attr_insight_passive" value="10 + @{insight_total}" disabled="disabled"/>
@@ -547,10 +571,13 @@
 					      <input class="" type="number" name="attr_intimidate_armor_check_penalty" value="0" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12">
-					      <input class="" type="number" name="attr_intimidate_ability_mod_plus_half_level" value="@{charisma_mod_plus_half_level}" disabled="disabled"/>
+					      <input class="" type="number" name="attr_intimidate_ability_mod" value="@{charisma_mod}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12">
-					      <input class="" type="number" name="attr_intimidate_total" value="@{intimidate_is_trained} + @{intimidate_ability_mod_plus_half_level} + @{armor_check_penalty}" disabled="disabled"/>
+					      <input class="" type="number" name="attr_intimidate_misc_bonus" value="@{misc_intimidate_bonus}" disabled="disabled"/>
+					    </div>					    
+					    <div class="sheet-col-1-12">
+					      <input class="" type="number" name="attr_intimidate_total" value="@{intimidate_is_trained} + @{half_level} + @{intimidate_ability_mod} + @{armor_check_penalty} + @{intimidate_misc_bonus}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12 sheet-offset-1-24">
 					      <input class="sheet-passive-skill-score" type="number" name="attr_intimidate_passive" value="10 + @{intimidate_total}" disabled="disabled"/>
@@ -571,10 +598,13 @@
 					      <input class="" type="number" name="attr_nature_armor_check_penalty" value="0" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12">
-					      <input class="" type="number" name="attr_nature_ability_mod_plus_half_level" value="@{wisdom_mod_plus_half_level}" disabled="disabled"/>
+					      <input class="" type="number" name="attr_nature_ability_mod" value="@{wisdom_mod}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12">
-					      <input class="" type="number" name="attr_nature_total" value="@{nature_is_trained} + @{nature_ability_mod_plus_half_level} + @{armor_check_penalty}" disabled="disabled"/>
+					      <input class="" type="number" name="attr_nature_misc_bonus" value="@{misc_nature_bonus}" disabled="disabled"/>
+					    </div>					    
+					    <div class="sheet-col-1-12">
+					      <input class="" type="number" name="attr_nature_total" value="@{nature_is_trained} + @{half_level} + @{nature_ability_mod} + @{armor_check_penalty} + @{nature_misc_bonus}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12 sheet-offset-1-24">
 					      <input class="sheet-passive-skill-score" type="number" name="attr_nature_passive" value="10 + @{nature_total}" disabled="disabled"/>
@@ -595,10 +625,13 @@
 					      <input class="" type="number" name="attr_perception_armor_check_penalty" value="0" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12">
-					      <input class="" type="number" name="attr_perception_ability_mod_plus_half_level" value="@{wisdom_mod_plus_half_level}" disabled="disabled"/>
+					      <input class="" type="number" name="attr_perception_ability_mod" value="@{wisdom_mod}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12">
-					      <input class="" type="number" name="attr_perception_total" value="@{perception_is_trained} + @{perception_ability_mod_plus_half_level} + @{armor_check_penalty}" disabled="disabled"/>
+					      <input class="" type="number" name="attr_perception_misc_bonus" value="@{misc_perception_bonus}" disabled="disabled"/>
+					    </div>					    
+					    <div class="sheet-col-1-12">
+					      <input class="" type="number" name="attr_perception_total" value="@{perception_is_trained} + @{half_level} + @{perception_ability_mod} + @{armor_check_penalty} + @{perception_misc_bonus}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12 sheet-offset-1-24">
 					      <input class="sheet-passive-skill-score" type="number" name="attr_perception_passive" value="10 + @{perception_total}" disabled="disabled"/>
@@ -619,10 +652,13 @@
 					      <input class="" type="number" name="attr_religion_armor_check_penalty" value="0" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12">
-					      <input class="" type="number" name="attr_religion_ability_mod_plus_half_level" value="@{intelligence_mod_plus_half_level}" disabled="disabled"/>
+					      <input class="" type="number" name="attr_religion_ability_mod" value="@{intelligence_mod}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12">
-					      <input class="" type="number" name="attr_religion_total" value="@{religion_is_trained} + @{religion_ability_mod_plus_half_level} + @{armor_check_penalty}" disabled="disabled"/>
+					      <input class="" type="number" name="attr_religion_misc_bonus" value="@{misc_religion_bonus}" disabled="disabled"/>
+					    </div>					    
+					    <div class="sheet-col-1-12">
+					      <input class="" type="number" name="attr_religion_total" value="@{religion_is_trained} + @{half_level} + @{religion_ability_mod} + @{armor_check_penalty} + @{religion_misc_bonus}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12 sheet-offset-1-24">
 					      <input class="sheet-passive-skill-score" type="number" name="attr_religion_passive" value="10 + @{religion_total}" disabled="disabled"/>
@@ -643,10 +679,13 @@
 					      <input class="" type="number" name="attr_stealth_armor_check_penalty" value="@{armor_check_penalty}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12">
-					      <input class="" type="number" name="attr_stealth_ability_mod_plus_half_level" value="@{dexterity_mod_plus_half_level}" disabled="disabled"/>
+					      <input class="" type="number" name="attr_stealth_ability_mod" value="@{dexterity_mod}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12">
-					      <input class="" type="number" name="attr_stealth_total" value="@{stealth_is_trained} + @{stealth_ability_mod_plus_half_level} + @{armor_check_penalty}" disabled="disabled"/>
+					      <input class="" type="number" name="attr_stealth_misc_bonus" value="@{misc_stealth_bonus}" disabled="disabled"/>
+					    </div>					    
+					    <div class="sheet-col-1-12">
+					      <input class="" type="number" name="attr_stealth_total" value="@{stealth_is_trained} + @{half_level} + @{stealth_ability_mod} + @{armor_check_penalty} + @{stealth_misc_bonus}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12 sheet-offset-1-24">
 					      <input class="sheet-passive-skill-score" type="number" name="attr_stealth_passive" value="10 + @{stealth_total}" disabled="disabled"/>
@@ -667,10 +706,13 @@
 					      <input class="" type="number" name="attr_streetwise_armor_check_penalty" value="0" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12">
-					      <input class="" type="number" name="attr_streetwise_ability_mod_plus_half_level" value="@{charisma_mod_plus_half_level}" disabled="disabled"/>
+					      <input class="" type="number" name="attr_streetwise_ability_mod" value="@{charisma_mod}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12">
-					      <input class="" type="number" name="attr_streetwise_total" value="@{streetwise_is_trained} + @{streetwise_ability_mod_plus_half_level} + @{armor_check_penalty}" disabled="disabled"/>
+					      <input class="" type="number" name="attr_streetwise_misc_bonus" value="@{misc_streetwise_bonus}" disabled="disabled"/>
+					    </div>					    
+					    <div class="sheet-col-1-12">
+					      <input class="" type="number" name="attr_streetwise_total" value="@{streetwise_is_trained} + @{half_level} + @{streetwise_ability_mod} + @{armor_check_penalty} + @{streetwise_misc_bonus}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12 sheet-offset-1-24">
 					      <input class="sheet-passive-skill-score" type="number" name="attr_streetwise_passive" value="10 + @{streetwise_total}" disabled="disabled"/>
@@ -691,10 +733,13 @@
 					      <input class="" type="number" name="attr_thievery_armor_check_penalty" value="@{armor_check_penalty}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12">
-					      <input class="" type="number" name="attr_thievery_ability_mod_plus_half_level" value="@{dexterity_mod_plus_half_level}" disabled="disabled"/>
+					      <input class="" type="number" name="attr_thievery_ability_mod" value="@{dexterity_mod}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12">
-					      <input class="" type="number" name="attr_thievery_total" value="@{thievery_is_trained} + @{thievery_ability_mod_plus_half_level} + @{armor_check_penalty}" disabled="disabled"/>
+					      <input class="" type="number" name="attr_thievery_misc_bonus" value="@{misc_thievery_bonus}" disabled="disabled"/>
+					    </div>					    
+					    <div class="sheet-col-1-12">
+					      <input class="" type="number" name="attr_thievery_total" value="@{thievery_is_trained} + @{half_level} + @{thievery_ability_mod} + @{armor_check_penalty} + @{thievery_misc_bonus}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12 sheet-offset-1-24">
 					      <input class="sheet-passive-skill-score" type="number" name="attr_thievery_passive" value="10 + @{thievery_total}" disabled="disabled"/>
@@ -784,20 +829,38 @@
 		        <input class="" type="text" name="attr_bonus_description1" value="" />
 				
 			<div class="sheet-row">
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Init</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Speed</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">AC</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Fort.</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Reflex</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Will</div>	
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Type</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Modifier</div>
 			</div>
+			
 			<div class="sheet-row">
-			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_initiative_bonus1" value="0" min="0" step="1"/></div>
-			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_speed_bonus1" value="0" min="0" step="1"/></div>
-			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_ac_bonus1" value="0" min="0" step="1"/></div>
-			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_fort_bonus1" value="0" min="0" step="1"/></div>
-			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_reflex_bonus1" value="0" min="0" step="1"/></div>
-			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_will_bonus1" value="0" min="0" step="1"/></div>
+			  <div class="sheet-col-1-12"><select name='attr_bonus_category1'>
+<option value='0'>None</option>
+<option value='1'>Initiative</option>
+<option value='2'>Speed</option>
+<option value='3'>Ac</option>
+<option value='4'>Fort</option>
+<option value='5'>Reflex</option>
+<option value='6'>Will</option>
+<option value='7'>Acrobatics</option>
+<option value='8'>Arcana</option>
+<option value='9'>Athletics</option>
+<option value='10'>Bluff</option>
+<option value='11'>Diplomacy</option>
+<option value='12'>Dungeoneering</option>
+<option value='13'>Endurance</option>
+<option value='14'>Heal</option>
+<option value='15'>History</option>
+<option value='16'>Insight</option>
+<option value='17'>Intimidate</option>
+<option value='18'>Nature</option>
+<option value='19'>Perception</option>
+<option value='20'>Religion</option>
+<option value='21'>Stealth</option>
+<option value='22'>Streetwise</option>
+<option value='23'>Thievery</option>
+</select></div>
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_modifier1" value="0" min="0" step="1"/></div>
 			</div>
 
 		      </div>
@@ -809,20 +872,38 @@
 		        <input class="" type="text" name="attr_bonus_description2" value="" />
 				
 			<div class="sheet-row">
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Init</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Speed</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">AC</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Fort.</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Reflex</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Will</div>	
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Type</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Modifier</div>
 			</div>
+			
 			<div class="sheet-row">
-			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_initiative_bonus2" value="0" min="0" step="1"/></div>
-			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_speed_bonus2" value="0" min="0" step="1"/></div>
-			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_ac_bonus2" value="0" min="0" step="1"/></div>
-			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_fort_bonus2" value="0" min="0" step="1"/></div>
-			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_reflex_bonus2" value="0" min="0" step="1"/></div>
-			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_will_bonus2" value="0" min="0" step="1"/></div>
+			  <div class="sheet-col-1-12"><select name='attr_bonus_category2'>
+<option value='0'>None</option>
+<option value='1'>Initiative</option>
+<option value='2'>Speed</option>
+<option value='3'>Ac</option>
+<option value='4'>Fort</option>
+<option value='5'>Reflex</option>
+<option value='6'>Will</option>
+<option value='7'>Acrobatics</option>
+<option value='8'>Arcana</option>
+<option value='9'>Athletics</option>
+<option value='10'>Bluff</option>
+<option value='11'>Diplomacy</option>
+<option value='12'>Dungeoneering</option>
+<option value='13'>Endurance</option>
+<option value='14'>Heal</option>
+<option value='15'>History</option>
+<option value='16'>Insight</option>
+<option value='17'>Intimidate</option>
+<option value='18'>Nature</option>
+<option value='19'>Perception</option>
+<option value='20'>Religion</option>
+<option value='21'>Stealth</option>
+<option value='22'>Streetwise</option>
+<option value='23'>Thievery</option>
+</select></div>
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_modifier2" value="0" min="0" step="1"/></div>
 			</div>
 
 		      </div>
@@ -834,20 +915,38 @@
 		        <input class="" type="text" name="attr_bonus_description3" value="" />
 				
 			<div class="sheet-row">
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Init</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Speed</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">AC</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Fort.</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Reflex</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Will</div>	
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Type</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Modifier</div>
 			</div>
+			
 			<div class="sheet-row">
-			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_initiative_bonus3" value="0" min="0" step="1"/></div>
-			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_speed_bonus3" value="0" min="0" step="1"/></div>
-			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_ac_bonus3" value="0" min="0" step="1"/></div>
-			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_fort_bonus3" value="0" min="0" step="1"/></div>
-			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_reflex_bonus3" value="0" min="0" step="1"/></div>
-			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_will_bonus3" value="0" min="0" step="1"/></div>
+			  <div class="sheet-col-1-12"><select name='attr_bonus_category3'>
+<option value='0'>None</option>
+<option value='1'>Initiative</option>
+<option value='2'>Speed</option>
+<option value='3'>Ac</option>
+<option value='4'>Fort</option>
+<option value='5'>Reflex</option>
+<option value='6'>Will</option>
+<option value='7'>Acrobatics</option>
+<option value='8'>Arcana</option>
+<option value='9'>Athletics</option>
+<option value='10'>Bluff</option>
+<option value='11'>Diplomacy</option>
+<option value='12'>Dungeoneering</option>
+<option value='13'>Endurance</option>
+<option value='14'>Heal</option>
+<option value='15'>History</option>
+<option value='16'>Insight</option>
+<option value='17'>Intimidate</option>
+<option value='18'>Nature</option>
+<option value='19'>Perception</option>
+<option value='20'>Religion</option>
+<option value='21'>Stealth</option>
+<option value='22'>Streetwise</option>
+<option value='23'>Thievery</option>
+</select></div>
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_modifier3" value="0" min="0" step="1"/></div>
 			</div>
 
 		      </div>
@@ -859,20 +958,38 @@
 		        <input class="" type="text" name="attr_bonus_description4" value="" />
 				
 			<div class="sheet-row">
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Init</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Speed</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">AC</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Fort.</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Reflex</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Will</div>	
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Type</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Modifier</div>
 			</div>
+			
 			<div class="sheet-row">
-			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_initiative_bonus4" value="0" min="0" step="1"/></div>
-			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_speed_bonus4" value="0" min="0" step="1"/></div>
-			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_ac_bonus4" value="0" min="0" step="1"/></div>
-			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_fort_bonus4" value="0" min="0" step="1"/></div>
-			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_reflex_bonus4" value="0" min="0" step="1"/></div>
-			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_will_bonus4" value="0" min="0" step="1"/></div>
+			  <div class="sheet-col-1-12"><select name='attr_bonus_category4'>
+<option value='0'>None</option>
+<option value='1'>Initiative</option>
+<option value='2'>Speed</option>
+<option value='3'>Ac</option>
+<option value='4'>Fort</option>
+<option value='5'>Reflex</option>
+<option value='6'>Will</option>
+<option value='7'>Acrobatics</option>
+<option value='8'>Arcana</option>
+<option value='9'>Athletics</option>
+<option value='10'>Bluff</option>
+<option value='11'>Diplomacy</option>
+<option value='12'>Dungeoneering</option>
+<option value='13'>Endurance</option>
+<option value='14'>Heal</option>
+<option value='15'>History</option>
+<option value='16'>Insight</option>
+<option value='17'>Intimidate</option>
+<option value='18'>Nature</option>
+<option value='19'>Perception</option>
+<option value='20'>Religion</option>
+<option value='21'>Stealth</option>
+<option value='22'>Streetwise</option>
+<option value='23'>Thievery</option>
+</select></div>
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_modifier4" value="0" min="0" step="1"/></div>
 			</div>
 
 		      </div>
@@ -884,20 +1001,38 @@
 		        <input class="" type="text" name="attr_bonus_description5" value="" />
 				
 			<div class="sheet-row">
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Init</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Speed</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">AC</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Fort.</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Reflex</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Will</div>	
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Type</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Modifier</div>
 			</div>
+			
 			<div class="sheet-row">
-			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_initiative_bonus5" value="0" min="0" step="1"/></div>
-			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_speed_bonus5" value="0" min="0" step="1"/></div>
-			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_ac_bonus5" value="0" min="0" step="1"/></div>
-			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_fort_bonus5" value="0" min="0" step="1"/></div>
-			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_reflex_bonus5" value="0" min="0" step="1"/></div>
-			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_will_bonus5" value="0" min="0" step="1"/></div>
+			  <div class="sheet-col-1-12"><select name='attr_bonus_category5'>
+<option value='0'>None</option>
+<option value='1'>Initiative</option>
+<option value='2'>Speed</option>
+<option value='3'>Ac</option>
+<option value='4'>Fort</option>
+<option value='5'>Reflex</option>
+<option value='6'>Will</option>
+<option value='7'>Acrobatics</option>
+<option value='8'>Arcana</option>
+<option value='9'>Athletics</option>
+<option value='10'>Bluff</option>
+<option value='11'>Diplomacy</option>
+<option value='12'>Dungeoneering</option>
+<option value='13'>Endurance</option>
+<option value='14'>Heal</option>
+<option value='15'>History</option>
+<option value='16'>Insight</option>
+<option value='17'>Intimidate</option>
+<option value='18'>Nature</option>
+<option value='19'>Perception</option>
+<option value='20'>Religion</option>
+<option value='21'>Stealth</option>
+<option value='22'>Streetwise</option>
+<option value='23'>Thievery</option>
+</select></div>
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_modifier5" value="0" min="0" step="1"/></div>
 			</div>
 
 		      </div>
@@ -909,20 +1044,38 @@
 		        <input class="" type="text" name="attr_bonus_description6" value="" />
 				
 			<div class="sheet-row">
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Init</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Speed</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">AC</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Fort.</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Reflex</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Will</div>	
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Type</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Modifier</div>
 			</div>
+			
 			<div class="sheet-row">
-			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_initiative_bonus6" value="0" min="0" step="1"/></div>
-			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_speed_bonus6" value="0" min="0" step="1"/></div>
-			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_ac_bonus6" value="0" min="0" step="1"/></div>
-			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_fort_bonus6" value="0" min="0" step="1"/></div>
-			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_reflex_bonus6" value="0" min="0" step="1"/></div>
-			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_will_bonus6" value="0" min="0" step="1"/></div>
+			  <div class="sheet-col-1-12"><select name='attr_bonus_category6'>
+<option value='0'>None</option>
+<option value='1'>Initiative</option>
+<option value='2'>Speed</option>
+<option value='3'>Ac</option>
+<option value='4'>Fort</option>
+<option value='5'>Reflex</option>
+<option value='6'>Will</option>
+<option value='7'>Acrobatics</option>
+<option value='8'>Arcana</option>
+<option value='9'>Athletics</option>
+<option value='10'>Bluff</option>
+<option value='11'>Diplomacy</option>
+<option value='12'>Dungeoneering</option>
+<option value='13'>Endurance</option>
+<option value='14'>Heal</option>
+<option value='15'>History</option>
+<option value='16'>Insight</option>
+<option value='17'>Intimidate</option>
+<option value='18'>Nature</option>
+<option value='19'>Perception</option>
+<option value='20'>Religion</option>
+<option value='21'>Stealth</option>
+<option value='22'>Streetwise</option>
+<option value='23'>Thievery</option>
+</select></div>
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_modifier6" value="0" min="0" step="1"/></div>
 			</div>
 
 		      </div>
@@ -934,20 +1087,38 @@
 		        <input class="" type="text" name="attr_bonus_description7" value="" />
 				
 			<div class="sheet-row">
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Init</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Speed</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">AC</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Fort.</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Reflex</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Will</div>	
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Type</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Modifier</div>
 			</div>
+			
 			<div class="sheet-row">
-			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_initiative_bonus7" value="0" min="0" step="1"/></div>
-			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_speed_bonus7" value="0" min="0" step="1"/></div>
-			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_ac_bonus7" value="0" min="0" step="1"/></div>
-			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_fort_bonus7" value="0" min="0" step="1"/></div>
-			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_reflex_bonus7" value="0" min="0" step="1"/></div>
-			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_will_bonus7" value="0" min="0" step="1"/></div>
+			  <div class="sheet-col-1-12"><select name='attr_bonus_category7'>
+<option value='0'>None</option>
+<option value='1'>Initiative</option>
+<option value='2'>Speed</option>
+<option value='3'>Ac</option>
+<option value='4'>Fort</option>
+<option value='5'>Reflex</option>
+<option value='6'>Will</option>
+<option value='7'>Acrobatics</option>
+<option value='8'>Arcana</option>
+<option value='9'>Athletics</option>
+<option value='10'>Bluff</option>
+<option value='11'>Diplomacy</option>
+<option value='12'>Dungeoneering</option>
+<option value='13'>Endurance</option>
+<option value='14'>Heal</option>
+<option value='15'>History</option>
+<option value='16'>Insight</option>
+<option value='17'>Intimidate</option>
+<option value='18'>Nature</option>
+<option value='19'>Perception</option>
+<option value='20'>Religion</option>
+<option value='21'>Stealth</option>
+<option value='22'>Streetwise</option>
+<option value='23'>Thievery</option>
+</select></div>
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_modifier7" value="0" min="0" step="1"/></div>
 			</div>
 
 		      </div>
@@ -959,20 +1130,38 @@
 		        <input class="" type="text" name="attr_bonus_description8" value="" />
 				
 			<div class="sheet-row">
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Init</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Speed</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">AC</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Fort.</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Reflex</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Will</div>	
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Type</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Modifier</div>
 			</div>
+			
 			<div class="sheet-row">
-			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_initiative_bonus8" value="0" min="0" step="1"/></div>
-			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_speed_bonus8" value="0" min="0" step="1"/></div>
-			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_ac_bonus8" value="0" min="0" step="1"/></div>
-			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_fort_bonus8" value="0" min="0" step="1"/></div>
-			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_reflex_bonus8" value="0" min="0" step="1"/></div>
-			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_will_bonus8" value="0" min="0" step="1"/></div>
+			  <div class="sheet-col-1-12"><select name='attr_bonus_category8'>
+<option value='0'>None</option>
+<option value='1'>Initiative</option>
+<option value='2'>Speed</option>
+<option value='3'>Ac</option>
+<option value='4'>Fort</option>
+<option value='5'>Reflex</option>
+<option value='6'>Will</option>
+<option value='7'>Acrobatics</option>
+<option value='8'>Arcana</option>
+<option value='9'>Athletics</option>
+<option value='10'>Bluff</option>
+<option value='11'>Diplomacy</option>
+<option value='12'>Dungeoneering</option>
+<option value='13'>Endurance</option>
+<option value='14'>Heal</option>
+<option value='15'>History</option>
+<option value='16'>Insight</option>
+<option value='17'>Intimidate</option>
+<option value='18'>Nature</option>
+<option value='19'>Perception</option>
+<option value='20'>Religion</option>
+<option value='21'>Stealth</option>
+<option value='22'>Streetwise</option>
+<option value='23'>Thievery</option>
+</select></div>
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_modifier8" value="0" min="0" step="1"/></div>
 			</div>
 
 		      </div>
@@ -984,20 +1173,38 @@
 		        <input class="" type="text" name="attr_bonus_description9" value="" />
 				
 			<div class="sheet-row">
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Init</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Speed</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">AC</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Fort.</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Reflex</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Will</div>	
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Type</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Modifier</div>
 			</div>
+			
 			<div class="sheet-row">
-			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_initiative_bonus9" value="0" min="0" step="1"/></div>
-			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_speed_bonus9" value="0" min="0" step="1"/></div>
-			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_ac_bonus9" value="0" min="0" step="1"/></div>
-			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_fort_bonus9" value="0" min="0" step="1"/></div>
-			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_reflex_bonus9" value="0" min="0" step="1"/></div>
-			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_will_bonus9" value="0" min="0" step="1"/></div>
+			  <div class="sheet-col-1-12"><select name='attr_bonus_category9'>
+<option value='0'>None</option>
+<option value='1'>Initiative</option>
+<option value='2'>Speed</option>
+<option value='3'>Ac</option>
+<option value='4'>Fort</option>
+<option value='5'>Reflex</option>
+<option value='6'>Will</option>
+<option value='7'>Acrobatics</option>
+<option value='8'>Arcana</option>
+<option value='9'>Athletics</option>
+<option value='10'>Bluff</option>
+<option value='11'>Diplomacy</option>
+<option value='12'>Dungeoneering</option>
+<option value='13'>Endurance</option>
+<option value='14'>Heal</option>
+<option value='15'>History</option>
+<option value='16'>Insight</option>
+<option value='17'>Intimidate</option>
+<option value='18'>Nature</option>
+<option value='19'>Perception</option>
+<option value='20'>Religion</option>
+<option value='21'>Stealth</option>
+<option value='22'>Streetwise</option>
+<option value='23'>Thievery</option>
+</select></div>
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_modifier9" value="0" min="0" step="1"/></div>
 			</div>
 
 		      </div>
@@ -1009,32 +1216,68 @@
 		        <input class="" type="text" name="attr_bonus_description10" value="" />
 				
 			<div class="sheet-row">
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Init</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Speed</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">AC</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Fort.</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Reflex</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Will</div>	
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Type</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Modifier</div>
 			</div>
+			
 			<div class="sheet-row">
-			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_initiative_bonus10" value="0" min="0" step="1"/></div>
-			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_speed_bonus10" value="0" min="0" step="1"/></div>
-			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_ac_bonus10" value="0" min="0" step="1"/></div>
-			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_fort_bonus10" value="0" min="0" step="1"/></div>
-			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_reflex_bonus10" value="0" min="0" step="1"/></div>
-			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_will_bonus10" value="0" min="0" step="1"/></div>
+			  <div class="sheet-col-1-12"><select name='attr_bonus_category10'>
+<option value='0'>None</option>
+<option value='1'>Initiative</option>
+<option value='2'>Speed</option>
+<option value='3'>Ac</option>
+<option value='4'>Fort</option>
+<option value='5'>Reflex</option>
+<option value='6'>Will</option>
+<option value='7'>Acrobatics</option>
+<option value='8'>Arcana</option>
+<option value='9'>Athletics</option>
+<option value='10'>Bluff</option>
+<option value='11'>Diplomacy</option>
+<option value='12'>Dungeoneering</option>
+<option value='13'>Endurance</option>
+<option value='14'>Heal</option>
+<option value='15'>History</option>
+<option value='16'>Insight</option>
+<option value='17'>Intimidate</option>
+<option value='18'>Nature</option>
+<option value='19'>Perception</option>
+<option value='20'>Religion</option>
+<option value='21'>Stealth</option>
+<option value='22'>Streetwise</option>
+<option value='23'>Thievery</option>
+</select></div>
+			  <div class="sheet-col-1-12"><input class="" type="number" name="attr_bonus_modifier10" value="0" min="0" step="1"/></div>
 			</div>
 
 		      </div>
 		      <hr/><br/>
 		      
 
-		      <input class="" type="hidden" name="attr_misc_initiative_bonus" value="@{bonus_initiative_bonus1} + @{bonus_initiative_bonus2} + @{bonus_initiative_bonus3} + @{bonus_initiative_bonus4} + @{bonus_initiative_bonus5} + @{bonus_initiative_bonus6} + @{bonus_initiative_bonus7} + @{bonus_initiative_bonus8} + @{bonus_initiative_bonus9} + @{bonus_initiative_bonus10}" disabled="disabled"/>
-		      <input class="" type="hidden" name="attr_misc_speed_bonus" value="@{bonus_speed_bonus1} + @{bonus_speed_bonus2} + @{bonus_speed_bonus3} + @{bonus_speed_bonus4} + @{bonus_speed_bonus5} + @{bonus_speed_bonus6} + @{bonus_speed_bonus7} + @{bonus_speed_bonus8} + @{bonus_speed_bonus9} + @{bonus_speed_bonus10}" disabled="disabled"/>
-		      <input class="" type="hidden" name="attr_misc_ac_bonus" value="@{bonus_ac_bonus1} + @{bonus_ac_bonus2} + @{bonus_ac_bonus3} + @{bonus_ac_bonus4} + @{bonus_ac_bonus5} + @{bonus_ac_bonus6} + @{bonus_ac_bonus7} + @{bonus_ac_bonus8} + @{bonus_ac_bonus9} + @{bonus_ac_bonus10}" disabled="disabled"/>
-		      <input class="" type="hidden" name="attr_misc_fort_bonus" value="@{bonus_fort_bonus1} + @{bonus_fort_bonus2} + @{bonus_fort_bonus3} + @{bonus_fort_bonus4} + @{bonus_fort_bonus5} + @{bonus_fort_bonus6} + @{bonus_fort_bonus7} + @{bonus_fort_bonus8} + @{bonus_fort_bonus9} + @{bonus_fort_bonus10}" disabled="disabled"/>
-		      <input class="" type="hidden" name="attr_misc_reflex_bonus" value="@{bonus_reflex_bonus1} + @{bonus_reflex_bonus2} + @{bonus_reflex_bonus3} + @{bonus_reflex_bonus4} + @{bonus_reflex_bonus5} + @{bonus_reflex_bonus6} + @{bonus_reflex_bonus7} + @{bonus_reflex_bonus8} + @{bonus_reflex_bonus9} + @{bonus_reflex_bonus10}" disabled="disabled"/> 
-		      <input class="" type="hidden" name="attr_misc_will_bonus" value="@{bonus_will_bonus1} + @{bonus_will_bonus2} + @{bonus_will_bonus3} + @{bonus_will_bonus4} + @{bonus_will_bonus5} + @{bonus_will_bonus6} + @{bonus_will_bonus7} + @{bonus_will_bonus8} + @{bonus_will_bonus9} + @{bonus_will_bonus10}" disabled="disabled"/> 
+		      <input class="" type="number" name="attr_misc_none_bonus" value="(abs((((1 + abs((@{bonus_category1})-(0))) - abs(1 - abs((@{bonus_category1})-(0)))) / 2) - 1)) * (@{bonus_modifier1}) + (abs((((1 + abs((@{bonus_category2})-(0))) - abs(1 - abs((@{bonus_category2})-(0)))) / 2) - 1)) * (@{bonus_modifier2}) + (abs((((1 + abs((@{bonus_category3})-(0))) - abs(1 - abs((@{bonus_category3})-(0)))) / 2) - 1)) * (@{bonus_modifier3}) + (abs((((1 + abs((@{bonus_category4})-(0))) - abs(1 - abs((@{bonus_category4})-(0)))) / 2) - 1)) * (@{bonus_modifier4}) + (abs((((1 + abs((@{bonus_category5})-(0))) - abs(1 - abs((@{bonus_category5})-(0)))) / 2) - 1)) * (@{bonus_modifier5}) + (abs((((1 + abs((@{bonus_category6})-(0))) - abs(1 - abs((@{bonus_category6})-(0)))) / 2) - 1)) * (@{bonus_modifier6}) + (abs((((1 + abs((@{bonus_category7})-(0))) - abs(1 - abs((@{bonus_category7})-(0)))) / 2) - 1)) * (@{bonus_modifier7}) + (abs((((1 + abs((@{bonus_category8})-(0))) - abs(1 - abs((@{bonus_category8})-(0)))) / 2) - 1)) * (@{bonus_modifier8}) + (abs((((1 + abs((@{bonus_category9})-(0))) - abs(1 - abs((@{bonus_category9})-(0)))) / 2) - 1)) * (@{bonus_modifier9}) + (abs((((1 + abs((@{bonus_category10})-(0))) - abs(1 - abs((@{bonus_category10})-(0)))) / 2) - 1)) * (@{bonus_modifier10})" disabled="disabled"/>
+		      <input class="" type="number" name="attr_misc_initiative_bonus" value="(abs((((1 + abs((@{bonus_category1})-(1))) - abs(1 - abs((@{bonus_category1})-(1)))) / 2) - 1)) * (@{bonus_modifier1}) + (abs((((1 + abs((@{bonus_category2})-(1))) - abs(1 - abs((@{bonus_category2})-(1)))) / 2) - 1)) * (@{bonus_modifier2}) + (abs((((1 + abs((@{bonus_category3})-(1))) - abs(1 - abs((@{bonus_category3})-(1)))) / 2) - 1)) * (@{bonus_modifier3}) + (abs((((1 + abs((@{bonus_category4})-(1))) - abs(1 - abs((@{bonus_category4})-(1)))) / 2) - 1)) * (@{bonus_modifier4}) + (abs((((1 + abs((@{bonus_category5})-(1))) - abs(1 - abs((@{bonus_category5})-(1)))) / 2) - 1)) * (@{bonus_modifier5}) + (abs((((1 + abs((@{bonus_category6})-(1))) - abs(1 - abs((@{bonus_category6})-(1)))) / 2) - 1)) * (@{bonus_modifier6}) + (abs((((1 + abs((@{bonus_category7})-(1))) - abs(1 - abs((@{bonus_category7})-(1)))) / 2) - 1)) * (@{bonus_modifier7}) + (abs((((1 + abs((@{bonus_category8})-(1))) - abs(1 - abs((@{bonus_category8})-(1)))) / 2) - 1)) * (@{bonus_modifier8}) + (abs((((1 + abs((@{bonus_category9})-(1))) - abs(1 - abs((@{bonus_category9})-(1)))) / 2) - 1)) * (@{bonus_modifier9}) + (abs((((1 + abs((@{bonus_category10})-(1))) - abs(1 - abs((@{bonus_category10})-(1)))) / 2) - 1)) * (@{bonus_modifier10})" disabled="disabled"/>
+		      <input class="" type="number" name="attr_misc_speed_bonus" value="(abs((((1 + abs((@{bonus_category1})-(2))) - abs(1 - abs((@{bonus_category1})-(2)))) / 2) - 1)) * (@{bonus_modifier1}) + (abs((((1 + abs((@{bonus_category2})-(2))) - abs(1 - abs((@{bonus_category2})-(2)))) / 2) - 1)) * (@{bonus_modifier2}) + (abs((((1 + abs((@{bonus_category3})-(2))) - abs(1 - abs((@{bonus_category3})-(2)))) / 2) - 1)) * (@{bonus_modifier3}) + (abs((((1 + abs((@{bonus_category4})-(2))) - abs(1 - abs((@{bonus_category4})-(2)))) / 2) - 1)) * (@{bonus_modifier4}) + (abs((((1 + abs((@{bonus_category5})-(2))) - abs(1 - abs((@{bonus_category5})-(2)))) / 2) - 1)) * (@{bonus_modifier5}) + (abs((((1 + abs((@{bonus_category6})-(2))) - abs(1 - abs((@{bonus_category6})-(2)))) / 2) - 1)) * (@{bonus_modifier6}) + (abs((((1 + abs((@{bonus_category7})-(2))) - abs(1 - abs((@{bonus_category7})-(2)))) / 2) - 1)) * (@{bonus_modifier7}) + (abs((((1 + abs((@{bonus_category8})-(2))) - abs(1 - abs((@{bonus_category8})-(2)))) / 2) - 1)) * (@{bonus_modifier8}) + (abs((((1 + abs((@{bonus_category9})-(2))) - abs(1 - abs((@{bonus_category9})-(2)))) / 2) - 1)) * (@{bonus_modifier9}) + (abs((((1 + abs((@{bonus_category10})-(2))) - abs(1 - abs((@{bonus_category10})-(2)))) / 2) - 1)) * (@{bonus_modifier10})" disabled="disabled"/>
+		      <input class="" type="number" name="attr_misc_ac_bonus" value="(abs((((1 + abs((@{bonus_category1})-(3))) - abs(1 - abs((@{bonus_category1})-(3)))) / 2) - 1)) * (@{bonus_modifier1}) + (abs((((1 + abs((@{bonus_category2})-(3))) - abs(1 - abs((@{bonus_category2})-(3)))) / 2) - 1)) * (@{bonus_modifier2}) + (abs((((1 + abs((@{bonus_category3})-(3))) - abs(1 - abs((@{bonus_category3})-(3)))) / 2) - 1)) * (@{bonus_modifier3}) + (abs((((1 + abs((@{bonus_category4})-(3))) - abs(1 - abs((@{bonus_category4})-(3)))) / 2) - 1)) * (@{bonus_modifier4}) + (abs((((1 + abs((@{bonus_category5})-(3))) - abs(1 - abs((@{bonus_category5})-(3)))) / 2) - 1)) * (@{bonus_modifier5}) + (abs((((1 + abs((@{bonus_category6})-(3))) - abs(1 - abs((@{bonus_category6})-(3)))) / 2) - 1)) * (@{bonus_modifier6}) + (abs((((1 + abs((@{bonus_category7})-(3))) - abs(1 - abs((@{bonus_category7})-(3)))) / 2) - 1)) * (@{bonus_modifier7}) + (abs((((1 + abs((@{bonus_category8})-(3))) - abs(1 - abs((@{bonus_category8})-(3)))) / 2) - 1)) * (@{bonus_modifier8}) + (abs((((1 + abs((@{bonus_category9})-(3))) - abs(1 - abs((@{bonus_category9})-(3)))) / 2) - 1)) * (@{bonus_modifier9}) + (abs((((1 + abs((@{bonus_category10})-(3))) - abs(1 - abs((@{bonus_category10})-(3)))) / 2) - 1)) * (@{bonus_modifier10})" disabled="disabled"/>
+		      <input class="" type="number" name="attr_misc_fort_bonus" value="(abs((((1 + abs((@{bonus_category1})-(4))) - abs(1 - abs((@{bonus_category1})-(4)))) / 2) - 1)) * (@{bonus_modifier1}) + (abs((((1 + abs((@{bonus_category2})-(4))) - abs(1 - abs((@{bonus_category2})-(4)))) / 2) - 1)) * (@{bonus_modifier2}) + (abs((((1 + abs((@{bonus_category3})-(4))) - abs(1 - abs((@{bonus_category3})-(4)))) / 2) - 1)) * (@{bonus_modifier3}) + (abs((((1 + abs((@{bonus_category4})-(4))) - abs(1 - abs((@{bonus_category4})-(4)))) / 2) - 1)) * (@{bonus_modifier4}) + (abs((((1 + abs((@{bonus_category5})-(4))) - abs(1 - abs((@{bonus_category5})-(4)))) / 2) - 1)) * (@{bonus_modifier5}) + (abs((((1 + abs((@{bonus_category6})-(4))) - abs(1 - abs((@{bonus_category6})-(4)))) / 2) - 1)) * (@{bonus_modifier6}) + (abs((((1 + abs((@{bonus_category7})-(4))) - abs(1 - abs((@{bonus_category7})-(4)))) / 2) - 1)) * (@{bonus_modifier7}) + (abs((((1 + abs((@{bonus_category8})-(4))) - abs(1 - abs((@{bonus_category8})-(4)))) / 2) - 1)) * (@{bonus_modifier8}) + (abs((((1 + abs((@{bonus_category9})-(4))) - abs(1 - abs((@{bonus_category9})-(4)))) / 2) - 1)) * (@{bonus_modifier9}) + (abs((((1 + abs((@{bonus_category10})-(4))) - abs(1 - abs((@{bonus_category10})-(4)))) / 2) - 1)) * (@{bonus_modifier10})" disabled="disabled"/>
+		      <input class="" type="number" name="attr_misc_reflex_bonus" value="(abs((((1 + abs((@{bonus_category1})-(5))) - abs(1 - abs((@{bonus_category1})-(5)))) / 2) - 1)) * (@{bonus_modifier1}) + (abs((((1 + abs((@{bonus_category2})-(5))) - abs(1 - abs((@{bonus_category2})-(5)))) / 2) - 1)) * (@{bonus_modifier2}) + (abs((((1 + abs((@{bonus_category3})-(5))) - abs(1 - abs((@{bonus_category3})-(5)))) / 2) - 1)) * (@{bonus_modifier3}) + (abs((((1 + abs((@{bonus_category4})-(5))) - abs(1 - abs((@{bonus_category4})-(5)))) / 2) - 1)) * (@{bonus_modifier4}) + (abs((((1 + abs((@{bonus_category5})-(5))) - abs(1 - abs((@{bonus_category5})-(5)))) / 2) - 1)) * (@{bonus_modifier5}) + (abs((((1 + abs((@{bonus_category6})-(5))) - abs(1 - abs((@{bonus_category6})-(5)))) / 2) - 1)) * (@{bonus_modifier6}) + (abs((((1 + abs((@{bonus_category7})-(5))) - abs(1 - abs((@{bonus_category7})-(5)))) / 2) - 1)) * (@{bonus_modifier7}) + (abs((((1 + abs((@{bonus_category8})-(5))) - abs(1 - abs((@{bonus_category8})-(5)))) / 2) - 1)) * (@{bonus_modifier8}) + (abs((((1 + abs((@{bonus_category9})-(5))) - abs(1 - abs((@{bonus_category9})-(5)))) / 2) - 1)) * (@{bonus_modifier9}) + (abs((((1 + abs((@{bonus_category10})-(5))) - abs(1 - abs((@{bonus_category10})-(5)))) / 2) - 1)) * (@{bonus_modifier10})" disabled="disabled"/>
+		      <input class="" type="number" name="attr_misc_will_bonus" value="(abs((((1 + abs((@{bonus_category1})-(6))) - abs(1 - abs((@{bonus_category1})-(6)))) / 2) - 1)) * (@{bonus_modifier1}) + (abs((((1 + abs((@{bonus_category2})-(6))) - abs(1 - abs((@{bonus_category2})-(6)))) / 2) - 1)) * (@{bonus_modifier2}) + (abs((((1 + abs((@{bonus_category3})-(6))) - abs(1 - abs((@{bonus_category3})-(6)))) / 2) - 1)) * (@{bonus_modifier3}) + (abs((((1 + abs((@{bonus_category4})-(6))) - abs(1 - abs((@{bonus_category4})-(6)))) / 2) - 1)) * (@{bonus_modifier4}) + (abs((((1 + abs((@{bonus_category5})-(6))) - abs(1 - abs((@{bonus_category5})-(6)))) / 2) - 1)) * (@{bonus_modifier5}) + (abs((((1 + abs((@{bonus_category6})-(6))) - abs(1 - abs((@{bonus_category6})-(6)))) / 2) - 1)) * (@{bonus_modifier6}) + (abs((((1 + abs((@{bonus_category7})-(6))) - abs(1 - abs((@{bonus_category7})-(6)))) / 2) - 1)) * (@{bonus_modifier7}) + (abs((((1 + abs((@{bonus_category8})-(6))) - abs(1 - abs((@{bonus_category8})-(6)))) / 2) - 1)) * (@{bonus_modifier8}) + (abs((((1 + abs((@{bonus_category9})-(6))) - abs(1 - abs((@{bonus_category9})-(6)))) / 2) - 1)) * (@{bonus_modifier9}) + (abs((((1 + abs((@{bonus_category10})-(6))) - abs(1 - abs((@{bonus_category10})-(6)))) / 2) - 1)) * (@{bonus_modifier10})" disabled="disabled"/>
+		      <input class="" type="number" name="attr_misc_acrobatics_bonus" value="(abs((((1 + abs((@{bonus_category1})-(7))) - abs(1 - abs((@{bonus_category1})-(7)))) / 2) - 1)) * (@{bonus_modifier1}) + (abs((((1 + abs((@{bonus_category2})-(7))) - abs(1 - abs((@{bonus_category2})-(7)))) / 2) - 1)) * (@{bonus_modifier2}) + (abs((((1 + abs((@{bonus_category3})-(7))) - abs(1 - abs((@{bonus_category3})-(7)))) / 2) - 1)) * (@{bonus_modifier3}) + (abs((((1 + abs((@{bonus_category4})-(7))) - abs(1 - abs((@{bonus_category4})-(7)))) / 2) - 1)) * (@{bonus_modifier4}) + (abs((((1 + abs((@{bonus_category5})-(7))) - abs(1 - abs((@{bonus_category5})-(7)))) / 2) - 1)) * (@{bonus_modifier5}) + (abs((((1 + abs((@{bonus_category6})-(7))) - abs(1 - abs((@{bonus_category6})-(7)))) / 2) - 1)) * (@{bonus_modifier6}) + (abs((((1 + abs((@{bonus_category7})-(7))) - abs(1 - abs((@{bonus_category7})-(7)))) / 2) - 1)) * (@{bonus_modifier7}) + (abs((((1 + abs((@{bonus_category8})-(7))) - abs(1 - abs((@{bonus_category8})-(7)))) / 2) - 1)) * (@{bonus_modifier8}) + (abs((((1 + abs((@{bonus_category9})-(7))) - abs(1 - abs((@{bonus_category9})-(7)))) / 2) - 1)) * (@{bonus_modifier9}) + (abs((((1 + abs((@{bonus_category10})-(7))) - abs(1 - abs((@{bonus_category10})-(7)))) / 2) - 1)) * (@{bonus_modifier10})" disabled="disabled"/>
+		      <input class="" type="number" name="attr_misc_arcana_bonus" value="(abs((((1 + abs((@{bonus_category1})-(8))) - abs(1 - abs((@{bonus_category1})-(8)))) / 2) - 1)) * (@{bonus_modifier1}) + (abs((((1 + abs((@{bonus_category2})-(8))) - abs(1 - abs((@{bonus_category2})-(8)))) / 2) - 1)) * (@{bonus_modifier2}) + (abs((((1 + abs((@{bonus_category3})-(8))) - abs(1 - abs((@{bonus_category3})-(8)))) / 2) - 1)) * (@{bonus_modifier3}) + (abs((((1 + abs((@{bonus_category4})-(8))) - abs(1 - abs((@{bonus_category4})-(8)))) / 2) - 1)) * (@{bonus_modifier4}) + (abs((((1 + abs((@{bonus_category5})-(8))) - abs(1 - abs((@{bonus_category5})-(8)))) / 2) - 1)) * (@{bonus_modifier5}) + (abs((((1 + abs((@{bonus_category6})-(8))) - abs(1 - abs((@{bonus_category6})-(8)))) / 2) - 1)) * (@{bonus_modifier6}) + (abs((((1 + abs((@{bonus_category7})-(8))) - abs(1 - abs((@{bonus_category7})-(8)))) / 2) - 1)) * (@{bonus_modifier7}) + (abs((((1 + abs((@{bonus_category8})-(8))) - abs(1 - abs((@{bonus_category8})-(8)))) / 2) - 1)) * (@{bonus_modifier8}) + (abs((((1 + abs((@{bonus_category9})-(8))) - abs(1 - abs((@{bonus_category9})-(8)))) / 2) - 1)) * (@{bonus_modifier9}) + (abs((((1 + abs((@{bonus_category10})-(8))) - abs(1 - abs((@{bonus_category10})-(8)))) / 2) - 1)) * (@{bonus_modifier10})" disabled="disabled"/>
+		      <input class="" type="number" name="attr_misc_athletics_bonus" value="(abs((((1 + abs((@{bonus_category1})-(9))) - abs(1 - abs((@{bonus_category1})-(9)))) / 2) - 1)) * (@{bonus_modifier1}) + (abs((((1 + abs((@{bonus_category2})-(9))) - abs(1 - abs((@{bonus_category2})-(9)))) / 2) - 1)) * (@{bonus_modifier2}) + (abs((((1 + abs((@{bonus_category3})-(9))) - abs(1 - abs((@{bonus_category3})-(9)))) / 2) - 1)) * (@{bonus_modifier3}) + (abs((((1 + abs((@{bonus_category4})-(9))) - abs(1 - abs((@{bonus_category4})-(9)))) / 2) - 1)) * (@{bonus_modifier4}) + (abs((((1 + abs((@{bonus_category5})-(9))) - abs(1 - abs((@{bonus_category5})-(9)))) / 2) - 1)) * (@{bonus_modifier5}) + (abs((((1 + abs((@{bonus_category6})-(9))) - abs(1 - abs((@{bonus_category6})-(9)))) / 2) - 1)) * (@{bonus_modifier6}) + (abs((((1 + abs((@{bonus_category7})-(9))) - abs(1 - abs((@{bonus_category7})-(9)))) / 2) - 1)) * (@{bonus_modifier7}) + (abs((((1 + abs((@{bonus_category8})-(9))) - abs(1 - abs((@{bonus_category8})-(9)))) / 2) - 1)) * (@{bonus_modifier8}) + (abs((((1 + abs((@{bonus_category9})-(9))) - abs(1 - abs((@{bonus_category9})-(9)))) / 2) - 1)) * (@{bonus_modifier9}) + (abs((((1 + abs((@{bonus_category10})-(9))) - abs(1 - abs((@{bonus_category10})-(9)))) / 2) - 1)) * (@{bonus_modifier10})" disabled="disabled"/>
+		      <input class="" type="number" name="attr_misc_bluff_bonus" value="(abs((((1 + abs((@{bonus_category1})-(10))) - abs(1 - abs((@{bonus_category1})-(10)))) / 2) - 1)) * (@{bonus_modifier1}) + (abs((((1 + abs((@{bonus_category2})-(10))) - abs(1 - abs((@{bonus_category2})-(10)))) / 2) - 1)) * (@{bonus_modifier2}) + (abs((((1 + abs((@{bonus_category3})-(10))) - abs(1 - abs((@{bonus_category3})-(10)))) / 2) - 1)) * (@{bonus_modifier3}) + (abs((((1 + abs((@{bonus_category4})-(10))) - abs(1 - abs((@{bonus_category4})-(10)))) / 2) - 1)) * (@{bonus_modifier4}) + (abs((((1 + abs((@{bonus_category5})-(10))) - abs(1 - abs((@{bonus_category5})-(10)))) / 2) - 1)) * (@{bonus_modifier5}) + (abs((((1 + abs((@{bonus_category6})-(10))) - abs(1 - abs((@{bonus_category6})-(10)))) / 2) - 1)) * (@{bonus_modifier6}) + (abs((((1 + abs((@{bonus_category7})-(10))) - abs(1 - abs((@{bonus_category7})-(10)))) / 2) - 1)) * (@{bonus_modifier7}) + (abs((((1 + abs((@{bonus_category8})-(10))) - abs(1 - abs((@{bonus_category8})-(10)))) / 2) - 1)) * (@{bonus_modifier8}) + (abs((((1 + abs((@{bonus_category9})-(10))) - abs(1 - abs((@{bonus_category9})-(10)))) / 2) - 1)) * (@{bonus_modifier9}) + (abs((((1 + abs((@{bonus_category10})-(10))) - abs(1 - abs((@{bonus_category10})-(10)))) / 2) - 1)) * (@{bonus_modifier10})" disabled="disabled"/>
+		      <input class="" type="number" name="attr_misc_diplomacy_bonus" value="(abs((((1 + abs((@{bonus_category1})-(11))) - abs(1 - abs((@{bonus_category1})-(11)))) / 2) - 1)) * (@{bonus_modifier1}) + (abs((((1 + abs((@{bonus_category2})-(11))) - abs(1 - abs((@{bonus_category2})-(11)))) / 2) - 1)) * (@{bonus_modifier2}) + (abs((((1 + abs((@{bonus_category3})-(11))) - abs(1 - abs((@{bonus_category3})-(11)))) / 2) - 1)) * (@{bonus_modifier3}) + (abs((((1 + abs((@{bonus_category4})-(11))) - abs(1 - abs((@{bonus_category4})-(11)))) / 2) - 1)) * (@{bonus_modifier4}) + (abs((((1 + abs((@{bonus_category5})-(11))) - abs(1 - abs((@{bonus_category5})-(11)))) / 2) - 1)) * (@{bonus_modifier5}) + (abs((((1 + abs((@{bonus_category6})-(11))) - abs(1 - abs((@{bonus_category6})-(11)))) / 2) - 1)) * (@{bonus_modifier6}) + (abs((((1 + abs((@{bonus_category7})-(11))) - abs(1 - abs((@{bonus_category7})-(11)))) / 2) - 1)) * (@{bonus_modifier7}) + (abs((((1 + abs((@{bonus_category8})-(11))) - abs(1 - abs((@{bonus_category8})-(11)))) / 2) - 1)) * (@{bonus_modifier8}) + (abs((((1 + abs((@{bonus_category9})-(11))) - abs(1 - abs((@{bonus_category9})-(11)))) / 2) - 1)) * (@{bonus_modifier9}) + (abs((((1 + abs((@{bonus_category10})-(11))) - abs(1 - abs((@{bonus_category10})-(11)))) / 2) - 1)) * (@{bonus_modifier10})" disabled="disabled"/>
+		      <input class="" type="number" name="attr_misc_dungeoneering_bonus" value="(abs((((1 + abs((@{bonus_category1})-(12))) - abs(1 - abs((@{bonus_category1})-(12)))) / 2) - 1)) * (@{bonus_modifier1}) + (abs((((1 + abs((@{bonus_category2})-(12))) - abs(1 - abs((@{bonus_category2})-(12)))) / 2) - 1)) * (@{bonus_modifier2}) + (abs((((1 + abs((@{bonus_category3})-(12))) - abs(1 - abs((@{bonus_category3})-(12)))) / 2) - 1)) * (@{bonus_modifier3}) + (abs((((1 + abs((@{bonus_category4})-(12))) - abs(1 - abs((@{bonus_category4})-(12)))) / 2) - 1)) * (@{bonus_modifier4}) + (abs((((1 + abs((@{bonus_category5})-(12))) - abs(1 - abs((@{bonus_category5})-(12)))) / 2) - 1)) * (@{bonus_modifier5}) + (abs((((1 + abs((@{bonus_category6})-(12))) - abs(1 - abs((@{bonus_category6})-(12)))) / 2) - 1)) * (@{bonus_modifier6}) + (abs((((1 + abs((@{bonus_category7})-(12))) - abs(1 - abs((@{bonus_category7})-(12)))) / 2) - 1)) * (@{bonus_modifier7}) + (abs((((1 + abs((@{bonus_category8})-(12))) - abs(1 - abs((@{bonus_category8})-(12)))) / 2) - 1)) * (@{bonus_modifier8}) + (abs((((1 + abs((@{bonus_category9})-(12))) - abs(1 - abs((@{bonus_category9})-(12)))) / 2) - 1)) * (@{bonus_modifier9}) + (abs((((1 + abs((@{bonus_category10})-(12))) - abs(1 - abs((@{bonus_category10})-(12)))) / 2) - 1)) * (@{bonus_modifier10})" disabled="disabled"/>
+		      <input class="" type="number" name="attr_misc_endurance_bonus" value="(abs((((1 + abs((@{bonus_category1})-(13))) - abs(1 - abs((@{bonus_category1})-(13)))) / 2) - 1)) * (@{bonus_modifier1}) + (abs((((1 + abs((@{bonus_category2})-(13))) - abs(1 - abs((@{bonus_category2})-(13)))) / 2) - 1)) * (@{bonus_modifier2}) + (abs((((1 + abs((@{bonus_category3})-(13))) - abs(1 - abs((@{bonus_category3})-(13)))) / 2) - 1)) * (@{bonus_modifier3}) + (abs((((1 + abs((@{bonus_category4})-(13))) - abs(1 - abs((@{bonus_category4})-(13)))) / 2) - 1)) * (@{bonus_modifier4}) + (abs((((1 + abs((@{bonus_category5})-(13))) - abs(1 - abs((@{bonus_category5})-(13)))) / 2) - 1)) * (@{bonus_modifier5}) + (abs((((1 + abs((@{bonus_category6})-(13))) - abs(1 - abs((@{bonus_category6})-(13)))) / 2) - 1)) * (@{bonus_modifier6}) + (abs((((1 + abs((@{bonus_category7})-(13))) - abs(1 - abs((@{bonus_category7})-(13)))) / 2) - 1)) * (@{bonus_modifier7}) + (abs((((1 + abs((@{bonus_category8})-(13))) - abs(1 - abs((@{bonus_category8})-(13)))) / 2) - 1)) * (@{bonus_modifier8}) + (abs((((1 + abs((@{bonus_category9})-(13))) - abs(1 - abs((@{bonus_category9})-(13)))) / 2) - 1)) * (@{bonus_modifier9}) + (abs((((1 + abs((@{bonus_category10})-(13))) - abs(1 - abs((@{bonus_category10})-(13)))) / 2) - 1)) * (@{bonus_modifier10})" disabled="disabled"/>
+		      <input class="" type="number" name="attr_misc_heal_bonus" value="(abs((((1 + abs((@{bonus_category1})-(14))) - abs(1 - abs((@{bonus_category1})-(14)))) / 2) - 1)) * (@{bonus_modifier1}) + (abs((((1 + abs((@{bonus_category2})-(14))) - abs(1 - abs((@{bonus_category2})-(14)))) / 2) - 1)) * (@{bonus_modifier2}) + (abs((((1 + abs((@{bonus_category3})-(14))) - abs(1 - abs((@{bonus_category3})-(14)))) / 2) - 1)) * (@{bonus_modifier3}) + (abs((((1 + abs((@{bonus_category4})-(14))) - abs(1 - abs((@{bonus_category4})-(14)))) / 2) - 1)) * (@{bonus_modifier4}) + (abs((((1 + abs((@{bonus_category5})-(14))) - abs(1 - abs((@{bonus_category5})-(14)))) / 2) - 1)) * (@{bonus_modifier5}) + (abs((((1 + abs((@{bonus_category6})-(14))) - abs(1 - abs((@{bonus_category6})-(14)))) / 2) - 1)) * (@{bonus_modifier6}) + (abs((((1 + abs((@{bonus_category7})-(14))) - abs(1 - abs((@{bonus_category7})-(14)))) / 2) - 1)) * (@{bonus_modifier7}) + (abs((((1 + abs((@{bonus_category8})-(14))) - abs(1 - abs((@{bonus_category8})-(14)))) / 2) - 1)) * (@{bonus_modifier8}) + (abs((((1 + abs((@{bonus_category9})-(14))) - abs(1 - abs((@{bonus_category9})-(14)))) / 2) - 1)) * (@{bonus_modifier9}) + (abs((((1 + abs((@{bonus_category10})-(14))) - abs(1 - abs((@{bonus_category10})-(14)))) / 2) - 1)) * (@{bonus_modifier10})" disabled="disabled"/>
+		      <input class="" type="number" name="attr_misc_history_bonus" value="(abs((((1 + abs((@{bonus_category1})-(15))) - abs(1 - abs((@{bonus_category1})-(15)))) / 2) - 1)) * (@{bonus_modifier1}) + (abs((((1 + abs((@{bonus_category2})-(15))) - abs(1 - abs((@{bonus_category2})-(15)))) / 2) - 1)) * (@{bonus_modifier2}) + (abs((((1 + abs((@{bonus_category3})-(15))) - abs(1 - abs((@{bonus_category3})-(15)))) / 2) - 1)) * (@{bonus_modifier3}) + (abs((((1 + abs((@{bonus_category4})-(15))) - abs(1 - abs((@{bonus_category4})-(15)))) / 2) - 1)) * (@{bonus_modifier4}) + (abs((((1 + abs((@{bonus_category5})-(15))) - abs(1 - abs((@{bonus_category5})-(15)))) / 2) - 1)) * (@{bonus_modifier5}) + (abs((((1 + abs((@{bonus_category6})-(15))) - abs(1 - abs((@{bonus_category6})-(15)))) / 2) - 1)) * (@{bonus_modifier6}) + (abs((((1 + abs((@{bonus_category7})-(15))) - abs(1 - abs((@{bonus_category7})-(15)))) / 2) - 1)) * (@{bonus_modifier7}) + (abs((((1 + abs((@{bonus_category8})-(15))) - abs(1 - abs((@{bonus_category8})-(15)))) / 2) - 1)) * (@{bonus_modifier8}) + (abs((((1 + abs((@{bonus_category9})-(15))) - abs(1 - abs((@{bonus_category9})-(15)))) / 2) - 1)) * (@{bonus_modifier9}) + (abs((((1 + abs((@{bonus_category10})-(15))) - abs(1 - abs((@{bonus_category10})-(15)))) / 2) - 1)) * (@{bonus_modifier10})" disabled="disabled"/>
+		      <input class="" type="number" name="attr_misc_insight_bonus" value="(abs((((1 + abs((@{bonus_category1})-(16))) - abs(1 - abs((@{bonus_category1})-(16)))) / 2) - 1)) * (@{bonus_modifier1}) + (abs((((1 + abs((@{bonus_category2})-(16))) - abs(1 - abs((@{bonus_category2})-(16)))) / 2) - 1)) * (@{bonus_modifier2}) + (abs((((1 + abs((@{bonus_category3})-(16))) - abs(1 - abs((@{bonus_category3})-(16)))) / 2) - 1)) * (@{bonus_modifier3}) + (abs((((1 + abs((@{bonus_category4})-(16))) - abs(1 - abs((@{bonus_category4})-(16)))) / 2) - 1)) * (@{bonus_modifier4}) + (abs((((1 + abs((@{bonus_category5})-(16))) - abs(1 - abs((@{bonus_category5})-(16)))) / 2) - 1)) * (@{bonus_modifier5}) + (abs((((1 + abs((@{bonus_category6})-(16))) - abs(1 - abs((@{bonus_category6})-(16)))) / 2) - 1)) * (@{bonus_modifier6}) + (abs((((1 + abs((@{bonus_category7})-(16))) - abs(1 - abs((@{bonus_category7})-(16)))) / 2) - 1)) * (@{bonus_modifier7}) + (abs((((1 + abs((@{bonus_category8})-(16))) - abs(1 - abs((@{bonus_category8})-(16)))) / 2) - 1)) * (@{bonus_modifier8}) + (abs((((1 + abs((@{bonus_category9})-(16))) - abs(1 - abs((@{bonus_category9})-(16)))) / 2) - 1)) * (@{bonus_modifier9}) + (abs((((1 + abs((@{bonus_category10})-(16))) - abs(1 - abs((@{bonus_category10})-(16)))) / 2) - 1)) * (@{bonus_modifier10})" disabled="disabled"/>
+		      <input class="" type="number" name="attr_misc_intimidate_bonus" value="(abs((((1 + abs((@{bonus_category1})-(17))) - abs(1 - abs((@{bonus_category1})-(17)))) / 2) - 1)) * (@{bonus_modifier1}) + (abs((((1 + abs((@{bonus_category2})-(17))) - abs(1 - abs((@{bonus_category2})-(17)))) / 2) - 1)) * (@{bonus_modifier2}) + (abs((((1 + abs((@{bonus_category3})-(17))) - abs(1 - abs((@{bonus_category3})-(17)))) / 2) - 1)) * (@{bonus_modifier3}) + (abs((((1 + abs((@{bonus_category4})-(17))) - abs(1 - abs((@{bonus_category4})-(17)))) / 2) - 1)) * (@{bonus_modifier4}) + (abs((((1 + abs((@{bonus_category5})-(17))) - abs(1 - abs((@{bonus_category5})-(17)))) / 2) - 1)) * (@{bonus_modifier5}) + (abs((((1 + abs((@{bonus_category6})-(17))) - abs(1 - abs((@{bonus_category6})-(17)))) / 2) - 1)) * (@{bonus_modifier6}) + (abs((((1 + abs((@{bonus_category7})-(17))) - abs(1 - abs((@{bonus_category7})-(17)))) / 2) - 1)) * (@{bonus_modifier7}) + (abs((((1 + abs((@{bonus_category8})-(17))) - abs(1 - abs((@{bonus_category8})-(17)))) / 2) - 1)) * (@{bonus_modifier8}) + (abs((((1 + abs((@{bonus_category9})-(17))) - abs(1 - abs((@{bonus_category9})-(17)))) / 2) - 1)) * (@{bonus_modifier9}) + (abs((((1 + abs((@{bonus_category10})-(17))) - abs(1 - abs((@{bonus_category10})-(17)))) / 2) - 1)) * (@{bonus_modifier10})" disabled="disabled"/>
+		      <input class="" type="number" name="attr_misc_nature_bonus" value="(abs((((1 + abs((@{bonus_category1})-(18))) - abs(1 - abs((@{bonus_category1})-(18)))) / 2) - 1)) * (@{bonus_modifier1}) + (abs((((1 + abs((@{bonus_category2})-(18))) - abs(1 - abs((@{bonus_category2})-(18)))) / 2) - 1)) * (@{bonus_modifier2}) + (abs((((1 + abs((@{bonus_category3})-(18))) - abs(1 - abs((@{bonus_category3})-(18)))) / 2) - 1)) * (@{bonus_modifier3}) + (abs((((1 + abs((@{bonus_category4})-(18))) - abs(1 - abs((@{bonus_category4})-(18)))) / 2) - 1)) * (@{bonus_modifier4}) + (abs((((1 + abs((@{bonus_category5})-(18))) - abs(1 - abs((@{bonus_category5})-(18)))) / 2) - 1)) * (@{bonus_modifier5}) + (abs((((1 + abs((@{bonus_category6})-(18))) - abs(1 - abs((@{bonus_category6})-(18)))) / 2) - 1)) * (@{bonus_modifier6}) + (abs((((1 + abs((@{bonus_category7})-(18))) - abs(1 - abs((@{bonus_category7})-(18)))) / 2) - 1)) * (@{bonus_modifier7}) + (abs((((1 + abs((@{bonus_category8})-(18))) - abs(1 - abs((@{bonus_category8})-(18)))) / 2) - 1)) * (@{bonus_modifier8}) + (abs((((1 + abs((@{bonus_category9})-(18))) - abs(1 - abs((@{bonus_category9})-(18)))) / 2) - 1)) * (@{bonus_modifier9}) + (abs((((1 + abs((@{bonus_category10})-(18))) - abs(1 - abs((@{bonus_category10})-(18)))) / 2) - 1)) * (@{bonus_modifier10})" disabled="disabled"/>
+		      <input class="" type="number" name="attr_misc_perception_bonus" value="(abs((((1 + abs((@{bonus_category1})-(19))) - abs(1 - abs((@{bonus_category1})-(19)))) / 2) - 1)) * (@{bonus_modifier1}) + (abs((((1 + abs((@{bonus_category2})-(19))) - abs(1 - abs((@{bonus_category2})-(19)))) / 2) - 1)) * (@{bonus_modifier2}) + (abs((((1 + abs((@{bonus_category3})-(19))) - abs(1 - abs((@{bonus_category3})-(19)))) / 2) - 1)) * (@{bonus_modifier3}) + (abs((((1 + abs((@{bonus_category4})-(19))) - abs(1 - abs((@{bonus_category4})-(19)))) / 2) - 1)) * (@{bonus_modifier4}) + (abs((((1 + abs((@{bonus_category5})-(19))) - abs(1 - abs((@{bonus_category5})-(19)))) / 2) - 1)) * (@{bonus_modifier5}) + (abs((((1 + abs((@{bonus_category6})-(19))) - abs(1 - abs((@{bonus_category6})-(19)))) / 2) - 1)) * (@{bonus_modifier6}) + (abs((((1 + abs((@{bonus_category7})-(19))) - abs(1 - abs((@{bonus_category7})-(19)))) / 2) - 1)) * (@{bonus_modifier7}) + (abs((((1 + abs((@{bonus_category8})-(19))) - abs(1 - abs((@{bonus_category8})-(19)))) / 2) - 1)) * (@{bonus_modifier8}) + (abs((((1 + abs((@{bonus_category9})-(19))) - abs(1 - abs((@{bonus_category9})-(19)))) / 2) - 1)) * (@{bonus_modifier9}) + (abs((((1 + abs((@{bonus_category10})-(19))) - abs(1 - abs((@{bonus_category10})-(19)))) / 2) - 1)) * (@{bonus_modifier10})" disabled="disabled"/>
+		      <input class="" type="number" name="attr_misc_religion_bonus" value="(abs((((1 + abs((@{bonus_category1})-(20))) - abs(1 - abs((@{bonus_category1})-(20)))) / 2) - 1)) * (@{bonus_modifier1}) + (abs((((1 + abs((@{bonus_category2})-(20))) - abs(1 - abs((@{bonus_category2})-(20)))) / 2) - 1)) * (@{bonus_modifier2}) + (abs((((1 + abs((@{bonus_category3})-(20))) - abs(1 - abs((@{bonus_category3})-(20)))) / 2) - 1)) * (@{bonus_modifier3}) + (abs((((1 + abs((@{bonus_category4})-(20))) - abs(1 - abs((@{bonus_category4})-(20)))) / 2) - 1)) * (@{bonus_modifier4}) + (abs((((1 + abs((@{bonus_category5})-(20))) - abs(1 - abs((@{bonus_category5})-(20)))) / 2) - 1)) * (@{bonus_modifier5}) + (abs((((1 + abs((@{bonus_category6})-(20))) - abs(1 - abs((@{bonus_category6})-(20)))) / 2) - 1)) * (@{bonus_modifier6}) + (abs((((1 + abs((@{bonus_category7})-(20))) - abs(1 - abs((@{bonus_category7})-(20)))) / 2) - 1)) * (@{bonus_modifier7}) + (abs((((1 + abs((@{bonus_category8})-(20))) - abs(1 - abs((@{bonus_category8})-(20)))) / 2) - 1)) * (@{bonus_modifier8}) + (abs((((1 + abs((@{bonus_category9})-(20))) - abs(1 - abs((@{bonus_category9})-(20)))) / 2) - 1)) * (@{bonus_modifier9}) + (abs((((1 + abs((@{bonus_category10})-(20))) - abs(1 - abs((@{bonus_category10})-(20)))) / 2) - 1)) * (@{bonus_modifier10})" disabled="disabled"/>
+		      <input class="" type="number" name="attr_misc_stealth_bonus" value="(abs((((1 + abs((@{bonus_category1})-(21))) - abs(1 - abs((@{bonus_category1})-(21)))) / 2) - 1)) * (@{bonus_modifier1}) + (abs((((1 + abs((@{bonus_category2})-(21))) - abs(1 - abs((@{bonus_category2})-(21)))) / 2) - 1)) * (@{bonus_modifier2}) + (abs((((1 + abs((@{bonus_category3})-(21))) - abs(1 - abs((@{bonus_category3})-(21)))) / 2) - 1)) * (@{bonus_modifier3}) + (abs((((1 + abs((@{bonus_category4})-(21))) - abs(1 - abs((@{bonus_category4})-(21)))) / 2) - 1)) * (@{bonus_modifier4}) + (abs((((1 + abs((@{bonus_category5})-(21))) - abs(1 - abs((@{bonus_category5})-(21)))) / 2) - 1)) * (@{bonus_modifier5}) + (abs((((1 + abs((@{bonus_category6})-(21))) - abs(1 - abs((@{bonus_category6})-(21)))) / 2) - 1)) * (@{bonus_modifier6}) + (abs((((1 + abs((@{bonus_category7})-(21))) - abs(1 - abs((@{bonus_category7})-(21)))) / 2) - 1)) * (@{bonus_modifier7}) + (abs((((1 + abs((@{bonus_category8})-(21))) - abs(1 - abs((@{bonus_category8})-(21)))) / 2) - 1)) * (@{bonus_modifier8}) + (abs((((1 + abs((@{bonus_category9})-(21))) - abs(1 - abs((@{bonus_category9})-(21)))) / 2) - 1)) * (@{bonus_modifier9}) + (abs((((1 + abs((@{bonus_category10})-(21))) - abs(1 - abs((@{bonus_category10})-(21)))) / 2) - 1)) * (@{bonus_modifier10})" disabled="disabled"/>
+		      <input class="" type="number" name="attr_misc_streetwise_bonus" value="(abs((((1 + abs((@{bonus_category1})-(22))) - abs(1 - abs((@{bonus_category1})-(22)))) / 2) - 1)) * (@{bonus_modifier1}) + (abs((((1 + abs((@{bonus_category2})-(22))) - abs(1 - abs((@{bonus_category2})-(22)))) / 2) - 1)) * (@{bonus_modifier2}) + (abs((((1 + abs((@{bonus_category3})-(22))) - abs(1 - abs((@{bonus_category3})-(22)))) / 2) - 1)) * (@{bonus_modifier3}) + (abs((((1 + abs((@{bonus_category4})-(22))) - abs(1 - abs((@{bonus_category4})-(22)))) / 2) - 1)) * (@{bonus_modifier4}) + (abs((((1 + abs((@{bonus_category5})-(22))) - abs(1 - abs((@{bonus_category5})-(22)))) / 2) - 1)) * (@{bonus_modifier5}) + (abs((((1 + abs((@{bonus_category6})-(22))) - abs(1 - abs((@{bonus_category6})-(22)))) / 2) - 1)) * (@{bonus_modifier6}) + (abs((((1 + abs((@{bonus_category7})-(22))) - abs(1 - abs((@{bonus_category7})-(22)))) / 2) - 1)) * (@{bonus_modifier7}) + (abs((((1 + abs((@{bonus_category8})-(22))) - abs(1 - abs((@{bonus_category8})-(22)))) / 2) - 1)) * (@{bonus_modifier8}) + (abs((((1 + abs((@{bonus_category9})-(22))) - abs(1 - abs((@{bonus_category9})-(22)))) / 2) - 1)) * (@{bonus_modifier9}) + (abs((((1 + abs((@{bonus_category10})-(22))) - abs(1 - abs((@{bonus_category10})-(22)))) / 2) - 1)) * (@{bonus_modifier10})" disabled="disabled"/>
+		      <input class="" type="number" name="attr_misc_thievery_bonus" value="(abs((((1 + abs((@{bonus_category1})-(23))) - abs(1 - abs((@{bonus_category1})-(23)))) / 2) - 1)) * (@{bonus_modifier1}) + (abs((((1 + abs((@{bonus_category2})-(23))) - abs(1 - abs((@{bonus_category2})-(23)))) / 2) - 1)) * (@{bonus_modifier2}) + (abs((((1 + abs((@{bonus_category3})-(23))) - abs(1 - abs((@{bonus_category3})-(23)))) / 2) - 1)) * (@{bonus_modifier3}) + (abs((((1 + abs((@{bonus_category4})-(23))) - abs(1 - abs((@{bonus_category4})-(23)))) / 2) - 1)) * (@{bonus_modifier4}) + (abs((((1 + abs((@{bonus_category5})-(23))) - abs(1 - abs((@{bonus_category5})-(23)))) / 2) - 1)) * (@{bonus_modifier5}) + (abs((((1 + abs((@{bonus_category6})-(23))) - abs(1 - abs((@{bonus_category6})-(23)))) / 2) - 1)) * (@{bonus_modifier6}) + (abs((((1 + abs((@{bonus_category7})-(23))) - abs(1 - abs((@{bonus_category7})-(23)))) / 2) - 1)) * (@{bonus_modifier7}) + (abs((((1 + abs((@{bonus_category8})-(23))) - abs(1 - abs((@{bonus_category8})-(23)))) / 2) - 1)) * (@{bonus_modifier8}) + (abs((((1 + abs((@{bonus_category9})-(23))) - abs(1 - abs((@{bonus_category9})-(23)))) / 2) - 1)) * (@{bonus_modifier9}) + (abs((((1 + abs((@{bonus_category10})-(23))) - abs(1 - abs((@{bonus_category10})-(23)))) / 2) - 1)) * (@{bonus_modifier10})" disabled="disabled"/>
 
 		</div>
 
@@ -1072,13 +1315,10 @@
 			    <input class="" type="text" name="attr_meleebasic_attacktarget" value="One creature" disabled="disabled"/>
 			  </div>
 			  <div class="sheet-col-1-12">
-			    <input class="" type="text" name="attr_meleebasic_ability_name" value="Strength" disabled="disabled"/>
-			  </div>
-			  <div class="sheet-col-1-12">
 			    <input class="" type="hidden" name="attr_meleebasic_is_weapon" value="1" disabled="disabled"/>
-			    <input class="" type="hidden" name="attr_meleebasic_attacker" value="@{strength_mod_plus_half_level}" disabled="disabled"/>
-			    <input class="" type="hidden" name="attr_meleebasic_attackbonus" value="0" disabled="disabled"/>
-			    <input class="" type="number" name="attr_meleebasic_total_bonus" value="@{meleebasic_attacker} + @{meleebasic_attackbonus}" disabled="disabled"/>
+			    <input class="" type="hidden" name="attr_meleebasic_ability_mod" value="@{strength_mod}" disabled="disabled"/>
+			    <input class="" type="hidden" name="attr_meleebasic_power_modifier" value="0" disabled="disabled"/>
+			    <input class="" type="number" name="attr_meleebasic_total_bonus" value="@{half_level} + @{meleebasic_ability_mod} + @{meleebasic_power_modifier}" disabled="disabled"/>
 			  </div>
 			  <div class="sheet-col-1-12">
 			    <input class="" type="text" name="attr_meleebasic_attackee" value="AC" disabled="disabled"/>
@@ -1088,17 +1328,17 @@
 
 			  <div class="sheet-row">
 			    <button class="sheet-skill-roll" type="roll" name="roll_meleebasic_"
-			    	    value="&{template:5eDefault} {{attack=@{meleebasic_ability_name}}} {{title=@{meleebasic_name}}} {{subheader=@{character_name}}} {{rollname=Result}} {{roll=[[ 1d20 + @{meleebasic_total_bonus} + (@{meleebasic_is_weapon}) * (@{weapon_total_hit_bonus})]]}}">Att.</button>
+			    	    value="&{template:5eDefault} {{attack=1}} {{defence=@{meleebasic_attackee}}} {{title=@{meleebasic_name}}} {{subheader=@{character_name}}} {{rollname=Result}} {{roll=[[ 1d20 + @{meleebasic_total_bonus} + (@{meleebasic_is_weapon}) * (@{weapon_total_hit_bonus})]]}}">Att.</button>
 			    
 			      <input class="" type="hidden" name="attr_meleebasic_dmg_dice_multiplier" value="1" disabled="disabled"/>
 			      <input class="" type="hidden" name="attr_meleebasic_dmg_dice_type" value="0" disabled="disabled"/>
-			      <input class="" type="hidden" name="attr_meleebasic_dmg_ability_bonus" value="@{strength_mod_plus_half_level}" disabled="disabled"/>
+			      <input class="" type="hidden" name="attr_meleebasic_dmg_ability_bonus" value="@{strength_mod}" disabled="disabled"/>
 			      
                                <button class="sheet-skill-roll" type="roll" name="roll_meleebasic_damage"
 			       	       value="&{template:5eDefault} {{title=Damage}} {{rollname=Result}} {{roll=[[ ((@{meleebasic_is_weapon}) * ((@{meleebasic_dmg_dice_multiplier}) * (@{weapon_dmg_dice_count})))d(@{weapon_dmg_dice_type}) + ((abs((((1 + abs((@{meleebasic_is_weapon})-(0))) - abs(1 - abs((@{meleebasic_is_weapon})-(0)))) / 2) - 1)) * (@{meleebasic_dmg_dice_multiplier}))d(@{meleebasic_dmg_dice_type}) + (floor(@{meleebasic_dmg_ability_bonus}))]]}}">Dmg</button>
 				  <span style="float:right">
 			       <button class="sheet-skill-roll" type="roll" name="roll_meleebasic_"
-			    	    value="&{template:5eDefault} {{attack=@{meleebasic_ability_name}}} {{title=@{meleebasic_name}}} {{subheader=@{character_name}}} {{rollname=Result}} {{roll=[[ 1d20 + @{meleebasic_total_bonus} + (@{meleebasic_is_weapon}) * (@{weapon_total_hit_bonus})]]}}">Att.Offhand</button>
+			    	    value="&{template:5eDefault} {{attack=1}} {{defence=@{meleebasic_attackee}}} {{title=@{meleebasic_name}}} {{subheader=@{character_name}}} {{rollname=Result}} {{roll=[[ 1d20 + @{meleebasic_total_bonus} + (@{meleebasic_is_weapon}) * (@{weapon_total_hit_bonus})]]}}">Att.Offhand</button>
                                <button class="sheet-skill-roll" type="roll" name="roll_meleebasic_damage"
 			       	       value="&{template:5eDefault} {{title=Damage}} {{rollname=Result}} {{roll=[[ ((@{meleebasic_is_weapon}) * ((@{meleebasic_dmg_dice_multiplier}) * (@{weapon_dmg_dice_count})))d(@{weapon_dmg_dice_type}) + ((abs((((1 + abs((@{meleebasic_is_weapon})-(0))) - abs(1 - abs((@{meleebasic_is_weapon})-(0)))) / 2) - 1)) * (@{meleebasic_dmg_dice_multiplier}))d(@{meleebasic_dmg_dice_type}) + (floor(@{meleebasic_dmg_ability_bonus}))]]}}">Dmg.Offhand</button>
 				       </span>
@@ -1137,13 +1377,10 @@
 			    <input class="" type="text" name="attr_rangedbasic_attacktarget" value="One creature" disabled="disabled"/>
 			  </div>
 			  <div class="sheet-col-1-12">
-			    <input class="" type="text" name="attr_rangedbasic_ability_name" value="Dexterity" disabled="disabled"/>
-			  </div>
-			  <div class="sheet-col-1-12">
 			    <input class="" type="hidden" name="attr_rangedbasic_is_weapon" value="1" disabled="disabled"/>
-			    <input class="" type="hidden" name="attr_rangedbasic_attacker" value="@{dexterity_mod_plus_half_level}" disabled="disabled"/>
-			    <input class="" type="hidden" name="attr_rangedbasic_attackbonus" value="0" disabled="disabled"/>
-			    <input class="" type="number" name="attr_rangedbasic_total_bonus" value="@{rangedbasic_attacker} + @{rangedbasic_attackbonus}" disabled="disabled"/>
+			    <input class="" type="hidden" name="attr_rangedbasic_ability_mod" value="@{dexterity_mod}" disabled="disabled"/>
+			    <input class="" type="hidden" name="attr_rangedbasic_power_modifier" value="0" disabled="disabled"/>
+			    <input class="" type="number" name="attr_rangedbasic_total_bonus" value="@{half_level} + @{rangedbasic_ability_mod} + @{rangedbasic_power_modifier}" disabled="disabled"/>
 			  </div>
 			  <div class="sheet-col-1-12">
 			    <input class="" type="text" name="attr_rangedbasic_attackee" value="AC" disabled="disabled"/>
@@ -1153,17 +1390,17 @@
 
 			  <div class="sheet-row">
 			    <button class="sheet-skill-roll" type="roll" name="roll_rangedbasic_"
-			    	    value="&{template:5eDefault} {{attack=@{rangedbasic_ability_name}}} {{title=@{rangedbasic_name}}} {{subheader=@{character_name}}} {{rollname=Result}} {{roll=[[ 1d20 + @{rangedbasic_total_bonus} + (@{rangedbasic_is_weapon}) * (@{weapon_total_hit_bonus})]]}}">Att.</button>
+			    	    value="&{template:5eDefault} {{attack=1}} {{defence=@{rangedbasic_attackee}}} {{title=@{rangedbasic_name}}} {{subheader=@{character_name}}} {{rollname=Result}} {{roll=[[ 1d20 + @{rangedbasic_total_bonus} + (@{rangedbasic_is_weapon}) * (@{weapon_total_hit_bonus})]]}}">Att.</button>
 			    
 			      <input class="" type="hidden" name="attr_rangedbasic_dmg_dice_multiplier" value="1" disabled="disabled"/>
 			      <input class="" type="hidden" name="attr_rangedbasic_dmg_dice_type" value="0" disabled="disabled"/>
-			      <input class="" type="hidden" name="attr_rangedbasic_dmg_ability_bonus" value="@{dexterity_mod_plus_half_level}" disabled="disabled"/>
+			      <input class="" type="hidden" name="attr_rangedbasic_dmg_ability_bonus" value="@{dexterity_mod}" disabled="disabled"/>
 			      
                                <button class="sheet-skill-roll" type="roll" name="roll_rangedbasic_damage"
 			       	       value="&{template:5eDefault} {{title=Damage}} {{rollname=Result}} {{roll=[[ ((@{rangedbasic_is_weapon}) * ((@{rangedbasic_dmg_dice_multiplier}) * (@{weapon_dmg_dice_count})))d(@{weapon_dmg_dice_type}) + ((abs((((1 + abs((@{rangedbasic_is_weapon})-(0))) - abs(1 - abs((@{rangedbasic_is_weapon})-(0)))) / 2) - 1)) * (@{rangedbasic_dmg_dice_multiplier}))d(@{rangedbasic_dmg_dice_type}) + (floor(@{rangedbasic_dmg_ability_bonus}))]]}}">Dmg</button>
 				  <span style="float:right">
 			       <button class="sheet-skill-roll" type="roll" name="roll_rangedbasic_"
-			    	    value="&{template:5eDefault} {{attack=@{rangedbasic_ability_name}}} {{title=@{rangedbasic_name}}} {{subheader=@{character_name}}} {{rollname=Result}} {{roll=[[ 1d20 + @{rangedbasic_total_bonus} + (@{rangedbasic_is_weapon}) * (@{weapon_total_hit_bonus})]]}}">Att.Offhand</button>
+			    	    value="&{template:5eDefault} {{attack=1}} {{defence=@{rangedbasic_attackee}}} {{title=@{rangedbasic_name}}} {{subheader=@{character_name}}} {{rollname=Result}} {{roll=[[ 1d20 + @{rangedbasic_total_bonus} + (@{rangedbasic_is_weapon}) * (@{weapon_total_hit_bonus})]]}}">Att.Offhand</button>
                                <button class="sheet-skill-roll" type="roll" name="roll_rangedbasic_damage"
 			       	       value="&{template:5eDefault} {{title=Damage}} {{rollname=Result}} {{roll=[[ ((@{rangedbasic_is_weapon}) * ((@{rangedbasic_dmg_dice_multiplier}) * (@{weapon_dmg_dice_count})))d(@{weapon_dmg_dice_type}) + ((abs((((1 + abs((@{rangedbasic_is_weapon})-(0))) - abs(1 - abs((@{rangedbasic_is_weapon})-(0)))) / 2) - 1)) * (@{rangedbasic_dmg_dice_multiplier}))d(@{rangedbasic_dmg_dice_type}) + (floor(@{rangedbasic_dmg_ability_bonus}))]]}}">Dmg.Offhand</button>
 				       </span>
@@ -1202,16 +1439,13 @@
 			    <input class="" type="text" name="attr_aidanother_attacktarget" value="One creature" disabled="disabled"/>
 			  </div>
 			  <div class="sheet-col-1-12">
-			    <input class="" type="text" name="attr_aidanother_ability_name" value="Strength" disabled="disabled"/>
-			  </div>
-			  <div class="sheet-col-1-12">
 			    <input class="" type="hidden" name="attr_aidanother_is_weapon" value="0" disabled="disabled"/>
-			    <input class="" type="hidden" name="attr_aidanother_attacker" value="@{strength_mod_plus_half_level}" disabled="disabled"/>
-			    <input class="" type="hidden" name="attr_aidanother_attackbonus" value="0" disabled="disabled"/>
-			    <input class="" type="number" name="attr_aidanother_total_bonus" value="@{aidanother_attacker} + @{aidanother_attackbonus}" disabled="disabled"/>
+			    <input class="" type="hidden" name="attr_aidanother_ability_mod" value="@{strength_mod}" disabled="disabled"/>
+			    <input class="" type="hidden" name="attr_aidanother_power_modifier" value="0" disabled="disabled"/>
+			    <input class="" type="number" name="attr_aidanother_total_bonus" value="@{half_level} + @{aidanother_ability_mod} + @{aidanother_power_modifier}" disabled="disabled"/>
 			  </div>
 			  <div class="sheet-col-1-12">
-			    <input class="" type="text" name="attr_aidanother_attackee" value="ac" disabled="disabled"/>
+			    <input class="" type="text" name="attr_aidanother_attackee" value="AC" disabled="disabled"/>
 			  </div>
 			</div>
 
@@ -1221,7 +1455,7 @@
 
 			  <div class="sheet-row">
 			    <button class="sheet-skill-roll" type="roll" name="roll_aidanother_"
-			    	    value="&{template:5eDefault} {{attack=@{aidanother_ability_name}}} {{title=@{aidanother_name}}} {{subheader=@{character_name}}} {{rollname=Result}} {{roll=[[ 1d20 + @{aidanother_total_bonus} + (@{aidanother_is_weapon}) * (@{weapon_total_hit_bonus})]]}}">Att.</button>
+			    	    value="&{template:5eDefault} {{attack=1}} {{defence=@{aidanother_attackee}}} {{title=@{aidanother_name}}} {{subheader=@{character_name}}} {{rollname=Result}} {{roll=[[ 1d20 + @{aidanother_total_bonus} + (@{aidanother_is_weapon}) * (@{weapon_total_hit_bonus})]]}}">Att.</button>
 			  </div>
 			
 		      </div>
@@ -1256,16 +1490,13 @@
 			    <input class="" type="text" name="attr_bullrush_attacktarget" value="One creature" disabled="disabled"/>
 			  </div>
 			  <div class="sheet-col-1-12">
-			    <input class="" type="text" name="attr_bullrush_ability_name" value="Strength" disabled="disabled"/>
-			  </div>
-			  <div class="sheet-col-1-12">
 			    <input class="" type="hidden" name="attr_bullrush_is_weapon" value="0" disabled="disabled"/>
-			    <input class="" type="hidden" name="attr_bullrush_attacker" value="@{strength_mod_plus_half_level}" disabled="disabled"/>
-			    <input class="" type="hidden" name="attr_bullrush_attackbonus" value="0" disabled="disabled"/>
-			    <input class="" type="number" name="attr_bullrush_total_bonus" value="@{bullrush_attacker} + @{bullrush_attackbonus}" disabled="disabled"/>
+			    <input class="" type="hidden" name="attr_bullrush_ability_mod" value="@{strength_mod}" disabled="disabled"/>
+			    <input class="" type="hidden" name="attr_bullrush_power_modifier" value="0" disabled="disabled"/>
+			    <input class="" type="number" name="attr_bullrush_total_bonus" value="@{half_level} + @{bullrush_ability_mod} + @{bullrush_power_modifier}" disabled="disabled"/>
 			  </div>
 			  <div class="sheet-col-1-12">
-			    <input class="" type="text" name="attr_bullrush_attackee" value="fort" disabled="disabled"/>
+			    <input class="" type="text" name="attr_bullrush_attackee" value="Fort" disabled="disabled"/>
 			  </div>
 			</div>
 
@@ -1275,7 +1506,7 @@
 
 			  <div class="sheet-row">
 			    <button class="sheet-skill-roll" type="roll" name="roll_bullrush_"
-			    	    value="&{template:5eDefault} {{attack=@{bullrush_ability_name}}} {{title=@{bullrush_name}}} {{subheader=@{character_name}}} {{rollname=Result}} {{roll=[[ 1d20 + @{bullrush_total_bonus} + (@{bullrush_is_weapon}) * (@{weapon_total_hit_bonus})]]}}">Att.</button>
+			    	    value="&{template:5eDefault} {{attack=1}} {{defence=@{bullrush_attackee}}} {{title=@{bullrush_name}}} {{subheader=@{character_name}}} {{rollname=Result}} {{roll=[[ 1d20 + @{bullrush_total_bonus} + (@{bullrush_is_weapon}) * (@{weapon_total_hit_bonus})]]}}">Att.</button>
 			  </div>
 			
 		      </div>
@@ -1310,16 +1541,13 @@
 			    <input class="" type="text" name="attr_grab_attacktarget" value="One creature" disabled="disabled"/>
 			  </div>
 			  <div class="sheet-col-1-12">
-			    <input class="" type="text" name="attr_grab_ability_name" value="Strength" disabled="disabled"/>
-			  </div>
-			  <div class="sheet-col-1-12">
 			    <input class="" type="hidden" name="attr_grab_is_weapon" value="0" disabled="disabled"/>
-			    <input class="" type="hidden" name="attr_grab_attacker" value="@{strength_mod_plus_half_level}" disabled="disabled"/>
-			    <input class="" type="hidden" name="attr_grab_attackbonus" value="0" disabled="disabled"/>
-			    <input class="" type="number" name="attr_grab_total_bonus" value="@{grab_attacker} + @{grab_attackbonus}" disabled="disabled"/>
+			    <input class="" type="hidden" name="attr_grab_ability_mod" value="@{strength_mod}" disabled="disabled"/>
+			    <input class="" type="hidden" name="attr_grab_power_modifier" value="0" disabled="disabled"/>
+			    <input class="" type="number" name="attr_grab_total_bonus" value="@{half_level} + @{grab_ability_mod} + @{grab_power_modifier}" disabled="disabled"/>
 			  </div>
 			  <div class="sheet-col-1-12">
-			    <input class="" type="text" name="attr_grab_attackee" value="reflex" disabled="disabled"/>
+			    <input class="" type="text" name="attr_grab_attackee" value="Reflex" disabled="disabled"/>
 			  </div>
 			</div>
 
@@ -1329,7 +1557,7 @@
 
 			  <div class="sheet-row">
 			    <button class="sheet-skill-roll" type="roll" name="roll_grab_"
-			    	    value="&{template:5eDefault} {{attack=@{grab_ability_name}}} {{title=@{grab_name}}} {{subheader=@{character_name}}} {{rollname=Result}} {{roll=[[ 1d20 + @{grab_total_bonus} + (@{grab_is_weapon}) * (@{weapon_total_hit_bonus})]]}}">Att.</button>
+			    	    value="&{template:5eDefault} {{attack=1}} {{defence=@{grab_attackee}}} {{title=@{grab_name}}} {{subheader=@{character_name}}} {{rollname=Result}} {{roll=[[ 1d20 + @{grab_total_bonus} + (@{grab_is_weapon}) * (@{weapon_total_hit_bonus})]]}}">Att.</button>
 			  </div>
 			
 		      </div>
@@ -1362,59 +1590,59 @@
 			    <input class="" type="checkbox" name="attr_is_available" value="" />
 			  </div>
 			  <div class="sheet-col-1-12">
-			    <select name="attr_level" class="dtype">
-			      <option value="1">1</option>
-			      <option value="2">2</option>
-			      <option value="3">3</option>
-			      <option value="4">4</option>
-			      <option value="5">5</option>
-			      <option value="6">6</option>
-			      <option value="7">7</option>
-			      <option value="8">8</option>
-			      <option value="9">9</option>
-			      <option value="10">10</option>
-			      <option value="11">11</option>
-			      <option value="12">12</option>
-			      <option value="13">13</option>
-			      <option value="14">14</option>
-			      <option value="15">15</option>
-			      <option value="16">16</option>
-			      <option value="17">17</option>
-			      <option value="18">18</option>
-			      <option value="19">19</option>
-			      <option value="20">20</option>
-			      <option value="21">21</option>
-			      <option value="22">22</option>
-			      <option value="23">23</option>
-			      <option value="24">24</option>
-			      <option value="25">25</option>
-			      <option value="26">26</option>
-			      <option value="27">27</option>
-			      <option value="28">28</option>
-			      <option value="29">29</option>
-			    </select>
+			  <select name='attr_level'>
+<option value='1'>1</option>
+<option value='2'>2</option>
+<option value='3'>3</option>
+<option value='4'>4</option>
+<option value='5'>5</option>
+<option value='6'>6</option>
+<option value='7'>7</option>
+<option value='8'>8</option>
+<option value='9'>9</option>
+<option value='10'>10</option>
+<option value='11'>11</option>
+<option value='12'>12</option>
+<option value='13'>13</option>
+<option value='14'>14</option>
+<option value='15'>15</option>
+<option value='16'>16</option>
+<option value='17'>17</option>
+<option value='18'>18</option>
+<option value='19'>19</option>
+<option value='20'>20</option>
+<option value='21'>21</option>
+<option value='22'>22</option>
+<option value='23'>23</option>
+<option value='24'>24</option>
+<option value='25'>25</option>
+<option value='26'>26</option>
+<option value='27'>27</option>
+<option value='28'>28</option>
+<option value='29'>29</option>
+</select>
 			  </div>
 			  <div class="sheet-col-1-12">
-			    <select name="attr_type" class="dtype">
-			      <option value="atwill">At Will</option>
-			      <option value="encounter">Encounter</option>
-			      <option value="daily">Daily</option>
-			    </select> 
+			  <select name='attr_type'>
+<option value='At will'>At will</option>
+<option value='Encounter'>Encounter</option>
+<option value='Daily'>Daily</option>
+</select>
 			  </div>
 
 			  <div class="sheet-col-1-8">
 			    <input class="" type="text" name="attr_keywords" value="" />
 			  </div>
 			  <div class="sheet-col-1-12">
-			    <select name="attr_actiontype" class="dtype">
-			      <option value="standard">Standard</option>
-			      <option value="move">Move</option>
-			      <option value="interrupt">Immediate interrupt</option>
-			      <option value="reaction">Immediate reaction</option>
-			      <option value="minor">Minor</option>
-			      <option value="free">Free</option>
-			      <option value="trigger">Trigger(see notes)</option>
-			    </select> 
+			  <select name='attr_actiontype'>
+<option value='Standard'>Standard</option>
+<option value='Move'>Move</option>
+<option value='Immediate interrupt'>Immediate interrupt</option>
+<option value='Immediate reaction'>Immediate reaction</option>
+<option value='Minor'>Minor</option>
+<option value='Free'>Free</option>
+<option value='Trigger(see notes)'>Trigger(see notes)</option>
+</select>
 			  </div>
 			  <div class="sheet-col-1-8">
 			    <input class="" type="text" name="attr_attacktype" value="" />
@@ -1425,8 +1653,9 @@
 			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Weapon?</div>
 			  <div class="sheet-col-1-8 sheet-vert-bottom sheet-small-label">Target</div>
 			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Ability</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Ability#2</div>
 			  <div class="sheet-col-1-24 sheet-vert-bottom sheet-small-label sheet-center">+</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Bonus</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Total</div>
 			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">vs</div>
 
 			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label"># Dmg Dice</div>
@@ -1442,31 +1671,40 @@
 			    <input class="" type="text" name="attr_attacktarget" value="" />
 			  </div>
 			  <div class="sheet-col-1-12">
-			    <input class="" type="hidden" name="attr_ability_name" value="@{ability_bonus}" disabled="disabled"/>
-			    <select name="attr_ability_bonus" class="dtype">
-			      <option value="0">n/a</option>
-			      <option value="@{strength_mod_plus_half_level} + 0.0">STR</option>
-			      <option value="@{constitution_mod_plus_half_level} + 0.001">CON</option>
-			      <option value="@{dexterity_mod_plus_half_level} + 0.002">DEX</option>
-			      <option value="@{intelligence_mod_plus_half_level} + 0.003">INT</option>
-			      <option value="@{wisdom_mod_plus_half_level} + 0.004">WIS</option>
-			      <option value="@{charisma_mod_plus_half_level} + 0.005">CHA</option>
-			    </select>
-			  </div>
-			  <div class="sheet-col-1-24 sheet-small-label sheet-center">
-			    <input class="" type="number" name="attr_attackbonus" value="" min="0" step="1"/>
+			    <select name='attr_ability_mod'>
+<option value='0'>n/a</option>
+<option value='@{strength_mod} + 0.0'>STR</option>
+<option value='@{constitution_mod} + 0.001'>CON</option>
+<option value='@{dexterity_mod} + 0.002'>DEX</option>
+<option value='@{intelligence_mod} + 0.003'>INT</option>
+<option value='@{wisdom_mod} + 0.004'>WIS</option>
+<option value='@{charisma_mod} + 0.005'>CHA</option>
+</select>
 			  </div>
 			  <div class="sheet-col-1-12">
-			    <input class="" type="hidden" name="attr_ability_bonus" value="0" disabled="disabled"/>
-			    <input class="" type="number" name="attr_total_bonus" value="floor(@{ability_bonus}) + @{attackbonus} + ((@{is_weapon}) * (@{weapon_total_hit_bonus}))" disabled="disabled"/>
+			    <select name='attr_ability_mod2'>
+<option value='0'>n/a</option>
+<option value='@{strength_mod} + 0.0'>STR</option>
+<option value='@{constitution_mod} + 0.001'>CON</option>
+<option value='@{dexterity_mod} + 0.002'>DEX</option>
+<option value='@{intelligence_mod} + 0.003'>INT</option>
+<option value='@{wisdom_mod} + 0.004'>WIS</option>
+<option value='@{charisma_mod} + 0.005'>CHA</option>
+</select>
+			  </div>			  
+			  <div class="sheet-col-1-24 sheet-small-label sheet-center">
+			    <input class="" type="number" name="attr_power_modifier" value="" min="0" step="1"/>
+			  </div>
+			  <div class="sheet-col-1-12">
+			    <input class="" type="number" name="attr_total_bonus" value="@{half_level} + floor(@{ability_mod}) + floor(@{ability_mod2}) + @{power_modifier} + ((@{is_weapon}) * (@{weapon_total_hit_bonus}))" disabled="disabled"/>
 			  </div>			  
 			  <div class="sheet-col-1-12">
-			    <select name="attr_attackee" class="dtype">
-			      <option value="AC">AC</option>
-			      <option value="FORT">FORT</option>
-			      <option value="REFLEX">REFLEX</option>
-			      <option value="WILL">WILL</option>
-			    </select>
+			  <select name='attr_attackee'>
+<option value='AC'>AC</option>
+<option value='FORT'>FORT</option>
+<option value='REFLEX'>REFLEX</option>
+<option value='WILL'>WILL</option>
+</select>
 			  </div>
 
 			  <div class="sheet-col-1-12">
@@ -1476,15 +1714,15 @@
 			    <input class="" type="number" name="attr_dmg_dice_type" value="0" min="0" step="1"/>	
 			  </div>
 			  <div class="sheet-col-1-8">
-			    <select name="attr_dmg_ability_bonus" class="dtype">
-			      <option value="0">n/a</option>
-			      <option value="@{strength_mod_plus_half_level} + 0.0">STR</option>
-			      <option value="@{constitution_mod_plus_half_level} + 0.001">CON</option>
-			      <option value="@{dexterity_mod_plus_half_level} + 0.002">DEX</option>
-			      <option value="@{intelligence_mod_plus_half_level} + 0.003">INT</option>
-			      <option value="@{wisdom_mod_plus_half_level} + 0.004">WIS</option>
-			      <option value="@{charisma_mod_plus_half_level} + 0.005">CHA</option>
-			    </select>
+			    <select name='attr_dmg_ability_bonus'>
+<option value='0'>n/a</option>
+<option value='@{strength_mod} + 0.0'>STR</option>
+<option value='@{constitution_mod} + 0.001'>CON</option>
+<option value='@{dexterity_mod} + 0.002'>DEX</option>
+<option value='@{intelligence_mod} + 0.003'>INT</option>
+<option value='@{wisdom_mod} + 0.004'>WIS</option>
+<option value='@{charisma_mod} + 0.005'>CHA</option>
+</select>
 			  </div>
 			</div>
 
@@ -1522,13 +1760,13 @@
 
 			<div class="sheet-row">
 			    <button class="sheet-skill-roll" type="roll" name="roll_"
-			    	    value="&{template:5eDefault} {{attack=@{ability_name}}} {{title=@{name}}} {{subheader=@{character_name}}} {{rollname=Result}} {{roll=[[ 1d20 + @{total_bonus} + (@{is_weapon}) * (@{weapon_total_hit_bonus})]]}}">Att.</button>
+			    	    value="&{template:5eDefault} {{attack=1}} {{defence=@{attackee}}} {{title=@{name}}} {{subheader=@{character_name}}} {{rollname=Result}} {{roll=[[ 1d20 + @{total_bonus} + (@{is_weapon}) * (@{weapon_total_hit_bonus})]]}}">Att.</button>
 			      <input class="" type="hidden" name="attr_dmg_dice_multiplier" value="1" disabled="disabled"/>
                                <button class="sheet-skill-roll" type="roll" name="roll_damage"
 			       	       value="&{template:5eDefault} {{title=Damage}} {{rollname=Result}} {{roll=[[ ((@{is_weapon}) * ((@{dmg_dice_multiplier}) * (@{weapon_dmg_dice_count})))d(@{weapon_dmg_dice_type}) + ((abs((((1 + abs((@{is_weapon})-(0))) - abs(1 - abs((@{is_weapon})-(0)))) / 2) - 1)) * (@{dmg_dice_multiplier}))d(@{dmg_dice_type}) + (floor(@{dmg_ability_bonus}))]]}}">Dmg</button>
 				<span style="float:right">
 			      <button class="sheet-skill-roll" type="roll" name="roll_"
-			    	    value="&{template:5eDefault} {{attack=@{ability_name}}} {{title=@{name}}} {{subheader=@{character_name}}} {{rollname=Result}} {{roll=[[ 1d20 + @{total_bonus} + (@{is_weapon}) * (@{weapon_total_hit_bonus})]]}}">Att.Offhand</button>				    
+			    	    value="&{template:5eDefault} {{attack=1}} {{defence=@{attackee}}} {{title=@{name}}} {{subheader=@{character_name}}} {{rollname=Result}} {{roll=[[ 1d20 + @{total_bonus} + (@{is_weapon}) * (@{weapon_total_hit_bonus})]]}}">Att.Offhand</button>				    
                                <button class="sheet-skill-roll" type="roll" name="roll_damage"
 			       	       value="&{template:5eDefault} {{title=Damage}} {{rollname=Result}} {{roll=[[ ((@{is_weapon}) * ((@{dmg_dice_multiplier}) * (@{weapon_dmg_dice_count})))d(@{weapon_dmg_dice_type}) + ((abs((((1 + abs((@{is_weapon})-(0))) - abs(1 - abs((@{is_weapon})-(0)))) / 2) - 1)) * (@{dmg_dice_multiplier}))d(@{dmg_dice_type}) + (floor(@{dmg_ability_bonus}))]]}}">Dmg.Offhand</button>
 					</span>
@@ -1593,12 +1831,10 @@
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
-					    <select name="attr_weapon_type1">
-					      <option value="0" selected="selected">Melee (str)</option>
-					      <option value="1">Ranged (dex)</option>
-					      <option value="1">Light Thrown (dex)</option>
-					      <option value="0">Heavy Thrown (str)</option>
-					    </select>
+					  <select name='attr_weapon_type1'>
+<option value='0'>Melee/Heavy thrown (str)</option>
+<option value='1'>Ranged/Light thrown (dex)</option>
+</select>
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
@@ -1614,7 +1850,7 @@
 					  </div>
 
 					  <div class="sheet-col-1-12">
-					    <input class="" type="number" name="attr_weapon_ability_bonus1" value="(abs((((1 + abs((@{weapon_type1})-(0))) - abs(1 - abs((@{weapon_type1})-(0)))) / 2) - 1)) * (@{strength_mod_plus_half_level}) + (abs((((1 + abs((@{weapon_type1})-(1))) - abs(1 - abs((@{weapon_type1})-(1)))) / 2) - 1)) * (@{dexterity_mod_plus_half_level})" disabled="disabled"/>
+					    <input class="" type="number" name="attr_weapon_ability_bonus1" value="(abs((((1 + abs((@{weapon_type1})-(0))) - abs(1 - abs((@{weapon_type1})-(0)))) / 2) - 1)) * (@{half_level} + @{strength_mod}) + (abs((((1 + abs((@{weapon_type1})-(1))) - abs(1 - abs((@{weapon_type1})-(1)))) / 2) - 1)) * (@{half_level} + @{dexterity_mod})" disabled="disabled"/>
 					  </div>
 
 					  <div class="sheet-row sheet-sub-header">
@@ -1667,12 +1903,10 @@
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
-					    <select name="attr_weapon_type2">
-					      <option value="0" selected="selected">Melee (str)</option>
-					      <option value="1">Ranged (dex)</option>
-					      <option value="1">Light Thrown (dex)</option>
-					      <option value="0">Heavy Thrown (str)</option>
-					    </select>
+					  <select name='attr_weapon_type2'>
+<option value='0'>Melee/Heavy thrown (str)</option>
+<option value='1'>Ranged/Light thrown (dex)</option>
+</select>
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
@@ -1688,7 +1922,7 @@
 					  </div>
 
 					  <div class="sheet-col-1-12">
-					    <input class="" type="number" name="attr_weapon_ability_bonus2" value="(abs((((1 + abs((@{weapon_type2})-(0))) - abs(1 - abs((@{weapon_type2})-(0)))) / 2) - 1)) * (@{strength_mod_plus_half_level}) + (abs((((1 + abs((@{weapon_type2})-(1))) - abs(1 - abs((@{weapon_type2})-(1)))) / 2) - 1)) * (@{dexterity_mod_plus_half_level})" disabled="disabled"/>
+					    <input class="" type="number" name="attr_weapon_ability_bonus2" value="(abs((((1 + abs((@{weapon_type2})-(0))) - abs(1 - abs((@{weapon_type2})-(0)))) / 2) - 1)) * (@{half_level} + @{strength_mod}) + (abs((((1 + abs((@{weapon_type2})-(1))) - abs(1 - abs((@{weapon_type2})-(1)))) / 2) - 1)) * (@{half_level} + @{dexterity_mod})" disabled="disabled"/>
 					  </div>
 
 					  <div class="sheet-row sheet-sub-header">
@@ -1741,12 +1975,10 @@
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
-					    <select name="attr_weapon_type3">
-					      <option value="0" selected="selected">Melee (str)</option>
-					      <option value="1">Ranged (dex)</option>
-					      <option value="1">Light Thrown (dex)</option>
-					      <option value="0">Heavy Thrown (str)</option>
-					    </select>
+					  <select name='attr_weapon_type3'>
+<option value='0'>Melee/Heavy thrown (str)</option>
+<option value='1'>Ranged/Light thrown (dex)</option>
+</select>
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
@@ -1762,7 +1994,7 @@
 					  </div>
 
 					  <div class="sheet-col-1-12">
-					    <input class="" type="number" name="attr_weapon_ability_bonus3" value="(abs((((1 + abs((@{weapon_type3})-(0))) - abs(1 - abs((@{weapon_type3})-(0)))) / 2) - 1)) * (@{strength_mod_plus_half_level}) + (abs((((1 + abs((@{weapon_type3})-(1))) - abs(1 - abs((@{weapon_type3})-(1)))) / 2) - 1)) * (@{dexterity_mod_plus_half_level})" disabled="disabled"/>
+					    <input class="" type="number" name="attr_weapon_ability_bonus3" value="(abs((((1 + abs((@{weapon_type3})-(0))) - abs(1 - abs((@{weapon_type3})-(0)))) / 2) - 1)) * (@{half_level} + @{strength_mod}) + (abs((((1 + abs((@{weapon_type3})-(1))) - abs(1 - abs((@{weapon_type3})-(1)))) / 2) - 1)) * (@{half_level} + @{dexterity_mod})" disabled="disabled"/>
 					  </div>
 
 					  <div class="sheet-row sheet-sub-header">
@@ -1815,12 +2047,10 @@
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
-					    <select name="attr_weapon_type4">
-					      <option value="0" selected="selected">Melee (str)</option>
-					      <option value="1">Ranged (dex)</option>
-					      <option value="1">Light Thrown (dex)</option>
-					      <option value="0">Heavy Thrown (str)</option>
-					    </select>
+					  <select name='attr_weapon_type4'>
+<option value='0'>Melee/Heavy thrown (str)</option>
+<option value='1'>Ranged/Light thrown (dex)</option>
+</select>
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
@@ -1836,7 +2066,7 @@
 					  </div>
 
 					  <div class="sheet-col-1-12">
-					    <input class="" type="number" name="attr_weapon_ability_bonus4" value="(abs((((1 + abs((@{weapon_type4})-(0))) - abs(1 - abs((@{weapon_type4})-(0)))) / 2) - 1)) * (@{strength_mod_plus_half_level}) + (abs((((1 + abs((@{weapon_type4})-(1))) - abs(1 - abs((@{weapon_type4})-(1)))) / 2) - 1)) * (@{dexterity_mod_plus_half_level})" disabled="disabled"/>
+					    <input class="" type="number" name="attr_weapon_ability_bonus4" value="(abs((((1 + abs((@{weapon_type4})-(0))) - abs(1 - abs((@{weapon_type4})-(0)))) / 2) - 1)) * (@{half_level} + @{strength_mod}) + (abs((((1 + abs((@{weapon_type4})-(1))) - abs(1 - abs((@{weapon_type4})-(1)))) / 2) - 1)) * (@{half_level} + @{dexterity_mod})" disabled="disabled"/>
 					  </div>
 
 					  <div class="sheet-row sheet-sub-header">
@@ -1889,12 +2119,10 @@
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
-					    <select name="attr_weapon_type5">
-					      <option value="0" selected="selected">Melee (str)</option>
-					      <option value="1">Ranged (dex)</option>
-					      <option value="1">Light Thrown (dex)</option>
-					      <option value="0">Heavy Thrown (str)</option>
-					    </select>
+					  <select name='attr_weapon_type5'>
+<option value='0'>Melee/Heavy thrown (str)</option>
+<option value='1'>Ranged/Light thrown (dex)</option>
+</select>
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
@@ -1910,7 +2138,7 @@
 					  </div>
 
 					  <div class="sheet-col-1-12">
-					    <input class="" type="number" name="attr_weapon_ability_bonus5" value="(abs((((1 + abs((@{weapon_type5})-(0))) - abs(1 - abs((@{weapon_type5})-(0)))) / 2) - 1)) * (@{strength_mod_plus_half_level}) + (abs((((1 + abs((@{weapon_type5})-(1))) - abs(1 - abs((@{weapon_type5})-(1)))) / 2) - 1)) * (@{dexterity_mod_plus_half_level})" disabled="disabled"/>
+					    <input class="" type="number" name="attr_weapon_ability_bonus5" value="(abs((((1 + abs((@{weapon_type5})-(0))) - abs(1 - abs((@{weapon_type5})-(0)))) / 2) - 1)) * (@{half_level} + @{strength_mod}) + (abs((((1 + abs((@{weapon_type5})-(1))) - abs(1 - abs((@{weapon_type5})-(1)))) / 2) - 1)) * (@{half_level} + @{dexterity_mod})" disabled="disabled"/>
 					  </div>
 
 					  <div class="sheet-row sheet-sub-header">
@@ -1963,12 +2191,10 @@
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
-					    <select name="attr_weapon_type6">
-					      <option value="0" selected="selected">Melee (str)</option>
-					      <option value="1">Ranged (dex)</option>
-					      <option value="1">Light Thrown (dex)</option>
-					      <option value="0">Heavy Thrown (str)</option>
-					    </select>
+					  <select name='attr_weapon_type6'>
+<option value='0'>Melee/Heavy thrown (str)</option>
+<option value='1'>Ranged/Light thrown (dex)</option>
+</select>
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
@@ -1984,7 +2210,7 @@
 					  </div>
 
 					  <div class="sheet-col-1-12">
-					    <input class="" type="number" name="attr_weapon_ability_bonus6" value="(abs((((1 + abs((@{weapon_type6})-(0))) - abs(1 - abs((@{weapon_type6})-(0)))) / 2) - 1)) * (@{strength_mod_plus_half_level}) + (abs((((1 + abs((@{weapon_type6})-(1))) - abs(1 - abs((@{weapon_type6})-(1)))) / 2) - 1)) * (@{dexterity_mod_plus_half_level})" disabled="disabled"/>
+					    <input class="" type="number" name="attr_weapon_ability_bonus6" value="(abs((((1 + abs((@{weapon_type6})-(0))) - abs(1 - abs((@{weapon_type6})-(0)))) / 2) - 1)) * (@{half_level} + @{strength_mod}) + (abs((((1 + abs((@{weapon_type6})-(1))) - abs(1 - abs((@{weapon_type6})-(1)))) / 2) - 1)) * (@{half_level} + @{dexterity_mod})" disabled="disabled"/>
 					  </div>
 
 					  <div class="sheet-row sheet-sub-header">
@@ -2037,12 +2263,10 @@
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
-					    <select name="attr_weapon_type7">
-					      <option value="0" selected="selected">Melee (str)</option>
-					      <option value="1">Ranged (dex)</option>
-					      <option value="1">Light Thrown (dex)</option>
-					      <option value="0">Heavy Thrown (str)</option>
-					    </select>
+					  <select name='attr_weapon_type7'>
+<option value='0'>Melee/Heavy thrown (str)</option>
+<option value='1'>Ranged/Light thrown (dex)</option>
+</select>
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
@@ -2058,7 +2282,7 @@
 					  </div>
 
 					  <div class="sheet-col-1-12">
-					    <input class="" type="number" name="attr_weapon_ability_bonus7" value="(abs((((1 + abs((@{weapon_type7})-(0))) - abs(1 - abs((@{weapon_type7})-(0)))) / 2) - 1)) * (@{strength_mod_plus_half_level}) + (abs((((1 + abs((@{weapon_type7})-(1))) - abs(1 - abs((@{weapon_type7})-(1)))) / 2) - 1)) * (@{dexterity_mod_plus_half_level})" disabled="disabled"/>
+					    <input class="" type="number" name="attr_weapon_ability_bonus7" value="(abs((((1 + abs((@{weapon_type7})-(0))) - abs(1 - abs((@{weapon_type7})-(0)))) / 2) - 1)) * (@{half_level} + @{strength_mod}) + (abs((((1 + abs((@{weapon_type7})-(1))) - abs(1 - abs((@{weapon_type7})-(1)))) / 2) - 1)) * (@{half_level} + @{dexterity_mod})" disabled="disabled"/>
 					  </div>
 
 					  <div class="sheet-row sheet-sub-header">
@@ -2111,12 +2335,10 @@
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
-					    <select name="attr_weapon_type8">
-					      <option value="0" selected="selected">Melee (str)</option>
-					      <option value="1">Ranged (dex)</option>
-					      <option value="1">Light Thrown (dex)</option>
-					      <option value="0">Heavy Thrown (str)</option>
-					    </select>
+					  <select name='attr_weapon_type8'>
+<option value='0'>Melee/Heavy thrown (str)</option>
+<option value='1'>Ranged/Light thrown (dex)</option>
+</select>
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
@@ -2132,7 +2354,7 @@
 					  </div>
 
 					  <div class="sheet-col-1-12">
-					    <input class="" type="number" name="attr_weapon_ability_bonus8" value="(abs((((1 + abs((@{weapon_type8})-(0))) - abs(1 - abs((@{weapon_type8})-(0)))) / 2) - 1)) * (@{strength_mod_plus_half_level}) + (abs((((1 + abs((@{weapon_type8})-(1))) - abs(1 - abs((@{weapon_type8})-(1)))) / 2) - 1)) * (@{dexterity_mod_plus_half_level})" disabled="disabled"/>
+					    <input class="" type="number" name="attr_weapon_ability_bonus8" value="(abs((((1 + abs((@{weapon_type8})-(0))) - abs(1 - abs((@{weapon_type8})-(0)))) / 2) - 1)) * (@{half_level} + @{strength_mod}) + (abs((((1 + abs((@{weapon_type8})-(1))) - abs(1 - abs((@{weapon_type8})-(1)))) / 2) - 1)) * (@{half_level} + @{dexterity_mod})" disabled="disabled"/>
 					  </div>
 
 					  <div class="sheet-row sheet-sub-header">
@@ -2185,12 +2407,10 @@
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
-					    <select name="attr_weapon_type9">
-					      <option value="0" selected="selected">Melee (str)</option>
-					      <option value="1">Ranged (dex)</option>
-					      <option value="1">Light Thrown (dex)</option>
-					      <option value="0">Heavy Thrown (str)</option>
-					    </select>
+					  <select name='attr_weapon_type9'>
+<option value='0'>Melee/Heavy thrown (str)</option>
+<option value='1'>Ranged/Light thrown (dex)</option>
+</select>
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
@@ -2206,7 +2426,7 @@
 					  </div>
 
 					  <div class="sheet-col-1-12">
-					    <input class="" type="number" name="attr_weapon_ability_bonus9" value="(abs((((1 + abs((@{weapon_type9})-(0))) - abs(1 - abs((@{weapon_type9})-(0)))) / 2) - 1)) * (@{strength_mod_plus_half_level}) + (abs((((1 + abs((@{weapon_type9})-(1))) - abs(1 - abs((@{weapon_type9})-(1)))) / 2) - 1)) * (@{dexterity_mod_plus_half_level})" disabled="disabled"/>
+					    <input class="" type="number" name="attr_weapon_ability_bonus9" value="(abs((((1 + abs((@{weapon_type9})-(0))) - abs(1 - abs((@{weapon_type9})-(0)))) / 2) - 1)) * (@{half_level} + @{strength_mod}) + (abs((((1 + abs((@{weapon_type9})-(1))) - abs(1 - abs((@{weapon_type9})-(1)))) / 2) - 1)) * (@{half_level} + @{dexterity_mod})" disabled="disabled"/>
 					  </div>
 
 					  <div class="sheet-row sheet-sub-header">
@@ -2259,12 +2479,10 @@
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
-					    <select name="attr_weapon_type10">
-					      <option value="0" selected="selected">Melee (str)</option>
-					      <option value="1">Ranged (dex)</option>
-					      <option value="1">Light Thrown (dex)</option>
-					      <option value="0">Heavy Thrown (str)</option>
-					    </select>
+					  <select name='attr_weapon_type10'>
+<option value='0'>Melee/Heavy thrown (str)</option>
+<option value='1'>Ranged/Light thrown (dex)</option>
+</select>
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
@@ -2280,7 +2498,7 @@
 					  </div>
 
 					  <div class="sheet-col-1-12">
-					    <input class="" type="number" name="attr_weapon_ability_bonus10" value="(abs((((1 + abs((@{weapon_type10})-(0))) - abs(1 - abs((@{weapon_type10})-(0)))) / 2) - 1)) * (@{strength_mod_plus_half_level}) + (abs((((1 + abs((@{weapon_type10})-(1))) - abs(1 - abs((@{weapon_type10})-(1)))) / 2) - 1)) * (@{dexterity_mod_plus_half_level})" disabled="disabled"/>
+					    <input class="" type="number" name="attr_weapon_ability_bonus10" value="(abs((((1 + abs((@{weapon_type10})-(0))) - abs(1 - abs((@{weapon_type10})-(0)))) / 2) - 1)) * (@{half_level} + @{strength_mod}) + (abs((((1 + abs((@{weapon_type10})-(1))) - abs(1 - abs((@{weapon_type10})-(1)))) / 2) - 1)) * (@{half_level} + @{dexterity_mod})" disabled="disabled"/>
 					  </div>
 
 					  <div class="sheet-row sheet-sub-header">
@@ -3149,13 +3367,13 @@
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
-					    <select name="attr_armourtype1">
-					      <option value="0" selected="selected">n/a</option>
-					      <option value="1">Light</option>
-					      <option value="2">Heavy</option>
-					      <option value="3">Light Shield</option>
-					      <option value="4">Heavy Shield</option>
-					    </select>
+					  <select name='attr_armourtype1'>
+<option value='0'>n/a</option>
+<option value='1'>Light</option>
+<option value='2'>Heavy</option>
+<option value='3'>Light Shield</option>
+<option value='4'>Heavy Shield</option>
+</select>
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
@@ -3203,13 +3421,13 @@
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
-					    <select name="attr_armourtype2">
-					      <option value="0" selected="selected">n/a</option>
-					      <option value="1">Light</option>
-					      <option value="2">Heavy</option>
-					      <option value="3">Light Shield</option>
-					      <option value="4">Heavy Shield</option>
-					    </select>
+					  <select name='attr_armourtype2'>
+<option value='0'>n/a</option>
+<option value='1'>Light</option>
+<option value='2'>Heavy</option>
+<option value='3'>Light Shield</option>
+<option value='4'>Heavy Shield</option>
+</select>
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
@@ -3257,13 +3475,13 @@
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
-					    <select name="attr_armourtype3">
-					      <option value="0" selected="selected">n/a</option>
-					      <option value="1">Light</option>
-					      <option value="2">Heavy</option>
-					      <option value="3">Light Shield</option>
-					      <option value="4">Heavy Shield</option>
-					    </select>
+					  <select name='attr_armourtype3'>
+<option value='0'>n/a</option>
+<option value='1'>Light</option>
+<option value='2'>Heavy</option>
+<option value='3'>Light Shield</option>
+<option value='4'>Heavy Shield</option>
+</select>
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
@@ -3311,13 +3529,13 @@
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
-					    <select name="attr_armourtype4">
-					      <option value="0" selected="selected">n/a</option>
-					      <option value="1">Light</option>
-					      <option value="2">Heavy</option>
-					      <option value="3">Light Shield</option>
-					      <option value="4">Heavy Shield</option>
-					    </select>
+					  <select name='attr_armourtype4'>
+<option value='0'>n/a</option>
+<option value='1'>Light</option>
+<option value='2'>Heavy</option>
+<option value='3'>Light Shield</option>
+<option value='4'>Heavy Shield</option>
+</select>
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
@@ -3365,13 +3583,13 @@
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
-					    <select name="attr_armourtype5">
-					      <option value="0" selected="selected">n/a</option>
-					      <option value="1">Light</option>
-					      <option value="2">Heavy</option>
-					      <option value="3">Light Shield</option>
-					      <option value="4">Heavy Shield</option>
-					    </select>
+					  <select name='attr_armourtype5'>
+<option value='0'>n/a</option>
+<option value='1'>Light</option>
+<option value='2'>Heavy</option>
+<option value='3'>Light Shield</option>
+<option value='4'>Heavy Shield</option>
+</select>
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
@@ -3419,13 +3637,13 @@
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
-					    <select name="attr_armourtype6">
-					      <option value="0" selected="selected">n/a</option>
-					      <option value="1">Light</option>
-					      <option value="2">Heavy</option>
-					      <option value="3">Light Shield</option>
-					      <option value="4">Heavy Shield</option>
-					    </select>
+					  <select name='attr_armourtype6'>
+<option value='0'>n/a</option>
+<option value='1'>Light</option>
+<option value='2'>Heavy</option>
+<option value='3'>Light Shield</option>
+<option value='4'>Heavy Shield</option>
+</select>
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
@@ -3473,13 +3691,13 @@
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
-					    <select name="attr_armourtype7">
-					      <option value="0" selected="selected">n/a</option>
-					      <option value="1">Light</option>
-					      <option value="2">Heavy</option>
-					      <option value="3">Light Shield</option>
-					      <option value="4">Heavy Shield</option>
-					    </select>
+					  <select name='attr_armourtype7'>
+<option value='0'>n/a</option>
+<option value='1'>Light</option>
+<option value='2'>Heavy</option>
+<option value='3'>Light Shield</option>
+<option value='4'>Heavy Shield</option>
+</select>
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
@@ -3527,13 +3745,13 @@
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
-					    <select name="attr_armourtype8">
-					      <option value="0" selected="selected">n/a</option>
-					      <option value="1">Light</option>
-					      <option value="2">Heavy</option>
-					      <option value="3">Light Shield</option>
-					      <option value="4">Heavy Shield</option>
-					    </select>
+					  <select name='attr_armourtype8'>
+<option value='0'>n/a</option>
+<option value='1'>Light</option>
+<option value='2'>Heavy</option>
+<option value='3'>Light Shield</option>
+<option value='4'>Heavy Shield</option>
+</select>
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
@@ -3581,13 +3799,13 @@
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
-					    <select name="attr_armourtype9">
-					      <option value="0" selected="selected">n/a</option>
-					      <option value="1">Light</option>
-					      <option value="2">Heavy</option>
-					      <option value="3">Light Shield</option>
-					      <option value="4">Heavy Shield</option>
-					    </select>
+					  <select name='attr_armourtype9'>
+<option value='0'>n/a</option>
+<option value='1'>Light</option>
+<option value='2'>Heavy</option>
+<option value='3'>Light Shield</option>
+<option value='4'>Heavy Shield</option>
+</select>
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
@@ -3635,13 +3853,13 @@
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
-					    <select name="attr_armourtype10">
-					      <option value="0" selected="selected">n/a</option>
-					      <option value="1">Light</option>
-					      <option value="2">Heavy</option>
-					      <option value="3">Light Shield</option>
-					      <option value="4">Heavy Shield</option>
-					    </select>
+					  <select name='attr_armourtype10'>
+<option value='0'>n/a</option>
+<option value='1'>Light</option>
+<option value='2'>Heavy</option>
+<option value='3'>Light Shield</option>
+<option value='4'>Heavy Shield</option>
+</select>
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
@@ -3700,7 +3918,7 @@
 				{{#attack}}
 				<div class="sheet-row">
 					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">Attack</div>
-					<div class="sheet-col-7-12 sheet-padr sheet-rt-value">{{attack}}{{#attackadv}} | {{attackadv}}{{/attackadv}} vs AC</div>
+					<div class="sheet-col-7-12 sheet-padr sheet-rt-value">vs {{defense}}</div>
 				</div>
 				{{/attack}}
 				

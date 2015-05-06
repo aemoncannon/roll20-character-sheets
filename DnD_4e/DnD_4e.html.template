@@ -58,8 +58,7 @@
 					<div class="sheet-row sheet-sub-header">
 						<div class="sheet-col-1-6 sheet-center sheet-small-label">Score</div>
 						<div class="sheet-col-1-6 sheet-center sheet-small-label">&nbsp;</div>
-						<div class="sheet-col-1-6 sheet-center sheet-small-label">Mod</div>
-						<div class="sheet-col-1-6 sheet-center sheet-small-label">Mod + 1/2 Level</div>
+						<div class="sheet-col-1-6 sheet-center sheet-small-label">Abil.Mod</div>
 					</div>
 
 					<!--(for grp in ability_groups)-->
@@ -67,7 +66,6 @@
 						<div class="sheet-col-1-6">@!in_num(grp.base)!@</div>
 						<div class="sheet-col-1-6 sheet-core-stat-label">@!grp.get('label')!@</div>
 						<div class="sheet-col-1-6">@!out_num(grp.mod)!@</div>
-						<div class="sheet-col-1-6">@!out_num(grp.mod_plus_half_level)!@</div>
 						<div class="sheet-col-1-6 sheet-center">
 						  <button type="roll" class="sheet-core-save" name="@!grp.get('roll').name!@"
 							  value="@!grp.get('roll').value!@">Check</button></div>
@@ -105,6 +103,19 @@
 							</div>
 						</div>
 					   </div>
+					</div>
+
+					<h4 class="sheet-center">Healing Surges & Action points</h4>
+					<div class="sheet-row">
+					  <div class="sheet-col-1-4 sheet-small-label sheet-center">
+					    @!in_num(healing_surges)!@<br/>HS Remaining</div>					
+					  <div class="sheet-col-1-4 sheet-small-label sheet-center">
+					    @!in_num(healing_surge_value)!@<br/>HS Value</div>
+					  <div class="sheet-col-1-4 sheet-small-label sheet-center">
+					    @!in_num(healing_surges_per_day)!@
+					    <br/>HS Per Day</div>
+					  <div class="sheet-col-1-4 sheet-small-label sheet-center">
+					    @!in_num(action_points)!@<br/>Action Points</div>
 					</div>
 					
 					<div class="sheet-row">
@@ -153,7 +164,6 @@
 					<div class="sheet-row sheet-sub-header">
 					  <div class="sheet-col-1-6 sheet-center sheet-small-label">Score</div>
 					  <div class="sheet-col-1-6 sheet-center sheet-small-label">&nbsp;</div>
-					  <div class="sheet-col-1-6 sheet-center sheet-small-label">10 + 1/2 Lev.</div>
 					  <div class="sheet-col-1-6 sheet-center sheet-small-label">Armor/Abil.</div>
 					  <div class="sheet-col-1-6 sheet-center sheet-small-label">Misc Bonus</div>
 					</div>
@@ -165,9 +175,6 @@
 					    </div>
 					    <div class="sheet-col-1-6 sheet-core-stat-label">
 					      @!grp.get('label')!@
-					    </div>
-					    <div class="sheet-col-1-6">
-					      @!out_num(ten_plus_half_level)!@
 					    </div>
 					    <div class="sheet-col-1-6">
 					      @!out_num(grp.ability_bonus)!@
@@ -198,7 +205,8 @@
 						<div class="sheet-col-1-6 sheet-small-label">Skill</div>
 						<div class="sheet-col-1-12 sheet-center sheet-small-label">Trained</div>
 						<div class="sheet-col-1-12 sheet-center sheet-small-label">Armor Penalty</div>
-						<div class="sheet-col-1-12 sheet-center sheet-small-label">Abil. + 1/2 Level</div>
+						<div class="sheet-col-1-12 sheet-center sheet-small-label">Abil. Bonus</div>
+						<div class="sheet-col-1-12 sheet-center sheet-small-label">Misc Bonus</div>
 						<div class="sheet-col-1-12 sheet-center sheet-small-label">Total</div>
 						<div class="sheet-col-1-12 sheet-offset-1-24 sheet-center sheet-small-label">Passive</div>
 					</div>
@@ -219,8 +227,11 @@
 					      @!out_num(grp.armor_check_penalty)!@
 					    </div>
 					    <div class="sheet-col-1-12">
-					      @!out_num(grp.ability_mod_plus_half_level)!@
+					      @!out_num(grp.ability_mod)!@
 					    </div>
+					    <div class="sheet-col-1-12">
+					      @!out_num(grp.misc_bonus)!@
+					    </div>					    
 					    <div class="sheet-col-1-12">
 					      @!out_num(grp.total)!@
 					    </div>
@@ -314,20 +325,13 @@
 		        @!in_text(grp.description)!@
 				
 			<div class="sheet-row">
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Init</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Speed</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">AC</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Fort.</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Reflex</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Will</div>	
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Type</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Modifier</div>
 			</div>
+			
 			<div class="sheet-row">
-			  <div class="sheet-col-1-12">@!in_num(grp.initiative_bonus)!@</div>
-			  <div class="sheet-col-1-12">@!in_num(grp.speed_bonus)!@</div>
-			  <div class="sheet-col-1-12">@!in_num(grp.ac_bonus)!@</div>
-			  <div class="sheet-col-1-12">@!in_num(grp.fort_bonus)!@</div>
-			  <div class="sheet-col-1-12">@!in_num(grp.reflex_bonus)!@</div>
-			  <div class="sheet-col-1-12">@!in_num(grp.will_bonus)!@</div>
+			  <div class="sheet-col-1-12">@!in_select(grp.category)!@</div>
+			  <div class="sheet-col-1-12">@!in_num(grp.modifier)!@</div>
 			</div>
 
 		      </div>
@@ -335,12 +339,9 @@
 		      
 		    <!--(end)-->
 
-		      @!out_hidden(misc_initiative_bonus)!@
-		      @!out_hidden(misc_speed_bonus)!@
-		      @!out_hidden(misc_ac_bonus)!@
-		      @!out_hidden(misc_fort_bonus)!@
-		      @!out_hidden(misc_reflex_bonus)!@ 
-		      @!out_hidden(misc_will_bonus)!@ 
+		    <!--(for _,b in bonuses)-->
+		      @!out_num(atts.get_dict()["misc_" + b + "_bonus"])!@
+		    <!--(end)-->
 
 		</div>
 
@@ -379,12 +380,9 @@
 			    @!out_text(grp.attacktarget)!@
 			  </div>
 			  <div class="sheet-col-1-12">
-			    @!out_text(grp.ability_name)!@
-			  </div>
-			  <div class="sheet-col-1-12">
 			    @!out_hidden(grp.is_weapon)!@
-			    @!out_hidden(grp.attacker)!@
-			    @!out_hidden(grp.attackbonus)!@
+			    @!out_hidden(grp.ability_mod)!@
+			    @!out_hidden(grp.power_modifier)!@
 			    @!out_num(grp.total_bonus)!@
 			  </div>
 			  <div class="sheet-col-1-12">
@@ -450,33 +448,17 @@
 			    @!in_check(powers.is_available)!@
 			  </div>
 			  <div class="sheet-col-1-12">
-			    <select name="attr_@!powers.level.name!@" class="dtype">
-			      <!--(for level in range(1,30))-->
-			      <option value="@!level!@">@!level!@</option>
-			      <!--(end)-->
-			    </select>
+			  @!in_select(powers.level)!@
 			  </div>
 			  <div class="sheet-col-1-12">
-			    <select name="attr_@!powers.type.name!@" class="dtype">
-			      <option value="atwill">At Will</option>
-			      <option value="encounter">Encounter</option>
-			      <option value="daily">Daily</option>
-			    </select> 
+			  @!in_select(powers.type)!@
 			  </div>
 
 			  <div class="sheet-col-1-8">
 			    @!in_text(powers.keywords)!@
 			  </div>
 			  <div class="sheet-col-1-12">
-			    <select name="attr_@!powers.actiontype.name!@" class="dtype">
-			      <option value="standard">Standard</option>
-			      <option value="move">Move</option>
-			      <option value="interrupt">Immediate interrupt</option>
-			      <option value="reaction">Immediate reaction</option>
-			      <option value="minor">Minor</option>
-			      <option value="free">Free</option>
-			      <option value="trigger">Trigger(see notes)</option>
-			    </select> 
+			  @!in_select(powers.actiontype)!@
 			  </div>
 			  <div class="sheet-col-1-8">
 			    @!in_text(powers.attacktype)!@
@@ -487,8 +469,9 @@
 			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Weapon?</div>
 			  <div class="sheet-col-1-8 sheet-vert-bottom sheet-small-label">Target</div>
 			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Ability</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Ability#2</div>
 			  <div class="sheet-col-1-24 sheet-vert-bottom sheet-small-label sheet-center">+</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Bonus</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Total</div>
 			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">vs</div>
 
 			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label"># Dmg Dice</div>
@@ -504,27 +487,19 @@
 			    @!in_text(powers.attacktarget)!@
 			  </div>
 			  <div class="sheet-col-1-12">
-			    @!out_hidden(powers.ability_name)!@
-			    <select name="attr_@!powers.ability_bonus.name!@" class="dtype">
-			      <option value="0">n/a</option>
-			      <!--(for ability in ability_groups)-->
-			      <option value="@!ability.get('uniqued_mod')!@">@!ability.get('label')!@</option>
-			      <!--(end)-->
-			    </select>
-			  </div>
-			  <div class="sheet-col-1-24 sheet-small-label sheet-center">
-			    @!in_num(powers.attackbonus)!@
+			    @!in_select(powers.ability_mod)!@
 			  </div>
 			  <div class="sheet-col-1-12">
-			    @!out_hidden(powers.ability_bonus)!@
+			    @!in_select(powers.ability_mod2)!@
+			  </div>			  
+			  <div class="sheet-col-1-24 sheet-small-label sheet-center">
+			    @!in_num(powers.power_modifier)!@
+			  </div>
+			  <div class="sheet-col-1-12">
 			    @!out_num(powers.total_bonus)!@
 			  </div>			  
 			  <div class="sheet-col-1-12">
-			    <select name="attr_@!powers.attackee.name!@" class="dtype">
-			      <!--(for defense in defense_groups)-->
-			      <option value="@!defense.get('label').upper()!@">@!defense.get('label').upper()!@</option>
-			      <!--(end)-->
-			    </select>
+			  @!in_select(powers.attackee)!@
 			  </div>
 
 			  <div class="sheet-col-1-12">
@@ -534,12 +509,7 @@
 			    @!in_num(powers.dmg_dice_type)!@	
 			  </div>
 			  <div class="sheet-col-1-8">
-			    <select name="attr_@!powers.dmg_ability_bonus.name!@" class="dtype">
-			      <option value="0">n/a</option>
-			      <!--(for ability in ability_groups)-->
-			      <option value="@!ability.get('uniqued_mod')!@">@!ability.get('label')!@</option>
-			      <!--(end)-->
-			    </select>
+			    @!in_select(powers.dmg_ability_bonus)!@
 			  </div>
 			</div>
 
@@ -651,12 +621,7 @@
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
-					    <select name="attr_@!grp.weapon_type.name!@">
-					      <option value="0" selected="selected">Melee (str)</option>
-					      <option value="1">Ranged (dex)</option>
-					      <option value="1">Light Thrown (dex)</option>
-					      <option value="0">Heavy Thrown (str)</option>
-					    </select>
+					  @!in_select(grp.weapon_type)!@
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
@@ -1543,13 +1508,7 @@
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
-					    <select name="attr_@!grp.armourtype.name!@">
-					      <option value="0" selected="selected">n/a</option>
-					      <option value="1">Light</option>
-					      <option value="2">Heavy</option>
-					      <option value="3">Light Shield</option>
-					      <option value="4">Heavy Shield</option>
-					    </select>
+					  @!in_select(grp.armourtype)!@
 					  </div>
 					  
 					  <div class="sheet-col-1-12">
@@ -1609,7 +1568,7 @@
 				{{#attack}}
 				<div class="sheet-row">
 					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">Attack</div>
-					<div class="sheet-col-7-12 sheet-padr sheet-rt-value">{{attack}}{{#attackadv}} | {{attackadv}}{{/attackadv}} vs AC</div>
+					<div class="sheet-col-7-12 sheet-padr sheet-rt-value">vs {{defense}}</div>
 				</div>
 				{{/attack}}
 				
