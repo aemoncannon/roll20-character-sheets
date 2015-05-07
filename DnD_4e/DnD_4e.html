@@ -64,7 +64,7 @@
 						<div class="sheet-col-1-6"><input class="" type="number" name="attr_strength_mod" value="floor((@{strength_base} + (-10)) / 2)" disabled="disabled"/></div>
 						<div class="sheet-col-1-6 sheet-center">
 						  <button type="roll" class="sheet-core-save" name="roll_Strength_Check"
-							  value="&{template:4eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=strength check}} {{subheader=@{character_name}}} {{rollname=strength check}} {{roll=[[ 1d20 + (@{half_level}) + (@{strength_mod}) ]]}} {{rolladv=[[ 1d20 + (@{half_level}) + (@{strength_mod}) ]]}}">Check</button></div>
+							  value="&{template:5eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=Strength Check}} {{subheader=@{character_name}}} {{rollname=Result}} {{roll=[[ 1d20 + [[@{half_level} + @{strength_mod}]]]]}}">Check</button></div>
 					</div>
 					<div class="sheet-row">
 						<div class="sheet-col-1-6"><input class="" type="number" name="attr_constitution_base" value="" min="1" step="1"/></div>
@@ -72,7 +72,7 @@
 						<div class="sheet-col-1-6"><input class="" type="number" name="attr_constitution_mod" value="floor((@{constitution_base} + (-10)) / 2)" disabled="disabled"/></div>
 						<div class="sheet-col-1-6 sheet-center">
 						  <button type="roll" class="sheet-core-save" name="roll_Constitution_Check"
-							  value="&{template:4eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=constitution check}} {{subheader=@{character_name}}} {{rollname=constitution check}} {{roll=[[ 1d20 + (@{half_level}) + (@{constitution_mod}) ]]}} {{rolladv=[[ 1d20 + (@{half_level}) + (@{constitution_mod}) ]]}}">Check</button></div>
+							  value="&{template:5eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=Constitution Check}} {{subheader=@{character_name}}} {{rollname=Result}} {{roll=[[ 1d20 + [[@{half_level} + @{constitution_mod}]]]]}}">Check</button></div>
 					</div>
 					<div class="sheet-row">
 						<div class="sheet-col-1-6"><input class="" type="number" name="attr_dexterity_base" value="" min="1" step="1"/></div>
@@ -80,7 +80,7 @@
 						<div class="sheet-col-1-6"><input class="" type="number" name="attr_dexterity_mod" value="floor((@{dexterity_base} + (-10)) / 2)" disabled="disabled"/></div>
 						<div class="sheet-col-1-6 sheet-center">
 						  <button type="roll" class="sheet-core-save" name="roll_Dexterity_Check"
-							  value="&{template:4eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=dexterity check}} {{subheader=@{character_name}}} {{rollname=dexterity check}} {{roll=[[ 1d20 + (@{half_level}) + (@{dexterity_mod}) ]]}} {{rolladv=[[ 1d20 + (@{half_level}) + (@{dexterity_mod}) ]]}}">Check</button></div>
+							  value="&{template:5eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=Dexterity Check}} {{subheader=@{character_name}}} {{rollname=Result}} {{roll=[[ 1d20 + [[@{half_level} + @{dexterity_mod}]]]]}}">Check</button></div>
 					</div>
 					<div class="sheet-row">
 						<div class="sheet-col-1-6"><input class="" type="number" name="attr_intelligence_base" value="" min="1" step="1"/></div>
@@ -88,7 +88,7 @@
 						<div class="sheet-col-1-6"><input class="" type="number" name="attr_intelligence_mod" value="floor((@{intelligence_base} + (-10)) / 2)" disabled="disabled"/></div>
 						<div class="sheet-col-1-6 sheet-center">
 						  <button type="roll" class="sheet-core-save" name="roll_Intelligence_Check"
-							  value="&{template:4eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=intelligence check}} {{subheader=@{character_name}}} {{rollname=intelligence check}} {{roll=[[ 1d20 + (@{half_level}) + (@{intelligence_mod}) ]]}} {{rolladv=[[ 1d20 + (@{half_level}) + (@{intelligence_mod}) ]]}}">Check</button></div>
+							  value="&{template:5eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=Intelligence Check}} {{subheader=@{character_name}}} {{rollname=Result}} {{roll=[[ 1d20 + [[@{half_level} + @{intelligence_mod}]]]]}}">Check</button></div>
 					</div>
 					<div class="sheet-row">
 						<div class="sheet-col-1-6"><input class="" type="number" name="attr_wisdom_base" value="" min="1" step="1"/></div>
@@ -96,7 +96,7 @@
 						<div class="sheet-col-1-6"><input class="" type="number" name="attr_wisdom_mod" value="floor((@{wisdom_base} + (-10)) / 2)" disabled="disabled"/></div>
 						<div class="sheet-col-1-6 sheet-center">
 						  <button type="roll" class="sheet-core-save" name="roll_Wisdom_Check"
-							  value="&{template:4eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=wisdom check}} {{subheader=@{character_name}}} {{rollname=wisdom check}} {{roll=[[ 1d20 + (@{half_level}) + (@{wisdom_mod}) ]]}} {{rolladv=[[ 1d20 + (@{half_level}) + (@{wisdom_mod}) ]]}}">Check</button></div>
+							  value="&{template:5eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=Wisdom Check}} {{subheader=@{character_name}}} {{rollname=Result}} {{roll=[[ 1d20 + [[@{half_level} + @{wisdom_mod}]]]]}}">Check</button></div>
 					</div>
 					<div class="sheet-row">
 						<div class="sheet-col-1-6"><input class="" type="number" name="attr_charisma_base" value="" min="1" step="1"/></div>
@@ -104,7 +104,7 @@
 						<div class="sheet-col-1-6"><input class="" type="number" name="attr_charisma_mod" value="floor((@{charisma_base} + (-10)) / 2)" disabled="disabled"/></div>
 						<div class="sheet-col-1-6 sheet-center">
 						  <button type="roll" class="sheet-core-save" name="roll_Charisma_Check"
-							  value="&{template:4eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=charisma check}} {{subheader=@{character_name}}} {{rollname=charisma check}} {{roll=[[ 1d20 + (@{half_level}) + (@{charisma_mod}) ]]}} {{rolladv=[[ 1d20 + (@{half_level}) + (@{charisma_mod}) ]]}}">Check</button></div>
+							  value="&{template:5eDefault} {{character_name=@{character_name}}} {{save=1}} {{title=Charisma Check}} {{subheader=@{character_name}}} {{rollname=Result}} {{roll=[[ 1d20 + [[@{half_level} + @{charisma_mod}]]]]}}">Check</button></div>
 					</div>
 					
 				</div>
@@ -289,7 +289,7 @@
 					  <div class="sheet-row sheet-skill-row">
 					    <div class="sheet-col-1-12">
 					      <button class="sheet-skill-roll" type="roll"
-					  	    name="roll_Acrobatics_Check" value="&{template:5eDefault} {{ability=1}} {{title=Acrobatics (dexterity)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{acrobatics_total} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{acrobatics_total} + (@{global_check_bonus}) ]]}} @{classaction%s}"></button>
+					  	    name="roll_Acrobatics_Check" value="&{template:5eDefault} {{ability=1}} {{title=Acrobatics (dexterity)}} {{subheader=@{character_name}}} {{subheaderright=Skill check}} {{rollname=Result}} {{roll=[[ 1d20 + [[@{acrobatics_total}]]]]}}"></button>
 					    </div>
 					    <div class="sheet-col-1-6 sheet-skill-name">
 					      Acrobatics (dex)
@@ -316,7 +316,7 @@
 					  <div class="sheet-row sheet-skill-row">
 					    <div class="sheet-col-1-12">
 					      <button class="sheet-skill-roll" type="roll"
-					  	    name="roll_Arcana_Check" value="&{template:5eDefault} {{ability=1}} {{title=Arcana (intelligence)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{arcana_total} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{arcana_total} + (@{global_check_bonus}) ]]}} @{classaction%s}"></button>
+					  	    name="roll_Arcana_Check" value="&{template:5eDefault} {{ability=1}} {{title=Arcana (intelligence)}} {{subheader=@{character_name}}} {{subheaderright=Skill check}} {{rollname=Result}} {{roll=[[ 1d20 + [[@{arcana_total}]]]]}}"></button>
 					    </div>
 					    <div class="sheet-col-1-6 sheet-skill-name">
 					      Arcana (int)
@@ -343,7 +343,7 @@
 					  <div class="sheet-row sheet-skill-row">
 					    <div class="sheet-col-1-12">
 					      <button class="sheet-skill-roll" type="roll"
-					  	    name="roll_Athletics_Check" value="&{template:5eDefault} {{ability=1}} {{title=Athletics (strength)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{athletics_total} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{athletics_total} + (@{global_check_bonus}) ]]}} @{classaction%s}"></button>
+					  	    name="roll_Athletics_Check" value="&{template:5eDefault} {{ability=1}} {{title=Athletics (strength)}} {{subheader=@{character_name}}} {{subheaderright=Skill check}} {{rollname=Result}} {{roll=[[ 1d20 + [[@{athletics_total}]]]]}}"></button>
 					    </div>
 					    <div class="sheet-col-1-6 sheet-skill-name">
 					      Athletics (str)
@@ -370,7 +370,7 @@
 					  <div class="sheet-row sheet-skill-row">
 					    <div class="sheet-col-1-12">
 					      <button class="sheet-skill-roll" type="roll"
-					  	    name="roll_Bluff_Check" value="&{template:5eDefault} {{ability=1}} {{title=Bluff (charisma)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{bluff_total} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{bluff_total} + (@{global_check_bonus}) ]]}} @{classaction%s}"></button>
+					  	    name="roll_Bluff_Check" value="&{template:5eDefault} {{ability=1}} {{title=Bluff (charisma)}} {{subheader=@{character_name}}} {{subheaderright=Skill check}} {{rollname=Result}} {{roll=[[ 1d20 + [[@{bluff_total}]]]]}}"></button>
 					    </div>
 					    <div class="sheet-col-1-6 sheet-skill-name">
 					      Bluff (cha)
@@ -397,7 +397,7 @@
 					  <div class="sheet-row sheet-skill-row">
 					    <div class="sheet-col-1-12">
 					      <button class="sheet-skill-roll" type="roll"
-					  	    name="roll_Diplomacy_Check" value="&{template:5eDefault} {{ability=1}} {{title=Diplomacy (charisma)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{diplomacy_total} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{diplomacy_total} + (@{global_check_bonus}) ]]}} @{classaction%s}"></button>
+					  	    name="roll_Diplomacy_Check" value="&{template:5eDefault} {{ability=1}} {{title=Diplomacy (charisma)}} {{subheader=@{character_name}}} {{subheaderright=Skill check}} {{rollname=Result}} {{roll=[[ 1d20 + [[@{diplomacy_total}]]]]}}"></button>
 					    </div>
 					    <div class="sheet-col-1-6 sheet-skill-name">
 					      Diplomacy (cha)
@@ -424,7 +424,7 @@
 					  <div class="sheet-row sheet-skill-row">
 					    <div class="sheet-col-1-12">
 					      <button class="sheet-skill-roll" type="roll"
-					  	    name="roll_Dungeoneering_Check" value="&{template:5eDefault} {{ability=1}} {{title=Dungeoneering (wisdom)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{dungeoneering_total} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{dungeoneering_total} + (@{global_check_bonus}) ]]}} @{classaction%s}"></button>
+					  	    name="roll_Dungeoneering_Check" value="&{template:5eDefault} {{ability=1}} {{title=Dungeoneering (wisdom)}} {{subheader=@{character_name}}} {{subheaderright=Skill check}} {{rollname=Result}} {{roll=[[ 1d20 + [[@{dungeoneering_total}]]]]}}"></button>
 					    </div>
 					    <div class="sheet-col-1-6 sheet-skill-name">
 					      Dungeoneering (wis)
@@ -451,7 +451,7 @@
 					  <div class="sheet-row sheet-skill-row">
 					    <div class="sheet-col-1-12">
 					      <button class="sheet-skill-roll" type="roll"
-					  	    name="roll_Endurance_Check" value="&{template:5eDefault} {{ability=1}} {{title=Endurance (constitution)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{endurance_total} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{endurance_total} + (@{global_check_bonus}) ]]}} @{classaction%s}"></button>
+					  	    name="roll_Endurance_Check" value="&{template:5eDefault} {{ability=1}} {{title=Endurance (constitution)}} {{subheader=@{character_name}}} {{subheaderright=Skill check}} {{rollname=Result}} {{roll=[[ 1d20 + [[@{endurance_total}]]]]}}"></button>
 					    </div>
 					    <div class="sheet-col-1-6 sheet-skill-name">
 					      Endurance (con)
@@ -478,7 +478,7 @@
 					  <div class="sheet-row sheet-skill-row">
 					    <div class="sheet-col-1-12">
 					      <button class="sheet-skill-roll" type="roll"
-					  	    name="roll_Heal_Check" value="&{template:5eDefault} {{ability=1}} {{title=Heal (wisdom)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{heal_total} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{heal_total} + (@{global_check_bonus}) ]]}} @{classaction%s}"></button>
+					  	    name="roll_Heal_Check" value="&{template:5eDefault} {{ability=1}} {{title=Heal (wisdom)}} {{subheader=@{character_name}}} {{subheaderright=Skill check}} {{rollname=Result}} {{roll=[[ 1d20 + [[@{heal_total}]]]]}}"></button>
 					    </div>
 					    <div class="sheet-col-1-6 sheet-skill-name">
 					      Heal (wis)
@@ -505,7 +505,7 @@
 					  <div class="sheet-row sheet-skill-row">
 					    <div class="sheet-col-1-12">
 					      <button class="sheet-skill-roll" type="roll"
-					  	    name="roll_History_Check" value="&{template:5eDefault} {{ability=1}} {{title=History (intelligence)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{history_total} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{history_total} + (@{global_check_bonus}) ]]}} @{classaction%s}"></button>
+					  	    name="roll_History_Check" value="&{template:5eDefault} {{ability=1}} {{title=History (intelligence)}} {{subheader=@{character_name}}} {{subheaderright=Skill check}} {{rollname=Result}} {{roll=[[ 1d20 + [[@{history_total}]]]]}}"></button>
 					    </div>
 					    <div class="sheet-col-1-6 sheet-skill-name">
 					      History (int)
@@ -532,7 +532,7 @@
 					  <div class="sheet-row sheet-skill-row">
 					    <div class="sheet-col-1-12">
 					      <button class="sheet-skill-roll" type="roll"
-					  	    name="roll_Insight_Check" value="&{template:5eDefault} {{ability=1}} {{title=Insight (wisdom)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{insight_total} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{insight_total} + (@{global_check_bonus}) ]]}} @{classaction%s}"></button>
+					  	    name="roll_Insight_Check" value="&{template:5eDefault} {{ability=1}} {{title=Insight (wisdom)}} {{subheader=@{character_name}}} {{subheaderright=Skill check}} {{rollname=Result}} {{roll=[[ 1d20 + [[@{insight_total}]]]]}}"></button>
 					    </div>
 					    <div class="sheet-col-1-6 sheet-skill-name">
 					      Insight (wis)
@@ -559,7 +559,7 @@
 					  <div class="sheet-row sheet-skill-row">
 					    <div class="sheet-col-1-12">
 					      <button class="sheet-skill-roll" type="roll"
-					  	    name="roll_Intimidate_Check" value="&{template:5eDefault} {{ability=1}} {{title=Intimidate (charisma)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{intimidate_total} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{intimidate_total} + (@{global_check_bonus}) ]]}} @{classaction%s}"></button>
+					  	    name="roll_Intimidate_Check" value="&{template:5eDefault} {{ability=1}} {{title=Intimidate (charisma)}} {{subheader=@{character_name}}} {{subheaderright=Skill check}} {{rollname=Result}} {{roll=[[ 1d20 + [[@{intimidate_total}]]]]}}"></button>
 					    </div>
 					    <div class="sheet-col-1-6 sheet-skill-name">
 					      Intimidate (cha)
@@ -586,7 +586,7 @@
 					  <div class="sheet-row sheet-skill-row">
 					    <div class="sheet-col-1-12">
 					      <button class="sheet-skill-roll" type="roll"
-					  	    name="roll_Nature_Check" value="&{template:5eDefault} {{ability=1}} {{title=Nature (wisdom)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{nature_total} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{nature_total} + (@{global_check_bonus}) ]]}} @{classaction%s}"></button>
+					  	    name="roll_Nature_Check" value="&{template:5eDefault} {{ability=1}} {{title=Nature (wisdom)}} {{subheader=@{character_name}}} {{subheaderright=Skill check}} {{rollname=Result}} {{roll=[[ 1d20 + [[@{nature_total}]]]]}}"></button>
 					    </div>
 					    <div class="sheet-col-1-6 sheet-skill-name">
 					      Nature (wis)
@@ -613,7 +613,7 @@
 					  <div class="sheet-row sheet-skill-row">
 					    <div class="sheet-col-1-12">
 					      <button class="sheet-skill-roll" type="roll"
-					  	    name="roll_Perception_Check" value="&{template:5eDefault} {{ability=1}} {{title=Perception (wisdom)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{perception_total} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{perception_total} + (@{global_check_bonus}) ]]}} @{classaction%s}"></button>
+					  	    name="roll_Perception_Check" value="&{template:5eDefault} {{ability=1}} {{title=Perception (wisdom)}} {{subheader=@{character_name}}} {{subheaderright=Skill check}} {{rollname=Result}} {{roll=[[ 1d20 + [[@{perception_total}]]]]}}"></button>
 					    </div>
 					    <div class="sheet-col-1-6 sheet-skill-name">
 					      Perception (wis)
@@ -640,7 +640,7 @@
 					  <div class="sheet-row sheet-skill-row">
 					    <div class="sheet-col-1-12">
 					      <button class="sheet-skill-roll" type="roll"
-					  	    name="roll_Religion_Check" value="&{template:5eDefault} {{ability=1}} {{title=Religion (intelligence)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{religion_total} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{religion_total} + (@{global_check_bonus}) ]]}} @{classaction%s}"></button>
+					  	    name="roll_Religion_Check" value="&{template:5eDefault} {{ability=1}} {{title=Religion (intelligence)}} {{subheader=@{character_name}}} {{subheaderright=Skill check}} {{rollname=Result}} {{roll=[[ 1d20 + [[@{religion_total}]]]]}}"></button>
 					    </div>
 					    <div class="sheet-col-1-6 sheet-skill-name">
 					      Religion (int)
@@ -667,7 +667,7 @@
 					  <div class="sheet-row sheet-skill-row">
 					    <div class="sheet-col-1-12">
 					      <button class="sheet-skill-roll" type="roll"
-					  	    name="roll_Stealth_Check" value="&{template:5eDefault} {{ability=1}} {{title=Stealth (dexterity)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{stealth_total} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{stealth_total} + (@{global_check_bonus}) ]]}} @{classaction%s}"></button>
+					  	    name="roll_Stealth_Check" value="&{template:5eDefault} {{ability=1}} {{title=Stealth (dexterity)}} {{subheader=@{character_name}}} {{subheaderright=Skill check}} {{rollname=Result}} {{roll=[[ 1d20 + [[@{stealth_total}]]]]}}"></button>
 					    </div>
 					    <div class="sheet-col-1-6 sheet-skill-name">
 					      Stealth (dex)
@@ -694,7 +694,7 @@
 					  <div class="sheet-row sheet-skill-row">
 					    <div class="sheet-col-1-12">
 					      <button class="sheet-skill-roll" type="roll"
-					  	    name="roll_Streetwise_Check" value="&{template:5eDefault} {{ability=1}} {{title=Streetwise (charisma)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{streetwise_total} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{streetwise_total} + (@{global_check_bonus}) ]]}} @{classaction%s}"></button>
+					  	    name="roll_Streetwise_Check" value="&{template:5eDefault} {{ability=1}} {{title=Streetwise (charisma)}} {{subheader=@{character_name}}} {{subheaderright=Skill check}} {{rollname=Result}} {{roll=[[ 1d20 + [[@{streetwise_total}]]]]}}"></button>
 					    </div>
 					    <div class="sheet-col-1-6 sheet-skill-name">
 					      Streetwise (cha)
@@ -721,7 +721,7 @@
 					  <div class="sheet-row sheet-skill-row">
 					    <div class="sheet-col-1-12">
 					      <button class="sheet-skill-roll" type="roll"
-					  	    name="roll_Thievery_Check" value="&{template:5eDefault} {{ability=1}} {{title=Thievery (dexterity)}} {{subheader=@{character_name}}} {{subheaderright=Ability check}} {{rollname=Result}} {{roll=[[ 1d20 + @{thievery_total} + (@{global_check_bonus}) ]]}} {{rolladv=[[ 1d20 + @{thievery_total} + (@{global_check_bonus}) ]]}} @{classaction%s}"></button>
+					  	    name="roll_Thievery_Check" value="&{template:5eDefault} {{ability=1}} {{title=Thievery (dexterity)}} {{subheader=@{character_name}}} {{subheaderright=Skill check}} {{rollname=Result}} {{roll=[[ 1d20 + [[@{thievery_total}]]]]}}"></button>
 					    </div>
 					    <div class="sheet-col-1-6 sheet-skill-name">
 					      Thievery (dex)
@@ -1328,19 +1328,19 @@
 
 			  <div class="sheet-row">
 			    <button class="sheet-skill-roll" type="roll" name="roll_meleebasic_"
-			    	    value="&{template:5eDefault} {{attack=1}} {{keywords=@{meleebasic_keywords}}} {{target=@{meleebasic_attacktarget}}} {{defense=@{meleebasic_attackee}}} {{title=@{meleebasic_name}}} {{subheader=@{character_name}}} {{rollname=Result}} {{roll=[[ 1d20 + [[@{meleebasic_total_bonus} + (@{meleebasic_is_weapon}) * (@{weapon_total_hit_bonus})]]]]}}">Att.</button>
+			    	    value="&{template:5eDefault} {{attack=1}} {{keywords=@{meleebasic_keywords}}} {{target=@{meleebasic_attacktarget}}} {{attacktype=@{meleebasic_attacktype}}} {{defense=@{meleebasic_attackee}}}   {{title=@{meleebasic_name}}} {{subheader=@{character_name}}} {{rollname=Result}} {{roll=[[ 1d20 + [[@{meleebasic_total_bonus} + (@{meleebasic_is_weapon}) * (@{weapon_total_hit_bonus})]]]]}}">Att.</button>
 			    
 			      <input class="" type="hidden" name="attr_meleebasic_dmg_dice_multiplier" value="1" disabled="disabled"/>
 			      <input class="" type="hidden" name="attr_meleebasic_dmg_dice_type" value="0" disabled="disabled"/>
 			      <input class="" type="hidden" name="attr_meleebasic_dmg_ability_bonus" value="@{strength_mod}" disabled="disabled"/>
 			      
                                <button class="sheet-skill-roll" type="roll" name="roll_meleebasic_damage"
-			       	       value="&{template:5eDefault} {{title=Damage}}  {{rollname=Result}} {{roll=[[ [[(@{meleebasic_is_weapon}) * ((@{meleebasic_dmg_dice_multiplier}) * (@{weapon_dmg_dice_count}))]]d[[@{weapon_dmg_dice_type}]] + [[(abs((((1 + abs((@{meleebasic_is_weapon})-(0))) - abs(1 - abs((@{meleebasic_is_weapon})-(0)))) / 2) - 1)) * (@{meleebasic_dmg_dice_multiplier})]]d[[@{meleebasic_dmg_dice_type}]] + [[floor(@{meleebasic_dmg_ability_bonus})]]]]}}">Dmg</button>
+			       	       value="&{template:5eDefault} {{title=Damage}} {{subheader=@{character_name}}}  {{rollname=Result}} {{roll=[[ [[(@{meleebasic_is_weapon}) * ((@{meleebasic_dmg_dice_multiplier}) * (@{weapon_dmg_dice_count}))]]d[[@{weapon_dmg_dice_type}]] + [[(abs((((1 + abs((@{meleebasic_is_weapon})-(0))) - abs(1 - abs((@{meleebasic_is_weapon})-(0)))) / 2) - 1)) * (@{meleebasic_dmg_dice_multiplier})]]d[[@{meleebasic_dmg_dice_type}]] + [[floor(@{meleebasic_dmg_ability_bonus})]]]]}}">Dmg</button>
 				  <span style="float:right">
 			       <button class="sheet-skill-roll" type="roll" name="roll_meleebasic_"
-			    	    value="&{template:5eDefault} {{attack=1}} {{keywords=@{meleebasic_keywords}}} {{target=@{meleebasic_attacktarget}}} {{defense=@{meleebasic_attackee}}} {{title=@{meleebasic_name}}} {{subheader=@{character_name}}} {{rollname=Result}} {{roll=[[ 1d20 + [[@{meleebasic_total_bonus} + (@{meleebasic_is_weapon}) * (@{weapon_total_hit_bonus})]]]]}}">Att.Offhand</button>
+			    	    value="&{template:5eDefault} {{attack=1}} {{keywords=@{meleebasic_keywords}}} {{target=@{meleebasic_attacktarget}}} {{attacktype=@{meleebasic_attacktype}}} {{defense=@{meleebasic_attackee}}}   {{title=@{meleebasic_name}}} {{subheader=@{character_name}}} {{rollname=Result}} {{roll=[[ 1d20 + [[@{meleebasic_total_bonus} + (@{meleebasic_is_weapon}) * (@{weapon_total_hit_bonus})]]]]}}">Att.Offhand</button>
                                <button class="sheet-skill-roll" type="roll" name="roll_meleebasic_damage"
-			       	       value="&{template:5eDefault} {{title=Damage}}  {{rollname=Result}} {{roll=[[ [[(@{meleebasic_is_weapon}) * ((@{meleebasic_dmg_dice_multiplier}) * (@{weapon_dmg_dice_count}))]]d[[@{weapon_dmg_dice_type}]] + [[(abs((((1 + abs((@{meleebasic_is_weapon})-(0))) - abs(1 - abs((@{meleebasic_is_weapon})-(0)))) / 2) - 1)) * (@{meleebasic_dmg_dice_multiplier})]]d[[@{meleebasic_dmg_dice_type}]] + [[floor(@{meleebasic_dmg_ability_bonus})]]]]}}">Dmg.Offhand</button>
+			       	       value="&{template:5eDefault} {{title=Damage}} {{subheader=@{character_name}}}  {{rollname=Result}} {{roll=[[ [[(@{meleebasic_is_weapon}) * ((@{meleebasic_dmg_dice_multiplier}) * (@{weapon_dmg_dice_count}))]]d[[@{weapon_dmg_dice_type}]] + [[(abs((((1 + abs((@{meleebasic_is_weapon})-(0))) - abs(1 - abs((@{meleebasic_is_weapon})-(0)))) / 2) - 1)) * (@{meleebasic_dmg_dice_multiplier})]]d[[@{meleebasic_dmg_dice_type}]] + [[floor(@{meleebasic_dmg_ability_bonus})]]]]}}">Dmg.Offhand</button>
 				       </span>
 				       
 			  </div>
@@ -1390,19 +1390,19 @@
 
 			  <div class="sheet-row">
 			    <button class="sheet-skill-roll" type="roll" name="roll_rangedbasic_"
-			    	    value="&{template:5eDefault} {{attack=1}} {{keywords=@{rangedbasic_keywords}}} {{target=@{rangedbasic_attacktarget}}} {{defense=@{rangedbasic_attackee}}} {{title=@{rangedbasic_name}}} {{subheader=@{character_name}}} {{rollname=Result}} {{roll=[[ 1d20 + [[@{rangedbasic_total_bonus} + (@{rangedbasic_is_weapon}) * (@{weapon_total_hit_bonus})]]]]}}">Att.</button>
+			    	    value="&{template:5eDefault} {{attack=1}} {{keywords=@{rangedbasic_keywords}}} {{target=@{rangedbasic_attacktarget}}} {{attacktype=@{rangedbasic_attacktype}}} {{defense=@{rangedbasic_attackee}}}   {{title=@{rangedbasic_name}}} {{subheader=@{character_name}}} {{rollname=Result}} {{roll=[[ 1d20 + [[@{rangedbasic_total_bonus} + (@{rangedbasic_is_weapon}) * (@{weapon_total_hit_bonus})]]]]}}">Att.</button>
 			    
 			      <input class="" type="hidden" name="attr_rangedbasic_dmg_dice_multiplier" value="1" disabled="disabled"/>
 			      <input class="" type="hidden" name="attr_rangedbasic_dmg_dice_type" value="0" disabled="disabled"/>
 			      <input class="" type="hidden" name="attr_rangedbasic_dmg_ability_bonus" value="@{dexterity_mod}" disabled="disabled"/>
 			      
                                <button class="sheet-skill-roll" type="roll" name="roll_rangedbasic_damage"
-			       	       value="&{template:5eDefault} {{title=Damage}}  {{rollname=Result}} {{roll=[[ [[(@{rangedbasic_is_weapon}) * ((@{rangedbasic_dmg_dice_multiplier}) * (@{weapon_dmg_dice_count}))]]d[[@{weapon_dmg_dice_type}]] + [[(abs((((1 + abs((@{rangedbasic_is_weapon})-(0))) - abs(1 - abs((@{rangedbasic_is_weapon})-(0)))) / 2) - 1)) * (@{rangedbasic_dmg_dice_multiplier})]]d[[@{rangedbasic_dmg_dice_type}]] + [[floor(@{rangedbasic_dmg_ability_bonus})]]]]}}">Dmg</button>
+			       	       value="&{template:5eDefault} {{title=Damage}} {{subheader=@{character_name}}}  {{rollname=Result}} {{roll=[[ [[(@{rangedbasic_is_weapon}) * ((@{rangedbasic_dmg_dice_multiplier}) * (@{weapon_dmg_dice_count}))]]d[[@{weapon_dmg_dice_type}]] + [[(abs((((1 + abs((@{rangedbasic_is_weapon})-(0))) - abs(1 - abs((@{rangedbasic_is_weapon})-(0)))) / 2) - 1)) * (@{rangedbasic_dmg_dice_multiplier})]]d[[@{rangedbasic_dmg_dice_type}]] + [[floor(@{rangedbasic_dmg_ability_bonus})]]]]}}">Dmg</button>
 				  <span style="float:right">
 			       <button class="sheet-skill-roll" type="roll" name="roll_rangedbasic_"
-			    	    value="&{template:5eDefault} {{attack=1}} {{keywords=@{rangedbasic_keywords}}} {{target=@{rangedbasic_attacktarget}}} {{defense=@{rangedbasic_attackee}}} {{title=@{rangedbasic_name}}} {{subheader=@{character_name}}} {{rollname=Result}} {{roll=[[ 1d20 + [[@{rangedbasic_total_bonus} + (@{rangedbasic_is_weapon}) * (@{weapon_total_hit_bonus})]]]]}}">Att.Offhand</button>
+			    	    value="&{template:5eDefault} {{attack=1}} {{keywords=@{rangedbasic_keywords}}} {{target=@{rangedbasic_attacktarget}}} {{attacktype=@{rangedbasic_attacktype}}} {{defense=@{rangedbasic_attackee}}}   {{title=@{rangedbasic_name}}} {{subheader=@{character_name}}} {{rollname=Result}} {{roll=[[ 1d20 + [[@{rangedbasic_total_bonus} + (@{rangedbasic_is_weapon}) * (@{weapon_total_hit_bonus})]]]]}}">Att.Offhand</button>
                                <button class="sheet-skill-roll" type="roll" name="roll_rangedbasic_damage"
-			       	       value="&{template:5eDefault} {{title=Damage}}  {{rollname=Result}} {{roll=[[ [[(@{rangedbasic_is_weapon}) * ((@{rangedbasic_dmg_dice_multiplier}) * (@{weapon_dmg_dice_count}))]]d[[@{weapon_dmg_dice_type}]] + [[(abs((((1 + abs((@{rangedbasic_is_weapon})-(0))) - abs(1 - abs((@{rangedbasic_is_weapon})-(0)))) / 2) - 1)) * (@{rangedbasic_dmg_dice_multiplier})]]d[[@{rangedbasic_dmg_dice_type}]] + [[floor(@{rangedbasic_dmg_ability_bonus})]]]]}}">Dmg.Offhand</button>
+			       	       value="&{template:5eDefault} {{title=Damage}} {{subheader=@{character_name}}}  {{rollname=Result}} {{roll=[[ [[(@{rangedbasic_is_weapon}) * ((@{rangedbasic_dmg_dice_multiplier}) * (@{weapon_dmg_dice_count}))]]d[[@{weapon_dmg_dice_type}]] + [[(abs((((1 + abs((@{rangedbasic_is_weapon})-(0))) - abs(1 - abs((@{rangedbasic_is_weapon})-(0)))) / 2) - 1)) * (@{rangedbasic_dmg_dice_multiplier})]]d[[@{rangedbasic_dmg_dice_type}]] + [[floor(@{rangedbasic_dmg_ability_bonus})]]]]}}">Dmg.Offhand</button>
 				       </span>
 				       
 			  </div>
@@ -1455,7 +1455,7 @@
 
 			  <div class="sheet-row">
 			    <button class="sheet-skill-roll" type="roll" name="roll_aidanother_"
-			    	    value="&{template:5eDefault} {{attack=1}} {{keywords=@{aidanother_keywords}}} {{target=@{aidanother_attacktarget}}} {{defense=@{aidanother_attackee}}} {{title=@{aidanother_name}}} {{subheader=@{character_name}}} {{rollname=Result}} {{roll=[[ 1d20 + [[@{aidanother_total_bonus} + (@{aidanother_is_weapon}) * (@{weapon_total_hit_bonus})]]]]}}">Att.</button>
+			    	    value="&{template:5eDefault} {{attack=1}} {{keywords=@{aidanother_keywords}}} {{target=@{aidanother_attacktarget}}} {{attacktype=@{aidanother_attacktype}}} {{defense=@{aidanother_attackee}}}   {{title=@{aidanother_name}}} {{subheader=@{character_name}}} {{rollname=Result}} {{roll=[[ 1d20 + [[@{aidanother_total_bonus} + (@{aidanother_is_weapon}) * (@{weapon_total_hit_bonus})]]]]}}">Att.</button>
 			  </div>
 			
 		      </div>
@@ -1506,7 +1506,7 @@
 
 			  <div class="sheet-row">
 			    <button class="sheet-skill-roll" type="roll" name="roll_bullrush_"
-			    	    value="&{template:5eDefault} {{attack=1}} {{keywords=@{bullrush_keywords}}} {{target=@{bullrush_attacktarget}}} {{defense=@{bullrush_attackee}}} {{title=@{bullrush_name}}} {{subheader=@{character_name}}} {{rollname=Result}} {{roll=[[ 1d20 + [[@{bullrush_total_bonus} + (@{bullrush_is_weapon}) * (@{weapon_total_hit_bonus})]]]]}}">Att.</button>
+			    	    value="&{template:5eDefault} {{attack=1}} {{keywords=@{bullrush_keywords}}} {{target=@{bullrush_attacktarget}}} {{attacktype=@{bullrush_attacktype}}} {{defense=@{bullrush_attackee}}}   {{title=@{bullrush_name}}} {{subheader=@{character_name}}} {{rollname=Result}} {{roll=[[ 1d20 + [[@{bullrush_total_bonus} + (@{bullrush_is_weapon}) * (@{weapon_total_hit_bonus})]]]]}}">Att.</button>
 			  </div>
 			
 		      </div>
@@ -1557,7 +1557,7 @@
 
 			  <div class="sheet-row">
 			    <button class="sheet-skill-roll" type="roll" name="roll_grab_"
-			    	    value="&{template:5eDefault} {{attack=1}} {{keywords=@{grab_keywords}}} {{target=@{grab_attacktarget}}} {{defense=@{grab_attackee}}} {{title=@{grab_name}}} {{subheader=@{character_name}}} {{rollname=Result}} {{roll=[[ 1d20 + [[@{grab_total_bonus} + (@{grab_is_weapon}) * (@{weapon_total_hit_bonus})]]]]}}">Att.</button>
+			    	    value="&{template:5eDefault} {{attack=1}} {{keywords=@{grab_keywords}}} {{target=@{grab_attacktarget}}} {{attacktype=@{grab_attacktype}}} {{defense=@{grab_attackee}}}   {{title=@{grab_name}}} {{subheader=@{character_name}}} {{rollname=Result}} {{roll=[[ 1d20 + [[@{grab_total_bonus} + (@{grab_is_weapon}) * (@{weapon_total_hit_bonus})]]]]}}">Att.</button>
 			  </div>
 			
 		      </div>
@@ -1760,14 +1760,14 @@
 
 			<div class="sheet-row">
 			    <button class="sheet-skill-roll" type="roll" name="roll_"
-			    	    value="&{template:5eDefault} {{attack=1}} {{keywords=@{keywords}}} {{target=@{attacktarget}}} {{defense=@{attackee}}} {{title=@{name}}} {{subheader=@{character_name}}} {{rollname=Result}} {{roll=[[ 1d20 + [[@{total_bonus} + (@{is_weapon}) * (@{weapon_total_hit_bonus})]]]]}}">Att.</button>
+			    	    value="&{template:5eDefault} {{attack=1}} {{keywords=@{keywords}}} {{target=@{attacktarget}}} {{attacktype=@{attacktype}}} {{defense=@{attackee}}} {{miss=@{on_miss}}} {{secondary=@{secondary_attack}}} {{title=@{name}}} {{subheader=@{character_name}}} {{rollname=Result}} {{roll=[[ 1d20 + [[@{total_bonus} + (@{is_weapon}) * (@{weapon_total_hit_bonus})]]]]}}">Att.</button>
                                <button class="sheet-skill-roll" type="roll" name="roll_damage"
-			       	       value="&{template:5eDefault} {{title=Damage}} {{effect=@{effect}}} {{rollname=Result}} {{roll=[[ [[(@{is_weapon}) * ((@{dmg_dice_multiplier}) * (@{weapon_dmg_dice_count}))]]d[[@{weapon_dmg_dice_type}]] + [[(abs((((1 + abs((@{is_weapon})-(0))) - abs(1 - abs((@{is_weapon})-(0)))) / 2) - 1)) * (@{dmg_dice_multiplier})]]d[[@{dmg_dice_type}]] + [[floor(@{dmg_ability_bonus})]]]]}}">Dmg</button>
+			       	       value="&{template:5eDefault} {{title=Damage}} {{subheader=@{character_name}}} {{effect=@{effect}}} {{rollname=Result}} {{roll=[[ [[(@{is_weapon}) * ((@{dmg_dice_multiplier}) * (@{weapon_dmg_dice_count}))]]d[[@{weapon_dmg_dice_type}]] + [[(abs((((1 + abs((@{is_weapon})-(0))) - abs(1 - abs((@{is_weapon})-(0)))) / 2) - 1)) * (@{dmg_dice_multiplier})]]d[[@{dmg_dice_type}]] + [[floor(@{dmg_ability_bonus})]]]]}}">Dmg</button>
 				<span style="float:right">
 			      <button class="sheet-skill-roll" type="roll" name="roll_"
-			    	    value="&{template:5eDefault} {{attack=1}} {{keywords=@{keywords}}} {{target=@{attacktarget}}} {{defense=@{attackee}}} {{title=@{name}}} {{subheader=@{character_name}}} {{rollname=Result}} {{roll=[[ 1d20 + [[@{total_bonus} + (@{is_weapon}) * (@{weapon_total_hit_bonus})]]]]}}">Att.Offhand</button>				    
+			    	    value="&{template:5eDefault} {{attack=1}} {{keywords=@{keywords}}} {{target=@{attacktarget}}} {{attacktype=@{attacktype}}} {{defense=@{attackee}}} {{miss=@{on_miss}}} {{secondary=@{secondary_attack}}} {{title=@{name}}} {{subheader=@{character_name}}} {{rollname=Result}} {{roll=[[ 1d20 + [[@{total_bonus} + (@{is_weapon}) * (@{weapon_total_hit_bonus})]]]]}}">Att.Offhand</button>				    
                                <button class="sheet-skill-roll" type="roll" name="roll_damage"
-			       	       value="&{template:5eDefault} {{title=Damage}} {{effect=@{effect}}} {{rollname=Result}} {{roll=[[ [[(@{is_weapon}) * ((@{dmg_dice_multiplier}) * (@{weapon_dmg_dice_count}))]]d[[@{weapon_dmg_dice_type}]] + [[(abs((((1 + abs((@{is_weapon})-(0))) - abs(1 - abs((@{is_weapon})-(0)))) / 2) - 1)) * (@{dmg_dice_multiplier})]]d[[@{dmg_dice_type}]] + [[floor(@{dmg_ability_bonus})]]]]}}">Dmg.Offhand</button>
+			       	       value="&{template:5eDefault} {{title=Damage}} {{subheader=@{character_name}}} {{effect=@{effect}}} {{rollname=Result}} {{roll=[[ [[(@{is_weapon}) * ((@{dmg_dice_multiplier}) * (@{weapon_dmg_dice_count}))]]d[[@{weapon_dmg_dice_type}]] + [[(abs((((1 + abs((@{is_weapon})-(0))) - abs(1 - abs((@{is_weapon})-(0)))) / 2) - 1)) * (@{dmg_dice_multiplier})]]d[[@{dmg_dice_type}]] + [[floor(@{dmg_ability_bonus})]]]]}}">Dmg.Offhand</button>
 					</span>
 			  </div>
 
@@ -3920,6 +3920,13 @@
 				</div>
 				{{/keywords}}
 
+				{{#attacktype}}
+				<div class="sheet-row">
+					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">Type</div>
+					<div class="sheet-col-7-12 sheet-padr sheet-rt-value">{{attacktype}}</div>
+				</div>
+				{{/attacktype}}
+
 				{{#target}}
 				<div class="sheet-row">
 					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">Targets</div>
@@ -3933,6 +3940,20 @@
 					<div class="sheet-col-7-12 sheet-padr sheet-rt-value">{{effect}}</div>
 				</div>
 				{{/effect}}
+
+				{{#miss}}
+				<div class="sheet-row">
+					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">On Miss</div>
+					<div class="sheet-col-7-12 sheet-padr sheet-rt-value">{{miss}}</div>
+				</div>
+				{{/miss}}
+
+				{{#secondary}}
+				<div class="sheet-row">
+					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">Secondary</div>
+					<div class="sheet-col-7-12 sheet-padr sheet-rt-value">{{secondary}}</div>
+				</div>
+				{{/secondary}}
 				
 				<!--Weapon based attacks-->
 				{{#attack}}

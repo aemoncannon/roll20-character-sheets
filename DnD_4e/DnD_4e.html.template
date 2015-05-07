@@ -1570,6 +1570,13 @@
 				</div>
 				{{/keywords}}
 
+				{{#attacktype}}
+				<div class="sheet-row">
+					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">Type</div>
+					<div class="sheet-col-7-12 sheet-padr sheet-rt-value">{{attacktype}}</div>
+				</div>
+				{{/attacktype}}
+
 				{{#target}}
 				<div class="sheet-row">
 					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">Targets</div>
@@ -1583,6 +1590,20 @@
 					<div class="sheet-col-7-12 sheet-padr sheet-rt-value">{{effect}}</div>
 				</div>
 				{{/effect}}
+
+				{{#miss}}
+				<div class="sheet-row">
+					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">On Miss</div>
+					<div class="sheet-col-7-12 sheet-padr sheet-rt-value">{{miss}}</div>
+				</div>
+				{{/miss}}
+
+				{{#secondary}}
+				<div class="sheet-row">
+					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">Secondary</div>
+					<div class="sheet-col-7-12 sheet-padr sheet-rt-value">{{secondary}}</div>
+				</div>
+				{{/secondary}}
 				
 				<!--Weapon based attacks-->
 				{{#attack}}

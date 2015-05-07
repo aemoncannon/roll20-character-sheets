@@ -178,14 +178,14 @@ for abil in ["strength", "constitution", "dexterity", "intelligence", "wisdom", 
     g.attr("base", minimum=1)
     g.attr("mod", value=fn_floor(fn_div(fn_quant(fn_sum(g.base, fn_quant(-10))), 2)))
     g.set('roll', Roll("roll_%s_Check" % abil.capitalize(),
-        " ".join(["&{template:4eDefault}",
+        " ".join(["&{template:5eDefault}",
                   "{{character_name=@{character_name}}}",
                   "{{save=1}}",
-                  "{{title=%s check}}" % abil,
+                  "{{title=%s Check}}" % abil.capitalize(),
                   "{{subheader=%s}}" % atts.character_name,
-                  "{{rollname=%s check}}" % abil,
-                  "{{roll=[[ 1d20 + (%s) + (%s) ]]}}" % (atts.half_level, g.mod),
-                  "{{rolladv=[[ 1d20 + (%s) + (%s) ]]}}" % (atts.half_level, g.mod)])))
+                  "{{rollname=Result}}",
+                  "{{roll=[[ 1d20 + [[%s]]]]}}" % fn_sum(atts.half_level, g.mod),
+              ])))
     g.set('label', abil[0:3].upper())
     g.set('uniqued_mod', fn_sum(g.mod, len(ability_groups) * 0.001))
     ability_groups.append(g)
@@ -247,11 +247,10 @@ for pair in [('acrobatics', 'dexterity'),
                          "{{ability=1}}",
                          "{{title=%s (%s)}}" % (skill.capitalize(), abil),
                          "{{subheader=@{character_name}}}",
-                         "{{subheaderright=Ability check}}",
+                         "{{subheaderright=Skill check}}",
                          "{{rollname=Result}}",
-                         "{{roll=[[ 1d20 + %s + (@{global_check_bonus}) ]]}}" % g.total,
-                         "{{rolladv=[[ 1d20 + %s + (@{global_check_bonus}) ]]}}" % g.total,
-                         "@{classaction%s}"])))
+                         "{{roll=[[ 1d20 + [[%s]]]]}}" % g.total
+                     ])))
     skill_groups.append(g)
 
 NUM_ARMORS = 10
@@ -334,7 +333,10 @@ def make_action_roll(action, offhand=False):
                                "{{attack=1}}",
                                "{{keywords=%s}}" % action.keywords,
                                "{{target=%s}}" % action.attacktarget,
+                               "{{attacktype=%s}}" % action.attacktype if action.has_attr('attacktype') else "",
                                "{{defense=%s}}" % action.attackee,
+                               "{{miss=%s}}" % action.on_miss if action.has_attr('on_miss') else "",
+                               "{{secondary=%s}}" % action.secondary_attack if action.has_attr('secondary_attack') else "", 
                                "{{title=%s}}" % (action.name),
                                "{{subheader=@{character_name}}}",
                                "{{rollname=Result}}",
@@ -353,6 +355,7 @@ def make_damage_roll(action, offhand=False):
     return Roll("roll_" + action.prefix + "damage",
                      " ".join(["&{template:5eDefault}",
                                "{{title=Damage}}",
+                               "{{subheader=@{character_name}}}",
                                "{{effect=%s}}" % action.effect if action.has_attr('effect') else "",
                                "{{rollname=Result}}",
                                "{{roll=[[ [[%s]]d[[%s]] + [[%s]]d[[%s]] + [[%s]]]]}}" % (
