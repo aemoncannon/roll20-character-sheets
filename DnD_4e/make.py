@@ -362,7 +362,7 @@ def make_damage_roll(action, offhand=False):
                                "{{subheader=@{character_name}}}",
                                "{{effect=%s}}" % action.effect if action.has_attr('effect') else "",
                                "{{rollname=Result}}",
-                               "{{roll=[[ [[%s]]d[[%s]] + [[%s]]d[[%s]] + [[%s]] + [[%s]]]]}}" % (
+                               "{{roll=[[ [[%s]]d[[%s]] + [[%s]]d[[%s]] + [[%s]] + [[%s]] + [[%s]]]]}}" % (
                                    # Weapon damage
                                    fn_prod(action.is_weapon,
                                            fn_prod(action.dmg_dice_multiplier,
@@ -383,7 +383,8 @@ def make_damage_roll(action, offhand=False):
                                    action.dmg_modifier,
 
                                    # General ability bonus to damage.
-                                   fn_floor(action.dmg_ability_bonus))
+                                   fn_floor(action.dmg_ability_bonus),
+                                   fn_floor(action.dmg_ability_bonus2))
                                
                            ]))
 
@@ -404,6 +405,7 @@ action.attr("attackee", value="AC")
 action.attr("dmg_dice_multiplier", value="1")
 action.attr("dmg_dice_type", value="0")
 action.attr("dmg_ability_bonus", value=atts.strength_mod)
+action.attr("dmg_ability_bonus2", value=0)
 action.attr("dmg_modifier", value=0)
 action.set('roll', make_action_roll(action))
 action.set('damage_roll', make_damage_roll(action))
@@ -425,6 +427,7 @@ action.attr("attackee", value="AC")
 action.attr("dmg_dice_multiplier", value="1")
 action.attr("dmg_dice_type", value="0")
 action.attr("dmg_ability_bonus", value=atts.dexterity_mod)
+action.attr("dmg_ability_bonus2", value=0)
 action.attr("dmg_modifier", value=0)
 
 action.set('roll', make_action_roll(action))
@@ -502,14 +505,9 @@ powers.attr("attacktarget")
 powers.attr("ability_mod", value=0, options=(
     [(0,"n/a")] + [(a.get('uniqued_mod'),a.get('label')) for a in ability_groups]))
 
-# Some powers list two ability modifiers :-(
-powers.attr("ability_mod2", value=0, options=(
-    [(0,"n/a")] + [(a.get('uniqued_mod'),a.get('label')) for a in ability_groups]))
-
 powers.attr("power_modifier")
 powers.attr("total_bonus", value=fn_sum(atts.half_level,
                                         fn_floor(powers.ability_mod),
-                                        fn_floor(powers.ability_mod2),                                        
                                         powers.power_modifier,
                                         fn_quant(fn_prod(powers.is_weapon, atts.weapon_total_hit_bonus))))
 powers.attr("attackee", options=[(d.get('label').upper(), d.get('label').upper()) for d in defense_groups])
@@ -517,7 +515,11 @@ powers.attr("attackee", options=[(d.get('label').upper(), d.get('label').upper()
 powers.attr("dmg_dice_multiplier")
 powers.attr("dmg_dice_type")
 powers.attr("dmg_ability_bonus", value=0, options=([(0,"n/a")] + [(a.get('uniqued_mod'),a.get('label')) for a in ability_groups]))
+# Some powers list two ability modifiers to damage :-(
+powers.attr("dmg_ability_bonus2", value=0, options=(
+    [(0,"n/a")] + [(a.get('uniqued_mod'),a.get('label')) for a in ability_groups]))
 powers.attr("dmg_modifier")
+
 
 powers.attr("requirements")
 powers.attr("on_miss")

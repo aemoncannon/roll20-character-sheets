@@ -460,7 +460,6 @@
 			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Weapon?</div>
 			  <div class="sheet-col-1-8 sheet-vert-bottom sheet-small-label">Target</div>
 			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Ability</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Ability#2</div>
 			  <div class="sheet-col-1-24 sheet-vert-bottom sheet-small-label sheet-center">+</div>
 			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Total</div>
 			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label sheet-center">vs</div>
@@ -469,6 +468,9 @@
 			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label sheet-center">Dmg Die</div>
 			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label sheet-center">+</div>
 			  <div class="sheet-col-1-8 sheet-vert-bottom sheet-small-label sheet-center">Dmg.Abil.Bonus</div>
+			  <div class="sheet-col-1-8 sheet-vert-bottom sheet-small-label sheet-center">Dmg.Abil.Bonus2</div>			  
+
+
 			</div>
 			<div class="sheet-row">
 
@@ -481,9 +483,7 @@
 			  <div class="sheet-col-1-12">
 			    @!in_select(powers.ability_mod)!@
 			  </div>
-			  <div class="sheet-col-1-12">
-			    @!in_select(powers.ability_mod2)!@
-			  </div>			  
+	  
 			  <div class="sheet-col-1-24 sheet-small-label sheet-center">
 			    @!in_num(powers.power_modifier)!@
 			  </div>
@@ -505,6 +505,9 @@
 			  </div>			  
 			  <div class="sheet-col-1-8">
 			    @!in_select(powers.dmg_ability_bonus)!@
+			  </div>
+			  <div class="sheet-col-1-12">
+			    @!in_select(powers.dmg_ability_bonus2)!@
 			  </div>
 			</div>
 

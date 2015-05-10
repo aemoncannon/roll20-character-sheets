@@ -169,15 +169,6 @@
 							</div>
 						</div>
 						
-						<div class="sheet-col-1-2 sheet-padl">
-							<h4 class="sheet-center">Armour Class <span class="sheet-pictos-three">b</span></h4>
-							
-							<div class="sheet-row sheet-padb">
-							  <div class="sheet-col-1-2 sheet-small-label sheet-center">
-							    <input class="sheet-underlined" type="number" name="attr_AC" value="@{armor_AC_bonus}" disabled="disabled"/>
-							    <br/>AC (worn armour)</div>
-							</div>
-						</div>
 						
 					</div>
 					
@@ -1334,12 +1325,12 @@
 			      <input class="" type="hidden" name="attr_meleebasic_dmg_ability_bonus" value="@{strength_mod}" disabled="disabled"/>
 			      
                                <button class="sheet-skill-roll" type="roll" name="roll_meleebasic_damage"
-			       	       value="&{template:5eDefault} {{title=Damage}} {{subheader=@{character_name}}}  {{rollname=Result}} {{roll=[[ [[(@{meleebasic_is_weapon}) * ((@{meleebasic_dmg_dice_multiplier}) * (@{weapon_dmg_dice_count}))]]d[[@{weapon_dmg_dice_type}]] + [[(abs((((1 + abs((@{meleebasic_is_weapon})-(0))) - abs(1 - abs((@{meleebasic_is_weapon})-(0)))) / 2) - 1)) * (@{meleebasic_dmg_dice_multiplier})]]d[[@{meleebasic_dmg_dice_type}]] + [[@{meleebasic_dmg_modifier}]] + [[floor(@{meleebasic_dmg_ability_bonus})]]]]}}">Dmg</button>
+			       	       value="&{template:5eDefault} {{title=Damage}} {{subheader=@{character_name}}}  {{rollname=Result}} {{roll=[[ [[(@{meleebasic_is_weapon}) * ((@{meleebasic_dmg_dice_multiplier}) * (@{weapon_dmg_dice_count}))]]d[[@{weapon_dmg_dice_type}]] + [[(abs((((1 + abs((@{meleebasic_is_weapon})-(0))) - abs(1 - abs((@{meleebasic_is_weapon})-(0)))) / 2) - 1)) * (@{meleebasic_dmg_dice_multiplier})]]d[[@{meleebasic_dmg_dice_type}]] + [[@{meleebasic_dmg_modifier}]] + [[floor(@{meleebasic_dmg_ability_bonus})]] + [[floor(@{meleebasic_dmg_ability_bonus2})]]]]}}">Dmg</button>
 				  <span style="float:right">
 			       <button class="sheet-skill-roll" type="roll" name="roll_meleebasic_"
 			    	    value="&{template:5eDefault} {{attack=1}} {{keywords=@{meleebasic_keywords}}} {{target=@{meleebasic_attacktarget}}} {{attacktype=@{meleebasic_attacktype}}} {{defense=@{meleebasic_attackee}}}   {{title=@{meleebasic_name}}} {{subheader=@{character_name}}} {{rollname=Result}} {{roll=[[ 1d20 + [[@{meleebasic_total_bonus} + (@{meleebasic_is_weapon}) * (@{weapon_total_hit_bonus})]]]]}}">Att.Offhand</button>
                                <button class="sheet-skill-roll" type="roll" name="roll_meleebasic_damage"
-			       	       value="&{template:5eDefault} {{title=Damage}} {{subheader=@{character_name}}}  {{rollname=Result}} {{roll=[[ [[(@{meleebasic_is_weapon}) * ((@{meleebasic_dmg_dice_multiplier}) * (@{weapon_dmg_dice_count}))]]d[[@{weapon_dmg_dice_type}]] + [[(abs((((1 + abs((@{meleebasic_is_weapon})-(0))) - abs(1 - abs((@{meleebasic_is_weapon})-(0)))) / 2) - 1)) * (@{meleebasic_dmg_dice_multiplier})]]d[[@{meleebasic_dmg_dice_type}]] + [[@{meleebasic_dmg_modifier}]] + [[floor(@{meleebasic_dmg_ability_bonus})]]]]}}">Dmg.Offhand</button>
+			       	       value="&{template:5eDefault} {{title=Damage}} {{subheader=@{character_name}}}  {{rollname=Result}} {{roll=[[ [[(@{meleebasic_is_weapon}) * ((@{meleebasic_dmg_dice_multiplier}) * (@{weapon_dmg_dice_count}))]]d[[@{weapon_dmg_dice_type}]] + [[(abs((((1 + abs((@{meleebasic_is_weapon})-(0))) - abs(1 - abs((@{meleebasic_is_weapon})-(0)))) / 2) - 1)) * (@{meleebasic_dmg_dice_multiplier})]]d[[@{meleebasic_dmg_dice_type}]] + [[@{meleebasic_dmg_modifier}]] + [[floor(@{meleebasic_dmg_ability_bonus})]] + [[floor(@{meleebasic_dmg_ability_bonus2})]]]]}}">Dmg.Offhand</button>
 				       </span>
 				       
 			  </div>
@@ -1396,12 +1387,12 @@
 			      <input class="" type="hidden" name="attr_rangedbasic_dmg_ability_bonus" value="@{dexterity_mod}" disabled="disabled"/>
 			      
                                <button class="sheet-skill-roll" type="roll" name="roll_rangedbasic_damage"
-			       	       value="&{template:5eDefault} {{title=Damage}} {{subheader=@{character_name}}}  {{rollname=Result}} {{roll=[[ [[(@{rangedbasic_is_weapon}) * ((@{rangedbasic_dmg_dice_multiplier}) * (@{weapon_dmg_dice_count}))]]d[[@{weapon_dmg_dice_type}]] + [[(abs((((1 + abs((@{rangedbasic_is_weapon})-(0))) - abs(1 - abs((@{rangedbasic_is_weapon})-(0)))) / 2) - 1)) * (@{rangedbasic_dmg_dice_multiplier})]]d[[@{rangedbasic_dmg_dice_type}]] + [[@{rangedbasic_dmg_modifier}]] + [[floor(@{rangedbasic_dmg_ability_bonus})]]]]}}">Dmg</button>
+			       	       value="&{template:5eDefault} {{title=Damage}} {{subheader=@{character_name}}}  {{rollname=Result}} {{roll=[[ [[(@{rangedbasic_is_weapon}) * ((@{rangedbasic_dmg_dice_multiplier}) * (@{weapon_dmg_dice_count}))]]d[[@{weapon_dmg_dice_type}]] + [[(abs((((1 + abs((@{rangedbasic_is_weapon})-(0))) - abs(1 - abs((@{rangedbasic_is_weapon})-(0)))) / 2) - 1)) * (@{rangedbasic_dmg_dice_multiplier})]]d[[@{rangedbasic_dmg_dice_type}]] + [[@{rangedbasic_dmg_modifier}]] + [[floor(@{rangedbasic_dmg_ability_bonus})]] + [[floor(@{rangedbasic_dmg_ability_bonus2})]]]]}}">Dmg</button>
 				  <span style="float:right">
 			       <button class="sheet-skill-roll" type="roll" name="roll_rangedbasic_"
 			    	    value="&{template:5eDefault} {{attack=1}} {{keywords=@{rangedbasic_keywords}}} {{target=@{rangedbasic_attacktarget}}} {{attacktype=@{rangedbasic_attacktype}}} {{defense=@{rangedbasic_attackee}}}   {{title=@{rangedbasic_name}}} {{subheader=@{character_name}}} {{rollname=Result}} {{roll=[[ 1d20 + [[@{rangedbasic_total_bonus} + (@{rangedbasic_is_weapon}) * (@{weapon_total_hit_bonus})]]]]}}">Att.Offhand</button>
                                <button class="sheet-skill-roll" type="roll" name="roll_rangedbasic_damage"
-			       	       value="&{template:5eDefault} {{title=Damage}} {{subheader=@{character_name}}}  {{rollname=Result}} {{roll=[[ [[(@{rangedbasic_is_weapon}) * ((@{rangedbasic_dmg_dice_multiplier}) * (@{weapon_dmg_dice_count}))]]d[[@{weapon_dmg_dice_type}]] + [[(abs((((1 + abs((@{rangedbasic_is_weapon})-(0))) - abs(1 - abs((@{rangedbasic_is_weapon})-(0)))) / 2) - 1)) * (@{rangedbasic_dmg_dice_multiplier})]]d[[@{rangedbasic_dmg_dice_type}]] + [[@{rangedbasic_dmg_modifier}]] + [[floor(@{rangedbasic_dmg_ability_bonus})]]]]}}">Dmg.Offhand</button>
+			       	       value="&{template:5eDefault} {{title=Damage}} {{subheader=@{character_name}}}  {{rollname=Result}} {{roll=[[ [[(@{rangedbasic_is_weapon}) * ((@{rangedbasic_dmg_dice_multiplier}) * (@{weapon_dmg_dice_count}))]]d[[@{weapon_dmg_dice_type}]] + [[(abs((((1 + abs((@{rangedbasic_is_weapon})-(0))) - abs(1 - abs((@{rangedbasic_is_weapon})-(0)))) / 2) - 1)) * (@{rangedbasic_dmg_dice_multiplier})]]d[[@{rangedbasic_dmg_dice_type}]] + [[@{rangedbasic_dmg_modifier}]] + [[floor(@{rangedbasic_dmg_ability_bonus})]] + [[floor(@{rangedbasic_dmg_ability_bonus2})]]]]}}">Dmg.Offhand</button>
 				       </span>
 				       
 			  </div>
@@ -1652,7 +1643,6 @@
 			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Weapon?</div>
 			  <div class="sheet-col-1-8 sheet-vert-bottom sheet-small-label">Target</div>
 			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Ability</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Ability#2</div>
 			  <div class="sheet-col-1-24 sheet-vert-bottom sheet-small-label sheet-center">+</div>
 			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Total</div>
 			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label sheet-center">vs</div>
@@ -1661,6 +1651,9 @@
 			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label sheet-center">Dmg Die</div>
 			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label sheet-center">+</div>
 			  <div class="sheet-col-1-8 sheet-vert-bottom sheet-small-label sheet-center">Dmg.Abil.Bonus</div>
+			  <div class="sheet-col-1-8 sheet-vert-bottom sheet-small-label sheet-center">Dmg.Abil.Bonus2</div>			  
+
+
 			</div>
 			<div class="sheet-row">
 
@@ -1681,22 +1674,12 @@
 <option value='@{charisma_mod} + 0.005'>CHA</option>
 </select>
 			  </div>
-			  <div class="sheet-col-1-12">
-			    <select name='attr_ability_mod2'>
-<option value='0'>n/a</option>
-<option value='@{strength_mod} + 0.0'>STR</option>
-<option value='@{constitution_mod} + 0.001'>CON</option>
-<option value='@{dexterity_mod} + 0.002'>DEX</option>
-<option value='@{intelligence_mod} + 0.003'>INT</option>
-<option value='@{wisdom_mod} + 0.004'>WIS</option>
-<option value='@{charisma_mod} + 0.005'>CHA</option>
-</select>
-			  </div>			  
+	  
 			  <div class="sheet-col-1-24 sheet-small-label sheet-center">
 			    <input class="" type="number" name="attr_power_modifier" value="" min="0" step="1"/>
 			  </div>
 			  <div class="sheet-col-1-12">
-			    <input class="" type="number" name="attr_total_bonus" value="@{half_level} + floor(@{ability_mod}) + floor(@{ability_mod2}) + @{power_modifier} + ((@{is_weapon}) * (@{weapon_total_hit_bonus}))" disabled="disabled"/>
+			    <input class="" type="number" name="attr_total_bonus" value="@{half_level} + floor(@{ability_mod}) + @{power_modifier} + ((@{is_weapon}) * (@{weapon_total_hit_bonus}))" disabled="disabled"/>
 			  </div>			  
 			  <div class="sheet-col-1-12">
 			  <select name='attr_attackee'>
@@ -1718,6 +1701,17 @@
 			  </div>			  
 			  <div class="sheet-col-1-8">
 			    <select name='attr_dmg_ability_bonus'>
+<option value='0'>n/a</option>
+<option value='@{strength_mod} + 0.0'>STR</option>
+<option value='@{constitution_mod} + 0.001'>CON</option>
+<option value='@{dexterity_mod} + 0.002'>DEX</option>
+<option value='@{intelligence_mod} + 0.003'>INT</option>
+<option value='@{wisdom_mod} + 0.004'>WIS</option>
+<option value='@{charisma_mod} + 0.005'>CHA</option>
+</select>
+			  </div>
+			  <div class="sheet-col-1-12">
+			    <select name='attr_dmg_ability_bonus2'>
 <option value='0'>n/a</option>
 <option value='@{strength_mod} + 0.0'>STR</option>
 <option value='@{constitution_mod} + 0.001'>CON</option>
@@ -1765,12 +1759,12 @@
 			    <button class="sheet-skill-roll" type="roll" name="roll_"
 			    	    value="&{template:5eDefault} {{attack=1}} {{keywords=@{keywords}}} {{target=@{attacktarget}}} {{attacktype=@{attacktype}}} {{defense=@{attackee}}} {{miss=@{on_miss}}} {{secondary=@{secondary_attack}}} {{title=@{name}}} {{subheader=@{character_name}}} {{rollname=Result}} {{roll=[[ 1d20 + [[@{total_bonus} + (@{is_weapon}) * (@{weapon_total_hit_bonus})]]]]}}">Att.</button>
                                <button class="sheet-skill-roll" type="roll" name="roll_damage"
-			       	       value="&{template:5eDefault} {{title=Damage}} {{subheader=@{character_name}}} {{effect=@{effect}}} {{rollname=Result}} {{roll=[[ [[(@{is_weapon}) * ((@{dmg_dice_multiplier}) * (@{weapon_dmg_dice_count}))]]d[[@{weapon_dmg_dice_type}]] + [[(abs((((1 + abs((@{is_weapon})-(0))) - abs(1 - abs((@{is_weapon})-(0)))) / 2) - 1)) * (@{dmg_dice_multiplier})]]d[[@{dmg_dice_type}]] + [[@{dmg_modifier}]] + [[floor(@{dmg_ability_bonus})]]]]}}">Dmg</button>
+			       	       value="&{template:5eDefault} {{title=Damage}} {{subheader=@{character_name}}} {{effect=@{effect}}} {{rollname=Result}} {{roll=[[ [[(@{is_weapon}) * ((@{dmg_dice_multiplier}) * (@{weapon_dmg_dice_count}))]]d[[@{weapon_dmg_dice_type}]] + [[(abs((((1 + abs((@{is_weapon})-(0))) - abs(1 - abs((@{is_weapon})-(0)))) / 2) - 1)) * (@{dmg_dice_multiplier})]]d[[@{dmg_dice_type}]] + [[@{dmg_modifier}]] + [[floor(@{dmg_ability_bonus})]] + [[floor(@{dmg_ability_bonus2})]]]]}}">Dmg</button>
 				<span style="float:right">
 			      <button class="sheet-skill-roll" type="roll" name="roll_"
 			    	    value="&{template:5eDefault} {{attack=1}} {{keywords=@{keywords}}} {{target=@{attacktarget}}} {{attacktype=@{attacktype}}} {{defense=@{attackee}}} {{miss=@{on_miss}}} {{secondary=@{secondary_attack}}} {{title=@{name}}} {{subheader=@{character_name}}} {{rollname=Result}} {{roll=[[ 1d20 + [[@{total_bonus} + (@{is_weapon}) * (@{weapon_total_hit_bonus})]]]]}}">Att.Offhand</button>				    
                                <button class="sheet-skill-roll" type="roll" name="roll_damage"
-			       	       value="&{template:5eDefault} {{title=Damage}} {{subheader=@{character_name}}} {{effect=@{effect}}} {{rollname=Result}} {{roll=[[ [[(@{is_weapon}) * ((@{dmg_dice_multiplier}) * (@{weapon_dmg_dice_count}))]]d[[@{weapon_dmg_dice_type}]] + [[(abs((((1 + abs((@{is_weapon})-(0))) - abs(1 - abs((@{is_weapon})-(0)))) / 2) - 1)) * (@{dmg_dice_multiplier})]]d[[@{dmg_dice_type}]] + [[@{dmg_modifier}]] + [[floor(@{dmg_ability_bonus})]]]]}}">Dmg.Offhand</button>
+			       	       value="&{template:5eDefault} {{title=Damage}} {{subheader=@{character_name}}} {{effect=@{effect}}} {{rollname=Result}} {{roll=[[ [[(@{is_weapon}) * ((@{dmg_dice_multiplier}) * (@{weapon_dmg_dice_count}))]]d[[@{weapon_dmg_dice_type}]] + [[(abs((((1 + abs((@{is_weapon})-(0))) - abs(1 - abs((@{is_weapon})-(0)))) / 2) - 1)) * (@{dmg_dice_multiplier})]]d[[@{dmg_dice_type}]] + [[@{dmg_modifier}]] + [[floor(@{dmg_ability_bonus})]] + [[floor(@{dmg_ability_bonus2})]]]]}}">Dmg.Offhand</button>
 					</span>
 			  </div>
 
