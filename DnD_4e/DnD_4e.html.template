@@ -134,15 +134,6 @@
 							</div>
 						</div>
 						
-						<div class="sheet-col-1-2 sheet-padl">
-							<h4 class="sheet-center">Armour Class <span class="sheet-pictos-three">b</span></h4>
-							
-							<div class="sheet-row sheet-padb">
-							  <div class="sheet-col-1-2 sheet-small-label sheet-center">
-							    @!out_num(AC, cls='sheet-underlined')!@
-							    <br/>AC (worn armour)</div>
-							</div>
-						</div>
 						
 					</div>
 					
@@ -472,10 +463,11 @@
 			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Ability#2</div>
 			  <div class="sheet-col-1-24 sheet-vert-bottom sheet-small-label sheet-center">+</div>
 			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Total</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">vs</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label sheet-center">vs</div>
 
 			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label"># Dmg Dice</div>
-			  <div class="sheet-col-1-8 sheet-vert-bottom sheet-small-label">Dmg Die</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label sheet-center">Dmg Die</div>
+			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label sheet-center">+</div>
 			  <div class="sheet-col-1-8 sheet-vert-bottom sheet-small-label sheet-center">Dmg.Abil.Bonus</div>
 			</div>
 			<div class="sheet-row">
@@ -505,9 +497,12 @@
 			  <div class="sheet-col-1-12">
 			    @!in_num(powers.dmg_dice_multiplier)!@
 			  </div>
-			  <div class="sheet-col-1-8">
+			  <div class="sheet-col-1-12">
 			    @!in_num(powers.dmg_dice_type)!@
 			  </div>
+			  <div class="sheet-col-1-12">
+			    @!in_num(powers.dmg_modifier)!@
+			  </div>			  
 			  <div class="sheet-col-1-8">
 			    @!in_select(powers.dmg_ability_bonus)!@
 			  </div>

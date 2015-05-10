@@ -32,6 +32,10 @@ def fn_eq(x, y):
     """Evaluates to 1 if x == y, 0 otherwise."""
     return "abs((((1 + abs((%s)-(%s))) - abs(1 - abs((%s)-(%s)))) / 2) - 1)" % (x,y,x,y)
 
+def fn_eq_po2(x, y):
+    """Evaluates to 1 if x == y, 0 otherwise. x and y must be powers of 2"""
+    return "(floor((%s) / (%s)) %% 2)" % (x, y)
+
 def fn_neg(x):
     """Evaluates to 1 if x == 0, 0 if x == 1."""
     return fn_eq(x, "0")
@@ -358,7 +362,7 @@ def make_damage_roll(action, offhand=False):
                                "{{subheader=@{character_name}}}",
                                "{{effect=%s}}" % action.effect if action.has_attr('effect') else "",
                                "{{rollname=Result}}",
-                               "{{roll=[[ [[%s]]d[[%s]] + [[%s]]d[[%s]] + [[%s]]]]}}" % (
+                               "{{roll=[[ [[%s]]d[[%s]] + [[%s]]d[[%s]] + [[%s]] + [[%s]]]]}}" % (
                                    # Weapon damage
                                    fn_prod(action.is_weapon,
                                            fn_prod(action.dmg_dice_multiplier,
@@ -374,6 +378,9 @@ def make_damage_roll(action, offhand=False):
                                    # Non-weapon damage
                                    fn_prod(fn_neg(action.is_weapon), action.dmg_dice_multiplier),
                                    action.dmg_dice_type,
+
+                                   # Power modifier to damage.
+                                   action.dmg_modifier,
 
                                    # General ability bonus to damage.
                                    fn_floor(action.dmg_ability_bonus))
@@ -397,6 +404,7 @@ action.attr("attackee", value="AC")
 action.attr("dmg_dice_multiplier", value="1")
 action.attr("dmg_dice_type", value="0")
 action.attr("dmg_ability_bonus", value=atts.strength_mod)
+action.attr("dmg_modifier", value=0)
 action.set('roll', make_action_roll(action))
 action.set('damage_roll', make_damage_roll(action))
 action.set('offhand_roll', make_action_roll(action))
@@ -417,6 +425,7 @@ action.attr("attackee", value="AC")
 action.attr("dmg_dice_multiplier", value="1")
 action.attr("dmg_dice_type", value="0")
 action.attr("dmg_ability_bonus", value=atts.dexterity_mod)
+action.attr("dmg_modifier", value=0)
 
 action.set('roll', make_action_roll(action))
 action.set('damage_roll', make_damage_roll(action))
@@ -508,6 +517,7 @@ powers.attr("attackee", options=[(d.get('label').upper(), d.get('label').upper()
 powers.attr("dmg_dice_multiplier")
 powers.attr("dmg_dice_type")
 powers.attr("dmg_ability_bonus", value=0, options=([(0,"n/a")] + [(a.get('uniqued_mod'),a.get('label')) for a in ability_groups]))
+powers.attr("dmg_modifier")
 
 powers.attr("requirements")
 powers.attr("on_miss")
@@ -521,48 +531,44 @@ powers.set('offhand_roll', make_action_roll(powers))
 powers.set('offhand_damage_roll', make_damage_roll(powers))
 
 
-bonuses = [
-    (0, "none"),
-    (1, "initiative"),
-    (2, "speed"),
-
-    (3, "ac"),
-    (4, "fort"),
-    (5, "reflex"),
-    (6, "will"),
-    
-    (7, "acrobatics"),
-    (8, "arcana"),
-    (9, "athletics"),
-    (10, "bluff"),
-    (11, "diplomacy"),
-    (12, "dungeoneering"),
-    (13, "endurance"),
-    (14, "heal"),
-    (15, "history"),
-    (16, "insight"),
-    (17, "intimidate"),
-    (18, "nature"),
-    (19, "perception"),
-    (20, "religion"),
-    (21, "stealth"),
-    (22, "streetwise"),
-    (23, "thievery")
-]
+bonus_names = ["initiative",
+               "speed",
+               "ac",
+               "fort",
+               "reflex",
+               "will",
+               "acrobatics",
+               "arcana",
+               "athletics",
+               "bluff",
+               "diplomacy",
+               "dungeoneering",
+               "endurance",
+               "heal",
+               "history",
+               "insight",
+               "intimidate",
+               "nature",
+               "perception",
+               "religion",
+               "stealth",
+               "streetwise",
+               "thievery"]
+bonuses = zip([2**k for k in range(0, len(bonus_names))], bonus_names)
 
 NUM_BONUSES = 10
 bonus_groups = []
 for i in range(1, NUM_BONUSES+1):
     g = Group(prefix="bonus_", suffix=str(i))
     g.attr("description")
-    g.attr("category", value=0, options=[(val, name.capitalize()) for val,name in bonuses])
+    g.attr("category", value=0, options=([(0, "")] + [(val, name.capitalize()) for val,name in bonuses]))
     g.attr("modifier", value=0)
     bonus_groups.append(g)
 
 # Aggregate bonus effects
 for val, name in bonuses:
     Attr("misc_" + name + "_bonus",
-         value=fn_sum(*[fn_prod(fn_eq(g.category, val), g.modifier) for g in bonus_groups]))
+         value=fn_sum(*[fn_prod(fn_eq_po2(g.category, val), g.modifier) for g in bonus_groups]))
 
 t = pyratemp.Template(filename="DnD_4e.html.template")
 
