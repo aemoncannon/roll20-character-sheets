@@ -508,8 +508,7 @@ powers.attr("ability_mod", value=0, options=(
 powers.attr("power_modifier")
 powers.attr("total_bonus", value=fn_sum(atts.half_level,
                                         fn_floor(powers.ability_mod),
-                                        powers.power_modifier,
-                                        fn_quant(fn_prod(powers.is_weapon, atts.weapon_total_hit_bonus))))
+                                        powers.power_modifier))
 powers.attr("attackee", options=[(d.get('label').upper(), d.get('label').upper()) for d in defense_groups])
 
 powers.attr("dmg_dice_multiplier")
