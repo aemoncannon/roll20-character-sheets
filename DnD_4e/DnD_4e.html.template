@@ -395,6 +395,8 @@
 			      @!out_hidden(grp.dmg_dice_multiplier)!@
 			      @!out_hidden(grp.dmg_dice_type)!@
 			      @!out_hidden(grp.dmg_ability_bonus)!@
+			      @!out_hidden(grp.dmg_ability_bonus2)!@
+			      @!out_hidden(grp.dmg_modifier)!@
 			      
                                <button class="sheet-skill-roll" type="roll" name="@!grp.get('damage_roll').name!@"
 			       	       value="@!grp.get('damage_roll').value!@">Dmg</button>
@@ -417,14 +419,18 @@
 
 		    <!-- See PHB page 55 for power card description. -->
 
-		      <fieldset class="repeating_powers">   
-		      <div class="sheet-margin-bottom sheet-padr sheet-padl">
+		      <fieldset class="repeating_powers">
+
+		      <input type='radio' class='sheet-radio-powerType1' name='attr_type' value='0' checked='checked'/>&nbsp;At will&nbsp;&nbsp;
+		      <input type='radio' class='sheet-radio-powerType2' name='attr_type' value='1'/>&nbsp;Encounter&nbsp;&nbsp;
+		      <input type='radio' class='sheet-radio-powerType3' name='attr_type' value='2'/>&nbsp;Daily&nbsp;&nbsp;
+
+		      <div class="sheet-power-container sheet-margin-bottom sheet-padr sheet-padl">
 
 			<div class="sheet-row">
 			  <div class="sheet-col-1-4 sheet-vert-bottom sheet-small-label">Name</div>
 			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Available</div>
 			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Level</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Type</div>
 			  <div class="sheet-col-1-8 sheet-vert-bottom sheet-small-label">Keywords</div>
 			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Action Type</div>
 			  <div class="sheet-col-1-8 sheet-vert-bottom sheet-small-label">Type/Range</div>
@@ -440,9 +446,6 @@
 			  </div>
 			  <div class="sheet-col-1-12">
 			  @!in_select(powers.level)!@
-			  </div>
-			  <div class="sheet-col-1-12">
-			  @!in_select(powers.type)!@
 			  </div>
 
 			  <div class="sheet-col-1-8">
@@ -461,15 +464,13 @@
 			  <div class="sheet-col-1-8 sheet-vert-bottom sheet-small-label">Target</div>
 			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Ability</div>
 			  <div class="sheet-col-1-24 sheet-vert-bottom sheet-small-label sheet-center">+</div>
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Total</div>
 			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label sheet-center">vs</div>
 
 			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label"># Dmg Dice</div>
 			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label sheet-center">Dmg Die</div>
 			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label sheet-center">+</div>
 			  <div class="sheet-col-1-8 sheet-vert-bottom sheet-small-label sheet-center">Dmg.Abil.Bonus</div>
-			  <div class="sheet-col-1-8 sheet-vert-bottom sheet-small-label sheet-center">Dmg.Abil.Bonus2</div>			  
-
+			  <div class="sheet-col-1-8 sheet-vert-bottom sheet-small-label sheet-center">Dmg.Abil.Bonus2</div>			
 
 			</div>
 			<div class="sheet-row">
@@ -487,9 +488,7 @@
 			  <div class="sheet-col-1-24 sheet-small-label sheet-center">
 			    @!in_num(powers.power_modifier)!@
 			  </div>
-			  <div class="sheet-col-1-12">
-			    @!out_num(powers.total_bonus)!@
-			  </div>			  
+
 			  <div class="sheet-col-1-12">
 			  @!in_select(powers.attackee)!@
 			  </div>
@@ -543,9 +542,13 @@
 			    @!in_text(powers.notes)!@
 			</div>
 
+			@!out_hidden(powers.total_bonus)!@
+
 			<div class="sheet-row">
 			    <button class="sheet-skill-roll" type="roll" name="@!powers.get('roll').name!@"
 			    	    value="@!powers.get('roll').value!@">Att.</button>
+			    <button class="sheet-skill-roll" type="roll" name="@!powers.get('effect_roll').name!@"
+			    	    value="@!powers.get('effect_roll').value!@">Show Effect</button>
                             <!--(if powers.get('damage_roll'))-->
                                <button class="sheet-skill-roll" type="roll" name="@!powers.get('damage_roll').name!@"
 			       	       value="@!powers.get('damage_roll').value!@">Dmg</button>
@@ -575,6 +578,10 @@
 					  @!out_hidden(weapon_dmg_dice_count)!@
 					  @!out_hidden(weapon_dmg_dice_type)!@
 					  @!out_hidden(weapon_total_hit_bonus)!@
+
+					  @!out_hidden(weapon_offhand_dmg_dice_count)!@
+					  @!out_hidden(weapon_offhand_dmg_dice_type)!@
+					  @!out_hidden(weapon_offhand_total_hit_bonus)!@
 
 
 					<!--(for grp in weapon_groups)-->
@@ -1575,6 +1582,13 @@
 				</div>
 				{{/attacktype}}
 
+				{{#requirements}}
+				<div class="sheet-row">
+					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">Requirements</div>
+					<div class="sheet-col-7-12 sheet-padr sheet-rt-value">{{requirements}}</div>
+				</div>
+				{{/requirements}}
+
 				{{#target}}
 				<div class="sheet-row">
 					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">Targets</div>
@@ -1582,12 +1596,12 @@
 				</div>
 				{{/target}}
 
-				{{#effect}}
+				{{#notes}}
 				<div class="sheet-row">
-					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">Effect</div>
-					<div class="sheet-col-7-12 sheet-padr sheet-rt-value">{{effect}}</div>
+					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">Notes</div>
+					<div class="sheet-col-7-12 sheet-padr sheet-rt-value">{{notes}}</div>
 				</div>
-				{{/effect}}
+				{{/notes}}
 
 				{{#miss}}
 				<div class="sheet-row">
@@ -1825,6 +1839,14 @@
 					<div class="sheet-col-7-12 sheet-padr sheet-rt-value">{{roll}}{{#rolladv}} | {{rolladv}}{{/rolladv}}</div>
 				</div>
 				{{/roll}}
+
+
+				{{#effect}}
+				<div class="sheet-row">
+					<div class="sheet-col-5-12 sheet-padl sheet-padr sheet-rt-key">Effect</div>
+					<div class="sheet-col-7-12 sheet-padr sheet-rt-value">{{effect}}</div>
+				</div>
+				{{/effect}}
 				
 				<!-- Class action additions -->
 				

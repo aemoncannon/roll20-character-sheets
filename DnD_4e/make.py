@@ -70,6 +70,14 @@ def in_select(attr):
             "\n".join("<option value='%s'>%s</option>" % (val,label) for val,label in attr.options) +
             "\n</select>")
 
+def in_radio(attr):
+    result = ""
+    i = 0
+    for val, label in attr.options:
+        result += "<input type='radio' name='attr_%s' value='%s'/>&nbsp;%s&nbsp;&nbsp;\n" % (attr.name,val,label)
+        i += 1
+    return result
+
 def in_text(attr, cls=""):
     return el_in(attr, cls=cls)
 
@@ -343,6 +351,7 @@ def make_action_roll(action, offhand=False):
                                "{{secondary=%s}}" % action.secondary_attack if action.has_attr('secondary_attack') else "", 
                                "{{title=%s}}" % (action.name),
                                "{{subheader=@{character_name}}}",
+                               "{{notes=%s}}" % action.notes if action.has_attr('notes') else "",
                                "{{rollname=Result}}",
                                "{{roll=[[ 1d20 + [[%s]]]]}}" % (
                                    fn_sum(action.total_bonus,
@@ -351,14 +360,28 @@ def make_action_roll(action, offhand=False):
                                    if not offhand else
                                    fn_sum(action.total_bonus,
                                           fn_prod(action.is_weapon,
-                                                  atts.weapon_total_offhand_hit_bonus))
+                                                  atts.weapon_offhand_total_hit_bonus))
                                )
+                           ]))
+
+def make_effect_roll(action, offhand=False):
+    return Roll("roll_" + action.prefix,
+                     " ".join(["&{template:5eDefault}",
+                               "{{keywords=%s}}" % action.keywords,
+                               "{{target=%s}}" % action.attacktarget,
+                               "{{miss=%s}}" % action.on_miss if action.has_attr('on_miss') else "",
+                               "{{secondary=%s}}" % action.secondary_attack if action.has_attr('secondary_attack') else "",
+                               "{{requirements=%s}}" % action.requirements if action.has_attr('requirements') else "", 
+                               "{{effect=%s}}" % action.effect if action.has_attr('effect') else "",
+                               "{{notes=%s}}" % action.notes if action.has_attr('notes') else "",
+                               "{{title=%s}}" % (action.name),
+                               "{{subheader=@{character_name}}}"
                            ]))
 
 def make_damage_roll(action, offhand=False):
     return Roll("roll_" + action.prefix + "damage",
                      " ".join(["&{template:5eDefault}",
-                               "{{title=Damage}}",
+                               "{{title=%s Damage}}" % (action.name),
                                "{{subheader=@{character_name}}}",
                                "{{effect=%s}}" % action.effect if action.has_attr('effect') else "",
                                "{{rollname=Result}}",
@@ -409,8 +432,8 @@ action.attr("dmg_ability_bonus2", value=0)
 action.attr("dmg_modifier", value=0)
 action.set('roll', make_action_roll(action))
 action.set('damage_roll', make_damage_roll(action))
-action.set('offhand_roll', make_action_roll(action))
-action.set('offhand_damage_roll', make_damage_roll(action))
+action.set('offhand_roll', make_action_roll(action, offhand=True))
+action.set('offhand_damage_roll', make_damage_roll(action, offhand=True))
 basic_actions.append(action)
 
 action = Group(prefix="rangedbasic_")
@@ -432,8 +455,8 @@ action.attr("dmg_modifier", value=0)
 
 action.set('roll', make_action_roll(action))
 action.set('damage_roll', make_damage_roll(action))
-action.set('offhand_roll', make_action_roll(action))
-action.set('offhand_damage_roll', make_damage_roll(action))
+action.set('offhand_roll', make_action_roll(action, offhand=True))
+action.set('offhand_damage_roll', make_damage_roll(action, offhand=True))
 basic_actions.append(action)
 
 action = Group(prefix="aidanother_")
@@ -528,8 +551,9 @@ powers.attr("sustain")
 powers.attr("notes")
 powers.set('roll', make_action_roll(powers))
 powers.set('damage_roll', make_damage_roll(powers))
-powers.set('offhand_roll', make_action_roll(powers))
-powers.set('offhand_damage_roll', make_damage_roll(powers))
+powers.set('offhand_roll', make_action_roll(powers, offhand=True))
+powers.set('offhand_damage_roll', make_damage_roll(powers, offhand=True))
+powers.set('effect_roll', make_effect_roll(powers))
 
 
 bonus_names = ["initiative",
@@ -588,6 +612,7 @@ template_vars.update(
          in_num=in_num,
          in_text=in_text,
          in_select=in_select,
+         in_radio=in_radio,
          out_num=out_num,
          out_text=out_text,
          out_hidden=out_hidden,

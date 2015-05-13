@@ -274,6 +274,22 @@ input.sheet-is-npc {
 /* END player/npc button Settings */
 
 
+div.sheet-power-container {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 3px;
+}
+
+input.sheet-radio-powerType1:checked ~ div.sheet-power-container {
+  background-color: #BAFFBF;
+}
+input.sheet-radio-powerType2:checked ~ div.sheet-power-container {
+  background-color: #BAECFF;
+}
+input.sheet-radio-powerType3:checked ~ div.sheet-power-container {
+  background-color: #FFBABA;
+}
+
 /* Main Sheet Tabs */
  div[class^="sheet-section"] { 	
 	display: none;
