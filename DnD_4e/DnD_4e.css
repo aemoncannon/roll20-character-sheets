@@ -73,6 +73,20 @@
     border-left-color: #375035;
 }
 
+/* Damage header*/
+.sheet-rolltemplate-5eDefault .sheet-rt-header.sheet-damage {
+	background-color: #914B43;
+}
+
+.sheet-rolltemplate-5eDefault .sheet-rt-header.sheet-damage:before {
+    border-right-color: #6B423D;
+}
+
+.sheet-rolltemplate-5eDefault .sheet-rt-header.sheet-damage:after {
+    border-left-color: #6B423D;
+}
+
+
 /* Spell header */
 .sheet-rolltemplate-5eDefault .sheet-rt-header.sheet-spell{
 	background-color: #45285D;

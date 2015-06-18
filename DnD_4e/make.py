@@ -317,6 +317,7 @@ for i in range(1, NUM_WEAPONS+1):
                                             (WEAPON_TYPE_DEX_BASED, "Ranged/Light thrown (dex)")])
     g.attr("weapon_dmg_dice_count", value=1)
     g.attr("weapon_dmg_dice_type", value=6)
+    g.attr("weapon_dmg_mod", value=0)
     g.attr("weapon_enhancement_bonus", value=0) # Magic or other bonus
     
     # Note this attribute not actually used anywhere a.t.m, as each power already has a 'base attack bonus'
@@ -333,10 +334,12 @@ for i in range(1, NUM_WEAPONS+1):
 # Aggregate weapon effects
 Attr("weapon_dmg_dice_count", value=fn_sum(*[fn_prod(g.weapon_worn, g.weapon_dmg_dice_count) for g in weapon_groups]))
 Attr("weapon_dmg_dice_type", value=fn_sum(*[fn_prod(g.weapon_worn, g.weapon_dmg_dice_type) for g in weapon_groups]))
+Attr("weapon_dmg_mod", value=fn_sum(*[fn_prod(g.weapon_worn, g.weapon_dmg_mod) for g in weapon_groups]))
 Attr("weapon_total_hit_bonus", value=fn_sum(*[fn_prod(g.weapon_worn, g.weapon_total_hit_bonus) for g in weapon_groups]))
 
 Attr("weapon_offhand_dmg_dice_count", value=fn_sum(*[fn_prod(g.weapon_offhand, g.weapon_dmg_dice_count) for g in weapon_groups]))
 Attr("weapon_offhand_dmg_dice_type", value=fn_sum(*[fn_prod(g.weapon_offhand, g.weapon_dmg_dice_type) for g in weapon_groups]))
+Attr("weapon_offhand_dmg_mod", value=fn_sum(*[fn_prod(g.weapon_offhand, g.weapon_dmg_mod) for g in weapon_groups]))
 Attr("weapon_offhand_total_hit_bonus", value=fn_sum(*[fn_prod(g.weapon_offhand, g.weapon_total_hit_bonus) for g in weapon_groups]))
 
 def make_action_roll(action, offhand=False):
@@ -353,15 +356,10 @@ def make_action_roll(action, offhand=False):
                                "{{subheader=@{character_name}}}",
                                "{{notes=%s}}" % action.notes if action.has_attr('notes') else "",
                                "{{rollname=Result}}",
-                               "{{roll=[[ 1d20 + [[%s]]]]}}" % (
-                                   fn_sum(action.total_bonus,
-                                          fn_prod(action.is_weapon,
-                                                  atts.weapon_total_hit_bonus))
-                                   if not offhand else
-                                   fn_sum(action.total_bonus,
-                                          fn_prod(action.is_weapon,
-                                                  atts.weapon_offhand_total_hit_bonus))
-                               )
+                               "{{roll=[[ 1d20 + [[%s]] + [[%s]]]]}}" % (
+                                   action.total_bonus,
+                                   fn_prod(action.is_weapon, atts.weapon_total_hit_bonus) if not offhand else
+                                   fn_prod(action.is_weapon, atts.weapon_offhand_total_hit_bonus))
                            ]))
 
 def make_effect_roll(action, offhand=False):
@@ -382,11 +380,12 @@ def make_damage_roll(action, offhand=False):
     return Roll("roll_" + action.prefix + "damage",
                      " ".join(["&{template:5eDefault}",
                                "{{title=%s Damage}}" % (action.name),
+                               "{{damage=1}}",
                                "{{subheader=@{character_name}}}",
                                "{{effect=%s}}" % action.effect if action.has_attr('effect') else "",
                                "{{rollname=Result}}",
-                               "{{roll=[[ [[%s]]d[[%s]] + [[%s]]d[[%s]] + [[%s]] + [[%s]] + [[%s]]]]}}" % (
-                                   # Weapon damage
+                               "{{roll=[[ [[%s]]d[[%s]] + [[%s]] + [[%s]]d[[%s]] + [[%s]] + [[%s]] + [[%s]] + [[%s]]]]}}" % (
+                                   # Weapon roll
                                    fn_prod(action.is_weapon,
                                            fn_prod(action.dmg_dice_multiplier,
                                                    atts.weapon_dmg_dice_count)
@@ -397,13 +396,23 @@ def make_damage_roll(action, offhand=False):
                                    atts.weapon_dmg_dice_type
                                    if not offhand else
                                    atts.weapon_offhand_dmg_dice_type,
+                                   
+                                   # Weapon modifier
+                                   fn_prod(action.is_weapon,
+                                           fn_prod(action.dmg_dice_multiplier, atts.weapon_dmg_mod)
+                                           if not offhand else
+                                           fn_prod(action.dmg_dice_multiplier, atts.weapon_offhand_dmg_mod)
+                                       ),
 
-                                   # Non-weapon damage
+                                   # Non-weapon roll
                                    fn_prod(fn_neg(action.is_weapon), action.dmg_dice_multiplier),
                                    action.dmg_dice_type,
 
                                    # Power modifier to damage.
                                    action.dmg_modifier,
+
+                                   # Situational modifier to damage.
+                                   action.dmg_situ_modifier,
 
                                    # General ability bonus to damage.
                                    fn_floor(action.dmg_ability_bonus),
@@ -423,13 +432,15 @@ action.attr("is_weapon", value=1)
 action.attr("attacktarget", value="One creature")
 action.attr("ability_mod", value=atts.strength_mod)
 action.attr("power_modifier", value=0)
-action.attr("total_bonus", value=fn_sum(atts.half_level, action.ability_mod, action.power_modifier))
+action.attr("situ_modifier", value=0)
+action.attr("total_bonus", value=fn_sum(atts.half_level, action.ability_mod, action.power_modifier, action.situ_modifier))
 action.attr("attackee", value="AC")
 action.attr("dmg_dice_multiplier", value="1")
 action.attr("dmg_dice_type", value="0")
 action.attr("dmg_ability_bonus", value=atts.strength_mod)
 action.attr("dmg_ability_bonus2", value=0)
 action.attr("dmg_modifier", value=0)
+action.attr("dmg_situ_modifier", value=0)
 action.set('roll', make_action_roll(action))
 action.set('damage_roll', make_damage_roll(action))
 action.set('offhand_roll', make_action_roll(action, offhand=True))
@@ -445,14 +456,15 @@ action.attr("attacktype", value="Melee")
 action.attr("attacktarget", value="One creature")
 action.attr("ability_mod", value=atts.dexterity_mod)
 action.attr("power_modifier", value=0)
-action.attr("total_bonus", value=fn_sum(atts.half_level, action.ability_mod, action.power_modifier))
+action.attr("situ_modifier", value=0)
+action.attr("total_bonus", value=fn_sum(atts.half_level, action.ability_mod, action.power_modifier, action.situ_modifier))
 action.attr("attackee", value="AC")
 action.attr("dmg_dice_multiplier", value="1")
 action.attr("dmg_dice_type", value="0")
 action.attr("dmg_ability_bonus", value=atts.dexterity_mod)
 action.attr("dmg_ability_bonus2", value=0)
 action.attr("dmg_modifier", value=0)
-
+action.attr("dmg_situ_modifier", value=0)
 action.set('roll', make_action_roll(action))
 action.set('damage_roll', make_damage_roll(action))
 action.set('offhand_roll', make_action_roll(action, offhand=True))
@@ -468,7 +480,8 @@ action.attr("attacktype", value="Melee")
 action.attr("attacktarget", value="One creature")
 action.attr("ability_mod", value=atts.strength_mod)
 action.attr("power_modifier", value=0)
-action.attr("total_bonus", value=fn_sum(atts.half_level, action.ability_mod, action.power_modifier))
+action.attr("situ_modifier", value=0)
+action.attr("total_bonus", value=fn_sum(atts.half_level, action.ability_mod, action.power_modifier, action.situ_modifier))
 action.attr("attackee", value="AC")
 action.attr("effect", value="If you succeed, deal no damage, but choose one ally. That ally gets a +2 bonus to his or her next attack roll against the target or to all defenses against the target's next attack. This bonus ends if not used by the end of your next turn.")
 action.set('roll', make_action_roll(action))
@@ -483,7 +496,8 @@ action.attr("is_weapon", value=0)
 action.attr("attacktarget", value="One creature")
 action.attr("ability_mod", value=atts.strength_mod)
 action.attr("power_modifier", value=0)
-action.attr("total_bonus", value=fn_sum(atts.half_level, action.ability_mod, action.power_modifier))
+action.attr("situ_modifier", value=0)
+action.attr("total_bonus", value=fn_sum(atts.half_level, action.ability_mod, action.power_modifier, action.situ_modifier))
 action.attr("attackee", value="Fort")
 action.attr("effect", value="You push the target 1 square and then shift 1 square into the space it left.")
 action.set('roll', make_action_roll(action))
@@ -498,7 +512,8 @@ action.attr("is_weapon", value=0)
 action.attr("attacktarget", value="One creature")
 action.attr("ability_mod", value=atts.strength_mod)
 action.attr("power_modifier", value=0)
-action.attr("total_bonus", value=fn_sum(atts.half_level, action.ability_mod, action.power_modifier))
+action.attr("situ_modifier", value=0)
+action.attr("total_bonus", value=fn_sum(atts.half_level, action.ability_mod, action.power_modifier, action.situ_modifier))
 action.attr("attackee", value="Reflex")
 action.attr("effect", value="You grab the target until the end of your next turn. You can end the grab as a free action.")
 action.set('roll', make_action_roll(action))
@@ -529,9 +544,11 @@ powers.attr("ability_mod", value=0, options=(
     [(0,"n/a")] + [(a.get('uniqued_mod'),a.get('label')) for a in ability_groups]))
 
 powers.attr("power_modifier")
+powers.attr("situ_modifier", value=0)
 powers.attr("total_bonus", value=fn_sum(atts.half_level,
                                         fn_floor(powers.ability_mod),
-                                        powers.power_modifier))
+                                        powers.power_modifier,
+                                        powers.situ_modifier))
 powers.attr("attackee", options=[(d.get('label').upper(), d.get('label').upper()) for d in defense_groups])
 
 powers.attr("dmg_dice_multiplier")
@@ -541,8 +558,7 @@ powers.attr("dmg_ability_bonus", value=0, options=([(0,"n/a")] + [(a.get('unique
 powers.attr("dmg_ability_bonus2", value=0, options=(
     [(0,"n/a")] + [(a.get('uniqued_mod'),a.get('label')) for a in ability_groups]))
 powers.attr("dmg_modifier")
-
-
+powers.attr("dmg_situ_modifier", value=0)
 powers.attr("requirements")
 powers.attr("on_miss")
 powers.attr("secondary_attack")
