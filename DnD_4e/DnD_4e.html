@@ -164,7 +164,7 @@
 								<div class="sheet-col-1-3 sheet-center">
 								     <button type="roll" class="sheet-initiative
 								     sheet-large-button" name="roll_init"
-								     value="&{template:5eDefault} {{title=Initiative}} {{subheader=@{character_name}}} {{rollname=Initiative}} {{roll=[[ 1d20 + @{selected|initiative} [Initiative Mod] &{tracker} ]]}}">Initiative</button>
+								     value="&{template:5eDefault} {{title=Initiative}} {{subheader=@{character_name}}} {{rollname=Initiative}} {{roll=[[ 1d20 + [[@{selected|initiative}]] [Initiative Mod] &{tracker} ]]}}">Initiative</button>
 								</div>
 							</div>
 						</div>
@@ -298,7 +298,7 @@
 					      <input class="" type="number" name="attr_acrobatics_misc_bonus" value="@{misc_acrobatics_bonus}" disabled="disabled"/>
 					    </div>					    
 					    <div class="sheet-col-1-12">
-					      <input class="" type="number" name="attr_acrobatics_total" value="@{acrobatics_is_trained} + @{half_level} + @{acrobatics_ability_mod} + @{armor_check_penalty} + @{acrobatics_misc_bonus}" disabled="disabled"/>
+					      <input class="" type="number" name="attr_acrobatics_total" value="@{acrobatics_is_trained} + @{half_level} + @{acrobatics_ability_mod} + @{acrobatics_armor_check_penalty} + @{acrobatics_misc_bonus}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12 sheet-offset-1-24">
 					      <input class="sheet-passive-skill-score" type="number" name="attr_acrobatics_passive" value="10 + @{acrobatics_total}" disabled="disabled"/>
@@ -325,7 +325,7 @@
 					      <input class="" type="number" name="attr_arcana_misc_bonus" value="@{misc_arcana_bonus}" disabled="disabled"/>
 					    </div>					    
 					    <div class="sheet-col-1-12">
-					      <input class="" type="number" name="attr_arcana_total" value="@{arcana_is_trained} + @{half_level} + @{arcana_ability_mod} + @{armor_check_penalty} + @{arcana_misc_bonus}" disabled="disabled"/>
+					      <input class="" type="number" name="attr_arcana_total" value="@{arcana_is_trained} + @{half_level} + @{arcana_ability_mod} + @{arcana_armor_check_penalty} + @{arcana_misc_bonus}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12 sheet-offset-1-24">
 					      <input class="sheet-passive-skill-score" type="number" name="attr_arcana_passive" value="10 + @{arcana_total}" disabled="disabled"/>
@@ -352,7 +352,7 @@
 					      <input class="" type="number" name="attr_athletics_misc_bonus" value="@{misc_athletics_bonus}" disabled="disabled"/>
 					    </div>					    
 					    <div class="sheet-col-1-12">
-					      <input class="" type="number" name="attr_athletics_total" value="@{athletics_is_trained} + @{half_level} + @{athletics_ability_mod} + @{armor_check_penalty} + @{athletics_misc_bonus}" disabled="disabled"/>
+					      <input class="" type="number" name="attr_athletics_total" value="@{athletics_is_trained} + @{half_level} + @{athletics_ability_mod} + @{athletics_armor_check_penalty} + @{athletics_misc_bonus}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12 sheet-offset-1-24">
 					      <input class="sheet-passive-skill-score" type="number" name="attr_athletics_passive" value="10 + @{athletics_total}" disabled="disabled"/>
@@ -379,7 +379,7 @@
 					      <input class="" type="number" name="attr_bluff_misc_bonus" value="@{misc_bluff_bonus}" disabled="disabled"/>
 					    </div>					    
 					    <div class="sheet-col-1-12">
-					      <input class="" type="number" name="attr_bluff_total" value="@{bluff_is_trained} + @{half_level} + @{bluff_ability_mod} + @{armor_check_penalty} + @{bluff_misc_bonus}" disabled="disabled"/>
+					      <input class="" type="number" name="attr_bluff_total" value="@{bluff_is_trained} + @{half_level} + @{bluff_ability_mod} + @{bluff_armor_check_penalty} + @{bluff_misc_bonus}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12 sheet-offset-1-24">
 					      <input class="sheet-passive-skill-score" type="number" name="attr_bluff_passive" value="10 + @{bluff_total}" disabled="disabled"/>
@@ -406,7 +406,7 @@
 					      <input class="" type="number" name="attr_diplomacy_misc_bonus" value="@{misc_diplomacy_bonus}" disabled="disabled"/>
 					    </div>					    
 					    <div class="sheet-col-1-12">
-					      <input class="" type="number" name="attr_diplomacy_total" value="@{diplomacy_is_trained} + @{half_level} + @{diplomacy_ability_mod} + @{armor_check_penalty} + @{diplomacy_misc_bonus}" disabled="disabled"/>
+					      <input class="" type="number" name="attr_diplomacy_total" value="@{diplomacy_is_trained} + @{half_level} + @{diplomacy_ability_mod} + @{diplomacy_armor_check_penalty} + @{diplomacy_misc_bonus}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12 sheet-offset-1-24">
 					      <input class="sheet-passive-skill-score" type="number" name="attr_diplomacy_passive" value="10 + @{diplomacy_total}" disabled="disabled"/>
@@ -433,7 +433,7 @@
 					      <input class="" type="number" name="attr_dungeoneering_misc_bonus" value="@{misc_dungeoneering_bonus}" disabled="disabled"/>
 					    </div>					    
 					    <div class="sheet-col-1-12">
-					      <input class="" type="number" name="attr_dungeoneering_total" value="@{dungeoneering_is_trained} + @{half_level} + @{dungeoneering_ability_mod} + @{armor_check_penalty} + @{dungeoneering_misc_bonus}" disabled="disabled"/>
+					      <input class="" type="number" name="attr_dungeoneering_total" value="@{dungeoneering_is_trained} + @{half_level} + @{dungeoneering_ability_mod} + @{dungeoneering_armor_check_penalty} + @{dungeoneering_misc_bonus}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12 sheet-offset-1-24">
 					      <input class="sheet-passive-skill-score" type="number" name="attr_dungeoneering_passive" value="10 + @{dungeoneering_total}" disabled="disabled"/>
@@ -460,7 +460,7 @@
 					      <input class="" type="number" name="attr_endurance_misc_bonus" value="@{misc_endurance_bonus}" disabled="disabled"/>
 					    </div>					    
 					    <div class="sheet-col-1-12">
-					      <input class="" type="number" name="attr_endurance_total" value="@{endurance_is_trained} + @{half_level} + @{endurance_ability_mod} + @{armor_check_penalty} + @{endurance_misc_bonus}" disabled="disabled"/>
+					      <input class="" type="number" name="attr_endurance_total" value="@{endurance_is_trained} + @{half_level} + @{endurance_ability_mod} + @{endurance_armor_check_penalty} + @{endurance_misc_bonus}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12 sheet-offset-1-24">
 					      <input class="sheet-passive-skill-score" type="number" name="attr_endurance_passive" value="10 + @{endurance_total}" disabled="disabled"/>
@@ -487,7 +487,7 @@
 					      <input class="" type="number" name="attr_heal_misc_bonus" value="@{misc_heal_bonus}" disabled="disabled"/>
 					    </div>					    
 					    <div class="sheet-col-1-12">
-					      <input class="" type="number" name="attr_heal_total" value="@{heal_is_trained} + @{half_level} + @{heal_ability_mod} + @{armor_check_penalty} + @{heal_misc_bonus}" disabled="disabled"/>
+					      <input class="" type="number" name="attr_heal_total" value="@{heal_is_trained} + @{half_level} + @{heal_ability_mod} + @{heal_armor_check_penalty} + @{heal_misc_bonus}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12 sheet-offset-1-24">
 					      <input class="sheet-passive-skill-score" type="number" name="attr_heal_passive" value="10 + @{heal_total}" disabled="disabled"/>
@@ -514,7 +514,7 @@
 					      <input class="" type="number" name="attr_history_misc_bonus" value="@{misc_history_bonus}" disabled="disabled"/>
 					    </div>					    
 					    <div class="sheet-col-1-12">
-					      <input class="" type="number" name="attr_history_total" value="@{history_is_trained} + @{half_level} + @{history_ability_mod} + @{armor_check_penalty} + @{history_misc_bonus}" disabled="disabled"/>
+					      <input class="" type="number" name="attr_history_total" value="@{history_is_trained} + @{half_level} + @{history_ability_mod} + @{history_armor_check_penalty} + @{history_misc_bonus}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12 sheet-offset-1-24">
 					      <input class="sheet-passive-skill-score" type="number" name="attr_history_passive" value="10 + @{history_total}" disabled="disabled"/>
@@ -541,7 +541,7 @@
 					      <input class="" type="number" name="attr_insight_misc_bonus" value="@{misc_insight_bonus}" disabled="disabled"/>
 					    </div>					    
 					    <div class="sheet-col-1-12">
-					      <input class="" type="number" name="attr_insight_total" value="@{insight_is_trained} + @{half_level} + @{insight_ability_mod} + @{armor_check_penalty} + @{insight_misc_bonus}" disabled="disabled"/>
+					      <input class="" type="number" name="attr_insight_total" value="@{insight_is_trained} + @{half_level} + @{insight_ability_mod} + @{insight_armor_check_penalty} + @{insight_misc_bonus}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12 sheet-offset-1-24">
 					      <input class="sheet-passive-skill-score" type="number" name="attr_insight_passive" value="10 + @{insight_total}" disabled="disabled"/>
@@ -568,7 +568,7 @@
 					      <input class="" type="number" name="attr_intimidate_misc_bonus" value="@{misc_intimidate_bonus}" disabled="disabled"/>
 					    </div>					    
 					    <div class="sheet-col-1-12">
-					      <input class="" type="number" name="attr_intimidate_total" value="@{intimidate_is_trained} + @{half_level} + @{intimidate_ability_mod} + @{armor_check_penalty} + @{intimidate_misc_bonus}" disabled="disabled"/>
+					      <input class="" type="number" name="attr_intimidate_total" value="@{intimidate_is_trained} + @{half_level} + @{intimidate_ability_mod} + @{intimidate_armor_check_penalty} + @{intimidate_misc_bonus}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12 sheet-offset-1-24">
 					      <input class="sheet-passive-skill-score" type="number" name="attr_intimidate_passive" value="10 + @{intimidate_total}" disabled="disabled"/>
@@ -595,7 +595,7 @@
 					      <input class="" type="number" name="attr_nature_misc_bonus" value="@{misc_nature_bonus}" disabled="disabled"/>
 					    </div>					    
 					    <div class="sheet-col-1-12">
-					      <input class="" type="number" name="attr_nature_total" value="@{nature_is_trained} + @{half_level} + @{nature_ability_mod} + @{armor_check_penalty} + @{nature_misc_bonus}" disabled="disabled"/>
+					      <input class="" type="number" name="attr_nature_total" value="@{nature_is_trained} + @{half_level} + @{nature_ability_mod} + @{nature_armor_check_penalty} + @{nature_misc_bonus}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12 sheet-offset-1-24">
 					      <input class="sheet-passive-skill-score" type="number" name="attr_nature_passive" value="10 + @{nature_total}" disabled="disabled"/>
@@ -622,7 +622,7 @@
 					      <input class="" type="number" name="attr_perception_misc_bonus" value="@{misc_perception_bonus}" disabled="disabled"/>
 					    </div>					    
 					    <div class="sheet-col-1-12">
-					      <input class="" type="number" name="attr_perception_total" value="@{perception_is_trained} + @{half_level} + @{perception_ability_mod} + @{armor_check_penalty} + @{perception_misc_bonus}" disabled="disabled"/>
+					      <input class="" type="number" name="attr_perception_total" value="@{perception_is_trained} + @{half_level} + @{perception_ability_mod} + @{perception_armor_check_penalty} + @{perception_misc_bonus}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12 sheet-offset-1-24">
 					      <input class="sheet-passive-skill-score" type="number" name="attr_perception_passive" value="10 + @{perception_total}" disabled="disabled"/>
@@ -649,7 +649,7 @@
 					      <input class="" type="number" name="attr_religion_misc_bonus" value="@{misc_religion_bonus}" disabled="disabled"/>
 					    </div>					    
 					    <div class="sheet-col-1-12">
-					      <input class="" type="number" name="attr_religion_total" value="@{religion_is_trained} + @{half_level} + @{religion_ability_mod} + @{armor_check_penalty} + @{religion_misc_bonus}" disabled="disabled"/>
+					      <input class="" type="number" name="attr_religion_total" value="@{religion_is_trained} + @{half_level} + @{religion_ability_mod} + @{religion_armor_check_penalty} + @{religion_misc_bonus}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12 sheet-offset-1-24">
 					      <input class="sheet-passive-skill-score" type="number" name="attr_religion_passive" value="10 + @{religion_total}" disabled="disabled"/>
@@ -676,7 +676,7 @@
 					      <input class="" type="number" name="attr_stealth_misc_bonus" value="@{misc_stealth_bonus}" disabled="disabled"/>
 					    </div>					    
 					    <div class="sheet-col-1-12">
-					      <input class="" type="number" name="attr_stealth_total" value="@{stealth_is_trained} + @{half_level} + @{stealth_ability_mod} + @{armor_check_penalty} + @{stealth_misc_bonus}" disabled="disabled"/>
+					      <input class="" type="number" name="attr_stealth_total" value="@{stealth_is_trained} + @{half_level} + @{stealth_ability_mod} + @{stealth_armor_check_penalty} + @{stealth_misc_bonus}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12 sheet-offset-1-24">
 					      <input class="sheet-passive-skill-score" type="number" name="attr_stealth_passive" value="10 + @{stealth_total}" disabled="disabled"/>
@@ -703,7 +703,7 @@
 					      <input class="" type="number" name="attr_streetwise_misc_bonus" value="@{misc_streetwise_bonus}" disabled="disabled"/>
 					    </div>					    
 					    <div class="sheet-col-1-12">
-					      <input class="" type="number" name="attr_streetwise_total" value="@{streetwise_is_trained} + @{half_level} + @{streetwise_ability_mod} + @{armor_check_penalty} + @{streetwise_misc_bonus}" disabled="disabled"/>
+					      <input class="" type="number" name="attr_streetwise_total" value="@{streetwise_is_trained} + @{half_level} + @{streetwise_ability_mod} + @{streetwise_armor_check_penalty} + @{streetwise_misc_bonus}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12 sheet-offset-1-24">
 					      <input class="sheet-passive-skill-score" type="number" name="attr_streetwise_passive" value="10 + @{streetwise_total}" disabled="disabled"/>
@@ -730,7 +730,7 @@
 					      <input class="" type="number" name="attr_thievery_misc_bonus" value="@{misc_thievery_bonus}" disabled="disabled"/>
 					    </div>					    
 					    <div class="sheet-col-1-12">
-					      <input class="" type="number" name="attr_thievery_total" value="@{thievery_is_trained} + @{half_level} + @{thievery_ability_mod} + @{armor_check_penalty} + @{thievery_misc_bonus}" disabled="disabled"/>
+					      <input class="" type="number" name="attr_thievery_total" value="@{thievery_is_trained} + @{half_level} + @{thievery_ability_mod} + @{thievery_armor_check_penalty} + @{thievery_misc_bonus}" disabled="disabled"/>
 					    </div>
 					    <div class="sheet-col-1-12 sheet-offset-1-24">
 					      <input class="sheet-passive-skill-score" type="number" name="attr_thievery_passive" value="10 + @{thievery_total}" disabled="disabled"/>
@@ -820,12 +820,12 @@
 		        <input class="" type="text" name="attr_bonus_description1" value="" />
 				
 			<div class="sheet-row">
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Type</div>
+			  <div class="sheet-col-1-6 sheet-vert-bottom sheet-small-label">Type</div>
 			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Modifier</div>
 			</div>
 			
 			<div class="sheet-row">
-			  <div class="sheet-col-1-12"><select name='attr_bonus_category1'>
+			  <div class="sheet-col-1-6"><select name='attr_bonus_category1'>
 <option value='0'></option>
 <option value='1'>Initiative</option>
 <option value='2'>Speed</option>
@@ -863,12 +863,12 @@
 		        <input class="" type="text" name="attr_bonus_description2" value="" />
 				
 			<div class="sheet-row">
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Type</div>
+			  <div class="sheet-col-1-6 sheet-vert-bottom sheet-small-label">Type</div>
 			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Modifier</div>
 			</div>
 			
 			<div class="sheet-row">
-			  <div class="sheet-col-1-12"><select name='attr_bonus_category2'>
+			  <div class="sheet-col-1-6"><select name='attr_bonus_category2'>
 <option value='0'></option>
 <option value='1'>Initiative</option>
 <option value='2'>Speed</option>
@@ -906,12 +906,12 @@
 		        <input class="" type="text" name="attr_bonus_description3" value="" />
 				
 			<div class="sheet-row">
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Type</div>
+			  <div class="sheet-col-1-6 sheet-vert-bottom sheet-small-label">Type</div>
 			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Modifier</div>
 			</div>
 			
 			<div class="sheet-row">
-			  <div class="sheet-col-1-12"><select name='attr_bonus_category3'>
+			  <div class="sheet-col-1-6"><select name='attr_bonus_category3'>
 <option value='0'></option>
 <option value='1'>Initiative</option>
 <option value='2'>Speed</option>
@@ -949,12 +949,12 @@
 		        <input class="" type="text" name="attr_bonus_description4" value="" />
 				
 			<div class="sheet-row">
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Type</div>
+			  <div class="sheet-col-1-6 sheet-vert-bottom sheet-small-label">Type</div>
 			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Modifier</div>
 			</div>
 			
 			<div class="sheet-row">
-			  <div class="sheet-col-1-12"><select name='attr_bonus_category4'>
+			  <div class="sheet-col-1-6"><select name='attr_bonus_category4'>
 <option value='0'></option>
 <option value='1'>Initiative</option>
 <option value='2'>Speed</option>
@@ -992,12 +992,12 @@
 		        <input class="" type="text" name="attr_bonus_description5" value="" />
 				
 			<div class="sheet-row">
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Type</div>
+			  <div class="sheet-col-1-6 sheet-vert-bottom sheet-small-label">Type</div>
 			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Modifier</div>
 			</div>
 			
 			<div class="sheet-row">
-			  <div class="sheet-col-1-12"><select name='attr_bonus_category5'>
+			  <div class="sheet-col-1-6"><select name='attr_bonus_category5'>
 <option value='0'></option>
 <option value='1'>Initiative</option>
 <option value='2'>Speed</option>
@@ -1035,12 +1035,12 @@
 		        <input class="" type="text" name="attr_bonus_description6" value="" />
 				
 			<div class="sheet-row">
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Type</div>
+			  <div class="sheet-col-1-6 sheet-vert-bottom sheet-small-label">Type</div>
 			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Modifier</div>
 			</div>
 			
 			<div class="sheet-row">
-			  <div class="sheet-col-1-12"><select name='attr_bonus_category6'>
+			  <div class="sheet-col-1-6"><select name='attr_bonus_category6'>
 <option value='0'></option>
 <option value='1'>Initiative</option>
 <option value='2'>Speed</option>
@@ -1078,12 +1078,12 @@
 		        <input class="" type="text" name="attr_bonus_description7" value="" />
 				
 			<div class="sheet-row">
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Type</div>
+			  <div class="sheet-col-1-6 sheet-vert-bottom sheet-small-label">Type</div>
 			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Modifier</div>
 			</div>
 			
 			<div class="sheet-row">
-			  <div class="sheet-col-1-12"><select name='attr_bonus_category7'>
+			  <div class="sheet-col-1-6"><select name='attr_bonus_category7'>
 <option value='0'></option>
 <option value='1'>Initiative</option>
 <option value='2'>Speed</option>
@@ -1121,12 +1121,12 @@
 		        <input class="" type="text" name="attr_bonus_description8" value="" />
 				
 			<div class="sheet-row">
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Type</div>
+			  <div class="sheet-col-1-6 sheet-vert-bottom sheet-small-label">Type</div>
 			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Modifier</div>
 			</div>
 			
 			<div class="sheet-row">
-			  <div class="sheet-col-1-12"><select name='attr_bonus_category8'>
+			  <div class="sheet-col-1-6"><select name='attr_bonus_category8'>
 <option value='0'></option>
 <option value='1'>Initiative</option>
 <option value='2'>Speed</option>
@@ -1164,12 +1164,12 @@
 		        <input class="" type="text" name="attr_bonus_description9" value="" />
 				
 			<div class="sheet-row">
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Type</div>
+			  <div class="sheet-col-1-6 sheet-vert-bottom sheet-small-label">Type</div>
 			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Modifier</div>
 			</div>
 			
 			<div class="sheet-row">
-			  <div class="sheet-col-1-12"><select name='attr_bonus_category9'>
+			  <div class="sheet-col-1-6"><select name='attr_bonus_category9'>
 <option value='0'></option>
 <option value='1'>Initiative</option>
 <option value='2'>Speed</option>
@@ -1207,12 +1207,12 @@
 		        <input class="" type="text" name="attr_bonus_description10" value="" />
 				
 			<div class="sheet-row">
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Type</div>
+			  <div class="sheet-col-1-6 sheet-vert-bottom sheet-small-label">Type</div>
 			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Modifier</div>
 			</div>
 			
 			<div class="sheet-row">
-			  <div class="sheet-col-1-12"><select name='attr_bonus_category10'>
+			  <div class="sheet-col-1-6"><select name='attr_bonus_category10'>
 <option value='0'></option>
 <option value='1'>Initiative</option>
 <option value='2'>Speed</option>
@@ -1316,7 +1316,7 @@
 
 
 			  <div class="sheet-row">
-			    <div class="sheet-col-1-24"><input class="" type="number" name="attr_meleebasic_situ_modifier" value="0" min="0" step="1"/></div>
+			    <div class="sheet-col-1-12"><input class="" type="number" name="attr_meleebasic_situ_modifier" value="0" min="-100" step="1"/></div>
 			    <button class="sheet-skill-roll" type="roll" name="roll_meleebasic_"
 			    	    value="&{template:5eDefault} {{attack=1}} {{keywords=@{meleebasic_keywords}}} {{target=@{meleebasic_attacktarget}}} {{attacktype=@{meleebasic_attacktype}}} {{defense=@{meleebasic_attackee}}}   {{title=@{meleebasic_name}}} {{subheader=@{character_name}}}  {{rollname=Result}} {{roll=[[ 1d20 + [[@{meleebasic_total_bonus}]] + [[(@{meleebasic_is_weapon}) * (@{weapon_total_hit_bonus})]]]]}}">Att.</button>
 			    
@@ -1325,7 +1325,7 @@
 			      <input class="" type="hidden" name="attr_meleebasic_dmg_ability_bonus" value="@{strength_mod}" disabled="disabled"/>
 			      <input class="" type="hidden" name="attr_meleebasic_dmg_ability_bonus2" value="0" disabled="disabled"/>
 			      <input class="" type="hidden" name="attr_meleebasic_dmg_modifier" value="0" disabled="disabled"/>
-			      <div class="sheet-col-1-24"><input class="" type="number" name="attr_meleebasic_dmg_situ_modifier" value="0" min="0" step="1"/></div>
+			      <div class="sheet-col-1-12"><input class="" type="number" name="attr_meleebasic_dmg_situ_modifier" value="0" min="-100" step="1"/></div>
 
                                <button class="sheet-skill-roll" type="roll" name="roll_meleebasic_damage"
 			       	       value="&{template:5eDefault} {{title=@{meleebasic_name} Damage}} {{damage=1}} {{subheader=@{character_name}}}  {{rollname=Result}} {{roll=[[ [[(@{meleebasic_is_weapon}) * ((@{meleebasic_dmg_dice_multiplier}) * (@{weapon_dmg_dice_count}))]]d[[@{weapon_dmg_dice_type}]] + [[(@{meleebasic_is_weapon}) * ((@{meleebasic_dmg_dice_multiplier}) * (@{weapon_dmg_mod}))]] + [[(abs((((1 + abs((@{meleebasic_is_weapon})-(0))) - abs(1 - abs((@{meleebasic_is_weapon})-(0)))) / 2) - 1)) * (@{meleebasic_dmg_dice_multiplier})]]d[[@{meleebasic_dmg_dice_type}]] + [[@{meleebasic_dmg_modifier}]] + [[@{meleebasic_dmg_situ_modifier}]] + [[floor(@{meleebasic_dmg_ability_bonus})]] + [[floor(@{meleebasic_dmg_ability_bonus2})]]]]}}">Dmg</button>
@@ -1381,7 +1381,7 @@
 
 
 			  <div class="sheet-row">
-			    <div class="sheet-col-1-24"><input class="" type="number" name="attr_rangedbasic_situ_modifier" value="0" min="0" step="1"/></div>
+			    <div class="sheet-col-1-12"><input class="" type="number" name="attr_rangedbasic_situ_modifier" value="0" min="-100" step="1"/></div>
 			    <button class="sheet-skill-roll" type="roll" name="roll_rangedbasic_"
 			    	    value="&{template:5eDefault} {{attack=1}} {{keywords=@{rangedbasic_keywords}}} {{target=@{rangedbasic_attacktarget}}} {{attacktype=@{rangedbasic_attacktype}}} {{defense=@{rangedbasic_attackee}}}   {{title=@{rangedbasic_name}}} {{subheader=@{character_name}}}  {{rollname=Result}} {{roll=[[ 1d20 + [[@{rangedbasic_total_bonus}]] + [[(@{rangedbasic_is_weapon}) * (@{weapon_total_hit_bonus})]]]]}}">Att.</button>
 			    
@@ -1390,7 +1390,7 @@
 			      <input class="" type="hidden" name="attr_rangedbasic_dmg_ability_bonus" value="@{dexterity_mod}" disabled="disabled"/>
 			      <input class="" type="hidden" name="attr_rangedbasic_dmg_ability_bonus2" value="0" disabled="disabled"/>
 			      <input class="" type="hidden" name="attr_rangedbasic_dmg_modifier" value="0" disabled="disabled"/>
-			      <div class="sheet-col-1-24"><input class="" type="number" name="attr_rangedbasic_dmg_situ_modifier" value="0" min="0" step="1"/></div>
+			      <div class="sheet-col-1-12"><input class="" type="number" name="attr_rangedbasic_dmg_situ_modifier" value="0" min="-100" step="1"/></div>
 
                                <button class="sheet-skill-roll" type="roll" name="roll_rangedbasic_damage"
 			       	       value="&{template:5eDefault} {{title=@{rangedbasic_name} Damage}} {{damage=1}} {{subheader=@{character_name}}}  {{rollname=Result}} {{roll=[[ [[(@{rangedbasic_is_weapon}) * ((@{rangedbasic_dmg_dice_multiplier}) * (@{weapon_dmg_dice_count}))]]d[[@{weapon_dmg_dice_type}]] + [[(@{rangedbasic_is_weapon}) * ((@{rangedbasic_dmg_dice_multiplier}) * (@{weapon_dmg_mod}))]] + [[(abs((((1 + abs((@{rangedbasic_is_weapon})-(0))) - abs(1 - abs((@{rangedbasic_is_weapon})-(0)))) / 2) - 1)) * (@{rangedbasic_dmg_dice_multiplier})]]d[[@{rangedbasic_dmg_dice_type}]] + [[@{rangedbasic_dmg_modifier}]] + [[@{rangedbasic_dmg_situ_modifier}]] + [[floor(@{rangedbasic_dmg_ability_bonus})]] + [[floor(@{rangedbasic_dmg_ability_bonus2})]]]]}}">Dmg</button>
@@ -1449,7 +1449,7 @@
 			  </div>
 
 			  <div class="sheet-row">
-			    <div class="sheet-col-1-24"><input class="" type="number" name="attr_aidanother_situ_modifier" value="0" min="0" step="1"/></div>
+			    <div class="sheet-col-1-12"><input class="" type="number" name="attr_aidanother_situ_modifier" value="0" min="-100" step="1"/></div>
 			    <button class="sheet-skill-roll" type="roll" name="roll_aidanother_"
 			    	    value="&{template:5eDefault} {{attack=1}} {{keywords=@{aidanother_keywords}}} {{target=@{aidanother_attacktarget}}} {{attacktype=@{aidanother_attacktype}}} {{defense=@{aidanother_attackee}}}   {{title=@{aidanother_name}}} {{subheader=@{character_name}}}  {{rollname=Result}} {{roll=[[ 1d20 + [[@{aidanother_total_bonus}]] + [[(@{aidanother_is_weapon}) * (@{weapon_total_hit_bonus})]]]]}}">Att.</button>
 			  </div>
@@ -1500,7 +1500,7 @@
 			  </div>
 
 			  <div class="sheet-row">
-			    <div class="sheet-col-1-24"><input class="" type="number" name="attr_bullrush_situ_modifier" value="0" min="0" step="1"/></div>
+			    <div class="sheet-col-1-12"><input class="" type="number" name="attr_bullrush_situ_modifier" value="0" min="-100" step="1"/></div>
 			    <button class="sheet-skill-roll" type="roll" name="roll_bullrush_"
 			    	    value="&{template:5eDefault} {{attack=1}} {{keywords=@{bullrush_keywords}}} {{target=@{bullrush_attacktarget}}} {{attacktype=@{bullrush_attacktype}}} {{defense=@{bullrush_attackee}}}   {{title=@{bullrush_name}}} {{subheader=@{character_name}}}  {{rollname=Result}} {{roll=[[ 1d20 + [[@{bullrush_total_bonus}]] + [[(@{bullrush_is_weapon}) * (@{weapon_total_hit_bonus})]]]]}}">Att.</button>
 			  </div>
@@ -1551,7 +1551,7 @@
 			  </div>
 
 			  <div class="sheet-row">
-			    <div class="sheet-col-1-24"><input class="" type="number" name="attr_grab_situ_modifier" value="0" min="0" step="1"/></div>
+			    <div class="sheet-col-1-12"><input class="" type="number" name="attr_grab_situ_modifier" value="0" min="-100" step="1"/></div>
 			    <button class="sheet-skill-roll" type="roll" name="roll_grab_"
 			    	    value="&{template:5eDefault} {{attack=1}} {{keywords=@{grab_keywords}}} {{target=@{grab_attacktarget}}} {{attacktype=@{grab_attacktype}}} {{defense=@{grab_attackee}}}   {{title=@{grab_name}}} {{subheader=@{character_name}}}  {{rollname=Result}} {{roll=[[ 1d20 + [[@{grab_total_bonus}]] + [[(@{grab_is_weapon}) * (@{weapon_total_hit_bonus})]]]]}}">Att.</button>
 			  </div>
@@ -1757,12 +1757,12 @@
 			<input class="" type="hidden" name="attr_total_bonus" value="@{half_level} + floor(@{ability_mod}) + @{power_modifier} + @{situ_modifier}" disabled="disabled"/>
 
 			<div class="sheet-row">
-			    <div class="sheet-col-1-24"><input class="" type="number" name="attr_situ_modifier" value="0" min="0" step="1"/></div>
+			    <div class="sheet-col-1-12"><input class="" type="number" name="attr_situ_modifier" value="0" min="-100" step="1"/></div>
 			    <button class="sheet-skill-roll" type="roll" name="roll_"
 			    	    value="&{template:5eDefault} {{attack=1}} {{keywords=@{keywords}}} {{target=@{attacktarget}}} {{attacktype=@{attacktype}}} {{defense=@{attackee}}} {{miss=@{on_miss}}} {{secondary=@{secondary_attack}}} {{title=@{name}}} {{subheader=@{character_name}}} {{notes=@{notes}}} {{rollname=Result}} {{roll=[[ 1d20 + [[@{total_bonus}]] + [[(@{is_weapon}) * (@{weapon_total_hit_bonus})]]]]}}">Att.</button>
 			    <button class="sheet-skill-roll" type="roll" name="roll_"
 			    	    value="&{template:5eDefault} {{keywords=@{keywords}}} {{target=@{attacktarget}}} {{miss=@{on_miss}}} {{secondary=@{secondary_attack}}} {{requirements=@{requirements}}} {{effect=@{effect}}} {{notes=@{notes}}} {{title=@{name}}} {{subheader=@{character_name}}}">Show Effect</button>
-			    <div class="sheet-col-1-24"><input class="" type="number" name="attr_dmg_situ_modifier" value="0" min="0" step="1"/></div>
+			    <div class="sheet-col-1-12"><input class="" type="number" name="attr_dmg_situ_modifier" value="0" min="-100" step="1"/></div>
                                <button class="sheet-skill-roll" type="roll" name="roll_damage"
 			       	       value="&{template:5eDefault} {{title=@{name} Damage}} {{damage=1}} {{subheader=@{character_name}}} {{effect=@{effect}}} {{rollname=Result}} {{roll=[[ [[(@{is_weapon}) * ((@{dmg_dice_multiplier}) * (@{weapon_dmg_dice_count}))]]d[[@{weapon_dmg_dice_type}]] + [[(@{is_weapon}) * ((@{dmg_dice_multiplier}) * (@{weapon_dmg_mod}))]] + [[(abs((((1 + abs((@{is_weapon})-(0))) - abs(1 - abs((@{is_weapon})-(0)))) / 2) - 1)) * (@{dmg_dice_multiplier})]]d[[@{dmg_dice_type}]] + [[@{dmg_modifier}]] + [[@{dmg_situ_modifier}]] + [[floor(@{dmg_ability_bonus})]] + [[floor(@{dmg_ability_bonus2})]]]]}}">Dmg</button>
 				<span style="float:right">

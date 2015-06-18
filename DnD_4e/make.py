@@ -181,7 +181,7 @@ Roll("roll_init", " ".join(["&{template:5eDefault}",
                             "{{subheader=@{character_name}}}",
                             "{{rollname=Initiative}}",
                             # This sends the computed initiative directly to the tracker.
-                            "{{roll=[[ 1d20 + @{selected|initiative} [Initiative Mod] &{tracker} ]]}}"
+                            "{{roll=[[ 1d20 + [[@{selected|initiative}]] [Initiative Mod] &{tracker} ]]}}"
                         ]))
 
 ability_groups = []
@@ -251,7 +251,7 @@ for pair in [('acrobatics', 'dexterity'),
     g.attr("total", value=fn_sum(g.is_trained,
                                  atts.half_level,
                                  g.ability_mod,
-                                 ref("armor_check_penalty"),
+                                 g.armor_check_penalty,
                                  g.misc_bonus))
     g.attr("passive", value=fn_sum(10, g.total))
     g.set('roll', Roll("roll_%s_Check" % skill.capitalize(),
@@ -432,7 +432,7 @@ action.attr("is_weapon", value=1)
 action.attr("attacktarget", value="One creature")
 action.attr("ability_mod", value=atts.strength_mod)
 action.attr("power_modifier", value=0)
-action.attr("situ_modifier", value=0)
+action.attr("situ_modifier", value=0, minimum=-100)
 action.attr("total_bonus", value=fn_sum(atts.half_level, action.ability_mod, action.power_modifier, action.situ_modifier))
 action.attr("attackee", value="AC")
 action.attr("dmg_dice_multiplier", value="1")
@@ -440,7 +440,7 @@ action.attr("dmg_dice_type", value="0")
 action.attr("dmg_ability_bonus", value=atts.strength_mod)
 action.attr("dmg_ability_bonus2", value=0)
 action.attr("dmg_modifier", value=0)
-action.attr("dmg_situ_modifier", value=0)
+action.attr("dmg_situ_modifier", value=0, minimum=-100)
 action.set('roll', make_action_roll(action))
 action.set('damage_roll', make_damage_roll(action))
 action.set('offhand_roll', make_action_roll(action, offhand=True))
@@ -456,7 +456,7 @@ action.attr("attacktype", value="Melee")
 action.attr("attacktarget", value="One creature")
 action.attr("ability_mod", value=atts.dexterity_mod)
 action.attr("power_modifier", value=0)
-action.attr("situ_modifier", value=0)
+action.attr("situ_modifier", value=0, minimum=-100)
 action.attr("total_bonus", value=fn_sum(atts.half_level, action.ability_mod, action.power_modifier, action.situ_modifier))
 action.attr("attackee", value="AC")
 action.attr("dmg_dice_multiplier", value="1")
@@ -464,7 +464,7 @@ action.attr("dmg_dice_type", value="0")
 action.attr("dmg_ability_bonus", value=atts.dexterity_mod)
 action.attr("dmg_ability_bonus2", value=0)
 action.attr("dmg_modifier", value=0)
-action.attr("dmg_situ_modifier", value=0)
+action.attr("dmg_situ_modifier", value=0, minimum=-100)
 action.set('roll', make_action_roll(action))
 action.set('damage_roll', make_damage_roll(action))
 action.set('offhand_roll', make_action_roll(action, offhand=True))
@@ -480,7 +480,7 @@ action.attr("attacktype", value="Melee")
 action.attr("attacktarget", value="One creature")
 action.attr("ability_mod", value=atts.strength_mod)
 action.attr("power_modifier", value=0)
-action.attr("situ_modifier", value=0)
+action.attr("situ_modifier", value=0, minimum=-100)
 action.attr("total_bonus", value=fn_sum(atts.half_level, action.ability_mod, action.power_modifier, action.situ_modifier))
 action.attr("attackee", value="AC")
 action.attr("effect", value="If you succeed, deal no damage, but choose one ally. That ally gets a +2 bonus to his or her next attack roll against the target or to all defenses against the target's next attack. This bonus ends if not used by the end of your next turn.")
@@ -496,7 +496,7 @@ action.attr("is_weapon", value=0)
 action.attr("attacktarget", value="One creature")
 action.attr("ability_mod", value=atts.strength_mod)
 action.attr("power_modifier", value=0)
-action.attr("situ_modifier", value=0)
+action.attr("situ_modifier", value=0, minimum=-100)
 action.attr("total_bonus", value=fn_sum(atts.half_level, action.ability_mod, action.power_modifier, action.situ_modifier))
 action.attr("attackee", value="Fort")
 action.attr("effect", value="You push the target 1 square and then shift 1 square into the space it left.")
@@ -512,7 +512,7 @@ action.attr("is_weapon", value=0)
 action.attr("attacktarget", value="One creature")
 action.attr("ability_mod", value=atts.strength_mod)
 action.attr("power_modifier", value=0)
-action.attr("situ_modifier", value=0)
+action.attr("situ_modifier", value=0, minimum=-100)
 action.attr("total_bonus", value=fn_sum(atts.half_level, action.ability_mod, action.power_modifier, action.situ_modifier))
 action.attr("attackee", value="Reflex")
 action.attr("effect", value="You grab the target until the end of your next turn. You can end the grab as a free action.")
@@ -544,7 +544,7 @@ powers.attr("ability_mod", value=0, options=(
     [(0,"n/a")] + [(a.get('uniqued_mod'),a.get('label')) for a in ability_groups]))
 
 powers.attr("power_modifier")
-powers.attr("situ_modifier", value=0)
+powers.attr("situ_modifier", value=0, minimum=-100)
 powers.attr("total_bonus", value=fn_sum(atts.half_level,
                                         fn_floor(powers.ability_mod),
                                         powers.power_modifier,
@@ -558,7 +558,7 @@ powers.attr("dmg_ability_bonus", value=0, options=([(0,"n/a")] + [(a.get('unique
 powers.attr("dmg_ability_bonus2", value=0, options=(
     [(0,"n/a")] + [(a.get('uniqued_mod'),a.get('label')) for a in ability_groups]))
 powers.attr("dmg_modifier")
-powers.attr("dmg_situ_modifier", value=0)
+powers.attr("dmg_situ_modifier", value=0, minimum=-100)
 powers.attr("requirements")
 powers.attr("on_miss")
 powers.attr("secondary_attack")

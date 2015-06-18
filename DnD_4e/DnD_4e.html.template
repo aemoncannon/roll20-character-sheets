@@ -316,12 +316,12 @@
 		        @!in_text(grp.description)!@
 				
 			<div class="sheet-row">
-			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Type</div>
+			  <div class="sheet-col-1-6 sheet-vert-bottom sheet-small-label">Type</div>
 			  <div class="sheet-col-1-12 sheet-vert-bottom sheet-small-label">Modifier</div>
 			</div>
 			
 			<div class="sheet-row">
-			  <div class="sheet-col-1-12">@!in_select(grp.category)!@</div>
+			  <div class="sheet-col-1-6">@!in_select(grp.category)!@</div>
 			  <div class="sheet-col-1-12">@!in_num(grp.modifier)!@</div>
 			</div>
 
@@ -387,7 +387,7 @@
 			<!--(end)-->
 
 			  <div class="sheet-row">
-			    <div class="sheet-col-1-24">@!in_num(grp.situ_modifier)!@</div>
+			    <div class="sheet-col-1-12">@!in_num(grp.situ_modifier)!@</div>
 			    <button class="sheet-skill-roll" type="roll" name="@!grp.get('roll').name!@"
 			    	    value="@!grp.get('roll').value!@">Att.</button>
                             <!--(if grp.get('damage_roll'))-->
@@ -397,7 +397,7 @@
 			      @!out_hidden(grp.dmg_ability_bonus)!@
 			      @!out_hidden(grp.dmg_ability_bonus2)!@
 			      @!out_hidden(grp.dmg_modifier)!@
-			      <div class="sheet-col-1-24">@!in_num(grp.dmg_situ_modifier)!@</div>
+			      <div class="sheet-col-1-12">@!in_num(grp.dmg_situ_modifier)!@</div>
 
                                <button class="sheet-skill-roll" type="roll" name="@!grp.get('damage_roll').name!@"
 			       	       value="@!grp.get('damage_roll').value!@">Dmg</button>
@@ -546,13 +546,13 @@
 			@!out_hidden(powers.total_bonus)!@
 
 			<div class="sheet-row">
-			    <div class="sheet-col-1-24">@!in_num(powers.situ_modifier)!@</div>
+			    <div class="sheet-col-1-12">@!in_num(powers.situ_modifier)!@</div>
 			    <button class="sheet-skill-roll" type="roll" name="@!powers.get('roll').name!@"
 			    	    value="@!powers.get('roll').value!@">Att.</button>
 			    <button class="sheet-skill-roll" type="roll" name="@!powers.get('effect_roll').name!@"
 			    	    value="@!powers.get('effect_roll').value!@">Show Effect</button>
                             <!--(if powers.get('damage_roll'))-->
-			    <div class="sheet-col-1-24">@!in_num(powers.dmg_situ_modifier)!@</div>
+			    <div class="sheet-col-1-12">@!in_num(powers.dmg_situ_modifier)!@</div>
                                <button class="sheet-skill-roll" type="roll" name="@!powers.get('damage_roll').name!@"
 			       	       value="@!powers.get('damage_roll').value!@">Dmg</button>
 				<span style="float:right">
